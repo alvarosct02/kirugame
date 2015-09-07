@@ -34,57 +34,10 @@ public class Juego {
 		map = new Mapa();
 		gameLoop();
 		
-	}
-	
-	public void gameLoop(){
 		
-		for (int i=0; i<cantNivel; i++){		
-			
-//			Mostrar Historia
-			Renderizador.mostrarHistoria(i);				
-			
-//			Cargar el nivel correspondiente
-			map.cargarNivel(i);	
-			
-			int act1;
-			while (true){
-				Renderizador.mostrarPantalla(map);
-				Renderizador.ingreseComandoGame();
-				cmd = sc.next();
-				act1 = InterpreteComandos.cmdJuego1(cmd);
-				if (act1 == 1){
-					
-				} else if (act1 == -1) {
-					Renderizador.confirmacionSalirGame();
-					int act2; 
-					while (true){
-						cmd = sc.next();
-						act2 = InterpreteComandos.cmdSalir(cmd);
-						if (act2 == 1){
-							gameOver();
-							break;
-						} else if (act2 == -1) {							
-							break;						
-						} else {
-							Renderizador.errorCmd();
-						}
-					}
-					if (act2 == 1) break;
-				} else {
-					Renderizador.errorCmd();				
-				}				
-			}
-			
-		}
-			
 		
 	}
 	
-	private void gameOver() {
-		Renderizador.mostrarGameOver();
-		menuLoop();
-	}
-
 	public void menuLoop(){
 		Renderizador.mostrarMenuIncial();
 		int act1;
@@ -115,6 +68,57 @@ public class Juego {
 				Renderizador.errorCmd();				
 			}
 		}
+	}
+	
+
+	public void gameLoop(){
+		
+		for (int i=0; i<cantNivel; i++){		
+			
+//			Mostrar Historia
+			Renderizador.mostrarHistoria(i);				
+			
+//			Cargar el nivel correspondiente
+			map.cargarNivel(i);	
+			
+			int act1,act2;
+			while (true){
+				Renderizador.mostrarPantalla(map);
+				Renderizador.ingreseComandoGame();
+				cmd = sc.next();
+				act1 = InterpreteComandos.cmdJuego1(cmd);
+				if (act1 == 1){
+					
+				} else if (act1 == -1) {
+					Renderizador.confirmacionSalirGame();
+					while (true){
+						cmd = sc.next();
+						act2 = InterpreteComandos.cmdSalir(cmd);
+						if (act2 == 1){
+							break;
+						} else if (act2 == -1) {							
+							break;						
+						} else {
+							Renderizador.errorCmd();
+						}
+					}
+					if (act2 == 1) break;
+				} else {
+					Renderizador.errorCmd();				
+				}				
+			}
+			if (act2 == 1){
+				menuLoop();
+				break;				
+			}
+		}
+			
+		
+	}
+	
+	private void gameOver() {
+		Renderizador.mostrarGameOver();
+		menuLoop();
 	}
 	
 }
