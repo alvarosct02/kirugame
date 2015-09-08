@@ -117,6 +117,61 @@ public class Renderizador {
 		
 	}
 	
+	public static void dialogo1(){
+		if (Juego.renderMode == 0){
+			System.out.println();
+			System.out.println("-----------------------1-------------------------------");
+			System.out.println();
+			System.out.println("Usa WASD para mover a Kiru y JKLI para mover a Milo. ");
+			System.out.println("Si ves un lugar para la acción o el dúo ¡Párate sobre él! Podrás realizar acciones especiales. ");
+			System.out.println("Sólo podrás pasar los niveles con la ayuda de las acciones especiales. Para esto, tendrás que ");
+			System.out.println("presionar comandos que se mostrarán en un cuadro de diálogo como éste. ");
+			System.out.println("Los comandos deben ser ejecutados en la secuencia correcta sino perderás puntos de vida. ");
+			System.out.println("Puedes ver los puntos de vida en la parte superior de la pantalla. ");
+			System.out.println("Para activar los terrenos con acciones especiales dúo, tienen que estar sobre ellos Kiru y ");
+			System.out.println("Milo al mismo tiempo, en los de acciones especiales sólo con uno basta. ");
+			System.out.println();
+			System.out.println("-------------------------------------------------------");
+			System.out.println();
+		}
+	}
 	
+	public static void dialogo2(){
+		if (Juego.renderMode == 0){
+			System.out.println();
+			System.out.println("-------------------------2-----------------------------");
+			System.out.println();
+			System.out.println("En tu aventura, a veces te toparás con animales malos. ");
+			System.out.println("Estos enemigos te bajarán puntos de vida. Si tus puntos de vida llegan a 0, se acabará el juego. ");
+			System.out.println("Si un enemigo afecta a un personaje, este no se podrá mover. Tendrás que usar a su amigo para ayudarlo. ");
+			System.out.println();
+			System.out.println("-------------------------------------------------------");
+			System.out.println();
+		}
+	}
 	
+	public static void pantallaGameOver(){
+		if (Juego.renderMode == 0){
+			System.out.println();
+			System.out.println("-------------------------GAME OVER-----------------------------");
+			System.out.println("");
+			System.out.println("Has perdido el juego.... Te esperamos para una otra partida ! ");
+			System.out.println("");
+			System.out.println("");
+			System.out.println("---------------------------------------------------------------");
+			System.out.println();
+		}
+	}
+	
+	public static void pantallaJuegoCompletado(){
+		if (Juego.renderMode == 0){
+			System.out.println();
+			System.out.println("-------------------------Juego Completado-----------------------------");
+			System.out.println("");
+			System.out.println("Bravo ! Has completado el juego. Fue muy facíl ? ");
+			System.out.println();
+			System.out.println("---------------------------------------------------------------");
+			System.out.println();
+		}
+	}
 }
