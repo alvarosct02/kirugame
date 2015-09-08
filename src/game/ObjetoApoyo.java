@@ -1,5 +1,5 @@
 package game;
-class ObjetoApoyo extends Objeto{
+public class ObjetoApoyo extends Objeto{
 	
 }
 
