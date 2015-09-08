@@ -7,8 +7,8 @@ public class Jugador extends Personaje {
 	private String nombre;
 	private String input;
 
-	public Jugador(String nombre, String input){
-		super(0,0);
+	public Jugador(String nombre, String input, int alto,int ancho, char sprite){
+		super(0,0,alto,ancho,sprite);
 		this.nombre = nombre;
 		this.input = input;		
 	}
@@ -41,8 +41,10 @@ public class Jugador extends Personaje {
 	}
 	
 	public int moverXY(int x, int y){
+		if(super.setPos(x,y)){
+			return 0;
+		}else return 1 ;
 		
-		return 0;
 	}
 	
 	public int getVida() {
@@ -50,8 +52,20 @@ public class Jugador extends Personaje {
 		
 	}
 
-	public void reduceVida(int tipo) {
+	public void reduceVida(int vida) {
 		Jugador.vida -= vida;
+	}
+	
+	public void getTipoDano(int tipo){
+		
+		switch(tipo){
+			case 1: // enemigos
+				this.reduceVida(1);
+				break;
+			case 2:// fallar comando
+				this.reduceVida(2);
+				break;
+		}
 	}
 
 }
