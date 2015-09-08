@@ -76,6 +76,62 @@ public class Renderizador {
 		if (Juego.renderMode == 0){
 			System.out.format("mostrarHistoria");
 			System.out.println();
+			switch(i){
+			case 1:
+				System.out.println("En una casa de Lima, Kiara recibió de regalo\n"
+						         + "un lindo y perqueño cuy, al que le puso nombre\n"
+						         + "Kiru, que significa dientes en quechua y le \n"
+						         + "puso así por sus grandes dientes, que eran tan\n"
+						         + " brillantes como las perlas del mar.\n\n"
+						         + "Allí kiru se encontró con Milo, el engreído de \n"
+						         + "la casa porque era un perro muy juguetón. Todos \n"
+						         + "los días jugaban juntos por todas las partes de \n"
+						         + "la casa. Jugaban en la sala, en la cocina, en el \n"
+						         + "jardín y en los lugares menos imaginados\n\n"
+						         + "Un día Milo le contó a Kiru que él nació \n"
+						         + "en Lima y por eso era limeño. Entonces Kiru le \n"
+						         + "preguntó:- Tú sabes ¿de dónde soy yo? -Yo sé que \n"
+						         + "un día te trajeron, pero no sé de dónde- respondió \n"
+						         + "Milo. Entonces Kiru se preguntó: ¿Y de dónde vengo yo?\n\n"
+						         + "Kiry se sentía muy triste porque no sabía de dónde era. \n"
+						         + "Y a Milo se le ocurrió una gran idea..-¿qué te parece si \n"
+						         + "nos vamos de viaje por varios lugares del Perú?, así \n"
+						         + "podremos averiguar y saber de dónde eres. Y sin decir \n"
+						         + "nada a sus dueños, se escaparon de la casa.");
+				break;
+			case 2:
+				System.out.println("Luego de haberse escapado de la casa de sus amos empiezan\n"
+						         + " su travesía a través de las congestionadas calles de Lima. \n"
+						         + "Sorteando carro tras carro logran encontrar un carro cuyo \n"
+						         + "destino les parece prometedor. Se suben al carro con Destino \n"
+						         + "a Paracas y...\n\n"
+						         + "Llegan a una playa muy bonita con un sol muy radiante y les \n"
+						         + "entran ganas de celebrar su gran hazaña. Empiezan a jugar \n"
+						         + "con la area, se meten al matar y disfrutan de la hermosa playa");
+				break;
+			case 3:
+				System.out.println("Mientras jugaban en la playa un personaje surcaba los cielos y\n"
+						         + "decide acercase al peculiar par. Se encontraron con Peli el \n"
+						         + "pelicano. El era un pelicano muy orgulloso. Entonces Kiru le\n"
+						         + " preguntó: - Disculpe señor pelicano, ¿usted sabe de dónde vienen \n"
+						         + "los cuyes? -Peli respondió: -No, pero los pelicanos somos de \n"
+						         + "aquí de Paracas. toda mi vida he vivido aquí y no he visto ni\n"
+						         + "un cuy. -Entonces Kiru se preguntó: ¿Y de dónde vengo yo?\n\n"
+						         + "Tras no haber conseguido una respuesta satisfactoria el par \n"
+						         + "decide seguir su camino en direccion a las alturas, deciden \n"
+						         + "dirigirse a la sierra");
+				break;
+			case 4:
+				System.out.println("En su camino se hallaron en un lugar llamado Cusco. Cuando \n"
+						         + "estaban cerca de Machu Picchu, se encontraron con Dana la llama. \n"
+						         + "Kiru le hizo la misma pregunta, pero ella le respondió: Querido \n"
+						         + "Kiru, los cuyes no pertenecen a una sola parte del Perú, sino \n"
+						         + "que ellos están por tod la cordillera de los Andes, desde Venezuela, \n"
+						         + "pasando por el Perú y llegando hasta Argentína. tienes que estar \n"
+						         + "orgulloso porque los cuyes son de varios lugares. \n\n"
+						         + "Feliz por la respuesta de Dana, Kiru decide, con Milo, viajar por \n"
+						         + "todos los Andes");
+			}
 		}	
 		
 	}
@@ -86,6 +142,11 @@ public class Renderizador {
 		}	
 		
 	}
+	
+//	public static void mostrarDatos(Jugador j, Jugador k){
+//		System.out.println("Player 1: "+j.getNombre()+" Vida: "+j.getVida());
+//		System.out.println("Player 2: "+k.getNombre()+" Vida: "+k.getVida());
+//	}
 
 	public static void mostrarGameOver() {
 		if (Juego.renderMode == 0){
