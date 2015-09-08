@@ -109,8 +109,10 @@ public class Renderizador {
 		
 	}
 
-	public static void log(String string) {
-		// TODO Auto-generated method stub
+	public static void log(String msg) {
+		if (Juego.renderMode == 0){
+			System.out.format("%s\n",msg);	
+		}	
 		
 	}
 	

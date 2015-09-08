@@ -43,7 +43,8 @@ public class Jugador extends Personaje {
 	public int moverXY(int x, int y){
 		if(setPos(x,y) == 1){
 			return 0;
-		}else return 1 ;
+		}else 
+			return 1 ;
 		
 	}
 	

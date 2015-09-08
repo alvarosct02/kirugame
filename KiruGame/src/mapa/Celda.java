@@ -4,10 +4,10 @@ public class Celda {
 	private int y;
 	private char valor;
 	
-	public Celda(int x,int y){
+	public Celda(int x,int y,char val){
 		this.x = x;
 		this.y = y;
-		valor = 'A';
+		this.valor = val;
 		
 	}
 
