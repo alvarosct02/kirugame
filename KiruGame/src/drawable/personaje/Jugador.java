@@ -6,6 +6,10 @@ import game.Renderizador;
 public class Jugador extends Personaje {
 	private static int vida = 10;	
 	private String nombre;
+	public String getNombre() {
+		return nombre;
+	}
+
 	private String input;
 	private char terreno;
 
@@ -45,7 +49,7 @@ public class Jugador extends Personaje {
 	}
 	
 	public int moverXY(int x, int y){
-		if(isValid(x,y) == 1 && GestorMapas.map.getCeldaValue(y, x) == terreno){
+		if(isValid(x,y) == 1 && (GestorMapas.map.getCeldaValue(y, x) == terreno || GestorMapas.map.getCeldaValue(y, x) == 'D' || GestorMapas.map.getCeldaValue(y, x) == 'C')){
 			setXY(x,y);
 			return 0 ;
 		}else 		
@@ -57,7 +61,7 @@ public class Jugador extends Personaje {
 		
 	}
 
-	public void reduceVida(int vida) {
+	private void reduceVida(int vida) {
 		Jugador.vida -= vida;
 	}
 	

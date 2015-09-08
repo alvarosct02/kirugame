@@ -1,5 +1,6 @@
 package game;
 
+import drawable.personaje.Jugador;
 import mapa.Mapa;
 
 public class Renderizador {
@@ -67,14 +68,15 @@ public class Renderizador {
 
 	public static void mostrarPantalla(Mapa map) {
 		if (Juego.renderMode == 0){
-			System.out.println("mostrarPantalla");
+
+			System.out.println();
+			mostrarDatos(Juego.p1, Juego.p2);
 			mostrarMapa(map);
 		}			
 	}
 
 	public static void mostrarHistoria(int i) {
 		if (Juego.renderMode == 0){
-			System.out.format("mostrarHistoria");
 			System.out.println();
 			switch(i){
 			case 1:
@@ -143,10 +145,11 @@ public class Renderizador {
 		
 	}
 	
-//	public static void mostrarDatos(Jugador j, Jugador k){
-//		System.out.println("Player 1: "+j.getNombre()+" Vida: "+j.getVida());
-//		System.out.println("Player 2: "+k.getNombre()+" Vida: "+k.getVida());
-//	}
+	public static void mostrarDatos(Jugador j, Jugador k){
+		System.out.println("Player 1: "+j.getNombre());
+		System.out.println("Player 2: "+k.getNombre());
+		System.out.println("Vida: "+j.getVida());
+	}
 
 	public static void mostrarGameOver() {
 		if (Juego.renderMode == 0){
@@ -234,5 +237,18 @@ public class Renderizador {
 			System.out.println("---------------------------------------------------------------");
 			System.out.println();
 		}
+	}
+	
+
+	public static void requestChar(char car) {
+		if (Juego.renderMode == 0){
+			System.out.format("Presiona %c:\n",car);	
+		}			
+	}
+
+	public static void pressToMove() {
+		if (Juego.renderMode == 0){
+			System.out.format("Presiona Enter para continuar");	
+		}			
 	}
 }

@@ -18,16 +18,16 @@ public class Mapa {
 	
 	
 	
-	public Mapa(char valores[][]){//Creando el mapa
+	public Mapa(char terreno[][],char lay2[][]){//Creando el mapa
 		mapa = new Celda[gridHeight][gridWidth];		
 		for (int i = 0; i<gridHeight; i++){
 			for (int j = 0; j<gridWidth; j++){
-				Celda celda = new Celda(i,j,valores[i][j]);
+				Celda celda = new Celda(i,j,terreno[i][j],lay2[i][j]);
 				
-				if (valores[i][j] == 'A'){
+				if (lay2[i][j] == 'A'){
 					p1.setXY(j, i);
 				}
-				if (valores[i][j] == 'B'){
+				if (lay2[i][j] == 'B'){
 					p2.setXY(j, i);	
 				}
 				mapa[i][j] = celda;

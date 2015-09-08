@@ -7,30 +7,23 @@ import drawable.personaje.Jugador;
 public class Celda {
 	private int x;
 	private int y;
-	private char valor;
+	private char terreno;
 	private Sprite sprite;
 	
+	private int special = 0;
 	
 	
-	public Celda(int y,int x,char val){
+	
+		
+	public Celda(int y,int x,char terreno,char obj){
 		this.x = x;
 		this.y = y;
-		this.valor = asignarValor(val);
-		sprite = asignarSprite(val);
+		this.terreno = terreno;
+		sprite = asignarSprite(obj);
+		
 		
 	}
 	
-	private char asignarValor(char val){
-		switch (val) {
-		case 'A':
-			return 'S';
-		case 'B':
-			return 'N';
-		default:
-			return val;
-		}
-	}
-
 	private Sprite asignarSprite(char val){
 		Sprite sprite;
 		switch (val) {
@@ -56,9 +49,18 @@ public class Celda {
 			sprite = new Obstaculo(x, y, val); break;
 		case 'o':
 			sprite = new ObjetoApoyo(x, y, val); break;
+
+		case 'C':
+			special = 1;
+			sprite = new AccionEspecial(x, y, val,0); break;
+
+		case 'D':
+			special = 2;
+			sprite = new AccionEspecial(x, y, val,0); break;
 		default:
 			sprite = null;
 		}
+		
 		return sprite;
 		
 	}
@@ -67,7 +69,7 @@ public class Celda {
 		if (sprite != null){
 			return sprite.sprite;
 		} else {			
-			return valor;
+			return terreno;
 		}
 	}
 

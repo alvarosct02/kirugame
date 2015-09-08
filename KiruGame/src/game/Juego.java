@@ -73,17 +73,11 @@ public class Juego {
 		for (int i=0; i<cantNivel; i++){		
 			
 //			Mostrar Historia
-			Renderizador.mostrarHistoria(i);				
+			Renderizador.mostrarHistoria(i+1);				
 			
 //			Cargar el nivel correspondiente
 			GestorMapas.cargarNivel(i);
 			map = GestorMapas.map;
-//			p1.moverXY(map.getPosX_A(), map.getPosY_A());
-//			p2.moverXY(map.getPosX_B(), map.getPosY_B());
-//			map.asignarPlayer(p1,map.getPosX_A(), map.getPosY_A());
-//			map.asignarPlayer(p2,map.getPosX_B(), map.getPosY_B());
-			
-			
 			int act1,act2;
 			while (true){
 				Renderizador.mostrarPantalla(map);
@@ -91,7 +85,7 @@ public class Juego {
 				cmd = sc.next();
 				act1 = InterpreteComandos.cmdJuego1(cmd);
 				if (act1 == 1){
-					
+					onEnterFrame(i);
 				} else if (act1 == -1) {
 					Renderizador.confirmacionSalirGame();
 					while (true){
@@ -118,6 +112,81 @@ public class Juego {
 		
 	}
 	
+	private void onEnterFrame(int i) {
+//		TUTORIAL
+		if (i == 0){
+			if (p1.gridX == 8 && p1.gridY == 2){
+				while(true){
+//					Mostrar dialogo de ingresar humo
+					if (secuencia("WEDQ")){
+						break;
+					}
+				}
+				sc.nextLine();
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+			}
+			
+			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p1.gridY == 8){
+				while(true){
+//					Mostrar dialogo de ingresar humo
+					if (secuencia("WEDQ")){
+						break;
+					}
+				}
+				sc.nextLine();
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+				
+				p1.setXY(p1.gridX + 1, p1.gridY);
+				Renderizador.pressToMove();
+				sc.nextLine();
+				Renderizador.mostrarPantalla(map);
+			}
+		}
+		
+	}
+	
+	private boolean secuencia(String cadena){
+		String charPressed;
+		int i;
+		for(i=0; i<cadena.length(); i++){
+			char car = cadena.charAt(i);
+			Renderizador.requestChar(Character.toUpperCase(car));
+			charPressed = sc.next();
+//			Si se equivoca, break!
+			if (Character.toUpperCase(charPressed.charAt(0)) != car) break;
+		}
+//		Si no completo con exito la secuencia
+		if (i != cadena.length()){
+			p1.getTipoDano(2);
+			return false;
+		} else {			
+			return true;
+		}
+	}
+
 	private void gameOver() {
 		Renderizador.mostrarGameOver();
 		menuLoop();
