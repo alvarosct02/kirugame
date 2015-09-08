@@ -78,6 +78,11 @@ public class Juego {
 //			Cargar el nivel correspondiente
 			GestorMapas.cargarNivel(i);
 			map = GestorMapas.map;
+			p1.moverXY(map.getPosX_A(), map.getPosY_A());
+			p2.moverXY(map.getPosX_B(), map.getPosY_B());
+			map.asignarPlayer(p1,map.getPosX_A(), map.getPosY_A());
+			map.asignarPlayer(p2,map.getPosX_B(), map.getPosY_B());
+			
 			
 			int act1,act2;
 			while (true){

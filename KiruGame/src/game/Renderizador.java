@@ -49,7 +49,8 @@ public class Renderizador {
 		if (Juego.renderMode == 0){
 			System.out.println("Ingrese el numero de la accion a realizar:");	
 			System.out.println("\t1. Iniciar Juego");	
-			System.out.println("\t2. Salir del Juego");	
+			System.out.println("\t2. Salir del Juego");
+			
 		}
 	}
 	
@@ -67,8 +68,7 @@ public class Renderizador {
 		if (Juego.renderMode == 0){
 			System.out.println("mostrarPantalla");
 			mostrarMapa(map);
-		}	
-		
+		}			
 	}
 
 	public static void mostrarHistoria(int i) {

@@ -9,6 +9,7 @@ public class Jugador extends Personaje {
 
 	public Jugador(String nombre, String input, int alto,int ancho, char sprite){
 		super(0,0,alto,ancho,sprite);
+		tipo = 1;
 		this.nombre = nombre;
 		this.input = input;		
 	}
@@ -27,7 +28,7 @@ public class Jugador extends Personaje {
 			dir = "la izquierda";				
 		} else if (cmd.charAt(0) == input.charAt(2)){
 			error = moverXY(gridX,gridY+1);
-			dir = "abajo";	
+			dir = "abajo";
 		}
 		
 		
@@ -44,8 +45,7 @@ public class Jugador extends Personaje {
 		if(setPos(x,y) == 1){
 			return 0;
 		}else 
-			return 1 ;
-		
+			return 1 ;		
 	}
 	
 	public int getVida() {

@@ -7,7 +7,6 @@ public class Personaje extends Sprite{
 	protected int gridY;
 	protected int alto;
 	protected int ancho;
-	protected char sprite;
 	
 	public Personaje(int x, int y, int alto, int ancho, char sprite){
 		this.gridX = x;
