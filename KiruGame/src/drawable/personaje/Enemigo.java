@@ -1,6 +1,6 @@
 package drawable.personaje;
 
-public class Enemigo  {
+public class Enemigo extends Personaje{
 	private int damage;
 	private int dieX;
 	private int dieY;
@@ -13,12 +13,8 @@ public class Enemigo  {
 	
 	public Enemigo(int posX, int posY,int dieX, int dieY,int alto,int ancho, char sprite, String action)
 	{
-		// la posicione de inicio sera la esquina superior izquierda desde ahi se dibujara con el alto y el ancho que tiene el objeto
-		this.posX = posX;
-		this.posY = posY;
-		this.alto = alto;
-		this.ancho = ancho;
-		this.sprite = sprite;
+		super(posX,posY,alto,ancho,sprite);
+		tipo = 2;
 		this.dieX = dieX;
 		this.dieY = dieY;
 		this.action = action;

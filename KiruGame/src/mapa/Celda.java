@@ -1,7 +1,7 @@
 package mapa;
 
 import drawable.Sprite;
-import drawable.objeto.Objeto;
+import drawable.objeto.*;
 import drawable.personaje.Jugador;
 
 public class Celda {
@@ -12,10 +12,11 @@ public class Celda {
 	
 	
 	
-	public Celda(int x,int y,char val){
+	public Celda(int y,int x,char val){
 		this.x = x;
 		this.y = y;
 		this.valor = asignarValor(val);
+		sprite = asignarSprite(val);
 		
 	}
 	
@@ -32,11 +33,29 @@ public class Celda {
 
 	private Sprite asignarSprite(char val){
 		Sprite sprite;
-		sprite = new Objeto(x, y, val);
 		switch (val) {
-		case 'A':
-		case 'B':
-			break;
+		case 'm':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'j':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'd':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'p':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'i':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'g':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'L':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'h':
+			sprite = new Obstaculo(x, y, val); break;
+		case 't':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'a':
+			sprite = new Obstaculo(x, y, val); break;
+		case 'o':
+			sprite = new ObjetoApoyo(x, y, val); break;
 		default:
 			sprite = null;
 		}
@@ -46,10 +65,7 @@ public class Celda {
 	
 	public char getValor() {
 		if (sprite != null){
-			if (sprite.tipo == 1){
-				return sprite.sprite;
-			}
-			return '_';
+			return sprite.sprite;
 		} else {			
 			return valor;
 		}

@@ -28,10 +28,10 @@ public class Juego {
 	public void initGame(){
 		Renderizador.pedirDatos(1);			
 		String nom1 = sc.next();
-		p1 = new Jugador(nom1, "WASDQE",1,1,'A');
+		p1 = new Jugador(nom1, "WASDQE",1,1,'A','S');
 		Renderizador.pedirDatos(2);	
 		String nom2 = sc.next();
-		p2 = new Jugador(nom2, "IJKLUO",1,1,'B');
+		p2 = new Jugador(nom2, "IJKLUO",1,1,'B','N');
 		gameLoop();
 	}
 	

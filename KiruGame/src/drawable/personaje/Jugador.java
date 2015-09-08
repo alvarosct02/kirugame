@@ -7,10 +7,12 @@ public class Jugador extends Personaje {
 	private static int vida = 10;	
 	private String nombre;
 	private String input;
+	private char terreno;
 
-	public Jugador(String nombre, String input, int alto,int ancho, char sprite){
+	public Jugador(String nombre, String input, int alto,int ancho, char sprite, char terreno){
 		super(0,0,alto,ancho,sprite);
 		tipo = 1;
+		this. terreno = terreno;		
 		this.nombre = nombre;
 		this.input = input;		
 	}
@@ -43,10 +45,11 @@ public class Jugador extends Personaje {
 	}
 	
 	public int moverXY(int x, int y){
-		if(setPos(x,y) == 1){
-			return 0;
-		}else 
-			return 1 ;		
+		if(isValid(x,y) == 1 && GestorMapas.map.getCeldaValue(y, x) == terreno){
+			setXY(x,y);
+			return 0 ;
+		}else 		
+			return 1;
 	}
 	
 	public int getVida() {

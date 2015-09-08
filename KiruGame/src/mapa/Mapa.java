@@ -23,15 +23,15 @@ public class Mapa {
 		for (int i = 0; i<gridHeight; i++){
 			for (int j = 0; j<gridWidth; j++){
 				Celda celda = new Celda(i,j,valores[i][j]);
+				
 				if (valores[i][j] == 'A'){
-					p1.setPos(j, i);
+					p1.setXY(j, i);
 				}
 				if (valores[i][j] == 'B'){
-					p2.setPos(j, i);	
+					p2.setXY(j, i);	
 				}
 				mapa[i][j] = celda;
-			}
-			
+			}			
 		}
 	}
 
