@@ -1,9 +1,9 @@
 package game;
 import java.util.Scanner;
 
+import mapa.GestorMapas;
 import mapa.Mapa;
-import personaje.Jugador;
-import personaje.Personaje;
+import drawable.personaje.Jugador;
 
 public class Juego {
 	public static final int gridSize = 64;
@@ -32,11 +32,7 @@ public class Juego {
 		Renderizador.pedirDatos(2);	
 		String nom2 = sc.next();
 		p2 = new Jugador(nom2, "IJKLUO",1,1,'B');
-		map = new Mapa();
 		gameLoop();
-		
-		
-		
 	}
 	
 	public void menuLoop(){
@@ -80,7 +76,8 @@ public class Juego {
 			Renderizador.mostrarHistoria(i);				
 			
 //			Cargar el nivel correspondiente
-			map.cargarNivel(i);	
+			GestorMapas.cargarNivel(i);
+			map = GestorMapas.map;
 			
 			int act1,act2;
 			while (true){
@@ -112,8 +109,7 @@ public class Juego {
 				menuLoop();
 				break;				
 			}
-		}
-			
+		}			
 		
 	}
 	
