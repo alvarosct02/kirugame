@@ -3,8 +3,6 @@ import drawable.Sprite;
 import game.*;
 
 public class Personaje extends Sprite{
-	protected int gridX;
-	protected int gridY;
 	protected int alto;
 	protected int ancho;
 	

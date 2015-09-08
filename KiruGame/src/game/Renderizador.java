@@ -62,6 +62,7 @@ public class Renderizador {
 			}
 			System.out.println();
 		}
+		
 	}
 
 	public static void mostrarPantalla(Mapa map) {

@@ -13,11 +13,10 @@ public class Mapa {
 	private Celda[][] mapa;
 	private char valor;
 	
-	private int posX_A = 0;
-	private int posY_A = 0;
-
-	private int posX_B = 0;
-	private int posY_B = 0;
+	public Jugador p1 = Juego.p1;
+	public Jugador p2 = Juego.p2;
+	
+	
 	
 	public Mapa(char valores[][]){//Creando el mapa
 		mapa = new Celda[gridHeight][gridWidth];		
@@ -25,16 +24,14 @@ public class Mapa {
 			for (int j = 0; j<gridWidth; j++){
 				Celda celda = new Celda(i,j,valores[i][j]);
 				if (valores[i][j] == 'A'){
-					posX_A = j;
-					posY_A = i;
+					p1.setPos(j, i);
 				}
 				if (valores[i][j] == 'B'){
-					posX_B = j;
-					posY_B = i;					
+					p2.setPos(j, i);	
 				}
-
 				mapa[i][j] = celda;
 			}
+			
 		}
 	}
 
@@ -43,28 +40,18 @@ public class Mapa {
 //	}
 		
 	public char getCeldaValue(int i, int j) {
+		if (j == p1.gridX && i == p1.gridY){
+			return p1.sprite;
+		}
+		if (j == p2.gridX && i == p2.gridY){
+			return p2.sprite;
+		}
 		return mapa[i][j].getValor();
 	}
 
 	public void cargarNivel(int i) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public int getPosX_A() {
-		return posX_A;
-	}
-
-	public int getPosY_A() {
-		return posY_A;
-	}
-
-	public int getPosX_B() {
-		return posX_B;
-	}
-
-	public int getPosY_B() {
-		return posY_B;
 	}
 
 	public void asignarPlayer(Jugador player, int posX, int posY) {

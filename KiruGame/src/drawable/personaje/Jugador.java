@@ -1,5 +1,6 @@
 package drawable.personaje;
 
+import mapa.GestorMapas;
 import game.Renderizador;
 
 public class Jugador extends Personaje {

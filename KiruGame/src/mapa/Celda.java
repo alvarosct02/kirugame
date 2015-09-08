@@ -36,7 +36,7 @@ public class Celda {
 		switch (val) {
 		case 'A':
 		case 'B':
-			
+			break;
 		default:
 			sprite = null;
 		}
@@ -53,10 +53,6 @@ public class Celda {
 		} else {			
 			return valor;
 		}
-		
-		
-		
-		
 	}
 
 	public void asginarPlayer(Jugador player) {
