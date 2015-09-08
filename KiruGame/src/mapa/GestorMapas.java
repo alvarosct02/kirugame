@@ -1,4 +1,4 @@
-package game;
+package mapa;
 
 public class GestorMapas {
 

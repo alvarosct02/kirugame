@@ -1,5 +1,7 @@
-package game;
+package mapa;
 import java.lang.reflect.Array;
+
+import game.Juego;
 
 public class Mapa {
 

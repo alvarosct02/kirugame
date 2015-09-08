@@ -1,6 +1,7 @@
 package game;
 import java.util.Scanner;
 
+import mapa.Mapa;
 import personaje.Jugador;
 import personaje.Personaje;
 
@@ -27,10 +28,10 @@ public class Juego {
 	public void initGame(){
 		Renderizador.pedirDatos(1);			
 		String nom1 = sc.next();
-		p1 = new Jugador(nom1, "WASDQE");
+		p1 = new Jugador(nom1, "WASDQE",1,1,'A');
 		Renderizador.pedirDatos(2);	
 		String nom2 = sc.next();
-		p2 = new Jugador(nom2, "IJKLUO");
+		p2 = new Jugador(nom2, "IJKLUO",1,1,'B');
 		map = new Mapa();
 		gameLoop();
 		

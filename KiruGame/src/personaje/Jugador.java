@@ -41,7 +41,7 @@ public class Jugador extends Personaje {
 	}
 	
 	public int moverXY(int x, int y){
-		if(super.setPos(x,y)){
+		if(setPos(x,y) == 1){
 			return 0;
 		}else return 1 ;
 		

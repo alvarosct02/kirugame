@@ -19,8 +19,8 @@ public class Personaje {
 	public int setPos(int x, int y){
 		
 		if (x>=0 && y>=0 && x<Juego.gridWidth && y<Juego.gridHeight){
-			this.x = x ;
-			this.y = y;
+			gridX = x ;
+			gridY = y;
 			return 1 ;
 		}else return 0 ;
 	}

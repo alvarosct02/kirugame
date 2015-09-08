@@ -1,4 +1,4 @@
-package game;
+package mapa;
 public class Celda {
 	private int x;
 	private int y;

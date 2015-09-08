@@ -1,5 +1,7 @@
 package game;
 
+import mapa.Mapa;
+
 public class Renderizador {
 	
 	
