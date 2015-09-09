@@ -15,8 +15,10 @@ public class Juego {
 	public static Jugador p2;
 	public static Mapa map;
 	
+	private static boolean salir = false;
+	
 //	Nivel inicial a jugar
-	private final int firstLevel = 2;
+	private final int firstLevel = 0;
 	
 	public static int renderMode = 0;
 	private String cmd = ""; 
@@ -29,6 +31,7 @@ public class Juego {
 	}
 	
 	public void initGame(){
+		Renderizador.beginPedirDatos();
 		Renderizador.pedirDatos(1);		
 		Jugador.resetVida();
 		String nom1 = sc.next();
@@ -36,6 +39,7 @@ public class Juego {
 		Renderizador.pedirDatos(2);	
 		String nom2 = sc.next();
 		p2 = new Jugador(nom2, "IJKLUO",1,1,'B','N');
+		Renderizador.endPedirDatos();
 		gameLoop();
 		if (Jugador.getVida()<= 0){
 			gameOver();
@@ -79,7 +83,8 @@ public class Juego {
 
 	public void gameLoop(){
 		
-		for (int i=firstLevel; i<=cantNivel; i++){		
+		for (int i=firstLevel; i<=cantNivel; i++){	
+			Renderizador.nuevoNivel(i);
 			if (Jugador.getVida() <= 0) return;
 //			Mostrar Historia
 			Renderizador.mostrarHistoria(i+1);
@@ -147,19 +152,18 @@ public class Juego {
 				sc.nextLine();
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 			}
 			
 			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p2.gridY == 8 && map.isSpecial(13, 5) && map.isSpecial(13, 8)){
@@ -183,24 +187,20 @@ public class Juego {
 				p1.setXY(p1.gridX, p1.gridY+1);
 				p2.setXY(p2.gridX, p2.gridY-1);
 
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
 				p2.setXY(p2.gridX + 1, p2.gridY);
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
 				p2.setXY(p2.gridX + 1, p2.gridY);
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 				
 				Renderizador.dialogo2();
 				return true;
@@ -223,28 +223,27 @@ public class Juego {
 				sc.nextLine();
 				
 				p1.setXY(p1.gridX, p1.gridY + 1);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX, p1.gridY +1);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX, p1.gridY + 2);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);	
+				Renderizador.mostrarMapa(map);	
 				
 				map.banishObject(p1.gridX, p1.gridY);
 				map.banishObject(p1.gridX-1, p1.gridY);
 				map.banishObject(p1.gridX, p1.gridY+1);
 				map.banishObject(p1.gridX-1, p1.gridY+1);
 				p1.setXY(p1.gridX, p1.gridY - 4);				
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 			}
 			
 			if (p2.gridX == 4 && p2.gridY == 9  && map.isSpecial(4, 9)){
@@ -264,14 +263,13 @@ public class Juego {
 				sc.nextLine();
 				
 				p2.setXY(p2.gridX-1, p2.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p2.setXY(p2.gridX-1, p2.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 			}
 			
 			if (p1.gridX == 0 && p2.gridX == 0){
@@ -295,19 +293,18 @@ public class Juego {
 				sc.nextLine();
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(1);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 			}
 			
 			if (p1.gridX == 8 && p1.gridY == 6 && p2.gridX == 8 && p2.gridY == 8 && map.isSpecial(8, 6) && map.isSpecial(8, 8)){
@@ -330,17 +327,15 @@ public class Juego {
 				
 				p1.setXY(p1.gridX+1, p1.gridY);
 				p2.setXY(p2.gridX+1, p2.gridY);
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 				
 				p1.setXY(p1.gridX + 3, p1.gridY-1);
 				p2.setXY(p2.gridX + 3, p2.gridY);
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
+				Renderizador.mostrarMapa(map);
 							
 				p1.setXY(p1.gridX, p1.gridY + 1);
 				p2.setXY(p2.gridX, p2.gridY -1);
@@ -351,11 +346,9 @@ public class Juego {
 				map.toogleWalk(p1.gridX, p1.gridY +1);
 				map.toogleWalk(p1.gridX + 1, p1.gridY +1);
 				map.toogleWalk(p1.gridX + 2, p1.gridY +1);
-				map.toogleWalk(p1.gridX + 3, p1.gridY +1);	
-				Renderizador.comboMessage();
-				Renderizador.pressToMove();
+				map.toogleWalk(p1.gridX + 3, p1.gridY +1);
+				Renderizador.pressToMove(2);
 				sc.nextLine();
-				Renderizador.mostrarPantalla(map);
 			}			
 
 			if (p1.gridX == 15 && p2.gridX == 15){
@@ -390,7 +383,7 @@ public class Juego {
 	}
 	
 	private void gameWin() {
-		Renderizador.pantallaGameOver();
+		Renderizador.pantallaJuegoCompletado();
 		menuLoop();
 	}
 	

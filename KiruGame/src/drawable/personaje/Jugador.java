@@ -44,7 +44,7 @@ public class Jugador extends Personaje {
 		
 		
 		if (error==1){
-			Renderizador.log("No puedes moverte en esta direccion");	
+			Renderizador.logNoMover();	
 		} else {
 			Renderizador.logMover(nombre, dir);
 		}
