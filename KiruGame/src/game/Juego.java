@@ -73,7 +73,11 @@ public class Juego {
 		for (int i=0; i<cantNivel; i++){		
 			
 //			Mostrar Historia
-			Renderizador.mostrarHistoria(i+1);				
+			Renderizador.mostrarHistoria(i+1);
+			
+			if (i==0){
+				Renderizador.dialogo1();
+			}
 			
 //			Cargar el nivel correspondiente
 			GestorMapas.cargarNivel(i);
@@ -117,7 +121,7 @@ public class Juego {
 		if (i == 0){
 			if (p1.gridX == 8 && p1.gridY == 2){
 				while(true){
-//					Mostrar dialogo de ingresar humo
+					Renderizador.requestSecuencia("WEDQ");
 					if (secuencia("WEDQ")){
 						break;
 					}
@@ -140,29 +144,34 @@ public class Juego {
 				Renderizador.mostrarPantalla(map);
 			}
 			
-			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p1.gridY == 8){
+			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p2.gridY == 8){
 				while(true){
-//					Mostrar dialogo de ingresar humo
-					if (secuencia("WEDQ")){
+					Renderizador.requestSecuencia("SDKIQEUO");
+					if (secuencia("SDKIQEUO")){
 						break;
 					}
 				}
 				sc.nextLine();
 				
-				p1.setXY(p1.gridX + 1, p1.gridY);
+				p1.setXY(p1.gridX, p1.gridY+1);
+				p2.setXY(p2.gridX, p2.gridY-1);
 				Renderizador.pressToMove();
 				sc.nextLine();
 				Renderizador.mostrarPantalla(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
+				p2.setXY(p2.gridX + 1, p2.gridY);
 				Renderizador.pressToMove();
 				sc.nextLine();
 				Renderizador.mostrarPantalla(map);
 				
 				p1.setXY(p1.gridX + 1, p1.gridY);
+				p2.setXY(p2.gridX + 1, p2.gridY);
 				Renderizador.pressToMove();
 				sc.nextLine();
 				Renderizador.mostrarPantalla(map);
+				
+				Renderizador.dialogo2();
 			}
 		}
 		
