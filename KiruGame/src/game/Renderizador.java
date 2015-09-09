@@ -140,15 +140,15 @@ public class Renderizador {
 
 	public static void ingreseComandoGame() {
 		if (Juego.renderMode == 0){
-			System.out.println("ingreseComandoGame");	
+			System.out.println("up(w/j) down(s/k) left(a/l) right(d/i)");	
 		}	
 		
 	}
 	
 	public static void mostrarDatos(Jugador j, Jugador k){
-		System.out.println("Player 1: "+j.getNombre());
-		System.out.println("Player 2: "+k.getNombre());
-		System.out.println("Vida: "+j.getVida());
+		System.out.println("Cuy: "+j.getNombre());
+		System.out.println("Doggie: "+k.getNombre());
+		System.out.println("LifeSpan: "+j.getVida());
 	}
 
 	public static void mostrarGameOver() {
@@ -246,6 +246,28 @@ public class Renderizador {
 		}			
 	}
 
+	
+	public static void requestSecuencia(String sec) {
+		if (Juego.renderMode == 0){
+			System.out.format("Presiona %c:\n",sec);	
+		}			
+	}
+	
+	public static void errorSecuencia(String sec) {
+		if (Juego.renderMode == 0){
+			System.out.format("Error en la secuencia ingresada %s:\n"+sec
+					+"No se puede realizar la acción especial");	
+		}			
+	}
+	
+	public static void comboMessage(){
+		if(Juego.renderMode == 0){
+			System.out.println("Combo Duo en acción");
+			
+		}
+		
+	}
+	
 	public static void pressToMove() {
 		if (Juego.renderMode == 0){
 			System.out.format("Presiona Enter para continuar");	
