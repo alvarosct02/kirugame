@@ -245,12 +245,6 @@ public class Renderizador {
 			System.out.format("Presiona %c:\n",car);	
 		}			
 	}
-	
-	public static void requestSecuencia(String sec) {
-		if (Juego.renderMode == 0){
-			System.out.format("Ingrese la siguiente secuencia %s:\n",sec);	
-		}			
-	}
 
 	
 	public static void requestSecuencia(String sec) {
@@ -271,7 +265,7 @@ public class Renderizador {
 			System.out.println("Combo Duo en acción");
 			
 		}
-		
+	
 	}
 	
 	public static void pressToMove() {
