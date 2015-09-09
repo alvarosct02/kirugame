@@ -10,6 +10,10 @@ public class Jugador extends Personaje {
 		return nombre;
 	}
 
+	public static void resetVida(){
+		vida = 10;
+	}
+	
 	private String input;
 	private char terreno;
 
@@ -49,14 +53,18 @@ public class Jugador extends Personaje {
 	}
 	
 	public int moverXY(int x, int y){
-		if(isValid(x,y) == 1 && (GestorMapas.map.getCeldaValue(y, x) == terreno || GestorMapas.map.getCeldaValue(y, x) == 'D' || GestorMapas.map.getCeldaValue(y, x) == 'C')){
+		if(
+			isValid(x,y) == 1 && 
+			((GestorMapas.map.getCeldaValue(y, x) == terreno || GestorMapas.map.getCeldaValue(y, x) == 'D' || GestorMapas.map.getCeldaValue(y, x) == 'C')
+			|| (GestorMapas.map.getCeldaValue(y,x) == 'o' && GestorMapas.map.isWalkable(x,y) == true))
+		){
 			setXY(x,y);
 			return 0 ;
 		}else 		
 			return 1;
 	}
 	
-	public int getVida() {
+	public static int getVida() {
 		return Jugador.vida;
 		
 	}

@@ -10,11 +10,20 @@ public class Celda {
 	private char terreno;
 	private Sprite sprite;
 	
-	private int special = 0;
+	private boolean special = false;
+	private boolean walkObjetoApoyo = false;
 	
 	
 	
 		
+	public boolean isSpecial() {
+		return special;
+	}
+	
+	public boolean isWalkable() {
+		return walkObjetoApoyo;
+	}
+
 	public Celda(int y,int x,char terreno,char obj){
 		this.x = x;
 		this.y = y;
@@ -47,22 +56,34 @@ public class Celda {
 			sprite = new Obstaculo(x, y, val); break;
 		case 'a':
 			sprite = new Obstaculo(x, y, val); break;
-		case 'o':
+		case 'o':			
 			sprite = new ObjetoApoyo(x, y, val); break;
 
 		case 'C':
-			special = 1;
+			special = true;
 			sprite = new AccionEspecial(x, y, val,0); break;
 
 		case 'D':
-			special = 2;
+			special = true;
 			sprite = new AccionEspecial(x, y, val,0); break;
 		default:
 			sprite = null;
-		}
-		
+		}		
 		return sprite;
 		
+	}
+	
+
+	public void banishObject(){
+		sprite = null;			
+	}
+	
+	public void toogleSpecial(){
+		special = false;
+	}
+	
+	public void toogleWalk(){
+		walkObjetoApoyo = true;
 	}
 	
 	public char getValor() {

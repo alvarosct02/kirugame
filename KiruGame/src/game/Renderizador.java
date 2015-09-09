@@ -56,6 +56,7 @@ public class Renderizador {
 	}
 	
 	public static void mostrarMapa(Mapa map){		
+		System.out.println();
 		for (int i = 0; i<Juego.gridHeight; i++){
 			for (int j = 0; j<Juego.gridWidth; j++){
 				char valor = map.getCeldaValue(i, j);
@@ -140,7 +141,13 @@ public class Renderizador {
 
 	public static void ingreseComandoGame() {
 		if (Juego.renderMode == 0){
-			System.out.println("up(w/j) down(s/k) left(a/l) right(d/i)");	
+			System.out.println();
+			System.out.println(	"Ingrese el comando a ejecutar:\n"
+								+ "\tArriba(W/I)\n"
+								+ "\tAbajo(S/K)\n"
+								+ "\tIzquierda(A/J)\n"
+								+ "\tDerecha(D/L)\n"
+								+ "\tSalir(ESC)"	);	
 		}	
 		
 	}
@@ -148,19 +155,13 @@ public class Renderizador {
 	public static void mostrarDatos(Jugador j, Jugador k){
 		System.out.println("Cuy: "+j.getNombre());
 		System.out.println("Doggie: "+k.getNombre());
-		System.out.println("LifeSpan: "+j.getVida());
+		System.out.println("LifeSpan: "+Jugador.getVida());
 	}
 
-	public static void mostrarGameOver() {
-		if (Juego.renderMode == 0){
-			System.out.println("mostrarGameOver");	
-		}	
-		
-	}
 
 	public static void logMover(String nombre, String dir) {
 		if (Juego.renderMode == 0){
-			System.out.format("%s se ha movido hacia %s\n\n",nombre,dir);	
+			System.out.format("%s se ha movido hacia %s\n",nombre,dir);	
 		}	
 		
 	}
@@ -232,7 +233,7 @@ public class Renderizador {
 			System.out.println();
 			System.out.println("-------------------------Juego Completado-----------------------------");
 			System.out.println("");
-			System.out.println("Bravo ! Has completado el juego. Fue muy facíl ? ");
+			System.out.println("Bravo ! Has completado el juego. Fue muy facil ? ");
 			System.out.println();
 			System.out.println("---------------------------------------------------------------");
 			System.out.println();
@@ -249,14 +250,14 @@ public class Renderizador {
 	
 	public static void requestSecuencia(String sec) {
 		if (Juego.renderMode == 0){
-			System.out.format("Presiona %c:\n",sec);	
+			System.out.format("\nIngresa la secuencia \"%s\" para realizar una accion especial!\n",sec);
 		}			
 	}
 	
 	public static void errorSecuencia(String sec) {
 		if (Juego.renderMode == 0){
-			System.out.format("Error en la secuencia ingresada %s:\n"+sec
-					+"No se puede realizar la acción especial");	
+			System.out.format("Error en la secuencia ingresada \"%s\"\n"
+					+"Has perdi 2 puntos de vida, te quedan %d puntos.\n",sec,Jugador.getVida());	
 		}			
 	}
 	
@@ -270,7 +271,7 @@ public class Renderizador {
 	
 	public static void pressToMove() {
 		if (Juego.renderMode == 0){
-			System.out.format("Presiona Enter para continuar");	
+			System.out.format("Presiona ENTER para continuar");	
 		}			
 	}
 }

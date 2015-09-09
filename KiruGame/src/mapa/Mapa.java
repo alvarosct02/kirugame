@@ -35,10 +35,18 @@ public class Mapa {
 		}
 	}
 
-//	public Celda getCelda(int i, int j) {
-//		return mapa[i][j];
-//	}
-		
+	public void banishObject(int x, int y){
+		mapa[y][x].banishObject();
+	}
+	
+	public void toogleSpecial(int x, int y){
+		mapa[y][x].toogleSpecial();
+	}
+
+	public void toogleWalk(int x, int y){
+		mapa[y][x].toogleWalk();
+	}
+			
 	public char getCeldaValue(int i, int j) {
 		if (j == p1.gridX && i == p1.gridY){
 			return p1.sprite;
@@ -47,6 +55,14 @@ public class Mapa {
 			return p2.sprite;
 		}
 		return mapa[i][j].getValor();
+	}
+	
+	public boolean isSpecial(int x, int y) {
+		return mapa[y][x].isSpecial();
+	}
+	
+	public boolean isWalkable(int x, int y) {
+		return mapa[y][x].isWalkable();
 	}
 
 	public void cargarNivel(int i) {
