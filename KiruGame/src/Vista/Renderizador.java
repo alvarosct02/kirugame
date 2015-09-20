@@ -92,7 +92,7 @@ public class Renderizador {
 		if (Juego.renderMode == 0){			
 			System.out.println();
 			mostrarDatos(Juego.p1, Juego.p2);
-			mostrarMapa(map);
+			mostrarMapa();
 		}			
 	}
 	
@@ -108,12 +108,12 @@ public class Renderizador {
 		}
 	}
 	
-	public static void mostrarMapa(Mapa map){		
+	public static void mostrarMapa(){		
 		System.out.println();
 		for (int i = 0; i<Juego.gridHeight; i++){
 			System.out.print("                    ");
 			for (int j = 0; j<Juego.gridWidth; j++){
-				char valor = map.getCeldaValue(i, j);
+				char valor = GestorMapas.map.getCeldaValue(j,i);
 				System.out.print(valor + " ");		
 			}
 			System.out.println();

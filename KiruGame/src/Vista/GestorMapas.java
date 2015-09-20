@@ -1,11 +1,19 @@
 package Vista;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import Controlador.Juego;
+import Modelo.AccionEspecial;
+import Modelo.Objeto;
+import Modelo.Obstaculo;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
+
 import java.io.*	;
 
 public class GestorMapas {
@@ -102,33 +110,38 @@ public class GestorMapas {
 	
 	
 	
+	private static DocumentBuilderFactory dbFactory;
+	private static DocumentBuilder dBuilder;
+	private static char [][] mapaFree;
+	private static char [][] mapaObjetos;
 	
 	public static Mapa map;
-//	public GestorMapas(){
-//		
-//	}
 	
-	public static void cargarNivel(int i){
-
+	static {
+		dbFactory = DocumentBuilderFactory.newInstance();
+		
 		try {
-
-			File fXmlFile = new File("./src/Data/mapas.xml");
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-
-			//optional, but recommended
-			//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
-			doc.getDocumentElement().normalize();
-
+			dBuilder = dbFactory.newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+		
+		mapaFree =new char[20][20];
+		mapaObjetos =new char[20][20];
+	}
+	
+	public static void cargarNivel(int i){	
+		
+		File fXmlFile = new File("./src/Data/mapas.xml");
+		Document doc;
+		try {
+			doc = dBuilder.parse(fXmlFile);		
+			doc.getDocumentElement().normalize();		
 			NodeList nList = doc.getElementsByTagName("mapa");
-
 			Node nNode = nList.item(i);
-
+	
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
 				Element eElement = (Element) nNode;
-
 				
 				String urlArchivo = eElement.getElementsByTagName("url").item(0).getTextContent();
 				String urlObjetos = eElement.getElementsByTagName("urlObjetos").item(0).getTextContent();
@@ -136,78 +149,104 @@ public class GestorMapas {
 				int posyA = Integer.parseInt(eElement.getElementsByTagName("yposA").item(0).getTextContent());
 				int posxB = Integer.parseInt(eElement.getElementsByTagName("xposB").item(0).getTextContent());
 				int posyB = Integer.parseInt(eElement.getElementsByTagName("yposB").item(0).getTextContent());
-
-
-				BufferedReader in = new BufferedReader(new FileReader("./src/Data/"+urlArchivo));
-
-				String line;
-
-				int letra;
-				char [][] mapaFree =new char[20][20];
-				char [][] mapaObjetos =new char[20][20];
-
-				for (int x = 0 ; x <12; x++){
-					for(int y = 0 ; y < 16; y++){
-						letra = in.read();
-						char sprite[] = Character.toChars(letra);
-						mapaFree[x][y] = sprite[0];
-						mapaObjetos[x][y]  = '*';
-					}
-					letra = in.read();
-					letra = in.read();
-				}
-				
-				in.close();
-				
-				mapaObjetos[posyA][posxA] = 'A';
-				mapaObjetos[posyB][posxB] = 'B';	
-
-				File objetosFile = new File("./src/Data/"+urlObjetos);
-				File objetosFileBase = new File("./src/Data/objetos.xml");
-				doc = dBuilder.parse(objetosFile);
-
-				//optional, but recommended
-				//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
-				doc.getDocumentElement().normalize();
-
-
-				NodeList objetosList = doc.getElementsByTagName("nivel");
-
-				doc = dBuilder.parse(objetosFileBase);
-
-				//optional, but recommended
-				//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
-				doc.getDocumentElement().normalize();
-				
-				NodeList objetosListBase = doc.getElementsByTagName("objeto");
-
-
-				Element listaObjetos =(Element) objetosList.item(i);
-				NodeList elementos = listaObjetos.getElementsByTagName("objetoMapa");
-
-				for (int temp = 0; temp < elementos.getLength(); temp++) {
-					Element elemento  = (Element) elementos.item(temp);
-					int objetoID = Integer.parseInt(elemento.getElementsByTagName("objetoID").item(0).getTextContent());
-					Element elementoBase = (Element) objetosListBase.item(objetoID);
-					String sprite = (elementoBase.getElementsByTagName("sprite").item(0).getTextContent());
-
-					int posx = Integer.parseInt(elemento.getElementsByTagName("xpos").item(0).getTextContent());
-					int posy = Integer.parseInt(elemento.getElementsByTagName("ypos").item(0).getTextContent());
+	
+				try {
+					cargarMapa(urlArchivo);
+					cargarObjetos(urlObjetos,i);
 					
-					mapaObjetos[posy][posx] = elemento.getElementsByTagName("objetoID").item(0).getTextContent().charAt(0);
-
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
+				
+				Juego.p1.moverXY(posxA, posyA);
+				Juego.p2.moverXY(posxB, posyB);
+//				map.addPlayer();
+				
+	//			cargarMapa();
+				
 
-
-
-				map = new Mapa(mapaFree,mapaObjetos);
+				parseAccion("C.1.8.2.WEDQ.0.1.0.1.0.1");
+				
+								
 			}
 
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	private static void parseAccion(String act){
+		String[] arreglo = act.split("\\.");
+		char sprite = arreglo[0].charAt(0);
+		int cod = Integer.parseInt(arreglo[1]);
+		int posX = Integer.parseInt(arreglo[2]);
+		int posY = Integer.parseInt(arreglo[3]);
+
+		String sec = arreglo[4];
+		
+		int offset = 5; //Posicion de la secuencia
+		int size = (arreglo.length-offset)/2;
+		int[][] cordMov = new int[size][2];
+		for (int i = 0; i<size; i++){
+			cordMov[i][0] = Integer.parseInt(arreglo[offset+2*i]);
+			cordMov[i][1] = Integer.parseInt(arreglo[offset+2*i+1]);
 		}
 		
+		AccionEspecial accion = new AccionEspecial(posX, posY, sprite, cod, sec,cordMov);
+		map.addAccion(accion);
 	}
+	
+	public static void cargarMapa(String urlArchivo) throws Exception{
+		
+		BufferedReader in = null;
+		in = new BufferedReader(new FileReader("./src/Data/"+urlArchivo));
+
+		int letra;
+
+		for (int x = 0 ; x <12; x++){
+			for(int y = 0 ; y < 16; y++){
+				letra = in.read();
+				char sprite[] = Character.toChars(letra);
+				mapaFree[x][y] = sprite[0];
+				mapaObjetos[x][y]  = '*';
+			}
+			letra = in.read();
+			letra = in.read();
+		}		
+		in.close();
+		map = new Mapa(mapaFree);
+	}
+
+	public static void cargarObjetos(String urlObjetos, int nivel) throws SAXException, IOException{
+		
+//		Cargar Objetos por Nivel
+		File objetosFile = new File("./src/Data/"+urlObjetos);		
+		Document doc = dBuilder.parse(objetosFile);		
+		doc.getDocumentElement().normalize();
+		NodeList objetosList = doc.getElementsByTagName("nivel");
+		
+		Element listaObjetos =(Element) objetosList.item(nivel);
+		NodeList objetosMapa = listaObjetos.getElementsByTagName("objetoMapa");
+
+//		Cargar Metadata Objetos
+		File objetosFileBase = new File("./src/Data/objetos.xml");
+		doc = dBuilder.parse(objetosFileBase);
+		doc.getDocumentElement().normalize();
+		NodeList objetosListBase = doc.getElementsByTagName("objeto");
+
+		for (int pos = 0; pos < objetosMapa.getLength(); pos++) {
+			Element objetoMapa  = (Element) objetosMapa.item(pos);			
+			int objetoID = Integer.parseInt(objetoMapa.getElementsByTagName("objetoID").item(0).getTextContent());
+			int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
+			int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
+			
+			Element objetoBase = (Element) objetosListBase.item(objetoID);
+			char sprite = objetoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
+			int width = Integer.parseInt(objetoBase.getElementsByTagName("width").item(0).getTextContent());
+			int height = Integer.parseInt(objetoBase.getElementsByTagName("height").item(0).getTextContent());
+			
+			map.getCelda(posx,posy).addObjeto(width, height, sprite);			
+		}
+	}
+	
 }

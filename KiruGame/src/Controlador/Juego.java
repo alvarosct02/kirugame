@@ -23,7 +23,7 @@ public class Juego {
 	
 	public static int renderMode = 0;
 	private String cmd = ""; 
-	private Scanner sc = new Scanner(System.in);
+	public static Scanner sc = new Scanner(System.in);
 	
 	public Juego(){
 		Renderizador.mostrarWelcome();		
@@ -135,229 +135,233 @@ public class Juego {
 	}
 	
 	private boolean onEnterFrame(int i) {
-//		TUTORIAL
-		if (i == 0){
-			if (p1.gridX == 8 && p1.gridY == 2 && map.isSpecial(8, 2)){
-				map.banishObject(8, 2);
-				map.toogleSpecial(8, 2);
-				String sec = "WEDQ";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-			}
-			
-			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p2.gridY == 8 && map.isSpecial(13, 5) && map.isSpecial(13, 8)){
 
-				map.banishObject(13, 5);
-				map.toogleSpecial(13, 5);
-				map.banishObject(13, 8);
-				map.toogleSpecial(13, 8);
-				String sec = "SDKIQEUO";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p1.setXY(p1.gridX, p1.gridY+1);
-				p2.setXY(p2.gridX, p2.gridY-1);
-
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				p2.setXY(p2.gridX + 1, p2.gridY);
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				p2.setXY(p2.gridX + 1, p2.gridY);
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-				
-				Renderizador.dialogo2();
-				return true;
-			}
-		}
-		if (i == 1){
-			if (p1.gridX == 10 && p1.gridY == 4 && map.isSpecial(10, 4)){
-				map.banishObject(10, 4);
-				map.toogleSpecial(10, 4);
-				String sec = "SDQEQE";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p1.setXY(p1.gridX, p1.gridY + 1);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX, p1.gridY +1);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX, p1.gridY + 2);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);	
-				
-				map.banishObject(p1.gridX, p1.gridY);
-				map.banishObject(p1.gridX-1, p1.gridY);
-				map.banishObject(p1.gridX, p1.gridY+1);
-				map.banishObject(p1.gridX-1, p1.gridY+1);
-				p1.setXY(p1.gridX, p1.gridY - 4);				
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-			}
-			
-			if (p2.gridX == 4 && p2.gridY == 9  && map.isSpecial(4, 9)){
-
-				map.banishObject(4,9);
-				map.toogleSpecial(4,9);
-				String sec = "JJUOJ";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p2.setXY(p2.gridX-1, p2.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p2.setXY(p2.gridX-1, p2.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-			}
-			
-			if (p1.gridX == 0 && p2.gridX == 0){
-				return true;
-			}
-		}
-		if (i == 2){
-			if (p1.gridX == 3 && p1.gridY == 5 && map.isSpecial(3, 5)){
-				map.banishObject(3, 5);
-				map.toogleSpecial(3, 5);
-				String sec = "SDEWD";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 1, p1.gridY);
-				Renderizador.pressToMove(1);
-				sc.nextLine();
-			}
-			
-			if (p1.gridX == 8 && p1.gridY == 6 && p2.gridX == 8 && p2.gridY == 8 && map.isSpecial(8, 6) && map.isSpecial(8, 8)){
-
-				map.banishObject(8, 6);
-				map.toogleSpecial(8,6);
-				map.banishObject(8, 8);
-				map.toogleSpecial(8, 8);
-				String sec = "SIQEUOKLSD";
-				while(true){
-					if (Jugador.getVida() <= 0) return true;
-					Renderizador.requestSecuencia(sec);
-					if (secuencia(sec)){
-						break;
-					} else {
-						Renderizador.errorSecuencia(sec);
-					}
-				}
-				sc.nextLine();
-				
-				p1.setXY(p1.gridX+1, p1.gridY);
-				p2.setXY(p2.gridX+1, p2.gridY);
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-				
-				p1.setXY(p1.gridX + 3, p1.gridY-1);
-				p2.setXY(p2.gridX + 3, p2.gridY);
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-				Renderizador.mostrarMapa(map);
-							
-				p1.setXY(p1.gridX, p1.gridY + 1);
-				p2.setXY(p2.gridX, p2.gridY -1);
-				map.toogleWalk(p1.gridX, p1.gridY);
-				map.toogleWalk(p1.gridX + 1, p1.gridY);
-				map.toogleWalk(p1.gridX + 2, p1.gridY);
-				map.toogleWalk(p1.gridX + 3, p1.gridY);
-				map.toogleWalk(p1.gridX, p1.gridY +1);
-				map.toogleWalk(p1.gridX + 1, p1.gridY +1);
-				map.toogleWalk(p1.gridX + 2, p1.gridY +1);
-				map.toogleWalk(p1.gridX + 3, p1.gridY +1);
-				Renderizador.pressToMove(2);
-				sc.nextLine();
-			}			
-
-			if (p1.gridX == 15 && p2.gridX == 15){
-				return true;
-			}
-		}
+		map.ejecutarAccionEspecial();
 		return false;
 	}
+////		TUTORIAL
+//		if (i == 0){
+//			if (p1.gridX == 8 && p1.gridY == 2 && map.isSpecial(8, 2)){
+//				map.banishObject(8, 2);
+//				map.toogleSpecial(8, 2);
+//				String sec = "WEDQ";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//			}
+//			
+//			if (p1.gridX == 13 && p1.gridY == 5 && p2.gridX == 13 && p2.gridY == 8 && map.isSpecial(13, 5) && map.isSpecial(13, 8)){
+//
+//				map.banishObject(13, 5);
+//				map.toogleSpecial(13, 5);
+//				map.banishObject(13, 8);
+//				map.toogleSpecial(13, 8);
+//				String sec = "SDKIQEUO";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p1.setXY(p1.gridX, p1.gridY+1);
+//				p2.setXY(p2.gridX, p2.gridY-1);
+//
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				p2.setXY(p2.gridX + 1, p2.gridY);
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				p2.setXY(p2.gridX + 1, p2.gridY);
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//				
+//				Renderizador.dialogo2();
+//				return true;
+//			}
+//		}
+//		if (i == 1){
+//			if (p1.gridX == 10 && p1.gridY == 4 && map.isSpecial(10, 4)){
+//				map.banishObject(10, 4);
+//				map.toogleSpecial(10, 4);
+//				String sec = "SDQEQE";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p1.setXY(p1.gridX, p1.gridY + 1);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX, p1.gridY +1);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX, p1.gridY + 2);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);	
+//				
+//				map.banishObject(p1.gridX, p1.gridY);
+//				map.banishObject(p1.gridX-1, p1.gridY);
+//				map.banishObject(p1.gridX, p1.gridY+1);
+//				map.banishObject(p1.gridX-1, p1.gridY+1);
+//				p1.setXY(p1.gridX, p1.gridY - 4);				
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//			}
+//			
+//			if (p2.gridX == 4 && p2.gridY == 9  && map.isSpecial(4, 9)){
+//
+//				map.banishObject(4,9);
+//				map.toogleSpecial(4,9);
+//				String sec = "JJUOJ";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p2.setXY(p2.gridX-1, p2.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p2.setXY(p2.gridX-1, p2.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//			}
+//			
+//			if (p1.gridX == 0 && p2.gridX == 0){
+//				return true;
+//			}
+//		}
+//		if (i == 2){
+//			if (p1.gridX == 3 && p1.gridY == 5 && map.isSpecial(3, 5)){
+//				map.banishObject(3, 5);
+//				map.toogleSpecial(3, 5);
+//				String sec = "SDEWD";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 1, p1.gridY);
+//				Renderizador.pressToMove(1);
+//				sc.nextLine();
+//			}
+//			
+//			if (p1.gridX == 8 && p1.gridY == 6 && p2.gridX == 8 && p2.gridY == 8 && map.isSpecial(8, 6) && map.isSpecial(8, 8)){
+//
+//				map.banishObject(8, 6);
+//				map.toogleSpecial(8,6);
+//				map.banishObject(8, 8);
+//				map.toogleSpecial(8, 8);
+//				String sec = "SIQEUOKLSD";
+//				while(true){
+//					if (Jugador.getVida() <= 0) return true;
+//					Renderizador.requestSecuencia(sec);
+//					if (secuencia(sec)){
+//						break;
+//					} else {
+//						Renderizador.errorSecuencia(sec);
+//					}
+//				}
+//				sc.nextLine();
+//				
+//				p1.setXY(p1.gridX+1, p1.gridY);
+//				p2.setXY(p2.gridX+1, p2.gridY);
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//				
+//				p1.setXY(p1.gridX + 3, p1.gridY-1);
+//				p2.setXY(p2.gridX + 3, p2.gridY);
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//				Renderizador.mostrarMapa(map);
+//							
+//				p1.setXY(p1.gridX, p1.gridY + 1);
+//				p2.setXY(p2.gridX, p2.gridY -1);
+//				map.toogleWalk(p1.gridX, p1.gridY);
+//				map.toogleWalk(p1.gridX + 1, p1.gridY);
+//				map.toogleWalk(p1.gridX + 2, p1.gridY);
+//				map.toogleWalk(p1.gridX + 3, p1.gridY);
+//				map.toogleWalk(p1.gridX, p1.gridY +1);
+//				map.toogleWalk(p1.gridX + 1, p1.gridY +1);
+//				map.toogleWalk(p1.gridX + 2, p1.gridY +1);
+//				map.toogleWalk(p1.gridX + 3, p1.gridY +1);
+//				Renderizador.pressToMove(2);
+//				sc.nextLine();
+//			}			
+//
+//			if (p1.gridX == 15 && p2.gridX == 15){
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 	
 	private boolean secuencia(String cadena){
 		String charPressed;

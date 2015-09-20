@@ -2,10 +2,8 @@ package Modelo;
 
 public class ObjetoApoyo extends Objeto{
 
-	public ObjetoApoyo(int posX, int posY, char sprite) {
-		super(posX, posY, sprite);
-		tipo = 7;
-		// TODO Auto-generated constructor stub
+	public ObjetoApoyo(int x, int y, int w, int h, char sprite) {
+		super(x, y, w, h, sprite);
 	}
 	
 }

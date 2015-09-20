@@ -24,7 +24,6 @@ public class Jugador extends Personaje {
 		this.nombre = nombre;
 		this.input = input;		
 	}
-	
 	public int moverDir(String cmd){
 		int error = 0;
 		String dir = "";
@@ -55,8 +54,8 @@ public class Jugador extends Personaje {
 	public int moverXY(int x, int y){
 		if(
 			isValid(x,y) == 1 && 
-			((GestorMapas.map.getCeldaValue(y, x) == terreno || GestorMapas.map.getCeldaValue(y, x) == 'D' || GestorMapas.map.getCeldaValue(y, x) == 'C')
-			|| (GestorMapas.map.getCeldaValue(y,x) == 'o' && GestorMapas.map.isWalkable(x,y) == true))
+			((GestorMapas.map.getCeldaValue(x, y) == terreno || GestorMapas.map.getCeldaValue(x,y) == 'D' || GestorMapas.map.getCeldaValue(x,y) == 'C')
+			|| (GestorMapas.map.getCeldaValue(x,y) == 'o' && GestorMapas.map.getCelda(x,y).walkable == true))
 		){
 			setXY(x,y);
 			return 0 ;
@@ -65,22 +64,25 @@ public class Jugador extends Personaje {
 	}
 	
 	public static int getVida() {
-		return Jugador.vida;
-		
+		return Jugador.vida;		
+	}
+	
+	public boolean isHere(int x, int y){
+		return (x == gridX && y == gridY);
 	}
 
-	private void reduceVida(int vida) {
+	private static void reduceVida(int vida) {
 		Jugador.vida -= vida;
 	}
 	
-	public void getTipoDano(int tipo){
+	public static void getTipoDano(int tipo){
 		
 		switch(tipo){
 			case 1: // enemigos
-				this.reduceVida(1);
+				Jugador.reduceVida(1);
 				break;
 			case 2:// fallar comando
-				this.reduceVida(2);
+				Jugador.reduceVida(2);
 				break;
 		}
 	}

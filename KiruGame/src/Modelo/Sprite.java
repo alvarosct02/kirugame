@@ -8,10 +8,14 @@ public class Sprite{
 	public char sprite = '_';
 	public int gridX;
 	public int gridY;
+	public int gridW;
+	public int gridH;
 	
-	public Sprite(int xpos, int ypos, char sprite)	{
+	public Sprite(int xpos, int ypos,int w, int h, char sprite)	{
 		gridX = xpos;
 		gridY = ypos;
+		gridW = w;
+		gridH = h;
 		this.sprite = sprite;
 	}
 	
