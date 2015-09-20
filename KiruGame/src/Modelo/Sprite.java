@@ -2,7 +2,7 @@ package Modelo;
 
 import Controlador.Juego;
 
-public class Sprite{
+public abstract class Sprite{
 	
 	public int tipo = -1;
 	public char sprite = '_';
