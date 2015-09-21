@@ -1,23 +1,44 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 import Controlador.Juego;
 import Vista.GestorMapas;
 import Vista.Renderizador;
 
-public class AccionEspecial extends Objeto{
+public class AccionEspecial{
 	
 	private int codigo;
 	private String sec;
-	private int[][] cord;
 	
-	public AccionEspecial(int posX, int posY, char sprite,int cod,String sec, int[][] cord) {
-		super(posX, posY,1,1, sprite);
+	private boolean activa = true;
+	
+	private char sprite;
+	
+	private int tipo;
+	private ArrayList<Integer> jugArray = new ArrayList<Integer>();
+	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
+	private ArrayList<int[][]> cordArray = new ArrayList<int[][]>();;
+	
+	public AccionEspecial(char sprite,int cod,String sec, int tipo) {
+		this.sprite = sprite;
 		codigo = cod;
 		this.sec = sec;
-		this.cord = cord;		
-		tipo = 10;
-		GestorMapas.map.getCelda(posX, posY).visibleChar = sprite;
+		this.tipo = tipo;		
 	}	
+	
+	public void addPlayerAccion(int id, int x, int y, int[][] movInfo){
+		
+		jugArray.add(id);
+		cordArray.add(movInfo);
+		
+		int[] tempPos = new int[2];
+		tempPos[0] = x;
+		tempPos[1] = y;
+		posArray.add(tempPos);
+		
+		GestorMapas.map.getCelda(x, y).visibleChar = sprite;		
+	}
 	
 	private boolean secuencia(String cadena){
 		String charPressed;
@@ -38,7 +59,7 @@ public class AccionEspecial extends Objeto{
 		}
 	}
 
-	public void ejecutar(Jugador player) {
+	public void ejecutar() {
 //		map.getCelda(8, 2).removeSprite();
 //		map.getCelda(8, 2).trigger = false;	
 		while(true){
@@ -52,15 +73,31 @@ public class AccionEspecial extends Objeto{
 		}
 		Juego.sc.nextLine();	
 		
-		GestorMapas.map.getCelda(gridX,gridY).visibleChar = GestorMapas.map.getCelda(gridX,gridY).getTerreno();
 		
-		for (int i = 0; i<cord.length; i++){
-			int[] vect = getDirVector(cord[i][0], cord[i][1]);
-			player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
-			Renderizador.pressToMove(sprite);
-			Juego.sc.nextLine();
-			Renderizador.mostrarMapa();
+		Jugador player;
+		for (int j = 0; j<jugArray.size(); j++){
+			char tmp = GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).getTerreno();
+			GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).visibleChar = tmp;
 		}
+		for (int i = 0; i< cordArray.get(0).length; i++){
+
+			for (int j = 0; j<jugArray.size(); j++){
+				int[] vect = getDirVector(cordArray.get(j)[i][0], cordArray.get(j)[i][1]);
+				
+				if (jugArray.get(j) == 1)
+					player = Juego.p1;
+				else
+					player = Juego.p2;
+				
+				player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
+				Renderizador.pressToMove(sprite);
+				Juego.sc.nextLine();
+				Renderizador.mostrarMapa();
+			}
+			
+		}
+		
+		activa = false;
 		
 	}
 	
@@ -77,5 +114,23 @@ public class AccionEspecial extends Objeto{
 		vector[0] *= dist;
 		vector[1] *= dist;
 		return vector;
+	}
+
+	public boolean check() {
+		if (activa != true) return false;
+		
+		Jugador player = null;
+		boolean resp = true;
+		for (int j = 0; j<jugArray.size(); j++){			
+			if (jugArray.get(j) == 1)
+				player = Juego.p1;
+			else
+				player = Juego.p2;
+			
+			resp &= player.isHere(posArray.get(j)[0], posArray.get(j)[1]);				
+			
+		}
+		
+		return resp;
 	}
 }

@@ -153,6 +153,7 @@ public class GestorMapas {
 				try {
 					cargarMapa(urlArchivo);
 					cargarObjetos(urlObjetos,i);
+					cargarAcciones(i);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -164,8 +165,7 @@ public class GestorMapas {
 				
 	//			cargarMapa();
 				
-
-				parseAccion("C.1.8.2.WEDQ.0.1.0.1.0.1");
+//				parseAccion("C.1.8.2.WEDQ.0.1.0.1.0.1");
 				
 								
 			}
@@ -175,26 +175,54 @@ public class GestorMapas {
 		}
 	}
 	
-	private static void parseAccion(String act){
-		String[] arreglo = act.split("\\.");
-		char sprite = arreglo[0].charAt(0);
-		int cod = Integer.parseInt(arreglo[1]);
-		int posX = Integer.parseInt(arreglo[2]);
-		int posY = Integer.parseInt(arreglo[3]);
-
-		String sec = arreglo[4];
+	private static void cargarAcciones(int i) {
+		// TODO Auto-generated method stub
+//		AQUI PARSEAR XML
+//		AQUI PARSEAR XML
+//		AQUI PARSEAR XML
+//		AQUI PARSEAR XML
+//		AQUI PARSEAR XML
+//		AQUI PARSEAR XML
 		
-		int offset = 5; //Posicion de la secuencia
-		int size = (arreglo.length-offset)/2;
-		int[][] cordMov = new int[size][2];
-		for (int i = 0; i<size; i++){
-			cordMov[i][0] = Integer.parseInt(arreglo[offset+2*i]);
-			cordMov[i][1] = Integer.parseInt(arreglo[offset+2*i+1]);
-		}
 		
-		AccionEspecial accion = new AccionEspecial(posX, posY, sprite, cod, sec,cordMov);
-		map.addAccion(accion);
+		
+		
+		
+//		REPETIR POR CADA ACCION >>>>>
+		
+		
+		
+		//		GENERAL
+			char sprite = 'C';
+			int cod = 0;
+			String sec = "WEDQ";
+			int tipo = 1;
+			
+			AccionEspecial accion = new AccionEspecial(sprite, cod, sec, tipo);
+			
+		//		REPETIR PARA CADA PLAYER
+				int id = 1;
+				int x = 8;
+				int y = 2;
+				int[][] movinfo = new int[3][2];
+				movinfo[0][0] = 0;
+				movinfo[0][1] = 1;
+				movinfo[1][0] = 0;
+				movinfo[1][1] = 1;
+				movinfo[2][0] = 0; 
+				movinfo[2][1] = 1;			
+			
+				accion.addPlayerAccion(id, x, y, movinfo);
+			
+				
+//			AL FINAL:
+//			Agregar a la lista acciones en el mapa
+			map.addAccion(accion);
+		
+		
 	}
+
+	
 	
 	public static void cargarMapa(String urlArchivo) throws Exception{
 		
@@ -248,5 +276,7 @@ public class GestorMapas {
 			map.getCelda(posx,posy).addObjeto(width, height, sprite);			
 		}
 	}
+	
+	
 	
 }

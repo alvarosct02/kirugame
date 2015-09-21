@@ -51,15 +51,8 @@ public class Mapa {
 	public void ejecutarAccionEspecial() {
 		Jugador player = null;
 		for (AccionEspecial accion : acciones) {
-			if (p1.isHere(accion.gridX, accion.gridY)){
-				player = p1;
-			}
-			if (p2.isHere(accion.gridX, accion.gridY)){
-				player = p2;
-			}
-			
-			if (player != null){
-				accion.ejecutar(player);
+			if (accion.check()){
+				accion.ejecutar();
 				break;
 			}			
 		}
