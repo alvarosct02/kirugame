@@ -1,0 +1,107 @@
+<objetos>
+	<objeto id ="0">
+		<nombre>Mueble para sentarse</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>m</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="1">
+		<nombre>Mueble con cajones</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>j</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="2">
+		<nombre>Cofre abierto</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>d</sprite>
+		<layer>1</layer>
+	</objeto>	
+	<objeto id ="3">
+		<nombre>Puerta de la casa</nombre>
+		<width>1</width>
+		<height>4</height>
+		<sprite>o</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="4">
+		<nombre>Alfombra</nombre>
+		<width>15</width>
+		<height>2</height>
+		<sprite>a</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="5">
+		<nombre>Fila de piedras</nombre>
+		<width>16</width>
+		<height>1</height>
+		<sprite>p</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="6">
+		<nombre>Piedra grande</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>g</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="7">
+		<nombre>Castillo de arena grande</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>i</sprite>
+		<layer>1</layer>
+	</objeto>	
+	<objeto id ="8">
+		<nombre>Castillo de arena delgado y en columna</nombre>
+		<width>1</width>
+		<height>4</height>
+		<sprite>L</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="9">
+		<nombre>Canal de agua hecho de piedra</nombre>
+		<width>9</width>
+		<height>1</height>
+		<sprite>g</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="10">
+		<nombre>Muro de piedras</nombre>
+		<width>1</width>
+		<height>3</height>
+		<sprite>m</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="11">
+		<nombre>Hueco</nombre>
+		<width>2</width>
+		<height>2</height>
+		<sprite>h</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="12">
+		<nombre>Canal de agua</nombre>
+		<width>1</width>
+		<height>4</height>
+		<sprite>t</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="13">
+		<nombre>Lago</nombre>
+		<width>7</width>
+		<height>9</height>
+		<sprite>L</sprite>
+		<layer>1</layer>
+	</objeto>
+	<objeto id ="14">
+		<nombre>Gras o especie de planicie</nombre>
+		<width>4</width>
+		<height>2</height>
+		<sprite>o</sprite>
+		<layer>2</layer>   <!--  LAYER 2 : Para estar encima del lago -->
+	</objeto>
+</objetos>

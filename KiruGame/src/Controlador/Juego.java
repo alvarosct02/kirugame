@@ -1,9 +1,10 @@
-package game;
+package Controlador;
 import java.util.Scanner;
 
-import mapa.GestorMapas;
-import mapa.Mapa;
-import drawable.personaje.Jugador;
+import Vista.GestorMapas;
+import Vista.Mapa;
+import Modelo.Jugador;
+import Vista.Renderizador;
 
 public class Juego {
 	public static final int gridSize = 64;

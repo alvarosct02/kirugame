@@ -1,4 +1,4 @@
-package game;
+package Controlador;
 
 public class InterpreteComandos {
 	public static void ingresaComando(String cmd){

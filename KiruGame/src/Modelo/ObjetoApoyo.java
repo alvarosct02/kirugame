@@ -1,4 +1,4 @@
-package drawable.objeto;
+package Modelo;
 
 public class ObjetoApoyo extends Objeto{
 

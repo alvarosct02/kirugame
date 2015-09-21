@@ -1,7 +1,7 @@
-package mapa;
+package Vista;
 
-import drawable.personaje.Jugador;
-import game.Juego;
+import Modelo.Jugador;
+import Controlador.Juego;
 
 
 public class Mapa {

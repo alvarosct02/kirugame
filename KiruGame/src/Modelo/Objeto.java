@@ -1,6 +1,6 @@
-package drawable.objeto;
+package Modelo;
 
-import drawable.Sprite;
+import Modelo.Sprite;
 
 public class Objeto extends Sprite{
 				

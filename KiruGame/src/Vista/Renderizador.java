@@ -1,7 +1,8 @@
-package game;
+package Vista;
 
-import drawable.personaje.Jugador;
-import mapa.Mapa;
+import Modelo.Jugador;
+import Controlador.*;
+import Vista.Mapa;
 
 public class Renderizador {
 	

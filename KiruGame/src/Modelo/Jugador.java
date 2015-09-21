@@ -1,7 +1,7 @@
-package drawable.personaje;
+package Modelo;
 
-import mapa.GestorMapas;
-import game.Renderizador;
+import Vista.GestorMapas;
+import Vista.Renderizador;
 
 public class Jugador extends Personaje {
 	private static int vida = 10;	

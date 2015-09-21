@@ -1,4 +1,4 @@
-package drawable.personaje;
+package Modelo;
 
 public class Enemigo extends Personaje{
 	private int damage;

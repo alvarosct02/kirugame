@@ -1,6 +1,6 @@
-package drawable.personaje;
-import drawable.Sprite;
-import game.*;
+package Modelo;
+import Modelo.Sprite;
+import Controlador.*;
 
 public class Personaje extends Sprite{
 	protected int alto;
