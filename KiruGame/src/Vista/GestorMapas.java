@@ -175,51 +175,51 @@ public class GestorMapas {
 		}
 	}
 	
-	private static void cargarAcciones(int i) {
-		// TODO Auto-generated method stub
-//		AQUI PARSEAR XML
-//		AQUI PARSEAR XML
-//		AQUI PARSEAR XML
-//		AQUI PARSEAR XML
-//		AQUI PARSEAR XML
-//		AQUI PARSEAR XML
+	private static void cargarAcciones(int i)throws SAXException, IOException {
+
+		File accionesFile = new File("./src/Data/acciones.xml");		
+		Document doc = dBuilder.parse(accionesFile);		
+		doc.getDocumentElement().normalize();
+		NodeList objetosList = doc.getElementsByTagName("nivel");
 		
-		
-		
-		
-		
-//		REPETIR POR CADA ACCION >>>>>
-		
-		
-		
-		//		GENERAL
-			char sprite = 'C';
+		Element nivel =(Element) objetosList.item(i);
+		NodeList listaAcciones = nivel.getElementsByTagName("accion");
+
+		for (int pos = 0; pos < listaAcciones.getLength(); pos++) {
+			Element accion  = (Element) listaAcciones.item(pos);			
+
+			char sprite = accion.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
 			int cod = 0;
-			String sec = "WEDQ";
-			int tipo = 1;
+			String sec =  accion.getElementsByTagName("cad").item(0).getTextContent();
+			int tipo = 0 ;
 			
-			AccionEspecial accion = new AccionEspecial(sprite, cod, sec, tipo);
-			
-		//		REPETIR PARA CADA PLAYER
+			AccionEspecial accionObj = new AccionEspecial(sprite, cod, sec, tipo);
+			NodeList listaJugadores = accion.getElementsByTagName("jugador");
+
+			for(int ij = 0 ; ij<listaJugadores.getLength(); ij++)
+			{
+				Element jugador = (Element) listaJugadores.item(ij);
+
+				NodeList listaMovimientos = jugador.getElementsByTagName("mov");
+
+				int[][] movinfo = new int[listaMovimientos.getLength()][2];
+
+				int x = Integer.parseInt(jugador.getElementsByTagName("xpos").item(0).getTextContent());
+				int y = Integer.parseInt(jugador.getElementsByTagName("ypos").item(0).getTextContent());
 				int id = 1;
-				int x = 8;
-				int y = 2;
-				int[][] movinfo = new int[3][2];
-				movinfo[0][0] = 0;
-				movinfo[0][1] = 1;
-				movinfo[1][0] = 0;
-				movinfo[1][1] = 1;
-				movinfo[2][0] = 0; 
-				movinfo[2][1] = 1;			
-			
-				accion.addPlayerAccion(id, x, y, movinfo);
-			
-				
-//			AL FINAL:
-//			Agregar a la lista acciones en el mapa
-			map.addAccion(accion);
-		
-		
+				for(int imov = 0 ; imov<listaMovimientos.getLength();imov++)
+				{
+					Element movimiento = (Element) listaMovimientos.item(imov);
+
+					movinfo[imov][0] = Integer.parseInt(movimiento.getElementsByTagName("dir").item(0).getTextContent());
+					movinfo[imov][1] = Integer.parseInt(movimiento.getElementsByTagName("dist").item(0).getTextContent());
+					
+				}
+
+				accionObj.addPlayerAccion(id, x, y, movinfo);
+				map.addAccion(accionObj);
+			}
+		}
 	}
 
 	
