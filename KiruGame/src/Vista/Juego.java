@@ -9,7 +9,7 @@ import Modelo.ObjetoApoyo;
 
 public class Juego {
 //	Nivel inicial a jugar   DEBERIA SER 0
-	private final int firstLevel = 1;
+	private final int firstLevel = 0;
 	
 	public static final int cantNivel = 2;
 	
