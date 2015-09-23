@@ -63,7 +63,6 @@ public class AccionEspecial implements ITrigger{
 		}
 	}
 	
-	@Override
 	public int ejecutar() {
 //		map.getCelda(8, 2).removeSprite();
 //		map.getCelda(8, 2).trigger = false;	
@@ -105,7 +104,6 @@ public class AccionEspecial implements ITrigger{
 		
 	}
 	
-	@Override
 	public boolean check() {
 		if (activa != true) return false;		
 		Jugador player = null;

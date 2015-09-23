@@ -20,7 +20,6 @@ public class Enemigo extends Personaje implements ITrigger{
 		this.activa = true;
 	}
 	
-	@Override
 	public boolean check() {
 		if (activa != true) return false;	
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
@@ -42,7 +41,6 @@ public class Enemigo extends Personaje implements ITrigger{
 		return false;
 	}
 
-	@Override
 	public int ejecutar() {
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = true;

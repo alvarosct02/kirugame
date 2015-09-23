@@ -127,7 +127,7 @@ public class Renderizador {
 					+ "---------------------------------------------------------------------------\n"
 					+ "            Arriba ( W / I )                Izquierda ( A / J ) \n"
 					+ "             Abajo ( S / K )                  Derecha ( D / L ) \n"
-					+ "             Salir (  ESC  ) \n\n"
+					+ "             Salir (   Z   ) \n\n"
 					+ " >> Ingrese el comando a ejecutar: ");
 			}
 		}	

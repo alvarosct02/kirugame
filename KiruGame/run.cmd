@@ -1,6 +1,9 @@
 :declarar variables
 set bin=bin2
 
+:Agregar el PATH
+SET PATH=%PATH%;D:\Program Files (x86)\Java\jdk1.8.0_60\bin
+
 :Crear directorio para los .class
 mkdir %bin%
 
@@ -14,7 +17,7 @@ jar cf jarModCont.jar %bin%\Modelo\*.class %bin%\Controlador\*.class
 jar cfm jarVista.jar manifest.txt %bin%\Vista\*.class
 
 :Limpiar la pantalla
-cls
+:cls
 
 :Ejecutar el .jar de Vista
 java -cp jarVista.jar;%bin%; Main
