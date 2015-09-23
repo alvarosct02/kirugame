@@ -5,6 +5,7 @@
 				<cad>WDEQ</cad>	
 				<sprite>C</sprite>	
 				<tipo>1</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>8</xpos>
@@ -30,6 +31,7 @@
 				<cad>SDKIQEUO</cad>
 				<sprite>D</sprite>	
 				<tipo>2</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id= '1'>
 						<xpos>13</xpos>
@@ -76,6 +78,7 @@
 				<cad>SDQEQE</cad>
 				<sprite>C</sprite>	
 				<tipo>1</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>10</xpos>
@@ -105,6 +108,7 @@
 				<cad>JJUOJ</cad>
 				<sprite>C</sprite>	
 				<tipo>1</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id = '2'>
 						<xpos>4</xpos>
@@ -129,6 +133,7 @@
 				<cad>SDEWD</cad>
 				<sprite>C</sprite>	
 				<tipo>1</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>2</xpos>
@@ -154,6 +159,7 @@
 				<cad>SIQEUOKLSD</cad>
 				<sprite>D</sprite>	
 				<tipo>2</tipo>
+				<visible>1</visible>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>8</xpos>

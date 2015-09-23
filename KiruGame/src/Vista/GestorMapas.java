@@ -15,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 import java.io.*	;
+import java.util.Scanner;
 
 public class GestorMapas {
 	
@@ -136,18 +137,15 @@ public class GestorMapas {
 		
 		BufferedReader in = null;
 		in = new BufferedReader(new FileReader("./src/Data/"+urlArchivo));
-
-		int letra;
+		String letra;
 
 		for (int x = 0 ; x <12; x++){
+			letra = in.readLine();
 			for(int y = 0 ; y < 16; y++){
-				letra = in.read();
-				char sprite[] = Character.toChars(letra);
-				mapaFree[x][y] = sprite[0];
+				char sprite = letra.charAt(y);
+				mapaFree[x][y] = sprite;
 				mapaObjetos[x][y]  = '*';
 			}
-			letra = in.read();
-			letra = in.read();
 		}		
 		in.close();
 		map = new Mapa(mapaFree);

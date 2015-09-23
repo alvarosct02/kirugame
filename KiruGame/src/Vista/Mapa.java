@@ -1,11 +1,7 @@
 package Vista;
 
-import Modelo.AccionEspecial;
-import Modelo.Jugador;
-import Modelo.Objeto;
-
+import Modelo.*;
 import java.util.ArrayList;
-
 import Controlador.Juego;
 
 
@@ -23,6 +19,7 @@ public class Mapa {
 
 	private ArrayList<AccionEspecial> acciones= new ArrayList<AccionEspecial>();
 	private ArrayList<Objeto> objetos= new ArrayList<Objeto>();
+	private ArrayList<Enemigo> enemigos= new ArrayList<Enemigo>();
 	
 	public Mapa(char terreno[][]){//Creando el mapa
 		mapa = new Celda[gridHeight][gridWidth];		
