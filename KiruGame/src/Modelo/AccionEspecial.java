@@ -8,7 +8,7 @@ import Vista.Renderizador;
 
 public class AccionEspecial{
 	
-	private int codigo;
+	public int idAccion;
 	private String sec;
 	
 	private boolean activa = true;
@@ -22,7 +22,7 @@ public class AccionEspecial{
 	
 	public AccionEspecial(char sprite,int cod,String sec, int tipo) {
 		this.sprite = sprite;
-		codigo = cod;
+		idAccion = cod;
 		this.sec = sec;
 		this.tipo = tipo;		
 	}	
@@ -76,13 +76,11 @@ public class AccionEspecial{
 		
 		Jugador player;
 		for (int j = 0; j<jugArray.size(); j++){
-			char tmp = GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).getTerreno();
-			GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).visibleChar = tmp;
+			GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).showTerreno();
 		}
 		for (int i = 0; i< cordArray.get(0).length; i++){
-
 			for (int j = 0; j<jugArray.size(); j++){
-				int[] vect = getDirVector(cordArray.get(j)[i][0], cordArray.get(j)[i][1]);
+				int[] vect = {cordArray.get(j)[i][0], cordArray.get(j)[i][1]};
 				
 				if (jugArray.get(j) == 1)
 					player = Juego.p1;
@@ -90,10 +88,11 @@ public class AccionEspecial{
 					player = Juego.p2;
 				
 				player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
-				Renderizador.pressToMove(sprite);
-				Juego.sc.nextLine();
-				Renderizador.mostrarMapa();
+				
 			}
+			Renderizador.pressToMove(sprite);
+			Juego.sc.nextLine();
+			Renderizador.mostrarMapa();
 			
 		}
 		
@@ -101,24 +100,23 @@ public class AccionEspecial{
 		
 	}
 	
-	private int[] getDirVector(int dir, int dist){
-		int[] vector = {0,0};
-		switch (0) {
-		case 0: vector[0] = 1; break;
-		case 1: vector[0] = -1; break;
-		case 2: vector[0] = -1; break;
-		case 3: vector[0] = 1; break;		
-		default:
-			break;
-		}
-		vector[0] *= dist;
-		vector[1] *= dist;
-		return vector;
-	}
+//	private int[] getDirVector(int dir, int dist){
+//		int[] vector = {0,0};
+//		switch (dir) {
+//		case 0: vector[0] = 1; break;
+//		case 1: vector[1] = -1; break;
+//		case 2: vector[0] = -1; break;
+//		case 3: vector[1] = 1; break;		
+//		default:
+//			break;
+//		}
+//		vector[0] *= dist;
+//		vector[1] *= dist;
+//		return vector;
+//	}
 
 	public boolean check() {
-		if (activa != true) return false;
-		
+if (activa != true) return false;		
 		Jugador player = null;
 		boolean resp = true;
 		for (int j = 0; j<jugArray.size(); j++){			

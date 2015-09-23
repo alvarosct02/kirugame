@@ -113,12 +113,27 @@ public class Celda {
 		return visibleChar;	
 	}
 	
-	public char getTerreno() {		
-		return terreno;	
+//	public char getTerreno() {		
+//		return terreno;	
+//	}
+	
+	public void showTerreno() {		
+		visibleChar = terreno;
 	}
 
-	public void addObjeto(int w, int h, char s) {
-		this.objeto = new Obstaculo(x,y,w,h,s);		
+	public Objeto addObjeto(int id , int tipo, int w, int h, char s) {
+		Objeto obj = null;
+		switch (tipo) {
+			case 0:			
+				obj = new Obstaculo(id,x,y,w,h,s);break;
+			case 1:			
+				obj = new ObjetoApoyo(id,x,y,w,h,s); break;
+			default:
+				obj = new Objeto(id,x,y,w,h,s);	break;
+		}
+		
+		this.objeto = obj;
+		return obj;
 	}
 
 //	public void setValor(char valor) {

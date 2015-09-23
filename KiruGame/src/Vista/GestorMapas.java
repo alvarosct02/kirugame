@@ -18,98 +18,6 @@ import java.io.*	;
 
 public class GestorMapas {
 	
-	
-	/*private static char tutorialFree[][] = {
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','S'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'}
-	};
-	
-	private static char nivel1Free[][] ={
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'}
-	};
-
-	
-	private static char nivel2Free[][] ={
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'S','S','S','S','S','S','S','S','S','S','S','S','S','S','S','S'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
-		{'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'}
-	};
-	
-	private static char tutorialGg[][] = {
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'A','*','*','*','*','*','*','*','C','d','d','*','*','*','*','*'},
-		{'*','*','*','m','m','*','*','*','*','d','d','*','*','*','*','*'},
-		{'*','*','*','m','m','*','j','j','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','j','j','*','*','*','*','*','D','*','o'},
-		{'a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','o'},
-		{'a','a','a','a','a','a','a','a','a','a','a','a','a','a','a','o'},
-		{'*','*','*','*','m','m','*','*','*','*','*','*','*','D','*','o'},
-		{'*','*','*','*','m','m','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','j','j','*','j','j','*','*','*'},
-		{'B','*','*','*','*','*','*','*','j','j','*','j','j','*','*','*'}
-	};
-	private static char nivel1Gg[][] ={
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','C','*','*','*','*','*'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','A'},
-		{'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-		{'p','p','p','p','p','p','p','p','p','p','p','p','p','p','p','p'},
-		{'*','*','*','L','*','*','*','*','*','i','i','*','*','*','*','*'},
-		{'*','*','*','L','C','*','*','*','*','i','i','*','*','*','*','B'},
-		{'*','*','*','L','*','*','*','*','*','*','*','g','g','*','*','*'},
-		{'*','*','*','L','*','*','*','*','*','*','*','g','g','*','*','*'}
-	};	
-	private static char nivel2Gg[][] ={
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z','Z'},
-		{'*','*','*','*','t','*','*','*','*','L','L','L','L','L','L','L'},
-		{'*','*','*','*','t','*','*','*','*','L','L','L','L','L','L','L'},
-		{'A','*','*','C','t','*','*','*','*','L','L','L','L','L','L','L'},
-		{'*','*','*','*','t','*','*','*','D','L','L','L','o','o','o','o'},
-		{'g','g','g','g','g','g','g','g','g','L','L','L','o','o','o','o'},
-		{'*','*','*','m','*','*','*','*','D','L','L','L','L','L','L','L'},
-		{'*','*','*','m','*','*','*','*','*','L','L','L','L','L','L','L'},
-		{'B','*','*','m','*','h','h','*','*','L','L','L','L','L','L','L'},
-		{'*','*','*','*','*','h','h','*','*','L','L','L','L','L','L','L'}
-	};*/
-	
-	
-	
 	private static DocumentBuilderFactory dbFactory;
 	private static DocumentBuilder dBuilder;
 	private static char [][] mapaFree;
@@ -144,7 +52,6 @@ public class GestorMapas {
 				Element eElement = (Element) nNode;
 				
 				String urlArchivo = eElement.getElementsByTagName("url").item(0).getTextContent();
-				String urlObjetos = eElement.getElementsByTagName("urlObjetos").item(0).getTextContent();
 				int posxA = Integer.parseInt(eElement.getElementsByTagName("xposA").item(0).getTextContent());
 				int posyA = Integer.parseInt(eElement.getElementsByTagName("yposA").item(0).getTextContent());
 				int posxB = Integer.parseInt(eElement.getElementsByTagName("xposB").item(0).getTextContent());
@@ -152,15 +59,15 @@ public class GestorMapas {
 	
 				try {
 					cargarMapa(urlArchivo);
-					cargarObjetos(urlObjetos,i);
+					cargarObjetos(i);
 					cargarAcciones(i);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
-				Juego.p1.moverXY(posxA, posyA);
-				Juego.p2.moverXY(posxB, posyB);
+				Juego.p1.setXY(posxA, posyA);
+				Juego.p2.setXY(posxB, posyB);
 //				map.addPlayer();
 				
 	//			cargarMapa();
@@ -189,9 +96,9 @@ public class GestorMapas {
 			Element accion  = (Element) listaAcciones.item(pos);			
 
 			char sprite = accion.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int cod = 0;
+			int tipo = Integer.parseInt(accion.getElementsByTagName("tipo").item(0).getTextContent());
 			String sec =  accion.getElementsByTagName("cad").item(0).getTextContent();
-			int tipo = 0 ;
+			int cod = Integer.parseInt(accion.getAttribute("id"));
 			
 			AccionEspecial accionObj = new AccionEspecial(sprite, cod, sec, tipo);
 			NodeList listaJugadores = accion.getElementsByTagName("jugador");
@@ -206,19 +113,20 @@ public class GestorMapas {
 
 				int x = Integer.parseInt(jugador.getElementsByTagName("xpos").item(0).getTextContent());
 				int y = Integer.parseInt(jugador.getElementsByTagName("ypos").item(0).getTextContent());
-				int id = 1;
+				int id = Integer.parseInt(jugador.getAttribute("id"));
 				for(int imov = 0 ; imov<listaMovimientos.getLength();imov++)
 				{
 					Element movimiento = (Element) listaMovimientos.item(imov);
 
-					movinfo[imov][0] = Integer.parseInt(movimiento.getElementsByTagName("dir").item(0).getTextContent());
-					movinfo[imov][1] = Integer.parseInt(movimiento.getElementsByTagName("dist").item(0).getTextContent());
+					movinfo[imov][0] = Integer.parseInt(movimiento.getElementsByTagName("xdir").item(0).getTextContent());
+					movinfo[imov][1] = Integer.parseInt(movimiento.getElementsByTagName("ydir").item(0).getTextContent());
 					
 				}
 
-				accionObj.addPlayerAccion(id, x, y, movinfo);
-				map.addAccion(accionObj);
+				accionObj.addPlayerAccion(id, x, y, movinfo);				
 			}
+			
+			map.addAccion(accionObj);
 		}
 	}
 
@@ -245,10 +153,10 @@ public class GestorMapas {
 		map = new Mapa(mapaFree);
 	}
 
-	public static void cargarObjetos(String urlObjetos, int nivel) throws SAXException, IOException{
+	public static void cargarObjetos(int nivel) throws SAXException, IOException{
 		
 //		Cargar Objetos por Nivel
-		File objetosFile = new File("./src/Data/"+urlObjetos);		
+		File objetosFile = new File("./src/Data/objetosMapa.xml");		
 		Document doc = dBuilder.parse(objetosFile);		
 		doc.getDocumentElement().normalize();
 		NodeList objetosList = doc.getElementsByTagName("nivel");
@@ -267,13 +175,16 @@ public class GestorMapas {
 			int objetoID = Integer.parseInt(objetoMapa.getElementsByTagName("objetoID").item(0).getTextContent());
 			int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
 			int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
+			int id = Integer.parseInt(objetoMapa.getAttribute("id"));
 			
 			Element objetoBase = (Element) objetosListBase.item(objetoID);
 			char sprite = objetoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
 			int width = Integer.parseInt(objetoBase.getElementsByTagName("width").item(0).getTextContent());
 			int height = Integer.parseInt(objetoBase.getElementsByTagName("height").item(0).getTextContent());
+			int tipo = Integer.parseInt(objetoBase.getElementsByTagName("tipo").item(0).getTextContent());
 			
-			map.getCelda(posx,posy).addObjeto(width, height, sprite);			
+			Objeto obj = map.getCelda(posx,posy).addObjeto(id, tipo,width, height, sprite);	
+			map.addObjeto(obj);
 		}
 	}
 	

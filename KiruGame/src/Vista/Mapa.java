@@ -2,6 +2,7 @@ package Vista;
 
 import Modelo.AccionEspecial;
 import Modelo.Jugador;
+import Modelo.Objeto;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class Mapa {
 	public Jugador p2 = Juego.p2;	
 
 	private ArrayList<AccionEspecial> acciones= new ArrayList<AccionEspecial>();
+	private ArrayList<Objeto> objetos= new ArrayList<Objeto>();
 	
 	public Mapa(char terreno[][]){//Creando el mapa
 		mapa = new Celda[gridHeight][gridWidth];		
@@ -48,20 +50,32 @@ public class Mapa {
 		return mapa[y][x].getValor();
 	}
 
-	public void ejecutarAccionEspecial() {
+	public int ejecutarAccionEspecial() {
 		Jugador player = null;
 		for (AccionEspecial accion : acciones) {
 			if (accion.check()){
 				accion.ejecutar();
-				break;
+				return accion.idAccion;
 			}			
 		}
+		return -1;
 		
 	}
 
 	public void addAccion(AccionEspecial accion) {
-		acciones.add(accion);
-		
+		acciones.add(accion);		
+	}
+	
+	public void addObjeto(Objeto obj) {
+		objetos.add(obj);		
+	}
+	
+	public Objeto getObjeto(int id) {
+		for (Objeto obj : objetos) {
+			if (obj.id == id)
+				return obj;
+		}
+		return null;
 	}
 	
 	

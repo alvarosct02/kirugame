@@ -10,6 +10,7 @@ public abstract class Sprite{
 	public int gridY;
 	public int gridW;
 	public int gridH;
+	public int id;
 	
 	public Sprite(int xpos, int ypos,int w, int h, char sprite)	{
 		gridX = xpos;

@@ -51,7 +51,7 @@ public class Jugador extends Personaje {
 		return 1;
 	}
 	
-	public int moverXY(int x, int y){
+	private int moverXY(int x, int y){
 		if(
 			isValid(x,y) == 1 && 
 			((GestorMapas.map.getCeldaValue(x, y) == terreno || GestorMapas.map.getCeldaValue(x,y) == 'D' || GestorMapas.map.getCeldaValue(x,y) == 'C')
