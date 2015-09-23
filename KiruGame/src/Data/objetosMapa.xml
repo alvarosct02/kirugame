@@ -1,0 +1,98 @@
+<objetosMapa>
+	<nivel id = "0">
+		<objetoMapa id = "0">
+			<objetoID>0</objetoID>
+			<xpos>3</xpos>
+			<ypos>4</ypos>
+		</objetoMapa>
+		<objetoMapa id = "1">
+			<objetoID>0</objetoID>
+			<xpos>4</xpos>
+			<ypos>8</ypos>
+		</objetoMapa>
+		<objetoMapa id = "2">
+			<objetoID>1</objetoID>
+			<xpos>8</xpos>
+			<ypos>10</ypos>
+		</objetoMapa>
+		<objetoMapa id = "3">
+			<objetoID>1</objetoID>
+			<xpos>11</xpos>
+			<ypos>10</ypos>
+		</objetoMapa>
+		<objetoMapa id = "4">
+			<objetoID>1</objetoID>
+			<xpos>6</xpos>
+			<ypos>4</ypos>
+		</objetoMapa>
+		<objetoMapa id = "5">
+			<objetoID>2</objetoID>
+			<xpos>9</xpos>
+			<ypos>2</ypos>
+		</objetoMapa>
+		<objetoMapa id = "6">
+			<objetoID>4</objetoID>
+			<xpos>0</xpos>
+			<ypos>6</ypos>
+		</objetoMapa>
+		<objetoMapa id = "7">
+			<objetoID>3</objetoID>
+			<xpos>15</xpos>
+			<ypos>5</ypos>
+		</objetoMapa>
+	</nivel>
+	<nivel id = "1">
+		<objetoMapa id = "0">
+			<objetoID>5</objetoID>
+			<xpos>0</xpos>
+			<ypos>7</ypos>
+		</objetoMapa>
+		<objetoMapa id = "1">
+			<objetoID>6</objetoID>
+			<xpos>11</xpos>
+			<ypos>10</ypos>
+		</objetoMapa>
+		<objetoMapa id = "2">
+			<objetoID>7</objetoID>
+			<xpos>9</xpos>
+			<ypos>8</ypos>
+		</objetoMapa>
+		<objetoMapa id = "3">
+			<objetoID>8</objetoID>
+			<xpos>3</xpos>
+			<ypos>8</ypos>
+		</objetoMapa>
+	</nivel>	
+	<nivel id = "2">
+		<objetoMapa id = "0">
+			<objetoID>9</objetoID>
+			<xpos>0</xpos>
+			<ypos>7</ypos>
+		</objetoMapa>
+		<objetoMapa id = "1">
+			<objetoID>10</objetoID>
+			<xpos>3</xpos>
+			<ypos>8</ypos>
+		</objetoMapa>
+		<objetoMapa id = "2">
+			<objetoID>11</objetoID>
+			<xpos>5</xpos>
+			<ypos>10</ypos>
+		</objetoMapa>
+		<objetoMapa id = "3">
+			<objetoID>12</objetoID>
+			<xpos>4</xpos>
+			<ypos>3</ypos>
+		</objetoMapa>
+		<objetoMapa id = "4">
+			<objetoID>13</objetoID>
+			<xpos>9</xpos>
+			<ypos>3</ypos>
+		</objetoMapa>
+		<objetoMapa id = "5">
+			<objetoID>14</objetoID>
+			<xpos>12</xpos>
+			<ypos>6</ypos>
+		</objetoMapa>
+	</nivel>
+</objetosMapa>

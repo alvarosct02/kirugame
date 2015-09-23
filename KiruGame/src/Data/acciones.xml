@@ -2,30 +2,25 @@
 	<niveles>
 		<nivel id='0'>
 			<accion id = '0'>
-				<cad>WDEQ</cad>
-				<triggers>
-					<trigger>
-						<sprite>C</sprite>	
-						<xpos>8</xpos>
-						<ypos>2</ypos>
-					</trigger>
-				</triggers>	
+				<cad>WDEQ</cad>	
+				<sprite>C</sprite>	
+				<tipo>1</tipo>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>8</xpos>
 						<ypos>2</ypos>
 						<movimientos>
 							<mov>
-								<dir>0</dir>
-								<dist>1</dist>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
 							</mov>
 							<mov>
-								<dir>0</dir>
-								<dist>1</dist>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
 							</mov>
 							<mov>
-								<dir>0</dir>
-								<dist>1</dist>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
@@ -33,68 +28,74 @@
 			</accion>
 			<accion id='1'>
 				<cad>SDKIQEUO</cad>
-				<triggers>
-					<trigger>
-						<sprite>D</sprite>	
-						<xpos>13</xpos>
-						<ypos>8</ypos>
-					</trigger>
-					<trigger>
-						<sprite>D</sprite>
-						<xpos>13</xpos>
-						<ypos>5</ypos>
-					</trigger>
-				</triggers>
+				<sprite>D</sprite>	
+				<tipo>2</tipo>
 				<jugadores>
 					<jugador id= '1'>
 						<xpos>13</xpos>
-						<ypos>8</ypos>
+						<ypos>5</ypos>
 						<movimientos>
 							<mov>
-								<dir>4</dir>
-								<dist>1</dist>
+								<xdir>0</xdir>
+								<ydir>1</ydir>
 							</mov>
 							<mov>
-								<dir>0</dir>
-								<dist>2</dist>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
 					<jugador id= '2'>
 						<xpos>13</xpos>
-						<ypos>5</ypos>
+						<ypos>8</ypos>
 						<movimientos>
 							<mov>
-								<dir>1</dir>
-								<dist>1</dist>
+								<xdir>0</xdir>
+								<ydir>-1</ydir>
 							</mov>
 							<mov>
-								<dir>0</dir>
-								<dist>2</dist>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
 				</jugadores>		
 			</accion>
 		</nivel>
+
 		<nivel id= '1'>
 			<accion id = '0'>
 				<cad>SDQEQE</cad>
-				<triggers>
-					<trigger>
-						<sprite>C</sprite>	
-						<xpos>10</xpos>
-						<ypos>4</ypos>
-					</trigger>
-				</triggers>	
+				<sprite>C</sprite>	
+				<tipo>1</tipo>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>10</xpos>
 						<ypos>4</ypos>
 						<movimientos>
 							<mov>
-								<dir>3</dir>
-								<dist>4</dist>
+								<xdir>0</xdir>
+								<ydir>-1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>-1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>-2</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>4</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
@@ -102,109 +103,96 @@
 			</accion>
 			<accion id = '1'>
 				<cad>JJUOJ</cad>
-				<triggers>
-					<trigger>
-						<sprite>C</sprite>	
-						<xpos>4</xpos>
-						<ypos>10</ypos>
-					</trigger>
-				</triggers>	
+				<sprite>C</sprite>	
+				<tipo>1</tipo>
 				<jugadores>
-					<jugador id = '1'>
+					<jugador id = '2'>
 						<xpos>4</xpos>
-						<ypos>10</ypos>
+						<ypos>9</ypos>
 						<movimientos>
 							<mov>
-								<dir>2</dir>
-								<dist>2</dist>
+								<xdir>-1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>-1</xdir>
+								<ydir>0</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
 				</jugadores>
 			</accion>
 		</nivel>
-		<nivel>
-			<acciones>
-				<accion id= '0'>
-					<cad>SDEWD</cad>
-					<triggers>
-						<trigger>
-							<sprite>C</sprite>	
-							<xpos>2</xpos>
-							<ypos>4</ypos>
-						</trigger>
-					</triggers>	
-					<jugadores>
-						<jugador id = '1'>
-							<xpos>2</xpos>
-							<ypos>4</ypos>
-							<movimientos>
-								<mov>
-									<dir>0</dir>
-									<dist>3</dist>
-								</mov>
-							</movimientos>
-						</jugador>
-					</jugadores>
-				</accion>
-				<accion id='1'>
-					<cad>SIQEUOKLSD</cad>
-					<triggers>
-						<trigger>
-							<sprite>D</sprite>	
-							<xpos>8</xpos>
-							<ypos>8</ypos>
-						</trigger>
-						<trigger>
-							<sprite>D</sprite>
-							<xpos>8</xpos>
-							<ypos>6</ypos>
-						</trigger>
-					</triggers>	
-					<jugadores>
-						<jugador id= '1'>
-							<xpos>8</xpos>
-							<ypos>8</ypos>
-							<movimientos>
-								<mov>
-									<dir>0</dir>
-									<dist>1</dist>
-								</mov>
-								<mov>
-									<dir>1</dir>
-									<dist>1</dist>
-								</mov>
-								<mov>
-									<dir>0</dir>
-									<dist>3</dist>
-								</mov>
-								<mov>
-									<dir>3</dir>
-									<dist>1</dist>
-								</mov>
-							</movimientos>
-						</jugador>
-						<jugador id= '2'>
-							<xpos>8</xpos>
-							<ypos>6</ypos>
-							<movimientos>
-								<mov>
-									<dir>0</dir>
-									<dist>1</dist>
-								</mov>
-								<mov>
-									<dir>0</dir>
-									<dist>3</dist>
-								</mov>
-								<mov>
-									<dir>1</dir>
-									<dist>1</dist>
-								</mov>
-							</movimientos>
-						</jugador>
-					</jugadores>		
-				</accion>
-			</acciones>
-		</nivel>	
+
+		<nivel id= '2'>
+			<accion id = '0'>
+				<cad>SDEWD</cad>
+				<sprite>C</sprite>	
+				<tipo>1</tipo>
+				<jugadores>
+					<jugador id = '1'>
+						<xpos>2</xpos>
+						<ypos>4</ypos>
+						<movimientos>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+						</movimientos>
+					</jugador>
+				</jugadores>
+			</accion>
+			<accion id = '1'>
+				<cad>SIQEUOKLSD</cad>
+				<sprite>D</sprite>	
+				<tipo>2</tipo>
+				<jugadores>
+					<jugador id = '1'>
+						<xpos>8</xpos>
+						<ypos>6</ypos>
+						<movimientos>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>3</xdir>
+								<ydir>-1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>1</ydir>
+							</mov>
+						</movimientos>
+					</jugador>
+					<jugador id = '2'>
+						<xpos>8</xpos>
+						<ypos>8</ypos>
+						<movimientos>
+							<mov>
+								<xdir>1</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>3</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>-1</ydir>
+							</mov>
+						</movimientos>
+					</jugador>
+				</jugadores>
+			</accion>
+		</nivel>
 	</niveles>	
 </root>

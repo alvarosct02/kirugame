@@ -2,7 +2,6 @@
 <mapas>
 	<mapa id="0">
 		<url>mapa0.txt</url>
-		<urlObjetos>objetosmapa0.xml</urlObjetos>
 		<xposA>0</xposA>
 		<yposA>2</yposA>
 		<xposB>0</xposB>
@@ -10,18 +9,16 @@
 	</mapa>
 	<mapa id="1">
 		<url>mapa1.txt</url>
-		<urlObjetos>objetosmapa1.xml</urlObjetos>
-		<xposA>1</xposA>
-		<yposA>1</yposA>
-		<xposB>1</xposB>
-		<yposB>1</yposB>
+		<xposA>15</xposA>
+		<yposA>5</yposA>
+		<xposB>15</xposB>
+		<yposB>9</yposB>
 	</mapa>
 	<mapa id="2">
 		<url>mapa2.txt</url>
-		<urlObjetos>objetosmapa2.xml</urlObjetos>
-		<xposA>1</xposA>
-		<yposA>1</yposA>
-		<xposB>1</xposB>
-		<yposB>1</yposB>
+		<xposA>0</xposA>
+		<yposA>5</yposA>
+		<xposB>0</xposB>
+		<yposB>10</yposB>
 	</mapa>
 </mapas>
