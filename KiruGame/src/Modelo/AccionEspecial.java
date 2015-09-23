@@ -6,7 +6,7 @@ import Controlador.Juego;
 import Vista.GestorMapas;
 import Vista.Renderizador;
 
-public class AccionEspecial{
+public class AccionEspecial implements ITrigger{
 	
 	public int idAccion;
 	private String sec;
@@ -14,7 +14,6 @@ public class AccionEspecial{
 	private boolean activa = true;
 	
 	private char sprite;
-	public boolean visible;
 	
 	private int tipo;
 	private ArrayList<Integer> jugArray = new ArrayList<Integer>();
@@ -26,7 +25,7 @@ public class AccionEspecial{
 		idAccion = cod;
 		this.sec = sec;
 		this.tipo = tipo;	
-		this.visible = visible==1? true:false;	
+		this.activa = visible==1? true:false;	
 	}	
 	
 	public void addPlayerAccion(int id, int x, int y, int[][] movInfo){
@@ -39,7 +38,8 @@ public class AccionEspecial{
 		tempPos[1] = y;
 		posArray.add(tempPos);
 		
-		GestorMapas.map.getCelda(x, y).visibleChar = sprite;		
+		if (activa)
+			GestorMapas.map.getCelda(x, y).visibleChar = sprite;		
 	}
 	
 	private boolean secuencia(String cadena){
@@ -60,12 +60,13 @@ public class AccionEspecial{
 			return true;
 		}
 	}
-
-	public void ejecutar() {
+	
+	@Override
+	public int ejecutar() {
 //		map.getCelda(8, 2).removeSprite();
 //		map.getCelda(8, 2).trigger = false;	
 		while(true){
-			if (Jugador.getVida() <= 0) return;
+			if (Jugador.getVida() <= 0) return -2;
 			Renderizador.requestSecuencia(sec);
 			if (secuencia(sec)){
 				break;
@@ -99,26 +100,13 @@ public class AccionEspecial{
 		}
 		
 		activa = false;
+		return idAccion;
 		
 	}
 	
-//	private int[] getDirVector(int dir, int dist){
-//		int[] vector = {0,0};
-//		switch (dir) {
-//		case 0: vector[0] = 1; break;
-//		case 1: vector[1] = -1; break;
-//		case 2: vector[0] = -1; break;
-//		case 3: vector[1] = 1; break;		
-//		default:
-//			break;
-//		}
-//		vector[0] *= dist;
-//		vector[1] *= dist;
-//		return vector;
-//	}
-
+	@Override
 	public boolean check() {
-if (activa != true) return false;		
+		if (activa != true) return false;		
 		Jugador player = null;
 		boolean resp = true;
 		for (int j = 0; j<jugArray.size(); j++){			
@@ -132,5 +120,11 @@ if (activa != true) return false;
 		}
 		
 		return resp;
+	}
+
+	public void activar() {
+		activa = true;
+		GestorMapas.map.getCelda(posArray.get(0)[0], posArray.get(0)[1]).visibleChar = sprite;	
+		
 	}
 }

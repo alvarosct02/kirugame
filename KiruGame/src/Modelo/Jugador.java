@@ -6,6 +6,7 @@ import Vista.Renderizador;
 public class Jugador extends Personaje {
 	private static int vida = 10;	
 	private String nombre;
+	public boolean blooding = false;
 	public String getNombre() {
 		return nombre;
 	}
@@ -57,6 +58,7 @@ public class Jugador extends Personaje {
 			((GestorMapas.map.getCeldaValue(x, y) == terreno || GestorMapas.map.getCeldaValue(x,y) == 'D' || GestorMapas.map.getCeldaValue(x,y) == 'C')
 			|| (GestorMapas.map.getCeldaValue(x,y) == 'o' && GestorMapas.map.getCelda(x,y).walkable == true))
 		){
+			if (blooding) getTipoDano(1);
 			setXY(x,y);
 			return 0 ;
 		}else 		

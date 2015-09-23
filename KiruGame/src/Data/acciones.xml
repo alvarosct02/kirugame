@@ -71,6 +71,8 @@
 					</jugador>
 				</jugadores>		
 			</accion>
+
+
 		</nivel>
 
 		<nivel id= '1'>
@@ -126,6 +128,39 @@
 					</jugador>
 				</jugadores>
 			</accion>
+
+			<!-- PARA SER USADO POR ENEMIGO -->
+			<accion id = '2'>
+				<cad>QWE</cad>	
+				<sprite>C</sprite>	
+				<tipo>1</tipo>
+				<visible>0</visible>
+				<jugadores>
+					<jugador id = '1'>
+						<xpos>6</xpos>
+						<ypos>6</ypos>
+						<movimientos>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>1</ydir>
+							</mov>
+							<mov>
+								<xdir>0</xdir>
+								<ydir>-3</ydir>
+							</mov>
+						</movimientos>
+					</jugador>
+				</jugadores>
+			</accion>
+
 		</nivel>
 
 		<nivel id= '2'>

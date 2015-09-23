@@ -1,6 +1,7 @@
 package Modelo;
 
 import Controlador.Juego;
+import Vista.GestorMapas;
 
 public abstract class Sprite{
 	
@@ -30,5 +31,23 @@ public abstract class Sprite{
 	public void setXY(int x, int y){		
 		gridX = x;
 		gridY = y;
+	}
+	
+
+	
+	public void agregarMapa(){
+		for (int i = 0; i<gridH ; i++){
+			for (int j = 0; j<gridW ; j++){
+				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = sprite;
+			}
+		}
+	}
+	
+	public void quitarMapa(){
+		for (int i = 0; i<gridH ; i++){
+			for (int j = 0; j<gridW ; j++){
+				GestorMapas.map.getCelda(gridX+j,gridY+i).showTerreno();
+			}
+		}
 	}
 }

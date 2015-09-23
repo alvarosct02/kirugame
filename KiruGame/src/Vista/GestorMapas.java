@@ -7,9 +7,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Controlador.Juego;
-import Modelo.AccionEspecial;
-import Modelo.Objeto;
-import Modelo.Obstaculo;
+import Modelo.*;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -61,6 +59,7 @@ public class GestorMapas {
 				try {
 					cargarMapa(urlArchivo);
 					cargarObjetos(i);
+					cargarEnemigos(i);
 					cargarAcciones(i);
 					
 				} catch (Exception e) {
@@ -184,6 +183,43 @@ public class GestorMapas {
 			
 			Objeto obj = map.getCelda(posx,posy).addObjeto(id, tipo,width, height, sprite);	
 			map.addObjeto(obj);
+		}
+	}
+	
+public static void cargarEnemigos(int nivel) throws SAXException, IOException{
+		
+//		Cargar enemigos por Nivel
+		File enemigosFile = new File("./src/Data/enemigosMapa.xml");		
+		Document doc = dBuilder.parse(enemigosFile);		
+		doc.getDocumentElement().normalize();
+		NodeList enemigosList = doc.getElementsByTagName("nivel");
+		
+		Element listaenemigos =(Element) enemigosList.item(nivel);
+		NodeList enemigosMapa = listaenemigos.getElementsByTagName("enemigoMapa");
+
+//		Cargar Metadata enemigos
+		File enemigosFileBase = new File("./src/Data/enemigos.xml");
+		doc = dBuilder.parse(enemigosFileBase);
+		doc.getDocumentElement().normalize();
+		NodeList enemigosListBase = doc.getElementsByTagName("enemigo");
+
+		for (int pos = 0; pos < enemigosMapa.getLength(); pos++) {
+			Element enemigoMapa  = (Element) enemigosMapa.item(pos);			
+			int enemigoID = Integer.parseInt(enemigoMapa.getElementsByTagName("enemigoID").item(0).getTextContent());
+			int accionID = Integer.parseInt(enemigoMapa.getElementsByTagName("accionID").item(0).getTextContent());
+			int jugadorID = Integer.parseInt(enemigoMapa.getElementsByTagName("jugadorID").item(0).getTextContent());
+			int posx = Integer.parseInt(enemigoMapa.getElementsByTagName("xpos").item(0).getTextContent());
+			int posy = Integer.parseInt(enemigoMapa.getElementsByTagName("ypos").item(0).getTextContent());
+			int id = Integer.parseInt(enemigoMapa.getAttribute("id"));
+			
+			Element enemigoBase = (Element) enemigosListBase.item(enemigoID);
+			char sprite = enemigoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
+			int width = Integer.parseInt(enemigoBase.getElementsByTagName("width").item(0).getTextContent());
+			int height = Integer.parseInt(enemigoBase.getElementsByTagName("height").item(0).getTextContent());
+			int rango = Integer.parseInt(enemigoBase.getElementsByTagName("rango").item(0).getTextContent());
+			
+			Enemigo enemigo = new Enemigo(id, posx, posy, width, height, sprite, accionID, rango, jugadorID);
+			map.addEnemigo(enemigo);
 		}
 	}
 	

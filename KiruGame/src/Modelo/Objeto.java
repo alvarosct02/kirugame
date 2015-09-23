@@ -10,20 +10,4 @@ public class Objeto extends Sprite{
 		this.id = id;
 		agregarMapa();
 	}
-	
-	public void agregarMapa(){
-		for (int i = 0; i<gridH ; i++){
-			for (int j = 0; j<gridW ; j++){
-				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = sprite;
-			}
-		}
-	}
-	
-	public void quitarMapa(){
-		for (int i = 0; i<gridH ; i++){
-			for (int j = 0; j<gridW ; j++){
-				GestorMapas.map.getCelda(gridX+j,gridY+i).showTerreno();
-			}
-		}
-	}
 }

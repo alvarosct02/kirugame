@@ -8,6 +8,9 @@ import Modelo.ObjetoApoyo;
 import Vista.Renderizador;
 
 public class Juego {
+//	Nivel inicial a jugar   DEBERIA SER 0
+	private final int firstLevel = 1;
+	
 	public static final int gridSize = 64;
 	public static final int gridWidth = 16;
 	public static final int gridHeight = 12;
@@ -19,8 +22,6 @@ public class Juego {
 	
 	private static boolean salir = false;
 	
-//	Nivel inicial a jugar
-	private final int firstLevel = 0;
 	
 	public static int renderMode = 0;
 	private String cmd = ""; 
@@ -136,6 +137,9 @@ public class Juego {
 	
 	private boolean onEnterFrame(int i) {
 
+		if (map.checkEnemigos())
+			return false;
+		
 		int idAccion = map.ejecutarAccionEspecial();
 		
 //		CONDICION ESPECIAL NIVEL 1
@@ -165,6 +169,10 @@ public class Juego {
 			if (i == 1){
 				if (idAccion == 0){	
 					map.getObjeto(2).quitarMapa();
+					return false;
+				}
+				if (idAccion == 2){	
+					map.getEnemigo(0).destruir();
 					return false;
 				}
 			}			

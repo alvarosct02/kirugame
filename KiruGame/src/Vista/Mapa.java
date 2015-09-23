@@ -48,15 +48,21 @@ public class Mapa {
 	}
 
 	public int ejecutarAccionEspecial() {
-		Jugador player = null;
 		for (AccionEspecial accion : acciones) {
 			if (accion.check()){
-				accion.ejecutar();
-				return accion.idAccion;
+				return accion.ejecutar();
 			}			
 		}
-		return -1;
-		
+		return -1;		
+	}
+
+	public boolean checkEnemigos() {
+		for (Enemigo enemigo : enemigos) {
+			if (enemigo.check()){
+				enemigo.ejecutar();
+			}			
+		}
+		return false;
 	}
 
 	public void addAccion(AccionEspecial accion) {
@@ -66,6 +72,10 @@ public class Mapa {
 	public void addObjeto(Objeto obj) {
 		objetos.add(obj);		
 	}
+
+	public void addEnemigo(Enemigo enemigo) {
+		enemigos.add(enemigo);	
+	}
 	
 	public Objeto getObjeto(int id) {
 		for (Objeto obj : objetos) {
@@ -73,6 +83,22 @@ public class Mapa {
 				return obj;
 		}
 		return null;
+	}
+
+	public Enemigo getEnemigo(int id) {
+		for (Enemigo enemigo : enemigos) {
+			if (enemigo.id == id)
+				return enemigo;
+		}
+		return null;
+	}
+
+	public void activarAccion(int id) {
+		for (AccionEspecial accion : acciones) {
+			if (accion.idAccion == id){
+				accion.activar();
+			}
+		}		
 	}
 	
 	
