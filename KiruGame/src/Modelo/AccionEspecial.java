@@ -14,17 +14,19 @@ public class AccionEspecial{
 	private boolean activa = true;
 	
 	private char sprite;
+	public boolean visible;
 	
 	private int tipo;
 	private ArrayList<Integer> jugArray = new ArrayList<Integer>();
 	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
 	private ArrayList<int[][]> cordArray = new ArrayList<int[][]>();;
 	
-	public AccionEspecial(char sprite,int cod,String sec, int tipo) {
+	public AccionEspecial(char sprite,int cod,String sec, int tipo, int visible) {
 		this.sprite = sprite;
 		idAccion = cod;
 		this.sec = sec;
-		this.tipo = tipo;		
+		this.tipo = tipo;	
+		this.visible = visible==1? true:false;	
 	}	
 	
 	public void addPlayerAccion(int id, int x, int y, int[][] movInfo){

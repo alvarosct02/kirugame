@@ -100,8 +100,9 @@ public class GestorMapas {
 			int tipo = Integer.parseInt(accion.getElementsByTagName("tipo").item(0).getTextContent());
 			String sec =  accion.getElementsByTagName("cad").item(0).getTextContent();
 			int cod = Integer.parseInt(accion.getAttribute("id"));
+			int visible = Integer.parseInt(accion.getElementsByTagName("visible").item(0).getTextContent());
 			
-			AccionEspecial accionObj = new AccionEspecial(sprite, cod, sec, tipo);
+			AccionEspecial accionObj = new AccionEspecial(sprite, cod, sec, tipo,visible);
 			NodeList listaJugadores = accion.getElementsByTagName("jugador");
 
 			for(int ij = 0 ; ij<listaJugadores.getLength(); ij++)

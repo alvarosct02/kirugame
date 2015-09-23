@@ -86,19 +86,19 @@
 						<movimientos>
 							<mov>
 								<xdir>0</xdir>
-								<ydir>-1</ydir>
+								<ydir>1</ydir>
 							</mov>
 							<mov>
 								<xdir>0</xdir>
-								<ydir>-1</ydir>
+								<ydir>1</ydir>
 							</mov>
 							<mov>
 								<xdir>0</xdir>
-								<ydir>-2</ydir>
+								<ydir>2</ydir>
 							</mov>
 							<mov>
 								<xdir>0</xdir>
-								<ydir>4</ydir>
+								<ydir>-4</ydir>
 							</mov>
 						</movimientos>
 					</jugador>
