@@ -1,7 +1,9 @@
-package Modelo;
+package Vista;
 
 import Controlador.GestorMapas;
-import Vista.Juego;
+import Modelo.ITrigger;
+import Modelo.Jugador;
+import Modelo.Personaje;
 
 public class Enemigo extends Personaje implements ITrigger{
 	private int actionID;
@@ -22,7 +24,7 @@ public class Enemigo extends Personaje implements ITrigger{
 	@Override
 	public boolean check() {
 		if (activa != true) return false;	
-		Jugador player = jugID == 1 ? Juego.p1 : Juego.p2;
+		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		
 		for (int w = 0; w<gridW; w++){
 			for (int h = 0; h<gridH; h++){	
@@ -43,7 +45,7 @@ public class Enemigo extends Personaje implements ITrigger{
 
 	@Override
 	public int ejecutar() {
-		Jugador player = jugID == 1 ? Juego.p1 : Juego.p2;
+		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = true;
 		agregarMapa();
 		GestorMapas.map.activarAccion(actionID);
@@ -51,7 +53,7 @@ public class Enemigo extends Personaje implements ITrigger{
 	}
 	
 	public void destruir() {
-		Jugador player = jugID == 1 ? Juego.p1 : Juego.p2;
+		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = false;
 		quitarMapa();	
 	}

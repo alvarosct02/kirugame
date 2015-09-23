@@ -4,7 +4,6 @@ import java.util.Scanner;
 import Controlador.GestorMapas;
 import Controlador.InterpreteComandos;
 import Modelo.Jugador;
-import Modelo.Mapa;
 import Modelo.ObjetoApoyo;
 
 public class Juego {
@@ -16,8 +15,8 @@ public class Juego {
 	public static final int gridHeight = 12;
 	public static final int cantNivel = 2;
 	
-	public static Jugador p1;
-	public static Jugador p2;
+	public Jugador p1;
+	public Jugador p2;
 	public static Mapa map;
 	
 	private static boolean salir = false;
@@ -25,9 +24,12 @@ public class Juego {
 	
 	public static int renderMode = 0;
 	private String cmd = ""; 
-	public static Scanner sc = new Scanner(System.in);
+	public Scanner sc = new Scanner(System.in);
 	
 	public Juego(){
+		p1 = Mapa.p1;
+		p2 = Mapa.p2;
+		
 		Renderizador.mostrarWelcome();		
 		sc.nextLine();		
 		menuLoop();
@@ -38,10 +40,10 @@ public class Juego {
 		Renderizador.pedirDatos(1);		
 		Jugador.resetVida();
 		String nom1 = sc.next();
-		p1 = new Jugador(nom1, "WASDQE",1,1,'A','S');
+		p1.addData(nom1, "WASDQE",1,1,'A','S');
 		Renderizador.pedirDatos(2);	
 		String nom2 = sc.next();
-		p2 = new Jugador(nom2, "IJKLUO",1,1,'B','N');
+		p2.addData(nom2, "IJKLUO",1,1,'B','N');
 		Renderizador.endPedirDatos();
 		gameLoop();
 		if (Jugador.getVida()<= 0){
@@ -50,7 +52,7 @@ public class Juego {
 			gameWin();
 		}
 	}
-	
+
 	public void menuLoop(){
 		Renderizador.mostrarMenuIncial();
 		int act1;
@@ -87,8 +89,11 @@ public class Juego {
 	public void gameLoop(){
 		
 		for (int i=firstLevel; i<=cantNivel; i++){	
-			Renderizador.nuevoNivel(i);
 			if (Jugador.getVida() <= 0) return;
+			
+//			Mostrar MENSAJE NUEVO NIVEL			
+			Renderizador.nuevoNivel(i);
+			
 //			Mostrar Historia
 			Renderizador.mostrarHistoria(i+1);
 			

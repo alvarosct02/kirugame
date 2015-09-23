@@ -1,7 +1,6 @@
-package Modelo;
+package Vista;
 
 import Modelo.*;
-import Vista.Juego;
 
 import java.util.ArrayList;
 
@@ -15,8 +14,8 @@ public class Mapa {
 	private Celda[][] mapa;
 	private char valor;
 	
-	public Jugador p1 = Juego.p1;
-	public Jugador p2 = Juego.p2;	
+	public static Jugador p1 = new Jugador();
+	public static Jugador p2 = new Jugador();	
 
 	private ArrayList<AccionEspecial> acciones= new ArrayList<AccionEspecial>();
 	private ArrayList<Objeto> objetos= new ArrayList<Objeto>();

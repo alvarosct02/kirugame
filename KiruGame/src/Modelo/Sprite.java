@@ -1,7 +1,6 @@
 package Modelo;
 
 import Controlador.GestorMapas;
-import Vista.Juego;
 
 public abstract class Sprite{
 	
@@ -22,7 +21,7 @@ public abstract class Sprite{
 	}
 	
 	public int isValid(int x, int y){		
-		if (x>=0 && y>=0 && x<Juego.gridWidth && y<Juego.gridHeight){
+		if (x>=0 && y>=0 && x< 16 && y< 12){
 			return 1 ;
 		} else
 			return 0 ;

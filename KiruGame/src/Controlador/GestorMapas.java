@@ -7,13 +7,14 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Modelo.*;
-import Vista.Juego;
+import Vista.AccionEspecial;
+import Vista.Enemigo;
+import Vista.Mapa;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 import java.io.*	;
-import java.util.Scanner;
 
 public class GestorMapas {
 	
@@ -66,8 +67,8 @@ public class GestorMapas {
 					e.printStackTrace();
 				}
 				
-				Juego.p1.setXY(posxA, posyA);
-				Juego.p2.setXY(posxB, posyB);
+				Mapa.p1.setXY(posxA, posyA);
+				Mapa.p2.setXY(posxB, posyB);
 //				map.addPlayer();
 				
 	//			cargarMapa();

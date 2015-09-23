@@ -1,6 +1,5 @@
 package Modelo;
 import Modelo.Sprite;
-import Controlador.*;
 
 public class Personaje extends Sprite{
 	

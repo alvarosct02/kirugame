@@ -1,16 +1,18 @@
-package Modelo;
+package Vista;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import Controlador.GestorMapas;
-import Vista.Juego;
-import Vista.Renderizador;
+import Modelo.ITrigger;
+import Modelo.Jugador;
 
 public class AccionEspecial implements ITrigger{
 	
 	public int idAccion;
 	private String sec;
-	
+
+	private Scanner sc = new Scanner(System.in);
 	private boolean activa = true;
 	
 	private char sprite;
@@ -48,7 +50,7 @@ public class AccionEspecial implements ITrigger{
 		for(i=0; i<cadena.length(); i++){
 			char car = cadena.charAt(i);
 			Renderizador.requestChar(Character.toUpperCase(car));
-			charPressed = Juego.sc.next();
+			charPressed = sc.next();
 //			Si se equivoca, break!
 			if (Character.toUpperCase(charPressed.charAt(0)) != car) break;
 		}
@@ -74,7 +76,7 @@ public class AccionEspecial implements ITrigger{
 				Renderizador.errorSecuencia(sec);
 			}
 		}
-		Juego.sc.nextLine();	
+		sc.nextLine();	
 		
 		
 		Jugador player;
@@ -86,15 +88,15 @@ public class AccionEspecial implements ITrigger{
 				int[] vect = {cordArray.get(j)[i][0], cordArray.get(j)[i][1]};
 				
 				if (jugArray.get(j) == 1)
-					player = Juego.p1;
+					player = Mapa.p1;
 				else
-					player = Juego.p2;
+					player = Mapa.p2;
 				
 				player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
 				
 			}
 			Renderizador.pressToMove(sprite);
-			Juego.sc.nextLine();
+			sc.nextLine();
 			Renderizador.mostrarMapa();
 			
 		}
@@ -111,9 +113,9 @@ public class AccionEspecial implements ITrigger{
 		boolean resp = true;
 		for (int j = 0; j<jugArray.size(); j++){			
 			if (jugArray.get(j) == 1)
-				player = Juego.p1;
+				player = Mapa.p1;
 			else
-				player = Juego.p2;
+				player = Mapa.p2;
 			
 			resp &= player.isHere(posArray.get(j)[0], posArray.get(j)[1]);				
 			

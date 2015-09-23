@@ -1,7 +1,6 @@
 package Vista;
 
 import Modelo.Jugador;
-import Modelo.Mapa;
 import Controlador.*;
 
 public class Renderizador {
@@ -91,7 +90,7 @@ public class Renderizador {
 	public static void mostrarPantalla(Mapa map) {
 		if (Juego.renderMode == 0){			
 			System.out.println();
-			mostrarDatos(Juego.p1, Juego.p2);
+			mostrarDatos(Mapa.p1, Mapa.p2);
 			mostrarMapa();
 		}			
 	}
