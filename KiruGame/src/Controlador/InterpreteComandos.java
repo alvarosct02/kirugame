@@ -61,7 +61,7 @@ public class InterpreteComandos {
 			resp[0] = 0; 
 			int a = 0; 
 			break;
-		}		
+		}
 		
 		return resp;
 	}
