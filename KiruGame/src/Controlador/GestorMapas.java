@@ -7,9 +7,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Modelo.*;
-import Vista.AccionEspecial;
-import Vista.Enemigo;
-import Vista.Mapa;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;

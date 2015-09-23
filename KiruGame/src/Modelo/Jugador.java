@@ -32,18 +32,18 @@ public class Jugador extends Personaje {
 		this.input = input;		
 	}
 	
-	public int moverDir(String cmd){
+	public int moverDir(int cmd){
 		int error = 0;
-		if (cmd.charAt(0) == input.charAt(3)){
+		if (cmd == input.charAt(3)){
 			error = moverXY(gridX+1,gridY);
 			dir = "la derecha";			
-		} else if (cmd.charAt(0) == input.charAt(0)){
+		} else if (cmd == input.charAt(0)){
 			error = moverXY(gridX,gridY-1);
 			dir = "arriba";			
-		} else if (cmd.charAt(0) == input.charAt(1)){
+		} else if (cmd == input.charAt(1)){
 			error = moverXY(gridX-1,gridY);
 			dir = "la izquierda";				
-		} else if (cmd.charAt(0) == input.charAt(2)){
+		} else if (cmd == input.charAt(2)){
 			error = moverXY(gridX,gridY+1);
 			dir = "abajo";
 		}		

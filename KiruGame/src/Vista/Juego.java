@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import Controlador.GestorMapas;
 import Controlador.InterpreteComandos;
+import Controlador.Mapa;
 import Modelo.Jugador;
 import Modelo.ObjetoApoyo;
 
@@ -10,9 +11,6 @@ public class Juego {
 //	Nivel inicial a jugar   DEBERIA SER 0
 	private final int firstLevel = 1;
 	
-	public static final int gridSize = 64;
-	public static final int gridWidth = 16;
-	public static final int gridHeight = 12;
 	public static final int cantNivel = 2;
 	
 	public Jugador p1;
@@ -105,12 +103,23 @@ public class Juego {
 			GestorMapas.cargarNivel(i);
 			map = GestorMapas.map;
 			int act1,act2 = 0;
+			int[] resp;
 			while (true){
 				Renderizador.mostrarPantalla(map);
 				Renderizador.ingreseComandoGame();
 				cmd = sc.next();
-				act1 = InterpreteComandos.cmdJuego1(cmd);
-				if (act1 == 1){
+				resp = InterpreteComandos.cmdJuego1(cmd);
+				act1 = resp[0];
+				
+				if (act1 == -2)
+					Renderizador.logNoMover();
+					
+				
+				
+				if (act1 >= 1){
+					Jugador player = resp[1]==1? Mapa.p1: Mapa.p2;
+					player.moverDir(resp[2]);
+					Renderizador.logMover(player.getNombre(), player.dir);
 					if (onEnterFrame(i)){						
 						break;
 					}

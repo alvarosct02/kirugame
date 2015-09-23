@@ -109,9 +109,9 @@ public class Renderizador {
 	
 	public static void mostrarMapa(){		
 		System.out.println();
-		for (int i = 0; i<Juego.gridHeight; i++){
+		for (int i = 0; i<Mapa.gridHeight; i++){
 			System.out.print("                    ");
-			for (int j = 0; j<Juego.gridWidth; j++){
+			for (int j = 0; j<Mapa.gridWidth; j++){
 				char valor = GestorMapas.map.getCeldaValue(j,i);
 				System.out.print(valor + " ");		
 			}

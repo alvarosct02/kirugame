@@ -1,8 +1,7 @@
 package Controlador;
 
-import Modelo.Jugador;
-import Vista.Mapa;
-import Vista.Renderizador;
+//import Vista.Mapa;
+//import Vista.Renderizador;
 
 public class InterpreteComandos {
 	public static void ingresaComando(String cmd){
@@ -39,33 +38,32 @@ public class InterpreteComandos {
 		}
 	}
 
-	public static int cmdJuego1(String cmd) {
+	public static int[] cmdJuego1(String cmd) {
 //		Estandarizar todo a mayusculas
+		
+		int[] resp = {0,0,0};
+		
 		cmd = cmd.toUpperCase();
-		int aux;
-		Jugador player;
 		switch (cmd) {
 		case "W": case"A": case"S": case"D":
-			player = Mapa.p1;
-			aux = player.moverDir(cmd);
+			resp[0] = 1;
+			resp[1] = 1;
+			resp[2] = cmd.charAt(0);
 			break;
 		case "I": case"J": case"K": case"L":
-			player = Mapa.p2;
-			aux = player.moverDir(cmd);
+			resp[0] = 1;
+			resp[1] = 2;
+			resp[2] = cmd.charAt(0);
 			break;
 		case "ESC":
-			return -1;
+			resp[0] = -1; break;
 		default:
-			return 0;
-		}
+			resp[0] = 0; 
+			int a = 0; 
+			break;
+		}		
 		
-		if (aux == 1){
-			Renderizador.logNoMover();
-			return -2;
-		} else {
-			Renderizador.logMover(player.getNombre(), player.dir);
-			return 1;
-		}
+		return resp;
 	}
 
 }
