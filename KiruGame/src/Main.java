@@ -1,4 +1,4 @@
-import Controlador.Juego;
+import Vista.Juego;
 
 public class Main {
 	public static void main(String [] args){

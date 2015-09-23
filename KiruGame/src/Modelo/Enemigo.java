@@ -1,7 +1,7 @@
 package Modelo;
 
-import Controlador.Juego;
-import Vista.GestorMapas;
+import Controlador.GestorMapas;
+import Vista.Juego;
 
 public class Enemigo extends Personaje implements ITrigger{
 	private int actionID;

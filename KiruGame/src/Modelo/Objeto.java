@@ -1,7 +1,7 @@
 package Modelo;
 
+import Controlador.GestorMapas;
 import Modelo.Sprite;
-import Vista.GestorMapas;
 
 public class Objeto extends Sprite{
 				

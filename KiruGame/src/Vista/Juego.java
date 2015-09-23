@@ -1,11 +1,11 @@
-package Controlador;
+package Vista;
 import java.util.Scanner;
 
-import Vista.GestorMapas;
-import Vista.Mapa;
+import Controlador.GestorMapas;
+import Controlador.InterpreteComandos;
 import Modelo.Jugador;
+import Modelo.Mapa;
 import Modelo.ObjetoApoyo;
-import Vista.Renderizador;
 
 public class Juego {
 //	Nivel inicial a jugar   DEBERIA SER 0
@@ -136,7 +136,9 @@ public class Juego {
 	}
 	
 	private boolean onEnterFrame(int i) {
-
+		if (Jugador.getVida() <= 0)
+			return true;			
+		
 		if (map.checkEnemigos())
 			return false;
 		

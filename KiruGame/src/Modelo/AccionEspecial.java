@@ -2,8 +2,8 @@ package Modelo;
 
 import java.util.ArrayList;
 
-import Controlador.Juego;
-import Vista.GestorMapas;
+import Controlador.GestorMapas;
+import Vista.Juego;
 import Vista.Renderizador;
 
 public class AccionEspecial implements ITrigger{

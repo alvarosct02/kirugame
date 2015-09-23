@@ -1,8 +1,9 @@
-package Vista;
+package Modelo;
 
 import Modelo.*;
+import Vista.Juego;
+
 import java.util.ArrayList;
-import Controlador.Juego;
 
 
 public class Mapa {

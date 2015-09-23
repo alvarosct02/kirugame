@@ -1,5 +1,7 @@
 package Controlador;
 
+import Vista.Juego;
+
 public class InterpreteComandos {
 	public static void ingresaComando(String cmd){
 		

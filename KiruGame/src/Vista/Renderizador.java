@@ -1,8 +1,8 @@
 package Vista;
 
 import Modelo.Jugador;
+import Modelo.Mapa;
 import Controlador.*;
-import Vista.Mapa;
 
 public class Renderizador {
 	

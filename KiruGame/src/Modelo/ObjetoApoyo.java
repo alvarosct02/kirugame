@@ -1,6 +1,6 @@
 package Modelo;
 
-import Vista.GestorMapas;
+import Controlador.GestorMapas;
 
 public class ObjetoApoyo extends Objeto{
 

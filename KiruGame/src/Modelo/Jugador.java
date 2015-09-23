@@ -1,6 +1,6 @@
 package Modelo;
 
-import Vista.GestorMapas;
+import Controlador.GestorMapas;
 import Vista.Renderizador;
 
 public class Jugador extends Personaje {
