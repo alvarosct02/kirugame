@@ -1,8 +1,8 @@
-package Controlador;
+package controlador;
 
-import Modelo.ITrigger;
-import Modelo.Jugador;
-import Modelo.Personaje;
+import modelo.ITrigger;
+import modelo.Jugador;
+import modelo.Personaje;
 
 public class Enemigo extends Personaje implements ITrigger{
 	private int actionID;

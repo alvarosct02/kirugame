@@ -1,11 +1,11 @@
-package Controlador;
+package controlador;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Modelo.ITrigger;
-import Modelo.Jugador;
-import Vista.Renderizador;
+import modelo.ITrigger;
+import modelo.Jugador;
+import vista.Renderizador;
 
 public class AccionEspecial implements ITrigger{
 	

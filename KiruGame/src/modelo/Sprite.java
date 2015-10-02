@@ -1,7 +1,7 @@
-package Modelo;
+package modelo;
 
-import Controlador.GestorMapas;
-import Controlador.Mapa;
+import controlador.GestorMapas;
+import controlador.Mapa;
 
 public abstract class Sprite{
 	

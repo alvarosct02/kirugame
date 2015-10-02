@@ -1,7 +1,7 @@
-package Modelo;
+package modelo;
 
-import Controlador.GestorMapas;
-import Modelo.Sprite;
+import controlador.GestorMapas;
+import modelo.Sprite;
 
 public class Objeto extends Sprite{
 				

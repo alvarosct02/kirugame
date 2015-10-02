@@ -1,6 +1,6 @@
-package Modelo;
+package modelo;
 
-import Controlador.GestorMapas;
+import controlador.GestorMapas;
 
 public class Obstaculo extends Objeto{
 

@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 public interface ITrigger {
 	public boolean check();

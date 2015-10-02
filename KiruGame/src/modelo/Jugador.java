@@ -1,6 +1,6 @@
-package Modelo;
+package modelo;
 
-import Controlador.GestorMapas;
+import controlador.GestorMapas;
 
 public class Jugador extends Personaje {
 	private static int vida = 10;	

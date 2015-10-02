@@ -1,7 +1,7 @@
-package Vista;
+package vista;
 
-import Modelo.Jugador;
-import Controlador.*;
+import controlador.*;
+import modelo.Jugador;
 
 public class Renderizador {
 	

@@ -1,14 +1,29 @@
-package Vista;
+package vista;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferStrategy;
 import java.util.Scanner;
 
-import Controlador.GestorMapas;
-import Controlador.InterpreteComandos;
-import Controlador.Mapa;
-import Modelo.Jugador;
-import Modelo.ObjetoApoyo;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Juego {
-//	Nivel inicial a jugar   DEBERIA SER 0
+import controlador.GestorMapas;
+import controlador.InterpreteComandos;
+import controlador.Mapa;
+import javaAS3.StageAS3;
+import modelo.Jugador;
+import modelo.ObjetoApoyo;
+import vista.screen.ScreenManager;
+
+
+public class Juego extends JFrame{
+	public static int FRAMERATE = 24;
+	
+	
+	//	Nivel inicial a jugar   DEBERIA SER 0
 	private final int firstLevel = 0;
 	
 	public static final int cantNivel = 2;
@@ -24,13 +39,49 @@ public class Juego {
 	private String cmd = ""; 
 	public Scanner sc = new Scanner(System.in);
 	
-	public Juego(){
-		p1 = Mapa.p1;
-		p2 = Mapa.p2;
+	private BufferStrategy bufferStrategy;
+	
+	public Juego(){	
+		StageAS3.stage = this;
 		
-		Renderizador.mostrarWelcome();		
-		sc.nextLine();		
-		menuLoop();
+		setTitle("KiruGame");
+		setSize(1024, 768);
+		setVisible(true);
+		setResizable(false);		
+		addGlobalListener();
+		createBufferStrategy(2);
+        bufferStrategy = getBufferStrategy();
+		
+		ScreenManager.showScreen("menu");
+		
+//		p1 = Mapa.p1;
+//		p2 = Mapa.p2;		
+//		Renderizador.mostrarWelcome();		
+//		sc.nextLine();		
+//		menuLoop();		
+		
+	}
+	
+	private void addGlobalListener(){
+		this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+				dispose();
+                System.exit(0);
+            }
+        });
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);	
+		try{
+			Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
+			graph2D.clearRect(0, 0, getWidth(), getHeight());
+			ScreenManager.renderScreen(graph2D);
+			graph2D.dispose();
+			bufferStrategy.show();
+		}catch(Exception e){
+			System.out.println(e);
+		}
 	}
 	
 	public void initGame(){
@@ -214,5 +265,7 @@ public class Juego {
 		Renderizador.pantallaJuegoCompletado();
 		menuLoop();
 	}
+
+
 	
 }

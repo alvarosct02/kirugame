@@ -1,5 +1,5 @@
-package Modelo;
-import Modelo.Sprite;
+package modelo;
+import modelo.Sprite;
 
 public class Personaje extends Sprite{
 	

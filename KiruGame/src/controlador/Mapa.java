@@ -1,8 +1,8 @@
-package Controlador;
-
-import Modelo.*;
+package controlador;
 
 import java.util.ArrayList;
+
+import modelo.*;
 
 
 public class Mapa {
