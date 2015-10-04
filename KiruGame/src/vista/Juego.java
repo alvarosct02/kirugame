@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 
 import java.util.Scanner;
@@ -49,10 +51,11 @@ public class Juego extends JPanel{
         JFrame f = new JFrame("KiruGame");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(this);
-//        
+        f.setResizable(false);
         f.pack();
         f.setLocationRelativeTo(null);
-        f.setVisible(true);        
+        f.setVisible(true); 
+        
 
 //        f.createBufferStrategy(2);
 //        bufferStrategy = f.getBufferStrategy();
@@ -60,7 +63,7 @@ public class Juego extends JPanel{
 
     public Juego() {
         super(true);
-        this.setOpaque(false);
+        this.setOpaque(true);
 
 		AssetManager.cargarImagenes();
 		AssetManager.cargarObjetos();
@@ -70,29 +73,31 @@ public class Juego extends JPanel{
         ScreenManager.showScreen("menu");
         
         this.setPreferredSize(new Dimension(ANCHO, ALTO));
+//        this.addMouseListener(new MouseHandler());
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);    
-//      Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
+    protected void paintComponent(Graphics g) { 
+    	super.paintComponent(g);   
+//        Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
         Graphics2D graph2D = (Graphics2D) g;
-		graph2D.clearRect(0, 0, getWidth(), getHeight());
+//		graph2D.clearRect(0, 0, getWidth(), getHeight());
 		ScreenManager.renderScreen(graph2D);
 		graph2D.dispose();
+        
 //		bufferStrategy.show();
     }
     
-//    private class MouseHandler extends MouseAdapter {
-//        @Override
-//        public void mousePressed(MouseEvent e) {
-//            super.mousePressed(e);
-//            JTextField field = new JTextField("test");
-//            Dimension d = field.getPreferredSize();
-//            field.setBounds(e.getX(), e.getY(), d.width, d.height);
-//            add(field);
-//        }
-//    }
+    private class MouseHandler extends MouseAdapter {
+        @Override
+        public void mousePressed(MouseEvent e) {
+            super.mousePressed(e);
+            JTextField field = new JTextField("test");
+            Dimension d = field.getPreferredSize();
+            field.setBounds(e.getX(), e.getY(), d.width, d.height);
+            add(field);
+        }
+    }
 	
     
     

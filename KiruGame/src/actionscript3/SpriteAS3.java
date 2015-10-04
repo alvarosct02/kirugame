@@ -16,8 +16,8 @@ import javax.swing.JPanel;
 public class SpriteAS3 implements
 	MouseListener, MouseWheelListener, MouseMotionListener	{
 	private ArrayList<SpriteAS3> displayList = new ArrayList<SpriteAS3>();
-	public int x = 0;
-	public int y = 0;
+	public float x = 0;
+	public float y = 0;
 	public int height = 0; //No se debe usar
 	public int width = 0; //No se debe usar
 	public SpriteAS3 parent = null;
@@ -56,16 +56,16 @@ public class SpriteAS3 implements
 	
 	protected void render(Graphics2D canvas){
 		if (img != null){
-			canvas.drawImage(img, getAbsX(), getAbsY(), Stage.stage);
+			canvas.drawImage(img, Math.round(getAbsX()), Math.round(getAbsY()), Stage.stage);
 		}
 	}
 	
-	public int getAbsX() {
+	public float getAbsX() {
 		if (parent == null)
 			return x;
 		return parent.getAbsX() + x;
 	}
-	public int getAbsY() {
+	public float getAbsY() {
 		if (parent == null)
 			return y;
 		return parent.getAbsY() + y;
@@ -75,7 +75,7 @@ public class SpriteAS3 implements
 		this.img = img;
 		width = img.getWidth();
 		height = img.getHeight();
-		setBounds(new Rectangle(getAbsX(),getAbsY(), width, height));		
+		setBounds(new Rectangle(Math.round(getAbsX()),Math.round(getAbsY()), width, height));		
 	}	
 
 	public Rectangle getBounds() {

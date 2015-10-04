@@ -46,6 +46,12 @@ public class ScreenGame extends Screen{
 		obj2.x = 264;
 		obj2.y = 264;
 		addChild(obj2);
+		
+		JTextField field = new JTextField("nombre");
+//		Dimension d = field.getPreferredSize();
+		field.setBounds(0,0,100,100);
+//		add(field);
+	
 //		TextField
 		
 //		btn.
@@ -58,12 +64,15 @@ public class ScreenGame extends Screen{
 		
 	}
 	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 //		super.actionPerformed(e);
 		
-		if (obj.x <= max)
-			obj.x += 64/24;
+		if (obj.x <= max){
+			obj.x += 64.0/24;
+//			System.out.println(aux + " - "+ obj.x);
+		}
 //		System.out.println(obj.x);
 		
 		Stage.stage.repaint();

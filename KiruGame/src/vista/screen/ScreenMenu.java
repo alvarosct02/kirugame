@@ -24,6 +24,7 @@ public class ScreenMenu extends Screen {
 				
 			}
 		};	
+		
 		btnGame.x = 400;
 		btnGame.y = 400;
 		addChild(btnGame);
