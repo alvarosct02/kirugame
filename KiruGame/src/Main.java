@@ -1,11 +1,18 @@
-import javaAS3.StageAS3;
-import vista.GestorImagenes;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import actionscript3.Stage;
+import vista.AssetManager;
 import vista.Juego;
 
 public class Main {
 	public static void main(String[] args) {	
-		GestorImagenes.cargarImagenes();
+		AssetManager.cargarImagenes();
+		AssetManager.cargarObjetos();
+		
 		Juego game = new Juego();
-		System.out.println("El juego ha terminado");
 	}
 }

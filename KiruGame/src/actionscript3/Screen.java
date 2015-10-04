@@ -1,4 +1,4 @@
-package javaAS3;
+package actionscript3;
 
 import java.awt.event.*;
 
@@ -6,31 +6,32 @@ import javax.swing.Timer;
 
 import vista.Juego;
 
-public abstract class ScreenAS3 extends SpriteAS3 
-implements	
-			ActionListener,
-			KeyListener
-//			, 
-//			WindowListener, WindowStateListener, WindowFocusListener 
-			{
+public abstract class Screen extends SpriteAS3 implements ActionListener,KeyListener {
 		
 	Timer timer;
 	
-	public ScreenAS3(){
+	public Screen(){
 		super();
-		stage = StageAS3.stage;	
+		stage = Stage.stage;	
 //		stage.addWindowListener(this);		
 		stage.addKeyListener(this);		
-		stage.addMouseListener(this);
-		timer = new Timer(1000/Juego.FRAMERATE, this);
+//		stage.addMouseListener(this);
+		timer = new Timer(1000/Stage.FRAMERATE, this);
 		timer.start();
 	}
 	
-	public void removerListeners(){
-//		stage.removeWindowListener(this);		
+	public void removerListeners(){	
+		timer.stop();	
+		
+		MouseListener[] mListeners = stage.getMouseListeners();
+		for (int i = 0; i < mListeners.length; i++){
+			stage.removeMouseListener(mListeners[i]);
+		}
+		
 		stage.removeKeyListener(this);		
 		stage.removeMouseListener(this);
-		timer.stop();		
+		
+		
 	}
 	
 

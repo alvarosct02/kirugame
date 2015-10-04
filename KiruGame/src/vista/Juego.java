@@ -10,17 +10,16 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import actionscript3.Stage;
 import controlador.GestorMapas;
 import controlador.InterpreteComandos;
 import controlador.Mapa;
-import javaAS3.StageAS3;
 import modelo.Jugador;
 import modelo.ObjetoApoyo;
 import vista.screen.ScreenManager;
 
 
 public class Juego extends JFrame{
-	public static int FRAMERATE = 24;
 	
 	
 	//	Nivel inicial a jugar   DEBERIA SER 0
@@ -42,7 +41,7 @@ public class Juego extends JFrame{
 	private BufferStrategy bufferStrategy;
 	
 	public Juego(){	
-		StageAS3.stage = this;
+		Stage.stage = this;
 		
 		setTitle("KiruGame");
 		setSize(1024, 768);
@@ -65,6 +64,7 @@ public class Juego extends JFrame{
 	private void addGlobalListener(){
 		this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
+        		System.out.println("El juego ha terminado");
 				dispose();
                 System.exit(0);
             }

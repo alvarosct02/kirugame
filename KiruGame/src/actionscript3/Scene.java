@@ -1,16 +1,16 @@
-package javaAS3;
+package actionscript3;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class SceneAS3 {
+public class Scene {
 	public String name = "";
 	private int numFrame = 0;
 	private int currentFrame = 0;
 	
 	private ArrayList<BufferedImage> imgArr = new ArrayList<BufferedImage>();
 	
-	public SceneAS3(String name){
+	public Scene(String name){
 		this.name = name;
 	}
 	

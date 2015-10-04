@@ -3,37 +3,58 @@ package vista.screen;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
-import javaAS3.ButtonAS3;
-import javaAS3.ScreenAS3;
-import javaAS3.StageAS3;
-import vista.GestorImagenes;
+import actionscript3.Button;
+import actionscript3.ToogleButton;
+import actionscript3.Screen;
+import actionscript3.SimpleButton;
+import actionscript3.SpriteAS3;
+import actionscript3.Stage;
+import vista.AssetManager;
 
-public class ScreenGame extends ScreenAS3{
+public class ScreenGame extends Screen{
 	
-	ButtonAS3 btn;
-	
+	Button btn;
+	SpriteAS3 obj;
+	int max = 264;
 	public ScreenGame(){
-		super();
+		super();		
+//		btn = new ImageButton(AssetManager.btn1,AssetManager.btn1,AssetManager.btn1,AssetManager.btn2);
 		
-		btn = new ButtonAS3();
-		btn.addScene("idle");
-		btn.currentScene.addFrame(GestorImagenes.btn1,12);
-		btn.currentScene.addFrame(GestorImagenes.btn2,12);	
-		addChild(btn);				
+		
+		obj = new SpriteAS3();
+		obj.setImg(AssetManager.objectList.get(2).img);
+		obj.x = 200;
+		obj.y = 200;
+		addChild(obj);
+		
+		btn = new SimpleButton(AssetManager.btn1,AssetManager.btn2) {			
+			@Override
+			public void onClick() {
+				// TODO Auto-generated method stub
+				max += 64;				
+			}
+		};
+		addChild(btn);
+		
+		SpriteAS3 obj2 = new SpriteAS3();
+		obj2.setImg(AssetManager.objectList.get(2).img);
+		obj2.x = 264;
+		obj2.y = 264;
+		addChild(obj2);
+		
+//		btn.
+		
 	}
 	
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		super.mouseClicked(e);
-		btn.x += 10;
-		this.y += 10;		
-	}	
-
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
-		StageAS3.stage.repaint();
+		
+		if (obj.x <= max)
+			obj.x += 64/24;
+//		System.out.println(obj.x);
+		
+		Stage.stage.repaint();
 	}
 	
 }

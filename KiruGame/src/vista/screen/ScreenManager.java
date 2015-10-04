@@ -2,21 +2,24 @@ package vista.screen;
 
 import java.awt.Graphics2D;
 
-import javaAS3.ScreenAS3;
+import actionscript3.Screen;
 
 public class ScreenManager {
 	
-	private static ScreenAS3 currentScreen;
+	private static Screen currentScreen;
 		
 	public static void showScreen(String screen){
-		ScreenAS3 newScreen = null;
+		Screen newScreen = null;
+		
+		if (currentScreen != null){
+			currentScreen.removerListeners();
+		}
+		
 		switch(screen){
 			case "menu": newScreen = new ScreenMenu(); break;
 			case "game": newScreen = new ScreenGame(); break;
 		}
-		if (currentScreen != null){
-			currentScreen.removerListeners();
-		}
+		
         currentScreen = newScreen;
 	}
 	

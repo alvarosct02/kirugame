@@ -4,16 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 
-import javaAS3.ScreenAS3;
-import javaAS3.StageAS3;
-import vista.GestorImagenes;
+import actionscript3.Screen;
+import actionscript3.Stage;
+import vista.AssetManager;
 import vista.Juego;
 
-public class ScreenMenu extends ScreenAS3 {
+public class ScreenMenu extends Screen {
 	
 	public ScreenMenu(){
 		super();		
-		img = GestorImagenes.imgFondo;
+		setImg(AssetManager.imgFondo);
     }
 
 	public void keyPressed(KeyEvent e) {
@@ -27,6 +27,6 @@ public class ScreenMenu extends ScreenAS3 {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		super.actionPerformed(e);
-		StageAS3.stage.repaint();
+		Stage.stage.repaint();
 	}
 }

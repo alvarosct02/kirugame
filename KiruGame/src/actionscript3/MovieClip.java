@@ -1,28 +1,28 @@
-package javaAS3;
+package actionscript3;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class MovieClipAS3 extends SpriteAS3 {
+public class MovieClip extends SpriteAS3 {
 	
-	private ArrayList<SceneAS3> sceneArr= new ArrayList<SceneAS3>();
-	public SceneAS3 currentScene;
+	private ArrayList<Scene> sceneArr= new ArrayList<Scene>();
+	public Scene currentScene;
 	private boolean isPlaying = true;
 //	private int currentFrame = 0;
 	
-	public MovieClipAS3() {
+	public MovieClip() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void addScene(String sceneName){
-		SceneAS3 scene = new SceneAS3(sceneName);
+		Scene scene = new Scene(sceneName);
 		sceneArr.add(scene);
 		currentScene = scene;		
 	}
 	
-	public SceneAS3 getScene(String sceneName){
-		for (SceneAS3 scene : sceneArr) {
+	public Scene getScene(String sceneName){
+		for (Scene scene : sceneArr) {
 			if (scene.name == sceneName)
 				return scene;
 		}
@@ -46,7 +46,7 @@ public class MovieClipAS3 extends SpriteAS3 {
 	
 	@Override
 	protected void render(Graphics2D canvas) {	
-		img = currentScene.getFrame();	
+		setImg(currentScene.getFrame());	
 		
 		if (isPlaying)
 			currentScene.next();
