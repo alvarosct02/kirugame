@@ -63,7 +63,7 @@ public class Juego extends JPanel{
 
     public Juego() {
         super(true);
-        this.setOpaque(true);
+        this.setOpaque(false);
 
 		AssetManager.cargarImagenes();
 		AssetManager.cargarObjetos();
@@ -81,23 +81,24 @@ public class Juego extends JPanel{
     	super.paintComponent(g);   
 //        Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
         Graphics2D graph2D = (Graphics2D) g;
-//		graph2D.clearRect(0, 0, getWidth(), getHeight());
+		graph2D.clearRect(0, 0, getWidth(), getHeight());
 		ScreenManager.renderScreen(graph2D);
-		graph2D.dispose();
+//		update(graph2D);
+//		graph2D.dispose();
         
 //		bufferStrategy.show();
     }
-    
-    private class MouseHandler extends MouseAdapter {
-        @Override
-        public void mousePressed(MouseEvent e) {
-            super.mousePressed(e);
-            JTextField field = new JTextField("test");
-            Dimension d = field.getPreferredSize();
-            field.setBounds(e.getX(), e.getY(), d.width, d.height);
-            add(field);
-        }
-    }
+//    
+//    private class MouseHandler extends MouseAdapter {
+//        @Override
+//        public void mousePressed(MouseEvent e) {
+//            super.mousePressed(e);
+//            JTextField field = new JTextField("test");
+//            Dimension d = field.getPreferredSize();
+//            field.setBounds(e.getX(), e.getY(), d.width, d.height);
+//            add(field);
+//        }
+//    }
 	
     
     

@@ -50,7 +50,7 @@ public class ScreenGame extends Screen{
 		JTextField field = new JTextField("nombre");
 //		Dimension d = field.getPreferredSize();
 		field.setBounds(0,0,100,100);
-//		add(field);
+		stage.add(field);
 	
 //		TextField
 		
