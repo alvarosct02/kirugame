@@ -1,7 +1,6 @@
 package vista.screen;
 
 import java.awt.Graphics2D;
-
 import actionscript3.Screen;
 
 public class ScreenManager {

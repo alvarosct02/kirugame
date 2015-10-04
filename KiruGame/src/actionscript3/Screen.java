@@ -29,14 +29,12 @@ public abstract class Screen extends SpriteAS3 implements ActionListener,KeyList
 		}
 		
 		stage.removeKeyListener(this);		
-		stage.removeMouseListener(this);
-		
-		
+		stage.removeMouseListener(this);		
 	}
 	
 
 //	ACTION EVENT
-	public void actionPerformed(ActionEvent e) {}
+//	public void actionPerformed(ActionEvent e) {}
 	
 //	KEYBOARD EVENT
 	public void keyPressed(KeyEvent e) {}

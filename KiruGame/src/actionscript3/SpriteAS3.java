@@ -25,7 +25,7 @@ public class SpriteAS3 implements
 	private Rectangle bounds = new Rectangle();
 	
 //	public JPanel stage;
-	public JFrame stage;
+	public JPanel stage;
 	
 	public SpriteAS3(){
 		stage = Stage.stage;
@@ -75,8 +75,7 @@ public class SpriteAS3 implements
 		this.img = img;
 		width = img.getWidth();
 		height = img.getHeight();
-		setBounds(new Rectangle(0, 0, width, height));
-		
+		setBounds(new Rectangle(getAbsX(),getAbsY(), width, height));		
 	}	
 
 	public Rectangle getBounds() {

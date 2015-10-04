@@ -5,6 +5,7 @@
 		<height>2</height>
 		<sprite>E</sprite>
 		<rango>1</rango>
-		<layer>1</layer>
+		<layer>1</layer>		
+		<frame></frame>
 	</enemigo>
 </enemigos>

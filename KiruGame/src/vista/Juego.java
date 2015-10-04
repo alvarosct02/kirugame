@@ -1,15 +1,15 @@
 package vista;
-import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
+
 import java.util.Scanner;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
+//import DemoComponents.MouseHandler;
 import actionscript3.Stage;
 import controlador.GestorMapas;
 import controlador.InterpreteComandos;
@@ -19,70 +19,93 @@ import modelo.ObjetoApoyo;
 import vista.screen.ScreenManager;
 
 
-public class Juego extends JFrame{
-	
-	
+public class Juego extends JPanel{
+
+	private static final int ANCHO = 1024;
+    private static final int ALTO = 768;	
+	private BufferStrategy bufferStrategy;		
+    
 	//	Nivel inicial a jugar   DEBERIA SER 0
-	private final int firstLevel = 0;
-	
-	public static final int cantNivel = 2;
-	
+	private final int firstLevel = 0;	
+	public static final int cantNivel = 2;	
 	public Jugador p1;
 	public Jugador p2;
 	public static Mapa map;
-	
-	private static boolean salir = false;
-	
-	
 	public static int renderMode = 0;
 	private String cmd = ""; 
 	public Scanner sc = new Scanner(System.in);
 	
-	private BufferStrategy bufferStrategy;
-	
-	public Juego(){	
-		Stage.stage = this;
-		
-		setTitle("KiruGame");
-		setSize(1024, 768);
-		setVisible(true);
-		setResizable(false);		
-		addGlobalListener();
-		createBufferStrategy(2);
-        bufferStrategy = getBufferStrategy();
-		
-		ScreenManager.showScreen("menu");
-		
-//		p1 = Mapa.p1;
-//		p2 = Mapa.p2;		
-//		Renderizador.mostrarWelcome();		
-//		sc.nextLine();		
-//		menuLoop();		
-		
-	}
-	
-	private void addGlobalListener(){
-		this.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent evt) {
-        		System.out.println("El juego ha terminado");
-				dispose();
-                System.exit(0);
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Juego().create();
             }
         });
-	}
+    }
+
+    private void create() {
+        JFrame f = new JFrame("KiruGame");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.add(this);
+//        
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);        
+
+//        f.createBufferStrategy(2);
+//        bufferStrategy = f.getBufferStrategy();
+    }
+
+    public Juego() {
+        super(true);
+        this.setOpaque(false);
+
+		AssetManager.cargarImagenes();
+		AssetManager.cargarObjetos();
+		AssetManager.cargarEnemigos();
+        
+        Stage.stage = this;
+        ScreenManager.showScreen("menu");
+        
+        this.setPreferredSize(new Dimension(ANCHO, ALTO));
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);    
+//      Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
+        Graphics2D graph2D = (Graphics2D) g;
+		graph2D.clearRect(0, 0, getWidth(), getHeight());
+		ScreenManager.renderScreen(graph2D);
+		graph2D.dispose();
+//		bufferStrategy.show();
+    }
+    
+//    private class MouseHandler extends MouseAdapter {
+//        @Override
+//        public void mousePressed(MouseEvent e) {
+//            super.mousePressed(e);
+//            JTextField field = new JTextField("test");
+//            Dimension d = field.getPreferredSize();
+//            field.setBounds(e.getX(), e.getY(), d.width, d.height);
+//            add(field);
+//        }
+//    }
 	
-	public void paint(Graphics g) {
-		super.paint(g);	
-		try{
-			Graphics2D graph2D = (Graphics2D)bufferStrategy.getDrawGraphics();
-			graph2D.clearRect(0, 0, getWidth(), getHeight());
-			ScreenManager.renderScreen(graph2D);
-			graph2D.dispose();
-			bufferStrategy.show();
-		}catch(Exception e){
-			System.out.println(e);
-		}
-	}
+    
+    
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+//  JUEGO ANITGUOOOOO
+    
 	
 	public void initGame(){
 		Renderizador.beginPedirDatos();

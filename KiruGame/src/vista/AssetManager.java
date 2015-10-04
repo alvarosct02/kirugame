@@ -15,6 +15,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import modelo.EnemigoData;
 import modelo.Objeto;
 import modelo.ObjetoData;
 
@@ -26,8 +27,7 @@ public class AssetManager {
 	public static BufferedImage btn3;
 	
 	public static ArrayList<ObjetoData> objectList = new ArrayList<ObjetoData>();
-//	public static ArrayList<BufferedImage> objectList = new ArrayList<BufferedImage>();
-//	public static ArrayList<BufferedImage> objectList = new ArrayList<BufferedImage>();
+	public static ArrayList<EnemigoData> enemyList = new ArrayList<EnemigoData>();
 	
 	public AssetManager(){
 		// Constructor vacio
@@ -46,7 +46,40 @@ public class AssetManager {
 		}
 	}
 	
-	public static void cargarObjetos(){
+	public static void cargarEnemigos(){
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFileBase = new File("./assets/data/enemigos.xml");
+			doc = dBuilder.parse(objetosFileBase);
+			doc.getDocumentElement().normalize();
+			NodeList objetosListBase = doc.getElementsByTagName("enemigo");
+
+			for (int id = 0; id < objetosListBase.getLength(); id++) {
+				Element objetoBase = (Element) objetosListBase.item(id);
+				
+				String nombre = objetoBase.getElementsByTagName("nombre").item(0).getTextContent();
+				char sprite = 	objetoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
+				int width = 	Integer.parseInt(objetoBase.getElementsByTagName("width").item(0).getTextContent());
+				int height = 	Integer.parseInt(objetoBase.getElementsByTagName("height").item(0).getTextContent());
+				int rango = 	Integer.parseInt(objetoBase.getElementsByTagName("rango").item(0).getTextContent());
+				String frame = 	objetoBase.getElementsByTagName("frame").item(0).getTextContent();
+				
+				EnemigoData obj = new EnemigoData(id, nombre, width, height, sprite, rango, frame);
+				enemyList.add(obj);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+public static void cargarObjetos(){
 		
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
 		DocumentBuilder dBuilder = null;
