@@ -4,11 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.Timer;
 
+import javaAS3.ScreenAS3;
 import javaAS3.StageAS3;
 import vista.GestorImagenes;
 import vista.Juego;
 
-public class ScreenMenu extends Screen {
+public class ScreenMenu extends ScreenAS3 {
 	
 	public ScreenMenu(){
 		super();		

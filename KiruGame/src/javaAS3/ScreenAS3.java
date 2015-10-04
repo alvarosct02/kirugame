@@ -1,17 +1,14 @@
-package vista.screen;
+package javaAS3;
 
 import java.awt.event.*;
 
 import javax.swing.Timer;
 
-import javaAS3.SpriteAS3;
-import javaAS3.StageAS3;
 import vista.Juego;
 
-public abstract class Screen extends SpriteAS3 
+public abstract class ScreenAS3 extends SpriteAS3 
 implements	
 			ActionListener,
-			MouseListener, MouseWheelListener, MouseMotionListener,
 			KeyListener
 //			, 
 //			WindowListener, WindowStateListener, WindowFocusListener 
@@ -19,7 +16,7 @@ implements
 		
 	Timer timer;
 	
-	public Screen(){
+	public ScreenAS3(){
 		super();
 		stage = StageAS3.stage;	
 //		stage.addWindowListener(this);		
@@ -46,14 +43,14 @@ implements
 	public void keyTyped(KeyEvent e) {}
 	
 //	MOUSE EVENT
-	public void mouseClicked(MouseEvent e) {}
-	public void mouseEntered(MouseEvent e) {}
-	public void mouseExited(MouseEvent e) {}
-	public void mousePressed(MouseEvent e) {}
-	public void mouseReleased(MouseEvent e) {}
-	public void mouseWheelMoved(MouseWheelEvent e) {}
-	public void mouseDragged(MouseEvent e) {}
-	public void mouseMoved(MouseEvent e) {}
+//	public void mouseClicked(MouseEvent e) {}
+//	public void mouseEntered(MouseEvent e) {}
+//	public void mouseExited(MouseEvent e) {}
+//	public void mousePressed(MouseEvent e) {}
+//	public void mouseReleased(MouseEvent e) {}
+//	public void mouseWheelMoved(MouseWheelEvent e) {}
+//	public void mouseDragged(MouseEvent e) {}
+//	public void mouseMoved(MouseEvent e) {}
 	
 //	WINDOW EVENT
 //	public void windowActivated(WindowEvent e) {}

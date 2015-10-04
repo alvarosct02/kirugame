@@ -1,13 +1,19 @@
 package javaAS3;
 
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public abstract class SpriteAS3 {
+public abstract class SpriteAS3 implements
+	MouseListener, MouseWheelListener, MouseMotionListener	{
 	private ArrayList<SpriteAS3> displayList = new ArrayList<SpriteAS3>();
 	public int x = 0;
 	public int y = 0;
@@ -38,7 +44,7 @@ public abstract class SpriteAS3 {
 		}
 	}
 	
-	private void render(Graphics2D canvas){
+	protected void render(Graphics2D canvas){
 		if (img != null){
 			canvas.drawImage(img, getAbsX(), getAbsY(), StageAS3.stage);
 		}
@@ -54,6 +60,16 @@ public abstract class SpriteAS3 {
 			return y;
 		return parent.getAbsY() + y;
 	}
+	
+//	MOUSE EVENT
+	public void mouseClicked(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {}
+	public void mouseWheelMoved(MouseWheelEvent e) {}
+	public void mouseDragged(MouseEvent e) {}
+	public void mouseMoved(MouseEvent e) {}
 	
 	
 	
