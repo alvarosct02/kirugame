@@ -5,14 +5,11 @@ import modelo.Jugador;
 
 public class Renderizador{
 	
-
 	public static void updateMapa() {
 		// TODO Auto-generated method stub
 		GestorMapas.map.update();		
 	}
 	
-	
-
 	public static void mostrarWelcome(){
 		if (Juego.renderMode == 0){
 			System.out.println(
