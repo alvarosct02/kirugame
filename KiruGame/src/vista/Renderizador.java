@@ -7,7 +7,7 @@ public class Renderizador{
 	
 	public static void updateMapa() {
 		// TODO Auto-generated method stub
-		GestorMapas.map.update();		
+		GestorMapas.map.update();
 	}
 	
 	public static void mostrarWelcome(){

@@ -17,6 +17,7 @@ public class ScreenManager {
 		switch(screen){
 			case "menu": newScreen = new ScreenMenu(); break;
 			case "game": newScreen = new ScreenGame(); break;
+			case "test": newScreen = new ScreenTest(); break;
 		}
 		
         currentScreen = newScreen;

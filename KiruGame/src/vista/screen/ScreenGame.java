@@ -4,11 +4,16 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import actionscript3.Button;
+import actionscript3.MovieClip;
 import actionscript3.ToogleButton;
 import controlador.GestorMapas;
 import controlador.Mapa;
@@ -44,8 +49,14 @@ public class ScreenGame extends Screen{
 		GestorMapas.cargarNivel(0);		
 		addChild(GestorMapas.map);
 		
+		
+		
 			
 	}
+	
+	
+	
+	
 	
 	@Override
 	public void keyPressed(KeyEvent e) {

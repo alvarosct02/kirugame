@@ -42,7 +42,7 @@ public class ScreenMenu extends Screen {
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
-//				ScreenManager.showScreen("game");				
+				ScreenManager.showScreen("test");				
 			}
 		};			
 		btnSalir.x = 362;
