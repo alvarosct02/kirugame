@@ -1,6 +1,6 @@
 package modelo;
 
-
+import vista.AssetManager;
 
 public class Celda {
 	private int x;
@@ -112,15 +112,19 @@ public class Celda {
 		visibleChar = terreno;
 	}
 
-	public Objeto addObjeto(int id , int tipo, int w, int h, char s) {
+	public Objeto addObjeto(int id , int objetoID) {
+		ObjetoData objData = AssetManager.getObjectByID(objetoID);		
+		
+		int tipo = objData.tipo;
+		
 		Objeto obj = null;
 		switch (tipo) {
 			case 0:			
-				obj = new Obstaculo(id,x,y,w,h,s);break;
+				obj = new Obstaculo(id,x,y,objData);break;
 			case 1:			
-				obj = new ObjetoApoyo(id,x,y,w,h,s); break;
+				obj = new ObjetoApoyo(id,x,y,objData); break;
 			default:
-				obj = new Objeto(id,x,y,w,h,s);	break;
+				obj = new Objeto(id,x,y,objData);	break;
 		}
 		
 		this.objeto = obj;

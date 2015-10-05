@@ -7,10 +7,12 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import modelo.*;
+import vista.AssetManager;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+import java.awt.Point;
 import java.io.*	;
 
 public class GestorMapas {
@@ -37,7 +39,7 @@ public class GestorMapas {
 	
 	public static void cargarNivel(int i){	
 		
-		File fXmlFile = new File("./src/Data/mapas.xml");
+		File fXmlFile = new File("./assets/data/mapas.xml");
 		Document doc;
 		try {
 			doc = dBuilder.parse(fXmlFile);		
@@ -53,9 +55,14 @@ public class GestorMapas {
 				int posyA = Integer.parseInt(eElement.getElementsByTagName("yposA").item(0).getTextContent());
 				int posxB = Integer.parseInt(eElement.getElementsByTagName("xposB").item(0).getTextContent());
 				int posyB = Integer.parseInt(eElement.getElementsByTagName("yposB").item(0).getTextContent());
-	
+				int posxTerrenoA = Integer.parseInt(eElement.getElementsByTagName("terrenoA_X").item(0).getTextContent());
+				int posyTerrenoA = Integer.parseInt(eElement.getElementsByTagName("terrenoA_Y").item(0).getTextContent());
+				int posxTerrenoB = Integer.parseInt(eElement.getElementsByTagName("terrenoB_X").item(0).getTextContent());
+				int posyTerrenoB = Integer.parseInt(eElement.getElementsByTagName("terrenoB_Y").item(0).getTextContent());
+
 				try {
-					cargarMapa(urlArchivo);
+					cargarMapa(urlArchivo);					
+					map.cargarTerreno(new Point(posxTerrenoA,posyTerrenoA),new Point(posxTerrenoB,posyTerrenoB));					
 					cargarObjetos(i);
 					cargarEnemigos(i);
 					cargarAcciones(i);
@@ -66,6 +73,8 @@ public class GestorMapas {
 				
 				Mapa.p1.setXY(posxA, posyA);
 				Mapa.p2.setXY(posxB, posyB);
+				
+				
 //				map.addPlayer();
 				
 	//			cargarMapa();
@@ -82,7 +91,7 @@ public class GestorMapas {
 	
 	private static void cargarAcciones(int i)throws SAXException, IOException {
 
-		File accionesFile = new File("./src/Data/acciones.xml");		
+		File accionesFile = new File("./assets/data/acciones.xml");		
 		Document doc = dBuilder.parse(accionesFile);		
 		doc.getDocumentElement().normalize();
 		NodeList objetosList = doc.getElementsByTagName("nivel");
@@ -134,7 +143,7 @@ public class GestorMapas {
 	public static void cargarMapa(String urlArchivo) throws Exception{
 		
 		BufferedReader in = null;
-		in = new BufferedReader(new FileReader("./src/Data/"+urlArchivo));
+		in = new BufferedReader(new FileReader("./assets/data/"+urlArchivo));
 		String letra;
 
 		for (int x = 0 ; x <12; x++){
@@ -149,77 +158,78 @@ public class GestorMapas {
 		map = new Mapa(mapaFree);
 	}
 
-	public static void cargarObjetos(int nivel) throws SAXException, IOException{
-		
-//		Cargar Objetos por Nivel
-		File objetosFile = new File("./src/Data/objetosMapa.xml");		
-		Document doc = dBuilder.parse(objetosFile);		
-		doc.getDocumentElement().normalize();
-		NodeList objetosList = doc.getElementsByTagName("nivel");
-		
-		Element listaObjetos =(Element) objetosList.item(nivel);
-		NodeList objetosMapa = listaObjetos.getElementsByTagName("objetoMapa");
+	public static void cargarObjetos(int nivel){
 
-//		Cargar Metadata Objetos
-		File objetosFileBase = new File("./src/Data/objetos.xml");
-		doc = dBuilder.parse(objetosFileBase);
-		doc.getDocumentElement().normalize();
-		NodeList objetosListBase = doc.getElementsByTagName("objeto");
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFile = new File("./assets/data/objetosMapa.xml");
+			doc = dBuilder.parse(objetosFile);
+			doc.getDocumentElement().normalize();
+			NodeList objetosList = doc.getElementsByTagName("nivel");
+			
+			Element listaObjectos =(Element) objetosList.item(nivel);
+			NodeList objetosMapa = listaObjectos.getElementsByTagName("objetoMapa");
 
-		for (int pos = 0; pos < objetosMapa.getLength(); pos++) {
-			Element objetoMapa  = (Element) objetosMapa.item(pos);			
-			int objetoID = Integer.parseInt(objetoMapa.getElementsByTagName("objetoID").item(0).getTextContent());
-			int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
-			int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
-			int id = Integer.parseInt(objetoMapa.getAttribute("id"));
+			for (int pos = 0; pos < objetosMapa.getLength(); pos++) {
+				Element objetoMapa  = (Element) objetosMapa.item(pos);			
+				int objetoID = Integer.parseInt(objetoMapa.getElementsByTagName("objetoID").item(0).getTextContent());
+				int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
+				int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
+				int id = Integer.parseInt(objetoMapa.getAttribute("id"));
+				
+				Objeto obj = map.getCelda(posx,posy).addObjeto(id, objetoID);	
+				map.addObjeto(obj);
+				
+			}
 			
-			Element objetoBase = (Element) objetosListBase.item(objetoID);
-			char sprite = objetoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int width = Integer.parseInt(objetoBase.getElementsByTagName("width").item(0).getTextContent());
-			int height = Integer.parseInt(objetoBase.getElementsByTagName("height").item(0).getTextContent());
-			int tipo = Integer.parseInt(objetoBase.getElementsByTagName("tipo").item(0).getTextContent());
-			
-			Objeto obj = map.getCelda(posx,posy).addObjeto(id, tipo,width, height, sprite);	
-			map.addObjeto(obj);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 	}
 	
-public static void cargarEnemigos(int nivel) throws SAXException, IOException{
+	public static void cargarEnemigos(int nivel){
 		
-//		Cargar enemigos por Nivel
-		File enemigosFile = new File("./src/Data/enemigosMapa.xml");		
-		Document doc = dBuilder.parse(enemigosFile);		
-		doc.getDocumentElement().normalize();
-		NodeList enemigosList = doc.getElementsByTagName("nivel");
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
 		
-		Element listaenemigos =(Element) enemigosList.item(nivel);
-		NodeList enemigosMapa = listaenemigos.getElementsByTagName("enemigoMapa");
-
-//		Cargar Metadata enemigos
-		File enemigosFileBase = new File("./src/Data/enemigos.xml");
-		doc = dBuilder.parse(enemigosFileBase);
-		doc.getDocumentElement().normalize();
-		NodeList enemigosListBase = doc.getElementsByTagName("enemigo");
-
-		for (int pos = 0; pos < enemigosMapa.getLength(); pos++) {
-			Element enemigoMapa  = (Element) enemigosMapa.item(pos);			
-			int enemigoID = Integer.parseInt(enemigoMapa.getElementsByTagName("enemigoID").item(0).getTextContent());
-			int accionID = Integer.parseInt(enemigoMapa.getElementsByTagName("accionID").item(0).getTextContent());
-			int jugadorID = Integer.parseInt(enemigoMapa.getElementsByTagName("jugadorID").item(0).getTextContent());
-			int posx = Integer.parseInt(enemigoMapa.getElementsByTagName("xpos").item(0).getTextContent());
-			int posy = Integer.parseInt(enemigoMapa.getElementsByTagName("ypos").item(0).getTextContent());
-			int id = Integer.parseInt(enemigoMapa.getAttribute("id"));
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFile = new File("./assets/data/enemigosMapa.xml");
+			doc = dBuilder.parse(objetosFile);
+			doc.getDocumentElement().normalize();
+			NodeList objetosList = doc.getElementsByTagName("nivel");
 			
-			Element enemigoBase = (Element) enemigosListBase.item(enemigoID);
-			char sprite = enemigoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int width = Integer.parseInt(enemigoBase.getElementsByTagName("width").item(0).getTextContent());
-			int height = Integer.parseInt(enemigoBase.getElementsByTagName("height").item(0).getTextContent());
-			int rango = Integer.parseInt(enemigoBase.getElementsByTagName("rango").item(0).getTextContent());
+			Element listaObjectos =(Element) objetosList.item(nivel);
+			NodeList objetosMapa = listaObjectos.getElementsByTagName("enemigoMapa");
+
+			for (int pos = 0; pos < objetosMapa.getLength(); pos++) {
+				Element objetoMapa  = (Element) objetosMapa.item(pos);			
+				int enemigoID = Integer.parseInt(objetoMapa.getElementsByTagName("enemigoID").item(0).getTextContent());
+				int accionID = Integer.parseInt(objetoMapa.getElementsByTagName("accionID").item(0).getTextContent());
+				int jugadorID = Integer.parseInt(objetoMapa.getElementsByTagName("jugadorID").item(0).getTextContent());
+				int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
+				int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
+				int id = Integer.parseInt(objetoMapa.getAttribute("id"));
+				
+				EnemigoData enemyData = AssetManager.getEnemyByID(enemigoID);			
+				Enemigo enemigo = new Enemigo(id, posx, posy, accionID,jugadorID, enemyData);
+				map.addEnemigo(enemigo);
+			}
 			
-			Enemigo enemigo = new Enemigo(id, posx, posy, width, height, sprite, accionID, rango, jugadorID);
-			map.addEnemigo(enemigo);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 	}
+	
 	
 	
 	

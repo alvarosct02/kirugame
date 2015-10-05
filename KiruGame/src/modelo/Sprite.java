@@ -1,24 +1,24 @@
 package modelo;
 
+import actionscript3.SpriteAS3;
 import controlador.GestorMapas;
 import controlador.Mapa;
 
 public abstract class Sprite{
 	
 	public int tipo = -1;
-	public char sprite = '_';
+	public char caracter = '_';
 	public int gridX;
 	public int gridY;
 	public int gridW;
 	public int gridH;
 	public int id;
 	
-	public Sprite(int xpos, int ypos,int w, int h, char sprite)	{
+	public Sprite(int xpos, int ypos,int w, int h)	{
 		gridX = xpos;
 		gridY = ypos;
 		gridW = w;
 		gridH = h;
-		this.sprite = sprite;
 	}
 	
 	public int isValid(int x, int y){		
@@ -32,13 +32,12 @@ public abstract class Sprite{
 		gridX = x;
 		gridY = y;
 	}
-	
 
 	
 	public void agregarMapa(){
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
-				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = sprite;
+				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = caracter;
 			}
 		}
 	}

@@ -2,7 +2,7 @@ package modelo;
 
 import controlador.GestorMapas;
 
-public class Jugador extends Personaje {
+public class Jugador extends Sprite {
 	private static int vida = 10;	
 	private String nombre;
 	public boolean blooding = false;
@@ -19,14 +19,15 @@ public class Jugador extends Personaje {
 	private char terreno;
 
 	public Jugador(){
-		super(0,0,1,1,'X');
+		super(0,0,1,1);
+//		this.sprite = 'X';
 	}
 
 	public void addData(String nombre, String input, int alto,int ancho, char sprite, char terreno) {
 		// TODO Auto-generated method stub
 		this.gridW = ancho;
 		this.gridH = alto;
-		this.sprite = sprite;
+		this.caracter = sprite;
 		this. terreno = terreno;		
 		this.nombre = nombre;
 		this.input = input;		

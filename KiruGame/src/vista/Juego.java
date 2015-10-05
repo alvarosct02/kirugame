@@ -24,12 +24,15 @@ import vista.screen.ScreenManager;
 public class Juego extends JPanel{
 
 	private static final int ANCHO = 1024;
-    private static final int ALTO = 768;	
+    private static final int ALTO = 768;
+	public static final int GRIDSIZE = 64;
+	
 	private BufferStrategy bufferStrategy;		
     
 	//	Nivel inicial a jugar   DEBERIA SER 0
-	private final int firstLevel = 0;	
-	public static final int cantNivel = 2;	
+	public static int currentLevel = 0;		
+	public static final int cantNivel = 2;
+	
 	public Jugador p1;
 	public Jugador p2;
 	public static Mapa map;
@@ -166,7 +169,7 @@ public class Juego extends JPanel{
 
 	public void gameLoop(){
 		
-		for (int i=firstLevel; i<=cantNivel; i++){	
+		for (int i=currentLevel; i<=cantNivel; i++){	
 			if (Jugador.getVida() <= 0) return;
 			
 //			Mostrar MENSAJE NUEVO NIVEL			

@@ -1,18 +1,19 @@
 package controlador;
 
+import modelo.EnemigoData;
 import modelo.ITrigger;
 import modelo.Jugador;
-import modelo.Personaje;
+import modelo.Sprite;
 
-public class Enemigo extends Personaje implements ITrigger{
+public class Enemigo extends Sprite implements ITrigger{
 	private int actionID;
 	private int rango;
 	private int jugID;
 
 	private boolean activa;
 	
-	public Enemigo(int id,int x, int y, int w, int h, char sprite, int accion, int rango, int jug) {
-		super(x,y,w,h,sprite);
+	public Enemigo(int id,int x, int y, int accion, int jug, EnemigoData enemyData) {
+		super(x,y,enemyData.width, enemyData.height);
 		this.actionID = accion;
 		this.rango = rango;
 		this.jugID = jug;

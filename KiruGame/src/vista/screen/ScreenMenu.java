@@ -14,29 +14,39 @@ public class ScreenMenu extends Screen {
 	
 	public ScreenMenu(){
 		super();		
-		setImg(AssetManager.imgFondo);
+		setImg(AssetManager.getImage("bgMenu"));
 		
-		SimpleButton btnGame = new SimpleButton(AssetManager.btn1,AssetManager.btn3) {			
+		SimpleButton btnGame = new SimpleButton(AssetManager.getImage("btnNuevo"), AssetManager.getImage("btnNuevo")) {			
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
-				ScreenManager.showScreen("game");
-				
+				ScreenManager.showScreen("game");				
 			}
-		};	
-		
-		btnGame.x = 400;
-		btnGame.y = 400;
+		};
+		btnGame.x = 362;
+		btnGame.y = 315;
 		addChild(btnGame);
 		
-		SimpleButton btnSalir = new SimpleButton(AssetManager.btn1,AssetManager.btn3) {			
+		SimpleButton btnCreditos = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
-				ScreenManager.showScreen("game");
+//				ScreenManager.showScreen("game");				
 			}
-		};	
+		};			
+		btnCreditos.x = 362;
+		btnCreditos.y = 425;
+		addChild(btnCreditos);
 		
+		SimpleButton btnSalir = new SimpleButton(AssetManager.getImage("btnSalir"),AssetManager.getImage("btnSalir")) {			
+			@Override
+			public void onClick() {
+				// TODO Auto-generated method stub
+//				ScreenManager.showScreen("game");				
+			}
+		};			
+		btnSalir.x = 362;
+		btnSalir.y = 600;
 		addChild(btnSalir);
 		
     }

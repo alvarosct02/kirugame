@@ -6,6 +6,10 @@
 		<yposA>2</yposA>
 		<xposB>0</xposB>
 		<yposB>11</yposB>
+		<terrenoA_X>0</terrenoA_X>
+		<terrenoA_Y>2</terrenoA_Y>
+		<terrenoB_X>0</terrenoB_X>
+		<terrenoB_Y>8</terrenoB_Y>
 	</mapa>
 	<mapa id="1">
 		<url>mapa1.txt</url>
@@ -13,6 +17,10 @@
 		<yposA>5</yposA>
 		<xposB>15</xposB>
 		<yposB>9</yposB>
+		<terrenoA_X>0</terrenoA_X>
+		<terrenoA_Y>3</terrenoA_Y>
+		<terrenoB_X>0</terrenoB_X>
+		<terrenoB_Y>8</terrenoB_Y>
 	</mapa>
 	<mapa id="2">
 		<url>mapa2.txt</url>
@@ -20,5 +28,9 @@
 		<yposA>5</yposA>
 		<xposB>0</xposB>
 		<yposB>10</yposB>
+		<terrenoA_X>0</terrenoA_X>
+		<terrenoA_Y>3</terrenoA_Y>
+		<terrenoB_X>0</terrenoB_X>
+		<terrenoB_Y>8</terrenoB_Y>
 	</mapa>
 </mapas>

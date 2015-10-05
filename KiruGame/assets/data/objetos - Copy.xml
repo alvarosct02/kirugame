@@ -1,24 +1,24 @@
 <objetos>
 	<objeto id ="0">
-		<nombre>sofa</nombre>
+		<nombre>Mueble para sentarse</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>m</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame>sofa.png</frame>
+		<frame></frame>
 	</objeto>
 	<objeto id ="1">
-		<nombre>mueble</nombre>
+		<nombre>Mueble con cajones</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>j</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame>mueble.png</frame>
+		<frame></frame>
 	</objeto>
 	<objeto id ="2">
-		<nombre>cofre</nombre>
+		<nombre>Cofre abierto</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>d</sprite>
@@ -27,22 +27,22 @@
 		<frame>cofre.png</frame>
 	</objeto>	
 	<objeto id ="3">
-		<nombre>puerta</nombre>
+		<nombre>Puerta de la casa</nombre>
 		<width>1</width>
 		<height>4</height>
 		<sprite>o</sprite>
 		<layer>1</layer>
 		<tipo>1</tipo>
-		<frame>puerta.jpg</frame>
+		<frame></frame>
 	</objeto>
 	<objeto id ="4">
-		<nombre>alfombra</nombre>
+		<nombre>Alfombra</nombre>
 		<width>15</width>
 		<height>2</height>
 		<sprite>a</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame>alfombra.jpg</frame>
+		<frame></frame>
 	</objeto>
 	<objeto id ="5">
 		<nombre>Fila de piedras</nombre>

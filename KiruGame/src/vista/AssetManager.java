@@ -16,34 +16,98 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import modelo.EnemigoData;
+import modelo.ImageData;
 import modelo.Objeto;
 import modelo.ObjetoData;
 
 public class AssetManager {
-	public static BufferedImage imgFondo;
-	public static BufferedImage imgFondo2;
-	public static BufferedImage btn1;
-	public static BufferedImage btn2;
-	public static BufferedImage btn3;
 	
+	public static ArrayList<ImageData> imageList = new ArrayList<ImageData>();	
 	public static ArrayList<ObjetoData> objectList = new ArrayList<ObjetoData>();
 	public static ArrayList<EnemigoData> enemyList = new ArrayList<EnemigoData>();
 	
 	public AssetManager(){
 		// Constructor vacio
+	}		
+	
+	public static BufferedImage getEnemy(String name){
+		return getImage(name, enemyList);
 	}
 	
-	public static void cargarImagenes(){
-		try{
-			imgFondo = ImageIO.read(new File("assets/img/background_menu.jpg"));
-			imgFondo2 = ImageIO.read(new File("assets/img/Game-Back1.jpg"));
-			btn1 = ImageIO.read(new File("assets/img/btn1.png"));
-			btn2 = ImageIO.read(new File("assets/img/btn2.png"));	
-			btn3 = ImageIO.read(new File("assets/img/btn3.png"));		
-//			dibujoListo = true;
-		}catch(Exception ex){
-		
+	public static BufferedImage getImage(String name){
+		return getImage(name, imageList);
+	}
+	
+	public static BufferedImage getObject(String name){
+		return getImage(name, objectList);
+	}
+	
+	
+	private static BufferedImage getImage(String name, ArrayList arrayList){
+		for (ImageData imageData : (ArrayList<ImageData>)arrayList) {
+			if (imageData.nombre.equals(name)){
+				return imageData.img;
+			}
 		}
+		System.out.println("Error: Can't retrive " + name);
+		return null;		
+	}
+	
+	public static EnemigoData getEnemyByID(int id){
+		return (EnemigoData) getByID(id, enemyList);
+	}
+	
+	public static ObjetoData getObjectByID(int id){
+		return (ObjetoData) getByID(id, objectList);
+	}
+	
+	
+	private static ImageData getByID(int id, ArrayList arrayList){
+		for (ImageData imageData : (ArrayList<ImageData>)arrayList) {
+			if (imageData.id == id){
+				return imageData;
+			}
+		}
+		System.out.println("Error: Can't retrive image with id:" + id);
+		return null;		
+	}
+	
+	
+	
+	public static void cargarImagenes(){
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Imagenes
+			File objetosFileBase = new File("./assets/data/imagenes.xml");
+			doc = dBuilder.parse(objetosFileBase);
+			doc.getDocumentElement().normalize();
+			NodeList objetosListBase = doc.getElementsByTagName("imagen");
+
+			for (int id = 0; id < objetosListBase.getLength(); id++) {
+				Element objetoBase = (Element) objetosListBase.item(id);				
+				String nombre = objetoBase.getElementsByTagName("nombre").item(0).getTextContent();
+				String path = 	objetoBase.getElementsByTagName("path").item(0).getTextContent();				
+				ImageData obj = new ImageData(id, nombre, path);
+				imageList.add(obj);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+//		try{
+//			bgMenu 	= ImageIO.read(new File("assets/img/bgMenu.jpg"));
+//			btnJugar 	= ImageIO.read(new File("assets/img/btnJugar.png"));
+//			btnSalir 	= ImageIO.read(new File("assets/img/btnSalir.png"));	
+//			btnCreditos	= ImageIO.read(new File("assets/img/btnCreditos.png"));		
+////			dibujoListo = true;
+//		}catch(Exception ex){
+//		
+//		}
 	}
 	
 	public static void cargarEnemigos(){
@@ -79,7 +143,7 @@ public class AssetManager {
 		
 	}
 	
-public static void cargarObjetos(){
+	public static void cargarObjetos(){
 		
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
 		DocumentBuilder dBuilder = null;
