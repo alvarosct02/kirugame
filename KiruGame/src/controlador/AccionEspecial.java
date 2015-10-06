@@ -26,6 +26,10 @@ public class AccionEspecial implements ITrigger{
 	private Scanner sc = new Scanner(System.in);
 	private boolean activa = true;
 	
+	public boolean isActiva() {
+		return activa;
+	}
+
 	private char caracter;
 	public BufferedImage img = null;
 	private int tipo;

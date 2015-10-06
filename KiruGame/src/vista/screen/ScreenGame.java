@@ -1,6 +1,7 @@
 package vista.screen;
 
 import java.awt.TextField;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -26,7 +27,7 @@ import actionscript3.Stage;
 import vista.AssetManager;
 import vista.Juego;
 import vista.Renderizador;
-
+import controlador.Saver;
 public class ScreenGame extends Screen{
 	
 	Button btn;
@@ -37,26 +38,39 @@ public class ScreenGame extends Screen{
 	private Mapa map;
 	
 	
-	public ScreenGame(){
-		super();
 		
-		if (Juego.currentLevel == 0)
-			Jugador.resetVida();
+	public ScreenGame(boolean loaded){
+		super();
 		
 		p1 = Mapa.p1;
 		p2 = Mapa.p2;
 		
-		p1.addData("Player1", "WASDQE",1,1,'A','S');
-		p2.addData("Player2", "IJKLUO",1,1,'B','N');
+		if (!loaded){			
+			if (Juego.currentLevel == 0)
+				Jugador.resetVida();
+			
+			p1.addData("Player1", "WASDQE",1,1,'A','S');
+			p2.addData("Player2", "IJKLUO",1,1,'B','N');
+			
+			GestorMapas.cargarNivel(Juego.currentLevel);
+		}		
+				
+
+		map = GestorMapas.map;
+		SimpleButton guardar = new SimpleButton(AssetManager.getImage("btnSalir"),AssetManager.getImage("btnSalir")) {
+			
+			@Override
+			public void onClick() {
+				// TODO Auto-generated method stub
+				new Saver().guardar();
+			}
+		};
 		
-		GestorMapas.cargarNivel(Juego.currentLevel);	
 		addChild(GestorMapas.map);
-		
 		addChild(p1.mc);
 		addChild(p2.mc);
-		
-		map = GestorMapas.map;
-		
+		addChild(guardar);
+		 
 			
 	}
 	

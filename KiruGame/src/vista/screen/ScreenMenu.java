@@ -33,7 +33,8 @@ public class ScreenMenu extends Screen {
 			@Override
 			public void onClick() {
 				String path;
-				 JFileChooser fc=new JFileChooser();
+				 JFileChooser fc=new JFileChooser("."+System.getProperty("file.separator")+"save"+System.getProperty("file.separator"));
+				 
 				  int returnVal=fc.showOpenDialog(Stage.stage);
 				  if (returnVal == JFileChooser.APPROVE_OPTION) {
 				     path = fc.getSelectedFile().getAbsolutePath();
