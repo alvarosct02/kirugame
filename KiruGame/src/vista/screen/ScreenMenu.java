@@ -2,6 +2,8 @@ package vista.screen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+
+import javax.swing.JFileChooser;
 import javax.swing.Timer;
 
 import actionscript3.Screen;
@@ -30,7 +32,15 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnCreditos = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
 			@Override
 			public void onClick() {
-				new Saver().guardar();
+				String path;
+				 JFileChooser fc=new JFileChooser();
+				  int returnVal=fc.showOpenDialog(Stage.stage);
+				  if (returnVal == JFileChooser.APPROVE_OPTION) {
+				     path = fc.getSelectedFile().getAbsolutePath();
+				     Saver.cargar(path);
+				  }
+				
+				  
 			}
 		};			
 		btnCreditos.x = 362;
