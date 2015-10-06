@@ -120,7 +120,7 @@ public class GestorMapas {
 
 				NodeList listaMovimientos = jugador.getElementsByTagName("mov");
 
-				int[][] movinfo = new int[listaMovimientos.getLength()][2];
+				int[][] movinfo = new int[listaMovimientos.getLength()][3];
 
 				int x = Integer.parseInt(jugador.getElementsByTagName("xpos").item(0).getTextContent());
 				int y = Integer.parseInt(jugador.getElementsByTagName("ypos").item(0).getTextContent());
@@ -131,6 +131,7 @@ public class GestorMapas {
 
 					movinfo[imov][0] = Integer.parseInt(movimiento.getElementsByTagName("xdir").item(0).getTextContent());
 					movinfo[imov][1] = Integer.parseInt(movimiento.getElementsByTagName("ydir").item(0).getTextContent());
+					movinfo[imov][2] = Integer.parseInt(movimiento.getAttribute("anim"));
 					
 				}
 
@@ -165,9 +166,10 @@ public class GestorMapas {
 				NodeList anims = objetoBase.getElementsByTagName("anim");	
 				for (int i = 0; i < anims.getLength(); i++) {
 					Element anim= (Element) anims.item(i);
-					int animID= Integer.parseInt(anim.getTextContent());										
+					int animID= Integer.parseInt(anim.getTextContent());
+					String nom= anim.getAttribute("nombre");											
 								
-					player.mc.addScene(AssetManager.getSceneByID(animID));
+					player.mc.addScene(AssetManager.getSceneByID(animID),nom);
 									
 				}
 			}	

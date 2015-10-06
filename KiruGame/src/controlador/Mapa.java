@@ -35,7 +35,15 @@ public class Mapa extends SpriteAS3 {
 	}
 	
 	public void cargarTerreno(Point posTerrenoA, Point posTerrenoB){
+		
 		String imgName = "";
+		SpriteAS3 fondo = new SpriteAS3();
+		imgName = "bg" + (Juego.currentLevel+1);
+		fondo.setImg(AssetManager.getImage(imgName));
+//		fondo.x = posTerrenoA.x * Juego.GRIDSIZE;
+//		fondo.y = posTerrenoA.y * Juego.GRIDSIZE;
+		addChild(fondo);	
+		
 		SpriteAS3 terrenoA = new SpriteAS3();
 		imgName = "terreno" + (Juego.currentLevel+1) + "A";
 		terrenoA.setImg(AssetManager.getImage(imgName));
@@ -90,7 +98,7 @@ public class Mapa extends SpriteAS3 {
 	
 	public void addObjeto(Objeto obj) {
 		objetos.add(obj);
-		addChild(obj.sprite);
+//		addChild(obj.sprite);
 		
 	}
 
@@ -130,6 +138,7 @@ public class Mapa extends SpriteAS3 {
 		p2.mc.y = p2.gridY * Juego.GRIDSIZE;
 //		
 	}
+
 	
 	
 }

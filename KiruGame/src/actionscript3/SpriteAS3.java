@@ -47,7 +47,7 @@ public class SpriteAS3 implements
 	
 	
 	public void removeMouseListener(){
-		stage.removeMouseListener(this);
+		Stage.stage.removeMouseListener(this);
 		for (SpriteAS3 spriteAS3 : displayList) {
 			spriteAS3.removeMouseListener();
 		}
@@ -101,9 +101,11 @@ public class SpriteAS3 implements
 	}
 	
 	public void setImg(BufferedImage img){
-		this.img = img;
-		width = img.getWidth();
-		height = img.getHeight();
+		this.img = img;		
+		if (img == null) return;
+		
+		width = (img != null)? img.getWidth() : 0;
+		height = (img != null)? img.getHeight() : 0;
 		setBounds(new Rectangle(Math.round(getAbsX()),Math.round(getAbsY()), width, height));		
 	}	
 

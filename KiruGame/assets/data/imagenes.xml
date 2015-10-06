@@ -55,6 +55,70 @@
 		<nombre>D</nombre>		
 		<path>D.png</path>
 	</imagen>
+	<imagen id ="14">
+		<nombre>U</nombre>
+		<path>U.png</path>
+	</imagen>
+	<imagen id ="15">
+		<nombre>I</nombre>		
+		<path>I.png</path>
+	</imagen>
+	<imagen id ="16">
+		<nombre>O</nombre>		
+		<path>O.png</path>
+	</imagen>
+	<imagen id ="17">
+		<nombre>J</nombre>		
+		<path>J.png</path>
+	</imagen>
+	<imagen id ="18">
+		<nombre>K</nombre>		
+		<path>K.png</path>
+	</imagen>
+	<imagen id ="19">
+		<nombre>L</nombre>		
+		<path>L.png</path>
+	</imagen>
+	<imagen id ="20">
+		<nombre>terreno2A</nombre>		
+		<path>terreno2A.jpg</path>
+	</imagen>
+	<imagen id ="21">
+		<nombre>terreno2B</nombre>		
+		<path>terreno2B.jpg</path>
+	</imagen>
+	<imagen id ="22">
+		<nombre>terreno3A</nombre>		
+		<path>terreno3A.jpg</path>
+	</imagen>
+	<imagen id ="23">
+		<nombre>terreno3B</nombre>		
+		<path>terreno3B.jpg</path>
+	</imagen>
+	<imagen id ="24">
+		<nombre>bg1</nombre>		
+		<path>bgNivel1.png</path>
+	</imagen>
+	<imagen id ="25">
+		<nombre>bg2</nombre>		
+		<path>bgNivel2.png</path>
+	</imagen>
+	<imagen id ="26">
+		<nombre>bg3</nombre>		
+		<path>bgNivel3.png</path>
+	</imagen>
+	<imagen id ="27">
+		<nombre>action1</nombre>		
+		<path>accionSolo.png</path>
+	</imagen>
+	<imagen id ="28">
+		<nombre>action2</nombre>		
+		<path>accionDuo.png</path>
+	</imagen>
+	<!-- <imagen id ="24">
+		<nombre>bg2</nombre>		
+		<path>bgNivel2.jpg</path>
+	</imagen> -->
 <!-- 	<imagen id ="7">
 		<nombre>bgMenu</nombre>		
 		<path>bgMenu.png</path>

@@ -5,7 +5,7 @@
 		<frame rep="5" src="img3.png"></frame>
 		<frame rep="7" src="img4.png"></frame>
 	</animacion>
-	<animacion id="1" folder="Cuy Buscando en cofre" offsetX = "0" offsetY = "0">
+	<animacion id="1" folder="Cuy Buscando en cofre" offsetX = "5" offsetY = "10">
 		<frame rep="2" src="CuyCofre1.png"></frame>
 		<frame rep="2" src="CuyCofre2.png"></frame>
 		<frame rep="1" src="CuyCofre3.png"></frame>
@@ -21,7 +21,7 @@
 		<frame rep="1" src="CuyCofre13.png"></frame>
 		<frame rep="1" src="CuyCofre14.png"></frame>
 	</animacion>
-	<animacion id="2" folder="Cuy Caminando" offsetX = "0" offsetY = "0">
+	<animacion id="2" folder="Cuy Caminando" offsetX = "5" offsetY = "10">
 		<frame rep="2" src="CuyCaminando541.png"></frame>
 		<frame rep="3" src="CuyCaminando542.png"></frame>
 		<frame rep="3" src="CuyCaminando543.png"></frame>
@@ -31,7 +31,7 @@
 		<frame rep="3" src="CuyCaminando547.png"></frame>
 		<frame rep="2" src="CuyCaminando548.png"></frame>
 	</animacion>
-	<animacion id="3" folder="Cuy con llave" offsetX = "0" offsetY = "0">
+	<animacion id="3" folder="Cuy con llave" offsetX = "5" offsetY = "-20">
 		<frame rep="1" src="CuyLlave1.png"></frame>
 		<frame rep="1" src="CuyLlave2.png"></frame>
 		<frame rep="1" src="CuyLlave3.png"></frame>
@@ -51,11 +51,11 @@
 		<frame rep="2" src="CuyLlave17.png"></frame>
 		<frame rep="2" src="CuyLlave18.png"></frame>
 	</animacion>
-	<animacion id="4" folder="Cuy Respirando" offsetX = "0" offsetY = "0">
+	<animacion id="4" folder="Cuy Respirando" offsetX = "5" offsetY = "10">
 		<frame rep="12" src="Cuyrespirando541.png"></frame>
 		<frame rep="12" src="Cuyrespirando542.png"></frame>
 	</animacion>
-	<animacion id="5" folder="Cuy Sentandose" offsetX = "0" offsetY = "0">
+	<animacion id="5" folder="Cuy Sentandose" offsetX = "5" offsetY = "10">
 		<frame rep="1" src="Cuysentandose541.png"></frame>
 		<frame rep="1" src="Cuysentandose542.png"></frame>
 		<frame rep="1" src="Cuysentandose543.png"></frame>
@@ -127,7 +127,7 @@
 		<frame rep="1" src="Cuy celebrando19.png"></frame>
 		<frame rep="1" src="Cuy celebrando20.png"></frame>
 	</animacion>
-	<animacion id="9" folder="Nivel 1\Cuy Destruyendo Castillo de Arena" offsetX = "0" offsetY = "0">
+	<animacion id="9" folder="Nivel 1\Cuy Destruyendo Castillo de Arena" offsetX = "-83" offsetY = "63">
 		<frame rep="1" src="Cuydestruyendocastillodearena1.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena2.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena3.png"></frame>
@@ -142,13 +142,16 @@
 		<frame rep="1" src="Cuydestruyendocastillodearena12.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena13.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena14.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena25.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena27.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena29.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena30.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena32.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena36.png"></frame>
-		<frame rep="1" src="Cuydestruyendocastillodearena45.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena15.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena16.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena17.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena18.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena19.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena20.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena21.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena22.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena23.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena24.png"></frame>
 	</animacion>	
 	<animacion id="10" folder="Nivel 1\Cuy empujando muralla" offsetX = "0" offsetY = "0">
 		<frame rep="1" src="Cuy empujando muralla1.png"></frame>
@@ -183,7 +186,7 @@
 		<frame rep="2" src="Perro Celebrando12.png"></frame>
 		<frame rep="2" src="Perro Celebrando13.png"></frame>
 	</animacion>
-	<animacion id="12" folder="Nivel 1\Perro empujando muralla" offsetX = "0" offsetY = "0">
+	<animacion id="12" folder="Nivel 1\Perro empujando muralla" offsetX = "5" offsetY = "-20">
 		<frame rep="3" src="Perro empujando muralla1.png"></frame>
 		<frame rep="3" src="Perro empujando muralla2.png"></frame>
 		<frame rep="3" src="Perro empujando muralla3.png"></frame>
@@ -192,5 +195,28 @@
 		<frame rep="3" src="Perro empujando muralla6.png"></frame>
 		<frame rep="3" src="Perro empujando muralla7.png"></frame>
 		<frame rep="3" src="Perro empujando muralla8.png"></frame>
+	</animacion>	
+	<animacion id="13" folder="Nivel 1\Cuy Destruyendo Castillo de Arena" offsetX = "-83" offsetY = "63">
+		<frame rep="1" src="Cuydestruyendocastillodearena25.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena26.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena27.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena28.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena29.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena30.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena31.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena32.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena33.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena34.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena35.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena36.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena37.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena38.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena39.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena40.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena41.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena42.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena43.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena44.png"></frame>
+		<frame rep="4" src="Cuydestruyendocastillodearena45.png"></frame>
 	</animacion>
 </root>

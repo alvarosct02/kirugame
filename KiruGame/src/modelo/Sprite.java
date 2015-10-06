@@ -3,6 +3,7 @@ package modelo;
 import actionscript3.SpriteAS3;
 import controlador.GestorMapas;
 import controlador.Mapa;
+import vista.screen.ScreenManager;
 
 public abstract class Sprite{
 	
@@ -13,6 +14,7 @@ public abstract class Sprite{
 	public int gridW;
 	public int gridH;
 	public int id;
+	public SpriteAS3 sprite = new SpriteAS3();
 	
 	public Sprite(int xpos, int ypos,int w, int h)	{
 		gridX = xpos;
@@ -35,6 +37,7 @@ public abstract class Sprite{
 
 	
 	public void agregarMapa(){
+		GestorMapas.map.addChild(this.sprite);
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
 				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = caracter;
@@ -43,6 +46,7 @@ public abstract class Sprite{
 	}
 	
 	public void quitarMapa(){
+		GestorMapas.map.removeChild(this.sprite);
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
 				GestorMapas.map.getCelda(gridX+j,gridY+i).showTerreno();

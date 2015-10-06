@@ -4,6 +4,7 @@ import modelo.EnemigoData;
 import modelo.ITrigger;
 import modelo.Jugador;
 import modelo.Sprite;
+import vista.Juego;
 
 public class Enemigo extends Sprite implements ITrigger{
 	private int actionID;
@@ -12,13 +13,19 @@ public class Enemigo extends Sprite implements ITrigger{
 
 	private boolean activa;
 	
-	public Enemigo(int id,int x, int y, int accion, int jug, EnemigoData enemyData) {
-		super(x,y,enemyData.width, enemyData.height);
+	public Enemigo(int id,int x, int y, int accion, int jug, EnemigoData objData) {
+		super(x,y,objData.width, objData.height);
 		this.actionID = accion;
-		this.rango = rango;
+		this.rango = objData.rango;
 		this.jugID = jug;
 		this.id = id;
 		this.activa = true;
+		this.sprite.setImg(objData.img);
+		
+		System.out.println(gridX);
+		System.out.println(gridY);
+		sprite.x = gridX * Juego.GRIDSIZE;
+		sprite.y = gridY * Juego.GRIDSIZE;
 	}
 	
 	public boolean check() {

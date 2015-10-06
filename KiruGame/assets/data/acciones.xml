@@ -11,16 +11,12 @@
 						<xpos>8</xpos>
 						<ypos>2</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "1">
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
-								<xdir>1</xdir>
-								<ydir>0</ydir>
-							</mov>
-							<mov>
-								<xdir>1</xdir>
+							<mov anim = "3">
+								<xdir>2</xdir>
 								<ydir>0</ydir>
 							</mov>
 						</movimientos>
@@ -31,21 +27,17 @@
 				<cad>SDKIQEUO</cad>
 				<sprite>D</sprite>	
 				<tipo>2</tipo>
-				<visible>1</visible>
+				<visible>0</visible>
 				<jugadores>
 					<jugador id= '1'>
 						<xpos>13</xpos>
 						<ypos>5</ypos>
 						<movimientos>
-							<mov>
-								<xdir>0</xdir>
+							<mov anim = "6" >
+								<xdir>1</xdir>
 								<ydir>1</ydir>
 							</mov>
-							<mov>
-								<xdir>1</xdir>
-								<ydir>0</ydir>
-							</mov>
-							<mov>
+							<mov anim = "-1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
@@ -55,15 +47,11 @@
 						<xpos>13</xpos>
 						<ypos>8</ypos>
 						<movimientos>
-							<mov>
-								<xdir>0</xdir>
+							<mov anim = "-2" >
+								<xdir>1</xdir>
 								<ydir>-1</ydir>
 							</mov>
-							<mov>
-								<xdir>1</xdir>
-								<ydir>0</ydir>
-							</mov>
-							<mov>
+							<mov anim = "-1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
@@ -86,22 +74,26 @@
 						<xpos>10</xpos>
 						<ypos>4</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "9" >
+								<xdir>0</xdir>
+								<ydir>0</ydir>
+							</mov>							
+							<mov anim = "13" >
+								<xdir>0</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<!-- <mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>1</ydir>
 							</mov>
-							<mov>
-								<xdir>0</xdir>
-								<ydir>1</ydir>
-							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>2</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>-4</ydir>
-							</mov>
+							</mov> -->
 						</movimientos>
 					</jugador>
 				</jugadores>
@@ -116,11 +108,15 @@
 						<xpos>4</xpos>
 						<ypos>9</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "12" >
+								<xdir>0</xdir>
+								<ydir>0</ydir>
+							</mov>
+							<mov anim = "12" >
 								<xdir>-1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "-1" >
 								<xdir>-1</xdir>
 								<ydir>0</ydir>
 							</mov>
@@ -140,19 +136,19 @@
 						<xpos>6</xpos>
 						<ypos>6</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>1</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>1</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>1</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>-3</ydir>
 							</mov>
@@ -174,15 +170,15 @@
 						<xpos>2</xpos>
 						<ypos>4</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
@@ -200,15 +196,15 @@
 						<xpos>8</xpos>
 						<ypos>6</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>3</xdir>
 								<ydir>-1</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>1</ydir>
 							</mov>
@@ -218,15 +214,15 @@
 						<xpos>8</xpos>
 						<ypos>8</ypos>
 						<movimientos>
-							<mov>
+							<mov anim = "1" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>3</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov>
+							<mov anim = "1" >
 								<xdir>0</xdir>
 								<ydir>-1</ydir>
 							</mov>

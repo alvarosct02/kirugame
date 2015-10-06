@@ -49,71 +49,123 @@ public class ScreenGame extends Screen{
 		p1.addData("Player1", "WASDQE",1,1,'A','S');
 		p2.addData("Player2", "IJKLUO",1,1,'B','N');
 		
-		GestorMapas.cargarNivel(0);	
+		GestorMapas.cargarNivel(Juego.currentLevel);	
 		addChild(GestorMapas.map);
 		
 		addChild(p1.mc);
 		addChild(p2.mc);
 		
 		map = GestorMapas.map;
+		
 			
 	}
 	
 	
-	private boolean onEnterFrame(int i) {
+	private boolean onEnterFrame() {
+		int i = Juego.currentLevel;
 		if (Jugador.getVida() <= 0)
-			return true;			
+			ScreenManager.showScreen("test");			
 		
 		if (map.checkEnemigos())
 			return false;
 		
 		int idAccion = map.ejecutarAccionEspecial();
+		if (idAccion != -1) return false;
+		
+//		CONDICION ESPECIAL NIVEL 0
+		if (i==0 && p1.gridX == 15 && p2.gridX == 15 
+//				&& p1.gridY >= 5 && p1.gridY <= 8 && p2.gridY >= 5 && p2.gridY <= 8 
+			){
+			Juego.nextLevel();
+			ScreenManager.showScreen("game");
+			return true;
+		}	
 		
 //		CONDICION ESPECIAL NIVEL 1
-		if (i==1 && p1.gridX == 0 && p2.gridX == 0)
-			return true;		
+		if (i==1 && p1.gridX == 0 && p2.gridX == 0){
+			Juego.nextLevel();
+			ScreenManager.showScreen("game");
+			return true;
+		}					
 
-		if (i==2 && p1.gridX == 15 && p2.gridX == 15)
+//		CONDICION ESPECIAL NIVEL 2
+		if (i==2 && p1.gridX == 15 && p2.gridX == 15){
+			Juego.nextLevel();
+			ScreenManager.showScreen("game");
 			return true;
-		
-//		SE ACABO LA VIDA
-		if (idAccion == -2)
-			return true;
-		
-//		NO PASO NADA
-		else if (idAccion == -1)		
-			return false;
-		else {
-//			PARA EL NIVEL 0
-			if (i == 0){
-				if (idAccion == 1){			
-					Renderizador.dialogo2();
-					return true;
-				}
-			}
-			
-//			PARA EL NIVEL 1
-			if (i == 1){
-				if (idAccion == 0){	
-					map.getObjeto(2).quitarMapa();
-					return false;
-				}
-				if (idAccion == 2){	
-					map.getEnemigo(0).destruir();
-					return false;
-				}
-			}			
-			
-//			PARA EL NIVEL 2
-			if (i == 2){
-				if (idAccion == 1){	
-					ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
-					obj.allowWalk();
-					return false;
-				}
-			}	
 		}
+	
 		return false;		
+	}
+	
+	public void onActionStart(int idAccion){
+		int i = Juego.currentLevel;
+	
+	//		PARA EL NIVEL 0
+		if (i == 0){
+//			NADA
+		}
+		
+	//		PARA EL NIVEL 1
+		if (i == 1){
+			if (idAccion == 0){	
+				map.getObjeto(2).quitarMapa();
+				return;
+			}
+//			if (idAccion == 2){	
+//				map.getEnemigo(0).destruir();
+//				return;
+//			}
+		}			
+		
+	//		PARA EL NIVEL 2
+		if (i == 2){
+			if (idAccion == 1){	
+				ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
+				obj.allowWalk();
+				return;
+			}
+		}	
+	}
+	
+	
+	public void onActionDone(int idAccion){
+		int i = Juego.currentLevel;
+	
+	//		PARA EL NIVEL 0
+		if (i == 0){
+			if (idAccion == 0){			
+				map.activarAccion(1);
+				return;
+			}
+			if (idAccion == 1){			
+				Renderizador.dialogo2();
+				return;
+			}
+		}
+		
+	//		PARA EL NIVEL 1
+		if (i == 1){
+			if (idAccion == 2){	
+				map.getEnemigo(0).destruir();
+				return;
+			}
+		}
+		if (i == 1){
+			if (idAccion == 1){	
+				map.getObjeto(3).quitarMapa();
+				return;
+			}
+		}
+		
+	//		PARA EL NIVEL 2
+		if (i == 2){
+			if (idAccion == 1){	
+				ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
+				obj.allowWalk();
+				return;
+			}
+		}	
 	}
 	
 	
@@ -143,14 +195,14 @@ public class ScreenGame extends Screen{
 	
 			default:
 				break;
-		}
-		
+		}		
 	}	
 	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		int idAccion = map.ejecutarAccionEspecial();
+		if (active)
+			onEnterFrame();
 		
 		
 		Renderizador.updateMapa();	

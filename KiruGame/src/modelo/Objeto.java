@@ -7,8 +7,6 @@ import vista.Juego;
 
 public class Objeto extends Sprite{
 	
-	public SpriteAS3 sprite = new SpriteAS3();
-	
 	public Objeto(int id, int x, int y, ObjetoData objData){
 		super(x,y,objData.width,objData.height);
 		this.id = id;

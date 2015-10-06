@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 
 import actionscript3.Screen;
 import actionscript3.SpriteAS3;
+import controlador.AccionEspecial;
+import controlador.Mapa;
 import modelo.Jugador;
 import vista.AssetManager;
 
@@ -12,7 +14,11 @@ public class PopupAction extends Screen {
 
 	public String sec = "";
 	private int currentPos = 0;
+	private AccionEspecial action;
 	private SpriteAS3 spriteChar = new SpriteAS3(); 
+	private int run = -1;
+	private int count;
+	private boolean first = true;
 	
 	public PopupAction() {
 		// TODO Auto-generated constructor stub
@@ -23,36 +29,28 @@ public class PopupAction extends Screen {
 		addChild(spriteChar);
 	}
 	
-	public void definirSecuencia(String sec){
-		this.sec = sec;
+	public void definirAccion(AccionEspecial action){
+		this.action = action;
+		this.sec = action.getSec();
 		updateChar();
+
+		System.out.println("AQUI1.2");
 	}
 	
 	private void ejecutarAccion(){
 		
+
+		
+		removeChild(spriteChar);
+		setImg(null);
+		run = 0;
+		
+		
+		
+		
 	}
 	
-//	Jugador player;
-//	for (int j = 0; j<jugArray.size(); j++){
-//		GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).showTerreno();
-//	}
-//	for (int i = 0; i< cordArray.get(0).length; i++){
-//		for (int j = 0; j<jugArray.size(); j++){
-//			int[] vect = {cordArray.get(j)[i][0], cordArray.get(j)[i][1]};
-//			
-//			if (jugArray.get(j) == 1)
-//				player = Mapa.p1;
-//			else
-//				player = Mapa.p2;
-//			
-//			player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
-//			
-//		}
-//		Renderizador.pressToMove(sprite);
-//		sc.nextLine();
-//		Renderizador.mostrarMapa();
-//		
-//	}
+
 	
 	public void updateChar(){
 		spriteChar.setImg(AssetManager.getImage( String.valueOf(sec.charAt(currentPos))  ));
@@ -71,14 +69,18 @@ public class PopupAction extends Screen {
 			} else {
 //				Correcto
 //				ejecutarAccion
+				stage.removeKeyListener(this);
+//				ScreenManager.getCurrentScreen().removeChild(Mapa.p1.mc);
 				
-				ejecutarAccion();				
+				ejecutarAccion();		
+				System.out.println("AQUI1.1");		
 				
 			}
 			
 		} else {
 			currentPos = 0;
 //			Display Message
+			updateChar();
 			Jugador.getTipoDano(2);
 		}
 	}
@@ -88,7 +90,55 @@ public class PopupAction extends Screen {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
+//		int count = 0;
+		if (count == 0 && run >= 0){
+			if (first){
+				((ScreenGame)ScreenManager.getCurrentScreen()).onActionStart(action.idAccion);
+				first = false;
+			}
+			System.out.println("AQUI1.3");
+			if (run < action.cordArray.get(0).length){
+	//			addChild(AssetManager.getSceneByID());				
+				Jugador player;
+				for (int j = 0; j<action.jugArray.size(); j++){
+					int[] vect = {action.cordArray.get(j)[run][0], action.cordArray.get(j)[run][1]};				
+					player = (action.jugArray.get(j) == 1)? Mapa.p1: Mapa.p2;				
+					player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
+					if (action.cordArray.get(j)[run][2] == -2){
+						ScreenManager.getCurrentScreen().removeChild(player.mc);
+					} else if (action.cordArray.get(j)[run][2] == -1){
+						count = 24;
+					} else {
+						player.mc.addScene(AssetManager.getSceneByID(action.cordArray.get(j)[run][2]));						
+					}
+				}
+				
+				run ++;
+			} else {
+//				ScreenManager.getCurrentScreen().addChild(Mapa.p1.mc);
+				ScreenManager.getCurrentScreen().removeChild(Mapa.p1.mc);
+				ScreenManager.getCurrentScreen().addChild(Mapa.p1.mc);
+				ScreenManager.getCurrentScreen().removeChild(Mapa.p2.mc);
+				ScreenManager.getCurrentScreen().addChild(Mapa.p2.mc);
+				Mapa.p1.mc.setScene("idle");
+				Mapa.p2.mc.setScene("idle");
+				System.out.println("AQUI2");
+				action.hideAction();
+				((ScreenGame)ScreenManager.getCurrentScreen()).onActionDone(action.idAccion);
+				ScreenManager.closePopup();
+			}
+		}
+		
+		count ++;
+		if (count >= 24) count = 0;
 	}
+	
+//	Jugador player;
+//	for (int j = 0; j<jugArray.size(); j++){
+//		GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).showTerreno();
+//	}
+//	
+	
+	
 
 }

@@ -52,11 +52,9 @@ public class ScreenManager {
 		
 		currentScreen.active = true;
 		currentScreen.enable();
-//		currentScreen.restart();
-		
+//		currentScreen.restart();		
 		currentPopup.removerListeners();
-		currentPopup = null;
-		
+		currentPopup = null;		
 	}
 	
 	public static void renderScreen(Graphics2D canvas){

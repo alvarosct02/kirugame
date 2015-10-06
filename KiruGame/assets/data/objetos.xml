@@ -45,40 +45,40 @@
 		<frame>alfombra.jpg</frame>
 	</objeto>
 	<objeto id ="5">
-		<nombre>Fila de piedras</nombre>
+		<nombre>filaPiedras</nombre>
 		<width>16</width>
 		<height>1</height>
 		<sprite>p</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>filaPiedras.jpg</frame>
 	</objeto>
 	<objeto id ="6">
-		<nombre>Piedra grande</nombre>
+		<nombre>piedraGrande</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>g</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>piedraGrande.png</frame>
 	</objeto>
 	<objeto id ="7">
-		<nombre>Castillo de arena grande</nombre>
+		<nombre>castilloGrande</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>i</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>castilloGrande.png</frame>
 	</objeto>	
 	<objeto id ="8">
-		<nombre>Castillo de arena delgado y en columna</nombre>
+		<nombre>castilloDelgado</nombre>
 		<width>1</width>
 		<height>4</height>
 		<sprite>L</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>castilloDelgado.png</frame>
 	</objeto>
 	<objeto id ="9">
 		<nombre>Canal de agua hecho de piedra</nombre>

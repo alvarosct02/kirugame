@@ -12,7 +12,8 @@ public class MovieClip extends SpriteAS3 {
 //	private int currentFrame = 0;
 	
 	public MovieClip() {
-		// TODO Auto-generated constructor stub
+		super();
+		stage = Stage.stage;	
 	}
 	
 	public void addScene(String sceneName){
@@ -20,7 +21,12 @@ public class MovieClip extends SpriteAS3 {
 		sceneArr.add(scene);
 		currentScene = scene;	
 		this.offsetX = currentScene.offsetX;
-		this.offsetY = currentScene.offsetY;	
+		this.offsetY = currentScene.offsetY;
+	}
+	
+	public void addScene(Scene scene2, String nombre){
+		addScene(scene2);
+		currentScene.name = nombre;
 	}
 	
 	public void addScene(Scene scene2){
@@ -39,7 +45,7 @@ public class MovieClip extends SpriteAS3 {
 	
 	public Scene getScene(String sceneName){
 		for (Scene scene : sceneArr) {
-			if (scene.name == sceneName)
+			if (scene.name.equals(sceneName))
 				return scene;
 		}
 		return null;
