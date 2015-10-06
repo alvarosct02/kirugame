@@ -1,5 +1,6 @@
 package modelo;
 
+import actionscript3.MovieClip;
 import controlador.GestorMapas;
 
 public class Jugador extends Sprite {
@@ -7,6 +8,8 @@ public class Jugador extends Sprite {
 	private String nombre;
 	public boolean blooding = false;
 	public String dir;
+	public MovieClip mc = new MovieClip();
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -33,8 +36,9 @@ public class Jugador extends Sprite {
 		this.input = input;		
 	}
 	
-	public int moverDir(int cmd){
+	public int moverDir(char cmd){
 		int error = 0;
+		cmd = Character.toUpperCase(cmd);
 		if (cmd == input.charAt(3)){
 			error = moverXY(gridX+1,gridY);
 			dir = "la derecha";			

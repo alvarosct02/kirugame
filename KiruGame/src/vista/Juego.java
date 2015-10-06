@@ -58,6 +58,8 @@ public class Juego extends JPanel{
         f.pack();
         f.setLocationRelativeTo(null);
         f.setVisible(true); 
+        setFocusable(true);
+        requestFocusInWindow();
         
 
 //        f.createBufferStrategy(2);
@@ -72,6 +74,8 @@ public class Juego extends JPanel{
 		AssetManager.cargarObjetos();
 		AssetManager.cargarEnemigos();
 		AssetManager.cargarAnimaciones();
+		
+		GestorMapas.cargarAnimacionesJugadores();
         
         Stage.stage = this;
         ScreenManager.showScreen("menu");
@@ -127,7 +131,7 @@ public class Juego extends JPanel{
 		String nom2 = sc.next();
 		p2.addData(nom2, "IJKLUO",1,1,'B','N');
 		Renderizador.endPedirDatos();
-		gameLoop();
+//		gameLoop();
 		if (Jugador.getVida()<= 0){
 			gameOver();
 		} else {
@@ -168,70 +172,70 @@ public class Juego extends JPanel{
 	}
 	
 
-	public void gameLoop(){
-		
-		for (int i=currentLevel; i<=cantNivel; i++){	
-			if (Jugador.getVida() <= 0) return;
-			
-//			Mostrar MENSAJE NUEVO NIVEL			
-			Renderizador.nuevoNivel(i);
-			
-//			Mostrar Historia
-			Renderizador.mostrarHistoria(i+1);
-			
-			if (i==0){
-				Renderizador.dialogo1();
-			}
-			
-//			Cargar el nivel correspondiente
-			GestorMapas.cargarNivel(i);
-			map = GestorMapas.map;
-			int act1,act2 = 0;
-			int[] resp;
-			while (true){
-				Renderizador.mostrarPantalla(map);
-				Renderizador.ingreseComandoGame();
-				cmd = sc.next();
-				resp = InterpreteComandos.cmdJuego1(cmd);
-				act1 = resp[0];
-				
-				if (act1 == -2)
-					Renderizador.logNoMover();
-					
-				
-				
-				if (act1 >= 1){
-					Jugador player = resp[1]==1? Mapa.p1: Mapa.p2;
-					player.moverDir(resp[2]);
-					Renderizador.logMover(player.getNombre(), player.dir);
-					if (onEnterFrame(i)){						
-						break;
-					}
-				} else if (act1 == -1) {
-					Renderizador.confirmacionSalirGame();
-					while (true){
-						cmd = sc.next();
-						act2 = InterpreteComandos.cmdSalir(cmd);
-						if (act2 == 1){
-							break;
-						} else if (act2 == -1) {							
-							break;						
-						} else {
-							Renderizador.errorCmd();
-						}
-					}
-					if (act2 == 1) break;
-				} else {
-					Renderizador.errorCmd();				
-				}				
-			}
-			if (act2 == 1){
-				menuLoop();
-				break;				
-			}
-		}			
-		
-	}
+//	public void gameLoop(){
+//		
+//		for (int i=currentLevel; i<=cantNivel; i++){	
+//			if (Jugador.getVida() <= 0) return;
+//			
+////			Mostrar MENSAJE NUEVO NIVEL			
+//			Renderizador.nuevoNivel(i);
+//			
+////			Mostrar Historia
+//			Renderizador.mostrarHistoria(i+1);
+//			
+//			if (i==0){
+//				Renderizador.dialogo1();
+//			}
+//			
+////			Cargar el nivel correspondiente
+//			GestorMapas.cargarNivel(i);
+//			map = GestorMapas.map;
+//			int act1,act2 = 0;
+//			int[] resp;
+//			while (true){
+//				Renderizador.mostrarPantalla(map);
+//				Renderizador.ingreseComandoGame();
+//				cmd = sc.next();
+//				resp = InterpreteComandos.cmdJuego1(cmd);
+//				act1 = resp[0];
+//				
+//				if (act1 == -2)
+//					Renderizador.logNoMover();
+//					
+//				
+//				
+//				if (act1 >= 1){
+//					Jugador player = resp[1]==1? Mapa.p1: Mapa.p2;
+//					player.moverDir(resp[2]);
+//					Renderizador.logMover(player.getNombre(), player.dir);
+//					if (onEnterFrame(i)){						
+//						break;
+//					}
+//				} else if (act1 == -1) {
+//					Renderizador.confirmacionSalirGame();
+//					while (true){
+//						cmd = sc.next();
+//						act2 = InterpreteComandos.cmdSalir(cmd);
+//						if (act2 == 1){
+//							break;
+//						} else if (act2 == -1) {							
+//							break;						
+//						} else {
+//							Renderizador.errorCmd();
+//						}
+//					}
+//					if (act2 == 1) break;
+//				} else {
+//					Renderizador.errorCmd();				
+//				}				
+//			}
+//			if (act2 == 1){
+//				menuLoop();
+//				break;				
+//			}
+//		}			
+//		
+//	}
 	
 	private boolean onEnterFrame(int i) {
 		if (Jugador.getVida() <= 0)

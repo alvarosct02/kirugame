@@ -22,9 +22,7 @@ public class ScreenTest extends Screen {
 		mc.addScene(AssetManager.getScene("Nivel 1\\Perro empujando muralla"));
 		mc.x = 100;
 		mc.y = 100;		
-		addChild(mc); // Agrega la animacion a la pantalla
-		
-		
+		addChild(mc); // Agrega la animacion a la pantalla		
 	}
 	
 	

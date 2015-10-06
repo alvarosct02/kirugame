@@ -123,11 +123,12 @@ public class Mapa extends SpriteAS3 {
 	}
 
 	public void update() {
-//		for (Objeto obj : objetos) {
-//			if (obj.id == id)
-//				return obj;
-//		}
-		
+		p1.mc.x = p1.gridX * Juego.GRIDSIZE;
+		p1.mc.y = p1.gridY * Juego.GRIDSIZE;		
+
+//		p1.mc.x = p1.gridX * Juego.GRIDSIZE;
+//		p1.mc.y = p1.gridY * Juego.GRIDSIZE;
+//		
 	}
 	
 	

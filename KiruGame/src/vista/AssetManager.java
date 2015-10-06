@@ -56,6 +56,14 @@ public class AssetManager {
 		return null;		
 	}
 	
+	public static Scene getSceneByID(int id){
+		if (id < sceneList.size())
+			return sceneList.get(id);
+
+		System.out.println("Error: Can't retrive scene with id:" + id);
+		return null;	
+	}
+	
 	public static Scene getScene(String name){
 		for (Scene scene : sceneList) {
 			if (scene.name.equals(name)){
@@ -189,7 +197,7 @@ public class AssetManager {
 		
 	}
 	
-public static void cargarAnimaciones(){
+	public static void cargarAnimaciones(){
 		
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
 		DocumentBuilder dBuilder = null;
@@ -217,7 +225,7 @@ public static void cargarAnimaciones(){
 					int rep = Integer.parseInt(frame.getAttribute("rep"));	
 					BufferedImage img = ImageIO.read(new File("assets/img/" + folder + "/" + src));
 					scene.addFrame(img, rep);					
-					sceneList.add(scene);				
+					sceneList.add(scene);
 					
 				}
 			}	
