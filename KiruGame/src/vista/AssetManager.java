@@ -229,9 +229,11 @@ public class AssetManager {
 					int rep = Integer.parseInt(frame.getAttribute("rep"));	
 					BufferedImage img = ImageIO.read(new File("assets/img/" + folder + "/" + src));
 					scene.addFrame(img, rep);					
-					sceneList.add(scene);
+					
 					
 				}
+				sceneList.add(scene);
+				
 			}	
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -48,8 +48,9 @@ public class ScreenGame extends Screen{
 		
 		GestorMapas.cargarNivel(0);	
 		addChild(GestorMapas.map);
+		
 		addChild(p1.mc);
-//		addChild(p2.mc);
+		addChild(p2.mc);
 		
 //		stage.addKeyListener(this);		
 			
@@ -66,14 +67,15 @@ public class ScreenGame extends Screen{
 			case KeyEvent.VK_W:
 			case KeyEvent.VK_D:
 			case KeyEvent.VK_S:
-				p1.moverDir(e.getKeyChar() );
-				System.out.println(p1.gridX + " - " + p1.gridY);
+				p1.moverDir(e.getKeyChar());
+//				System.out.println(p1.gridX + " - " + p1.gridY);
 				break;
 				
 			case KeyEvent.VK_J:
 			case KeyEvent.VK_I:
 			case KeyEvent.VK_K:
 			case KeyEvent.VK_L:
+				System.out.println(p2.gridX + " - " + p2.gridY);
 				p2.moverDir(e.getKeyChar());
 				break;
 	

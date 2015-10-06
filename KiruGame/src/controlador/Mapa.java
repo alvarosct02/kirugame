@@ -126,8 +126,8 @@ public class Mapa extends SpriteAS3 {
 		p1.mc.x = p1.gridX * Juego.GRIDSIZE;
 		p1.mc.y = p1.gridY * Juego.GRIDSIZE;		
 
-//		p1.mc.x = p1.gridX * Juego.GRIDSIZE;
-//		p1.mc.y = p1.gridY * Juego.GRIDSIZE;
+		p2.mc.x = p2.gridX * Juego.GRIDSIZE;
+		p2.mc.y = p2.gridY * Juego.GRIDSIZE;
 //		
 	}
 	

@@ -157,17 +157,17 @@ public class GestorMapas {
 			NodeList objetosListBase = doc.getElementsByTagName("jugador");
 			
 			Scene scene;
-			
+			Jugador player;
 			for (int id = 0; id < objetosListBase.getLength(); id++) {
 				Element objetoBase = (Element) objetosListBase.item(id);
 //				scene = new Scene(folder);
-				
+				player = id ==0? Mapa.p1 : Mapa.p2;
 				NodeList anims = objetoBase.getElementsByTagName("anim");	
 				for (int i = 0; i < anims.getLength(); i++) {
 					Element anim= (Element) anims.item(i);
-					int animID= Integer.parseInt(anim.getTextContent());
-										
-					Mapa.p1.mc.addScene(AssetManager.getSceneByID(animID));
+					int animID= Integer.parseInt(anim.getTextContent());										
+								
+					player.mc.addScene(AssetManager.getSceneByID(animID));
 									
 				}
 			}	
