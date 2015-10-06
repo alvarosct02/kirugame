@@ -15,6 +15,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import actionscript3.MovieClip;
+import actionscript3.Scene;
 import modelo.EnemigoData;
 import modelo.ImageData;
 import modelo.Objeto;
@@ -25,6 +27,7 @@ public class AssetManager {
 	public static ArrayList<ImageData> imageList = new ArrayList<ImageData>();	
 	public static ArrayList<ObjetoData> objectList = new ArrayList<ObjetoData>();
 	public static ArrayList<EnemigoData> enemyList = new ArrayList<EnemigoData>();
+	public static ArrayList<Scene> sceneList = new ArrayList<Scene>();
 	
 	public AssetManager(){
 		// Constructor vacio
@@ -51,6 +54,16 @@ public class AssetManager {
 		}
 		System.out.println("Error: Can't retrive " + name);
 		return null;		
+	}
+	
+	public static Scene getScene(String name){
+		for (Scene scene : sceneList) {
+			if (scene.name.equals(name)){
+				return scene;
+			}
+		}
+		System.out.println("Error: Can't retrive " + name);
+		return null;	
 	}
 	
 	public static EnemigoData getEnemyByID(int id){
@@ -169,6 +182,44 @@ public class AssetManager {
 				
 				ObjetoData obj = new ObjetoData(id, nombre, width, height, sprite, tipo, frame);
 				objectList.add(obj);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+public static void cargarAnimaciones(){
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFileBase = new File("./assets/data/animaciones.xml");
+			doc = dBuilder.parse(objetosFileBase);
+			doc.getDocumentElement().normalize();
+			NodeList objetosListBase = doc.getElementsByTagName("animacion");
+			
+			Scene scene;
+			
+			for (int id = 0; id < objetosListBase.getLength(); id++) {
+				Element objetoBase = (Element) objetosListBase.item(id);
+				String folder = objetoBase.getAttribute("folder");
+				scene = new Scene(folder);
+				
+				NodeList frames = objetoBase.getElementsByTagName("frame");						
+				for (int i = 0; i < frames.getLength(); i++) {
+					Element frame = (Element) frames.item(i);
+					String src = frame.getAttribute("src");
+					int rep = Integer.parseInt(frame.getAttribute("rep"));	
+					BufferedImage img = ImageIO.read(new File("assets/img/" + folder + "/" + src));
+					scene.addFrame(img, rep);					
+					sceneList.add(scene);				
+					
+				}
 			}	
 		} catch (Exception e) {
 			e.printStackTrace();

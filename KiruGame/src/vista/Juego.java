@@ -71,6 +71,7 @@ public class Juego extends JPanel{
 		AssetManager.cargarImagenes();
 		AssetManager.cargarObjetos();
 		AssetManager.cargarEnemigos();
+		AssetManager.cargarAnimaciones();
         
         Stage.stage = this;
         ScreenManager.showScreen("menu");
