@@ -35,6 +35,7 @@ public class SpriteAS3 implements
 	
 	public SpriteAS3(){
 		stage = Stage.stage;
+		
 	}
 //	
 //	@Override
