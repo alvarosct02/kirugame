@@ -21,7 +21,11 @@ public class MovieClip extends SpriteAS3 {
 		currentScene = scene;		
 	}
 	
-	public void addScene(Scene scene){
+	public void addScene(Scene scene2){
+		Scene scene = new Scene(scene2.name);
+		for (int i = 0; i<scene2.getNumFrame(); i++){
+			scene.addFrame(scene2.getFrame(i));
+		}
 		sceneArr.add(scene);
 		currentScene = scene;		
 	}

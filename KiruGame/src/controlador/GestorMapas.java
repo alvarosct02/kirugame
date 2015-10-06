@@ -1,11 +1,13 @@
 package controlador;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import actionscript3.Scene;
 import modelo.*;
 import vista.AssetManager;
 
@@ -13,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.io.*	;
 
 public class GestorMapas {
@@ -139,6 +142,39 @@ public class GestorMapas {
 	}
 
 	
+	public static void cargarAnimacionesJugadores(){
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFileBase = new File("./assets/data/jugadores.xml");
+			doc = dBuilder.parse(objetosFileBase);
+			doc.getDocumentElement().normalize();
+			NodeList objetosListBase = doc.getElementsByTagName("jugador");
+			
+			Scene scene;
+			
+			for (int id = 0; id < objetosListBase.getLength(); id++) {
+				Element objetoBase = (Element) objetosListBase.item(id);
+//				scene = new Scene(folder);
+				
+				NodeList anims = objetoBase.getElementsByTagName("anim");	
+				for (int i = 0; i < anims.getLength(); i++) {
+					Element anim= (Element) anims.item(i);
+					int animID= Integer.parseInt(anim.getTextContent());
+										
+					Mapa.p1.mc.addScene(AssetManager.getSceneByID(animID));
+									
+				}
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void cargarMapa(String urlArchivo) throws Exception{
 		
@@ -192,6 +228,8 @@ public class GestorMapas {
 		}
 		
 	}
+	
+	
 	
 	public static void cargarEnemigos(int nivel){
 		

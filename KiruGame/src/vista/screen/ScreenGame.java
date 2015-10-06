@@ -46,29 +46,28 @@ public class ScreenGame extends Screen{
 		p1.addData("Player1", "WASDQE",1,1,'A','S');
 		p2.addData("Player2", "IJKLUO",1,1,'B','N');
 		
-		GestorMapas.cargarNivel(0);		
+		GestorMapas.cargarNivel(0);	
 		addChild(GestorMapas.map);
+		addChild(p1.mc);
+//		addChild(p2.mc);
 		
-		
-		
+//		stage.addKeyListener(this);		
 			
 	}
-	
-	
-	
-	
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		super.keyPressed(e);
-		
+//		System.out.println(e.getKeyCode());
+//		
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_A:
 			case KeyEvent.VK_W:
 			case KeyEvent.VK_D:
 			case KeyEvent.VK_S:
-				p1.moverDir(e.getKeyChar());
+				p1.moverDir(e.getKeyChar() );
+				System.out.println(p1.gridX + " - " + p1.gridY);
 				break;
 				
 			case KeyEvent.VK_J:
