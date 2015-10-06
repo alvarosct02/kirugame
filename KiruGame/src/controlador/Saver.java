@@ -1,5 +1,6 @@
 package controlador;
 import modelo.Jugador;
+import  javax.swing.JFileChooser ;
 import modelo.Objeto;
 
 import com.thoughtworks.xstream.*;
@@ -26,6 +27,12 @@ public class Saver {
 	public int token;
 	public Saver()
 	{
+		
+		
+	}
+	
+	public void guardar()
+	{
 		this.currentLevel = Juego.currentLevel;
 		this.cantNivel    = Juego.cantNivel;
 		this.p1           = Mapa.p1;
@@ -35,11 +42,7 @@ public class Saver {
 		this.enemigos     = GestorMapas.map.getEnemigos();
 		this.token        = 1;
 		this.vida         = GestorMapas.map.p1.getVida();
-	}
-	
-	public void guardar()
-	{
-		  try {XStream xs = new XStream();
+		try {XStream xs = new XStream();
           // 1. Escribir el archivoFileWriter 
           FileWriter fw = new FileWriter("save1.xml");
           fw.write(xs.toXML(this));
@@ -51,7 +54,7 @@ public class Saver {
 		  
 	}
 	
-	public void cargar(String data)
+	public static void cargar(String data)
 	{
 		 try {XStream xs = new XStream();
          
