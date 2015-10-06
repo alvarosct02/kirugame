@@ -71,7 +71,10 @@ public class Jugador extends Sprite {
 	public static int getVida() {
 		return Jugador.vida;		
 	}
-	
+	public static void setVida(int vida)
+	{
+		Jugador.vida = vida; 
+	}
 	public boolean isHere(int x, int y){
 		return (x == gridX && y == gridY);
 	}

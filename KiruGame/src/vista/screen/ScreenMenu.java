@@ -9,7 +9,7 @@ import actionscript3.SimpleButton;
 import actionscript3.Stage;
 import vista.AssetManager;
 import vista.Juego;
-
+import controlador.Saver;
 public class ScreenMenu extends Screen {
 	
 	public ScreenMenu(){
@@ -30,8 +30,7 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnCreditos = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
 			@Override
 			public void onClick() {
-				// TODO Auto-generated method stub
-//				ScreenManager.showScreen("game");				
+				new Saver().guardar();
 			}
 		};			
 		btnCreditos.x = 362;

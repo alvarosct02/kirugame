@@ -23,6 +23,37 @@ public class Mapa extends SpriteAS3 {
 	private ArrayList<Objeto> objetos= new ArrayList<Objeto>();
 	private ArrayList<Enemigo> enemigos= new ArrayList<Enemigo>();
 	
+	 
+	public  ArrayList<AccionEspecial> getAcciones()
+	{
+		return this.acciones;
+	}
+	
+	public ArrayList<Objeto> getObjetos() 
+	{
+		return this.objetos;
+	}
+	
+	public void setEnemigos(ArrayList<Enemigo> lista)
+	{
+		this.enemigos = lista ;
+	}
+	
+	public  void setAcciones(ArrayList<AccionEspecial> lista)
+	{
+		this.acciones = lista;
+	}
+	
+	public void setObjetos(ArrayList<Objeto> lista) 
+	{
+		this.objetos = lista;
+	}
+	
+	public ArrayList<Enemigo> getEnemigos()
+	{
+		return this.enemigos;
+	}
+	
 	public Mapa(char terreno[][]){//Creando el mapa
 		mapa = new Celda[gridHeight][gridWidth];		
 		for (int i = 0; i<gridHeight; i++){
