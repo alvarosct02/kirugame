@@ -6,6 +6,8 @@ public class ObjetoApoyo extends Objeto{
 
 	public ObjetoApoyo(int id,int x, int y, ObjetoData objData) {
 		super(id,x, y, objData);
+		caracter = 'o';
+		
 	}
 	
 

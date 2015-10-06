@@ -91,7 +91,7 @@ public class ScreenGame extends Screen{
 //		CONDICION ESPECIAL NIVEL 2
 		if (i==2 && p1.gridX == 15 && p2.gridX == 15){
 			Juego.nextLevel();
-			ScreenManager.showScreen("game");
+			ScreenManager.showScreen("test");
 			return true;
 		}
 	

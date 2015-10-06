@@ -11,6 +11,7 @@ public class Objeto extends Sprite{
 		super(x,y,objData.width,objData.height);
 		this.id = id;
 		this.sprite.setImg(objData.img);
+		this.caracter = objData.sprite;
 		this.sprite.x = gridX * Juego.GRIDSIZE;
 		this.sprite.y = gridY * Juego.GRIDSIZE;
 		agregarMapa();
