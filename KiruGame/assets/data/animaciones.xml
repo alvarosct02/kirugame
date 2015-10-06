@@ -5,7 +5,7 @@
 		<frame rep="5" src="img3.png"></frame>
 		<frame rep="7" src="img4.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy Buscando en cofre">
+	<animacion id="1" folder="Cuy Buscando en cofre">
 		<frame rep="2" src="CuyCofre1.png"></frame>
 		<frame rep="2" src="CuyCofre2.png"></frame>
 		<frame rep="1" src="CuyCofre3.png"></frame>
@@ -21,7 +21,7 @@
 		<frame rep="1" src="CuyCofre13.png"></frame>
 		<frame rep="1" src="CuyCofre14.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy Caminando">
+	<animacion id="2" folder="Cuy Caminando">
 		<frame rep="2" src="CuyCaminando541.png"></frame>
 		<frame rep="3" src="CuyCaminando542.png"></frame>
 		<frame rep="3" src="CuyCaminando543.png"></frame>
@@ -31,7 +31,7 @@
 		<frame rep="3" src="CuyCaminando547.png"></frame>
 		<frame rep="2" src="CuyCaminando548.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy con llave">
+	<animacion id="2" folder="Cuy con llave">
 		<frame rep="1" src="CuyLlave1.png"></frame>
 		<frame rep="1" src="CuyLlave2.png"></frame>
 		<frame rep="1" src="CuyLlave3.png"></frame>
@@ -51,11 +51,11 @@
 		<frame rep="2" src="CuyLlave17.png"></frame>
 		<frame rep="2" src="CuyLlave18.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy Respirando">
+	<animacion id="3" folder="Cuy Respirando">
 		<frame rep="12" src="Cuyrespirando541.png"></frame>
 		<frame rep="12" src="Cuyrespirando542.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy Sentandose">
+	<animacion id="4" folder="Cuy Sentandose">
 		<frame rep="1" src="Cuysentandose541.png"></frame>
 		<frame rep="1" src="Cuysentandose542.png"></frame>
 		<frame rep="1" src="Cuysentandose543.png"></frame>
@@ -71,7 +71,7 @@
 		<frame rep="2" src="Cuysentandose5413.png"></frame>
 		<frame rep="2" src="Cuysentandose5414.png"></frame>
 	</animacion>
-	<animacion id="" folder="Cuy, Perro Y Llave">
+	<animacion id="5" folder="Cuy, Perro Y Llave">
 		<frame rep="1" src="CuyPerroYLlave1.png"></frame>
 		<frame rep="1" src="CuyPerroYLlave2.png"></frame>
 		<frame rep="1" src="CuyPerroYLlave3.png"></frame>
@@ -97,7 +97,7 @@
 		<frame rep="1" src="CuyPerroYLlave23.png"></frame>
 		<frame rep="1" src="CuyPerroYLlave24.png"></frame>
 	</animacion>
-	<animacion id="" folder="Perro caminando">
+	<animacion id="6" folder="Perro caminando">
 		<frame rep="4" src="Perrocaminando1.png"></frame>
 		<frame rep="4" src="Perrocaminando2.png"></frame>
 		<frame rep="4" src="Perrocaminando3.png"></frame>
@@ -105,7 +105,7 @@
 		<frame rep="4" src="Perrocaminando5.png"></frame>
 		<frame rep="4" src="Perrocaminando6.png"></frame>
 	</animacion>
-	<animacion id="" folder="Nivel 1\Cuy Celebrando">
+	<animacion id="7" folder="Nivel 1\Cuy Celebrando">
 		<frame rep="1" src="Cuy celebrando1.png"></frame>
 		<frame rep="1" src="Cuy celebrando2.png"></frame>
 		<frame rep="1" src="Cuy celebrando3.png"></frame>
@@ -127,7 +127,7 @@
 		<frame rep="1" src="Cuy celebrando19.png"></frame>
 		<frame rep="1" src="Cuy celebrando20.png"></frame>
 	</animacion>
-	<animacion id="" folder="Nivel 1\Cuy Destruyendo Castillo de Arena">
+	<animacion id="8" folder="Nivel 1\Cuy Destruyendo Castillo de Arena">
 		<frame rep="1" src="Cuydestruyendocastillodearena1.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena2.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena3.png"></frame>
@@ -150,7 +150,7 @@
 		<frame rep="1" src="Cuydestruyendocastillodearena36.png"></frame>
 		<frame rep="1" src="Cuydestruyendocastillodearena45.png"></frame>
 	</animacion>	
-	<animacion id="" folder="Nivel 1\Cuy empujando muralla">
+	<animacion id="9" folder="Nivel 1\Cuy empujando muralla">
 		<frame rep="1" src="Cuy empujando muralla1.png"></frame>
 		<frame rep="1" src="Cuy empujando muralla2.png"></frame>
 		<frame rep="1" src="Cuy empujando muralla3.png"></frame>
@@ -168,7 +168,7 @@
 		<frame rep="2" src="Cuy empujando muralla15.png"></frame>
 		<frame rep="2" src="Cuy empujando muralla16.png"></frame>
 	</animacion>	
-	<animacion id="" folder="Nivel 1\Perro Celebrando">
+	<animacion id="10" folder="Nivel 1\Perro Celebrando">
 		<frame rep="1" src="Perro Celebrando1.png"></frame>
 		<frame rep="1" src="Perro Celebrando2.png"></frame>
 		<frame rep="2" src="Perro Celebrando3.png"></frame>
@@ -183,7 +183,7 @@
 		<frame rep="2" src="Perro Celebrando12.png"></frame>
 		<frame rep="2" src="Perro Celebrando13.png"></frame>
 	</animacion>
-	<animacion id="" folder="Nivel 1\Perro empujando muralla">
+	<animacion id="11" folder="Nivel 1\Perro empujando muralla">
 		<frame rep="3" src="Perro empujando muralla1.png"></frame>
 		<frame rep="3" src="Perro empujando muralla2.png"></frame>
 		<frame rep="3" src="Perro empujando muralla3.png"></frame>
