@@ -6,6 +6,8 @@ import java.util.Scanner;
 import modelo.ITrigger;
 import modelo.Jugador;
 import vista.Renderizador;
+import vista.screen.PopupAction;
+import vista.screen.ScreenManager;
 
 public class AccionEspecial implements ITrigger{
 	
@@ -64,42 +66,10 @@ public class AccionEspecial implements ITrigger{
 	}
 	
 	public int ejecutar() {
-//		map.getCelda(8, 2).removeSprite();
-//		map.getCelda(8, 2).trigger = false;	
-		while(true){
-			if (Jugador.getVida() <= 0) return -2;
-			if (secuencia(sec)){
-				break;
-			} else {
-				Renderizador.errorSecuencia(sec);
-			}
-		}
-		sc.nextLine();	
 		
-		
-		Jugador player;
-		for (int j = 0; j<jugArray.size(); j++){
-			GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).showTerreno();
-		}
-		for (int i = 0; i< cordArray.get(0).length; i++){
-			for (int j = 0; j<jugArray.size(); j++){
-				int[] vect = {cordArray.get(j)[i][0], cordArray.get(j)[i][1]};
-				
-				if (jugArray.get(j) == 1)
-					player = Mapa.p1;
-				else
-					player = Mapa.p2;
-				
-				player.setXY(player.gridX + vect[0], player.gridY + vect[1]);
-				
-			}
-			Renderizador.pressToMove(sprite);
-			sc.nextLine();
-			Renderizador.mostrarMapa();
-			
-		}
-		
-		activa = false;
+		ScreenManager.showPopup("action");
+		((PopupAction)ScreenManager.getCurrentPopup()).definirSecuencia(sec);
+		activa = false;		
 		return idAccion;
 		
 	}

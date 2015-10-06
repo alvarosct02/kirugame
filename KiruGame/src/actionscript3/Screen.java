@@ -18,16 +18,21 @@ public abstract class Screen extends SpriteAS3 implements ActionListener,KeyList
 //		stage.addMouseListener(this);
 		timer = new Timer(1000/Stage.FRAMERATE, this);
 		timer.start();
+//		timer.s
+	}
+	
+	public void pause(){
+		timer.stop();
+	}
+	
+	public void restart(){
+		timer.restart();
 	}
 	
 	public void removerListeners(){	
 		timer.stop();	
 		
-		MouseListener[] mListeners = stage.getMouseListeners();
-		for (int i = 0; i < mListeners.length; i++){
-			stage.removeMouseListener(mListeners[i]);
-		}
-		
+		removeMouseListener();
 		stage.removeKeyListener(this);		
 		stage.removeMouseListener(this);		
 	}
@@ -37,9 +42,9 @@ public abstract class Screen extends SpriteAS3 implements ActionListener,KeyList
 //	public void actionPerformed(ActionEvent e) {}
 	
 //	KEYBOARD EVENT
-	public void keyPressed(KeyEvent e) {}
-	public void keyReleased(KeyEvent e) {}
-	public void keyTyped(KeyEvent e) {}
+	public void keyPressed(KeyEvent e) {if (!active) return;}
+	public void keyReleased(KeyEvent e) {if (!active) return;}
+	public void keyTyped(KeyEvent e) {if (!active) return;}
 	
 //	MOUSE EVENT
 //	public void mouseClicked(MouseEvent e) {}

@@ -31,6 +31,8 @@ public class SpriteAS3 implements
 //	public JPanel stage;
 	public JPanel stage;
 	
+	public boolean active = true;
+	
 	public SpriteAS3(){
 		stage = Stage.stage;
 	}
@@ -41,6 +43,29 @@ public class SpriteAS3 implements
 //		super.finalize();
 //		Stage.stage.removeMouseListener(this);
 //	}
+	
+	
+	
+	public void removeMouseListener(){
+		stage.removeMouseListener(this);
+		for (SpriteAS3 spriteAS3 : displayList) {
+			spriteAS3.removeMouseListener();
+		}
+	}
+	
+	public void disable(){
+		active = false;
+		for (SpriteAS3 spriteAS3 : displayList) {
+			spriteAS3.disable();
+		}
+	}
+	
+	public void enable(){
+		active = true;
+		for (SpriteAS3 spriteAS3 : displayList) {
+			spriteAS3.enable();
+		}
+	}
 		
 	public void addChild(SpriteAS3 child){
 		displayList.add(child);
@@ -91,14 +116,14 @@ public class SpriteAS3 implements
 	}
 	
 //	MOUSE EVENT
-	public void mouseClicked(MouseEvent e) {}
-	public void mouseEntered(MouseEvent e) {}
-	public void mouseExited(MouseEvent e) {}
-	public void mousePressed(MouseEvent e) {}
-	public void mouseReleased(MouseEvent e) {}
-	public void mouseWheelMoved(MouseWheelEvent e) {}
-	public void mouseDragged(MouseEvent e) {}
-	public void mouseMoved(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {if (!active) return;}
+	public void mouseEntered(MouseEvent e) {if (!active) return;}
+	public void mouseExited(MouseEvent e) {if (!active) return;}
+	public void mousePressed(MouseEvent e) {if (!active) return;}
+	public void mouseReleased(MouseEvent e) {if (!active) return;}
+	public void mouseWheelMoved(MouseWheelEvent e) {if (!active) return;}
+	public void mouseDragged(MouseEvent e) {if (!active) return;}
+	public void mouseMoved(MouseEvent e) {if (!active) return;}
 
 	
 	

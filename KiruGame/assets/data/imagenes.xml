@@ -27,6 +27,34 @@
 		<nombre>terreno1B</nombre>		
 		<path>terreno1B.jpg</path>
 	</imagen>
+	<imagen id ="7">
+		<nombre>popupFeo</nombre>		
+		<path>popupFeo.png</path>
+	</imagen>
+	<imagen id ="8">
+		<nombre>Q</nombre>		
+		<path>Q.png</path>
+	</imagen>
+	<imagen id ="9">
+		<nombre>W</nombre>		
+		<path>W.png</path>
+	</imagen>
+	<imagen id ="10">
+		<nombre>E</nombre>		
+		<path>E.png</path>
+	</imagen>
+	<imagen id ="11">
+		<nombre>A</nombre>		
+		<path>A.png</path>
+	</imagen>
+	<imagen id ="12">
+		<nombre>S</nombre>		
+		<path>S.png</path>
+	</imagen>
+	<imagen id ="13">
+		<nombre>D</nombre>		
+		<path>D.png</path>
+	</imagen>
 <!-- 	<imagen id ="7">
 		<nombre>bgMenu</nombre>		
 		<path>bgMenu.png</path>

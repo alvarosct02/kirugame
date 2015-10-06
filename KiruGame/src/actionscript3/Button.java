@@ -38,7 +38,6 @@ public abstract class Button extends SpriteAS3 {
 	
 //	@Override
 //	public void mouseClicked(MouseEvent e) {
-//		// TODO Auto-generated method stub
 //		super.mouseClicked(e);
 //
 //		if (!getBounds().contains(e.getX(), e.getY())) return;
