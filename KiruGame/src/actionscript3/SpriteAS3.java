@@ -20,6 +20,10 @@ public class SpriteAS3 implements
 	public float y = 0;
 	public int height = 0; //No se debe usar
 	public int width = 0; //No se debe usar
+
+	public int offsetX = 0;
+	public int offsetY = 0;
+	
 	public SpriteAS3 parent = null;
 	private BufferedImage img = null;
 	private Rectangle bounds = new Rectangle();
@@ -56,7 +60,7 @@ public class SpriteAS3 implements
 	
 	protected void render(Graphics2D canvas){
 		if (img != null){
-			canvas.drawImage(img, Math.round(getAbsX()), Math.round(getAbsY()), Stage.stage);
+			canvas.drawImage(img, Math.round(getAbsX() + offsetX), Math.round(getAbsY() + offsetY), Stage.stage);
 		}
 	}
 	

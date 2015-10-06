@@ -216,7 +216,11 @@ public class AssetManager {
 			for (int id = 0; id < objetosListBase.getLength(); id++) {
 				Element objetoBase = (Element) objetosListBase.item(id);
 				String folder = objetoBase.getAttribute("folder");
+				int offsetX = Integer.parseInt(objetoBase.getAttribute("offsetX"));	
+				int offsetY = Integer.parseInt(objetoBase.getAttribute("offsetY"));	
 				scene = new Scene(folder);
+				scene.offsetX = offsetX;
+				scene.offsetY = offsetY;
 				
 				NodeList frames = objetoBase.getElementsByTagName("frame");						
 				for (int i = 0; i < frames.getLength(); i++) {

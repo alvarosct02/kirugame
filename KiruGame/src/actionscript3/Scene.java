@@ -6,7 +6,9 @@ import java.util.ArrayList;
 public class Scene {
 	public String name = "";
 	private int numFrame = 0;
-	private int currentFrame = 0;	
+	private int currentFrame = 0;
+	public int offsetX = 0;
+	public int offsetY = 0;
 	private ArrayList<BufferedImage> imgArr = new ArrayList<BufferedImage>();
 	
 	public Scene(String name){
