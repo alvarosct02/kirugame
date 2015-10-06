@@ -87,7 +87,7 @@
 		<sprite>g</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>canalAguayPiedra.jpg</frame>
 	</objeto>
 	<objeto id ="10">
 		<nombre>Muro de piedras</nombre>
@@ -96,7 +96,7 @@
 		<sprite>m</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>muroArena.jpg</frame>
 	</objeto>
 	<objeto id ="11">
 		<nombre>Hueco</nombre>
@@ -105,7 +105,7 @@
 		<sprite>h</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>hueco.jpg</frame>
 	</objeto>
 	<objeto id ="12">
 		<nombre>Canal de agua</nombre>
@@ -114,7 +114,7 @@
 		<sprite>t</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>canalAgua.jpg</frame>
 	</objeto>
 	<objeto id ="13">
 		<nombre>Lago</nombre>
@@ -123,7 +123,7 @@
 		<sprite>L</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame></frame>
+		<frame>lake.png</frame>
 	</objeto>
 	<objeto id ="14">
 		<nombre>Gras o especie de planicie</nombre>
@@ -132,6 +132,6 @@
 		<sprite>o</sprite>
 		<layer>2</layer>   <!--  LAYER 2 : Para estar encima del lago -->
 		<tipo>1</tipo>
-		<frame></frame>
+		<frame>grass.png</frame>
 	</objeto>
 </objetos>

@@ -89,11 +89,11 @@
 	</imagen>
 	<imagen id ="22">
 		<nombre>terreno3A</nombre>		
-		<path>terreno3A.jpg</path>
+		<path>terreno3A.png</path>
 	</imagen>
 	<imagen id ="23">
 		<nombre>terreno3B</nombre>		
-		<path>terreno3B.jpg</path>
+		<path>terreno3B.png</path>
 	</imagen>
 	<imagen id ="24">
 		<nombre>bg1</nombre>		

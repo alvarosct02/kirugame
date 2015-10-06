@@ -1,11 +1,11 @@
 <enemigos>
 	<enemigo id ="0">
-		<nombre>trishula</nombre>
+		<nombre>ivysaur</nombre>
 		<width>2</width>
 		<height>2</height>
 		<sprite>E</sprite>
 		<rango>1</rango>
 		<layer>1</layer>		
-		<frame>trishula.png</frame>
+		<frame>ivysaur.png</frame>
 	</enemigo>
 </enemigos>
