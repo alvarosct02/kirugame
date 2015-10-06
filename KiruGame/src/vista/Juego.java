@@ -23,6 +23,7 @@ import vista.screen.ScreenManager;
 
 public class Juego extends JPanel{
 
+	private static final int ANCHOTOTAL = 1324;
 	private static final int ANCHO = 1024;
     private static final int ALTO = 768;
 	public static final int GRIDSIZE = 64;
@@ -85,7 +86,7 @@ public class Juego extends JPanel{
         Stage.stage = this;
         ScreenManager.showScreen("menu");
         
-        this.setPreferredSize(new Dimension(ANCHO, ALTO));
+        this.setPreferredSize(new Dimension(ANCHOTOTAL, ALTO));
 //        this.addMouseListener(new MouseHandler());
     }
 

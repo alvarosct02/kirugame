@@ -20,7 +20,7 @@
 		<path>btnSalir.png</path>
 	</imagen>
 	<imagen id ="5">
-		<nombre>terreno1A</nombre>		
+		<nombre>terreno1A</nombre>	
 		<path>terreno1A.jpg</path>
 	</imagen>
 	<imagen id ="6">

@@ -25,7 +25,7 @@ public class ScreenMenu extends Screen {
 				ScreenManager.showScreen("game");				
 			}
 		};
-		btnGame.x = 362;
+		btnGame.x = 515;
 		btnGame.y = 315;
 		addChild(btnGame);
 		
@@ -43,7 +43,7 @@ public class ScreenMenu extends Screen {
 				  
 			}
 		};			
-		btnCreditos.x = 362;
+		btnCreditos.x = 515;
 		btnCreditos.y = 425;
 		addChild(btnCreditos);
 		
@@ -54,7 +54,7 @@ public class ScreenMenu extends Screen {
 				ScreenManager.showScreen("test");				
 			}
 		};			
-		btnSalir.x = 362;
+		btnSalir.x = 515;
 		btnSalir.y = 600;
 		addChild(btnSalir);
 		
