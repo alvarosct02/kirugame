@@ -1,8 +1,196 @@
 <root>
 	<animacion id ="0" folder="perroRespirando">
-		<frame rep="1" src="img1.png"></frame>
-		<frame rep="1" src="img2.png"></frame>
-		<frame rep="1" src="img3.png"></frame>
-		<frame rep="1" src="img4.png"></frame>
+		<frame rep="7" src="img1.png"></frame>
+		<frame rep="5" src="img2.png"></frame>
+		<frame rep="5" src="img3.png"></frame>
+		<frame rep="7" src="img4.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy Buscando en cofre">
+		<frame rep="2" src="CuyCofre1.png"></frame>
+		<frame rep="2" src="CuyCofre2.png"></frame>
+		<frame rep="1" src="CuyCofre3.png"></frame>
+		<frame rep="1" src="CuyCofre4.png"></frame>
+		<frame rep="2" src="CuyCofre5.png"></frame>
+		<frame rep="2" src="CuyCofre6.png"></frame>
+		<frame rep="2" src="CuyCofre7.png"></frame>
+		<frame rep="2" src="CuyCofre8.png"></frame>
+		<frame rep="2" src="CuyCofre9.png"></frame>
+		<frame rep="2" src="CuyCofre10.png"></frame>
+		<frame rep="2" src="CuyCofre11.png"></frame>
+		<frame rep="2" src="CuyCofre12.png"></frame>
+		<frame rep="1" src="CuyCofre13.png"></frame>
+		<frame rep="1" src="CuyCofre14.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy Caminando">
+		<frame rep="2" src="CuyCaminando541.png"></frame>
+		<frame rep="3" src="CuyCaminando542.png"></frame>
+		<frame rep="3" src="CuyCaminando543.png"></frame>
+		<frame rep="4" src="CuyCaminando544.png"></frame>
+		<frame rep="4" src="CuyCaminando545.png"></frame>
+		<frame rep="3" src="CuyCaminando546.png"></frame>
+		<frame rep="3" src="CuyCaminando547.png"></frame>
+		<frame rep="2" src="CuyCaminando548.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy con llave">
+		<frame rep="1" src="CuyLlave1.png"></frame>
+		<frame rep="1" src="CuyLlave2.png"></frame>
+		<frame rep="1" src="CuyLlave3.png"></frame>
+		<frame rep="1" src="CuyLlave4.png"></frame>
+		<frame rep="1" src="CuyLlave5.png"></frame>
+		<frame rep="1" src="CuyLlave6.png"></frame>
+		<frame rep="1" src="CuyLlave7.png"></frame>
+		<frame rep="1" src="CuyLlave8.png"></frame>
+		<frame rep="1" src="CuyLlave9.png"></frame>
+		<frame rep="1" src="CuyLlave10.png"></frame>
+		<frame rep="2" src="CuyLlave11.png"></frame>
+		<frame rep="2" src="CuyLlave12.png"></frame>
+		<frame rep="1" src="CuyLlave13.png"></frame>
+		<frame rep="1" src="CuyLlave14.png"></frame>
+		<frame rep="2" src="CuyLlave15.png"></frame>
+		<frame rep="2" src="CuyLlave16.png"></frame>
+		<frame rep="2" src="CuyLlave17.png"></frame>
+		<frame rep="2" src="CuyLlave18.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy Respirando">
+		<frame rep="12" src="Cuyrespirando541.png"></frame>
+		<frame rep="12" src="Cuyrespirando542.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy Sentandose">
+		<frame rep="1" src="Cuysentandose541.png"></frame>
+		<frame rep="1" src="Cuysentandose542.png"></frame>
+		<frame rep="1" src="Cuysentandose543.png"></frame>
+		<frame rep="1" src="Cuysentandose544.png"></frame>
+		<frame rep="2" src="Cuysentandose545.png"></frame>
+		<frame rep="2" src="Cuysentandose546.png"></frame>
+		<frame rep="2" src="Cuysentandose547.png"></frame>
+		<frame rep="2" src="Cuysentandose548.png"></frame>
+		<frame rep="2" src="Cuysentandose549.png"></frame>
+		<frame rep="2" src="Cuysentandose5410.png"></frame>
+		<frame rep="2" src="Cuysentandose5411.png"></frame>
+		<frame rep="2" src="Cuysentandose5412.png"></frame>
+		<frame rep="2" src="Cuysentandose5413.png"></frame>
+		<frame rep="2" src="Cuysentandose5414.png"></frame>
+	</animacion>
+	<animacion id="" folder="Cuy, Perro Y Llave">
+		<frame rep="1" src="CuyPerroYLlave1.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave2.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave3.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave4.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave5.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave6.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave7.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave8.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave9.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave10.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave11.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave12.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave13.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave14.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave15.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave16.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave17.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave18.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave19.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave20.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave21.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave22.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave23.png"></frame>
+		<frame rep="1" src="CuyPerroYLlave24.png"></frame>
+	</animacion>
+	<animacion id="" folder="Perro caminando">
+		<frame rep="4" src="Perrocaminando1.png"></frame>
+		<frame rep="4" src="Perrocaminando2.png"></frame>
+		<frame rep="4" src="Perrocaminando3.png"></frame>
+		<frame rep="4" src="Perrocaminando4.png"></frame>
+		<frame rep="4" src="Perrocaminando5.png"></frame>
+		<frame rep="4" src="Perrocaminando6.png"></frame>
+	</animacion>
+	<animacion id="" folder="Nivel 1\Cuy Celebrando">
+		<frame rep="1" src="Cuy celebrando1.png"></frame>
+		<frame rep="1" src="Cuy celebrando2.png"></frame>
+		<frame rep="1" src="Cuy celebrando3.png"></frame>
+		<frame rep="1" src="Cuy celebrando4.png"></frame>
+		<frame rep="1" src="Cuy celebrando5.png"></frame>
+		<frame rep="1" src="Cuy celebrando6.png"></frame>
+		<frame rep="1" src="Cuy celebrando7.png"></frame>
+		<frame rep="1" src="Cuy celebrando8.png"></frame>
+		<frame rep="1" src="Cuy celebrando9.png"></frame>
+		<frame rep="2" src="Cuy celebrando10.png"></frame>
+		<frame rep="2" src="Cuy celebrando11.png"></frame>
+		<frame rep="2" src="Cuy celebrando12.png"></frame>
+		<frame rep="2" src="Cuy celebrando13.png"></frame>
+		<frame rep="1" src="Cuy celebrando14.png"></frame>
+		<frame rep="1" src="Cuy celebrando15.png"></frame>
+		<frame rep="1" src="Cuy celebrando16.png"></frame>
+		<frame rep="1" src="Cuy celebrando17.png"></frame>
+		<frame rep="1" src="Cuy celebrando18.png"></frame>
+		<frame rep="1" src="Cuy celebrando19.png"></frame>
+		<frame rep="1" src="Cuy celebrando20.png"></frame>
+	</animacion>
+	<animacion id="" folder="Nivel 1\Cuy Destruyendo Castillo de Arena">
+		<frame rep="1" src="Cuydestruyendocastillodearena1.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena2.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena3.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena4.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena5.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena6.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena7.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena8.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena9.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena10.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena11.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena12.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena13.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena14.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena25.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena27.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena29.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena30.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena32.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena36.png"></frame>
+		<frame rep="1" src="Cuydestruyendocastillodearena45.png"></frame>
+	</animacion>	
+	<animacion id="" folder="Nivel 1\Cuy empujando muralla">
+		<frame rep="1" src="Cuy empujando muralla1.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla2.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla3.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla4.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla5.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla6.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla7.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla8.png"></frame>
+		<frame rep="1" src="Cuy empujando muralla9.png"></frame>
+		<frame rep="3" src="Cuy empujando muralla10.png"></frame>
+		<frame rep="3" src="Cuy empujando muralla11.png"></frame>
+		<frame rep="3" src="Cuy empujando muralla12.png"></frame>
+		<frame rep="2" src="Cuy empujando muralla13.png"></frame>
+		<frame rep="2" src="Cuy empujando muralla14.png"></frame>
+		<frame rep="2" src="Cuy empujando muralla15.png"></frame>
+		<frame rep="2" src="Cuy empujando muralla16.png"></frame>
+	</animacion>	
+	<animacion id="" folder="Nivel 1\Perro Celebrando">
+		<frame rep="1" src="Perro Celebrando1.png"></frame>
+		<frame rep="1" src="Perro Celebrando2.png"></frame>
+		<frame rep="2" src="Perro Celebrando3.png"></frame>
+		<frame rep="2" src="Perro Celebrando4.png"></frame>
+		<frame rep="2" src="Perro Celebrando5.png"></frame>
+		<frame rep="2" src="Perro Celebrando6.png"></frame>
+		<frame rep="2" src="Perro Celebrando7.png"></frame>
+		<frame rep="2" src="Perro Celebrando8.png"></frame>
+		<frame rep="2" src="Perro Celebrando9.png"></frame>
+		<frame rep="2" src="Perro Celebrando10.png"></frame>
+		<frame rep="2" src="Perro Celebrando11.png"></frame>
+		<frame rep="2" src="Perro Celebrando12.png"></frame>
+		<frame rep="2" src="Perro Celebrando13.png"></frame>
+	</animacion>
+	<animacion id="" folder="Nivel 1\Perro empujando muralla">
+		<frame rep="3" src="Perro empujando muralla1.png"></frame>
+		<frame rep="3" src="Perro empujando muralla2.png"></frame>
+		<frame rep="3" src="Perro empujando muralla3.png"></frame>
+		<frame rep="3" src="Perro empujando muralla4.png"></frame>
+		<frame rep="3" src="Perro empujando muralla5.png"></frame>
+		<frame rep="3" src="Perro empujando muralla6.png"></frame>
+		<frame rep="3" src="Perro empujando muralla7.png"></frame>
+		<frame rep="3" src="Perro empujando muralla8.png"></frame>
 	</animacion>
 </root>
