@@ -2,6 +2,7 @@ package controlador;
 import modelo.Jugador;
 import controlador.Mapa;
 import controlador.GestorMapas;
+import vista.Juego;
 public class Saver {
 	
 	public int currentLevel = 0;		
@@ -14,8 +15,8 @@ public class Saver {
 	
 	public Saver()
 	{
-		/*this.currentLevel = ;
-		this.cantNivel    = ;*/
+		this.currentLevel = Juego.currentLevel;
+		this.cantNivel    = Juego.cantNivel;
 		this.p1           = Mapa.p1;
 		this.p2           = Mapa.p2;
 		this.map          = GestorMapas.map;
