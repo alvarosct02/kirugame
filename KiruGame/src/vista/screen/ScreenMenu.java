@@ -21,6 +21,7 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnGame = new SimpleButton(AssetManager.getImage("btnNuevo"), AssetManager.getImage("btnNuevo")) {			
 			@Override
 			public void onClick() {
+				if (!active) return;
 				// TODO Auto-generated method stub
 				ScreenManager.showScreen("game");				
 			}
@@ -32,6 +33,7 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnCreditos = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
 			@Override
 			public void onClick() {
+				if (!active) return;
 				String path;
 				 JFileChooser fc=new JFileChooser("."+System.getProperty("file.separator")+"save"+System.getProperty("file.separator"));
 				 
@@ -51,8 +53,9 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnSalir = new SimpleButton(AssetManager.getImage("btnSalir"),AssetManager.getImage("btnSalir")) {			
 			@Override
 			public void onClick() {
+				if (!active) return;
 				// TODO Auto-generated method stub
-				ScreenManager.showScreen("test");				
+				ScreenManager.showPopup("confirmacionSalir");				
 			}
 		};			
 		btnSalir.x = 515;

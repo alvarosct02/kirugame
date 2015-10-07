@@ -115,6 +115,26 @@
 		<nombre>action2</nombre>		
 		<path>accionDuo.png</path>
 	</imagen>
+	<imagen id ="29">
+		<nombre>confirmacionSalir</nombre>		
+		<path>confirmacionSalir.png</path>
+	</imagen>
+	<imagen id ="30">
+		<nombre>btnSi</nombre>		
+		<path>btnSi.png</path>
+	</imagen>
+	<imagen id ="31">
+		<nombre>btnNo</nombre>		
+		<path>btnNo.png</path>
+	</imagen>
+	<imagen id ="32">
+		<nombre>btnX</nombre>		
+		<path>btnX.png</path>
+	</imagen>
+	<imagen id ="33">
+		<nombre>historia1</nombre>		
+		<path>historia1.png</path>
+	</imagen>
 	<!-- <imagen id ="24">
 		<nombre>bg2</nombre>		
 		<path>bgNivel2.jpg</path>

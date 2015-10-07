@@ -6,6 +6,6 @@
 		<sprite>E</sprite>
 		<rango>1</rango>
 		<layer>1</layer>		
-		<frame>ivysaur.png</frame>
+		<frame>ivy.png</frame>
 	</enemigo>
 </enemigos>

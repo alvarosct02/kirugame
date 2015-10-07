@@ -41,6 +41,8 @@ public class ScreenManager {
 		currentScreen.disable();
 		switch(popup){
 			case "action": newPopup = new PopupAction(); break;
+			case "confirmacionSalir": newPopup = new PopupConfirmacionSalir(); break;
+			case "historia": newPopup = new PopupHistoria(); break;
 //			case "game": newPopup = new ScreenGame(); break;
 //			case "test": newPopup = new ScreenTest(); break;
 		}
