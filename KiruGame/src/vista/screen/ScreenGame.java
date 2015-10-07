@@ -69,6 +69,8 @@ public class ScreenGame extends Screen{
 				if (!active) return;
 				// TODO Auto-generated method stub
 				new Saver().guardar();
+				ScreenManager.showPopup("exitoGuardar");
+				
 			}
 		};
 		
@@ -78,7 +80,8 @@ public class ScreenGame extends Screen{
 			public void onClick() {
 				if (!active) return;
 				// TODO Auto-generated method stub
-				ScreenManager.showPopup("confirmacionSalir");
+				ScreenManager.closePopup();
+				ScreenManager.showPopup("salirAlMenu");
 			}
 		};
 		

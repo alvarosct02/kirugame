@@ -105,7 +105,7 @@
 		<sprite>h</sprite>
 		<layer>1</layer>
 		<tipo>0</tipo>
-		<frame>hueco.jpg</frame>
+		<frame>hueco.png</frame>
 	</objeto>
 	<objeto id ="12">
 		<nombre>Canal de agua</nombre>

@@ -191,6 +191,26 @@
 		<nombre>panel</nombre>		
 		<path>panel.png</path>
 	</imagen>
+	<imagen id ="48">
+		<nombre>historia2</nombre>		
+		<path>historia2.png</path>
+	</imagen>
+	<imagen id ="49">
+		<nombre>historia3</nombre>		
+		<path>historia3.png</path>
+	</imagen>
+	<imagen id ="49">
+		<nombre>exitoGuardar</nombre>		
+		<path>exitoGuardar.png</path>
+	</imagen>
+	<imagen id ="50">
+		<nombre>nuevoJugador</nombre>		
+		<path>nuevoJugador.png</path>
+	</imagen>
+	<imagen id ="50">
+		<nombre>btnContinuar</nombre>		
+		<path>btnContinuar.png</path>
+	</imagen>
 	<!-- <imagen id ="24">
 		<nombre>bg2</nombre>		
 		<path>bgNivel2.jpg</path>

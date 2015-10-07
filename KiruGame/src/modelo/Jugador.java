@@ -8,6 +8,10 @@ public class Jugador extends Sprite {
 	private String nombre;
 	public boolean blooding = false;
 	public String dir;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public MovieClip mc = new MovieClip();
 	
 	public String getNombre() {

@@ -10,13 +10,11 @@ import vista.AssetManager;
 
 public class PopupConfirmacionSalir extends Screen {
 
-	public PopupConfirmacionSalir() {
-		setImg(AssetManager.getImage("confirmacionSalir"));
+	public PopupConfirmacionSalir(int idTipo) {
+		setImg(AssetManager.getImage("confirmacionSalir"));			
 		
-		
-
 		BufferedImage tmp;
-
+		
 		tmp = AssetManager.getImage("btnNo");
 		SimpleButton btnNo = new SimpleButton(tmp,tmp) {
 			
@@ -36,7 +34,13 @@ public class PopupConfirmacionSalir extends Screen {
 			@Override
 			public void onClick() {
 				// TODO Auto-generated method stub
-				System.exit(1);
+				
+				if (idTipo == 1){
+					System.exit(1);
+				} else if (idTipo == 0){
+					ScreenManager.closePopup();
+					ScreenManager.showScreen("menu");
+				}
 			}
 		};
 		btnSi.x = 720;

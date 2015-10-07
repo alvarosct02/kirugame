@@ -23,7 +23,7 @@ public class ScreenMenu extends Screen {
 			public void onClick() {
 				if (!active) return;
 				// TODO Auto-generated method stub
-				ScreenManager.showScreen("game");				
+				ScreenManager.showPopup("nuevoJugador");				
 			}
 		};
 		btnGame.x = 515;
@@ -53,12 +53,14 @@ public class ScreenMenu extends Screen {
 			public void onClick() {
 				if (!active) return;
 				// TODO Auto-generated method stub
-				ScreenManager.showPopup("confirmacionSalir");				
+				ScreenManager.showPopup("salirTotal");				
 			}
 		};			
 		btnSalir.x = 515;
 		btnSalir.y = 600;
 		addChild(btnSalir);
+		
+//		stage.add(comp);
 		
     }
 	

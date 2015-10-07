@@ -3,6 +3,7 @@ package vista.screen;
 import java.awt.Graphics2D;
 
 import actionscript3.Screen;
+import modelo.Jugador;
 
 public class ScreenManager {
 	
@@ -41,8 +42,12 @@ public class ScreenManager {
 		currentScreen.disable();
 		switch(popup){
 			case "action": newPopup = new PopupAction(); break;
-			case "confirmacionSalir": newPopup = new PopupConfirmacionSalir(); break;
+			case "salirAlMenu": newPopup = new PopupConfirmacionSalir(0); break;
+			case "salirTotal": newPopup = new PopupConfirmacionSalir(1); break;
 			case "historia": newPopup = new PopupHistoria(); break;
+			case "exitoGuardar": newPopup = new PopupExitoGuardar(); break;
+			case "nuevoJugador": newPopup = new PopupNuevoJugador(); break;
+			
 //			case "game": newPopup = new ScreenGame(); break;
 //			case "test": newPopup = new ScreenTest(); break;
 		}
@@ -57,11 +62,17 @@ public class ScreenManager {
 		currentScreen.enable();
 //		currentScreen.restart();		
 		currentPopup.removerListeners();
-		currentPopup = null;		
+		currentPopup = null;
 	}
 	
 	public static void renderScreen(Graphics2D canvas){
 		currentScreen.renderAll(canvas);
+		
+		if (Jugador.getVida() <= 0){
+			showScreen("test");
+			return;
+		}		
+		
 		if (currentPopup != null)
 			currentPopup.renderAll(canvas);
 	}
