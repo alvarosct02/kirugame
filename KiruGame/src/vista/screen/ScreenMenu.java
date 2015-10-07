@@ -42,8 +42,6 @@ public class ScreenMenu extends Screen {
 				     path = fc.getSelectedFile().getAbsolutePath();
 				     Saver.cargar(path);
 				  }
-				
-				  
 			}
 		};			
 		btnCreditos.x = 515;
