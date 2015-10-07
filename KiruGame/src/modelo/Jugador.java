@@ -56,9 +56,9 @@ public class Jugador extends Sprite {
 	}
 	
 	private int moverXY(int x, int y){
-		boolean aux = GestorMapas.map.getCeldaValue(x,y) == 'o';
-		boolean aux1 = GestorMapas.map.getCelda(x,y).walkable == true;
-		
+//		boolean aux = GestorMapas.map.getCeldaValue(x,y) == 'o';
+//		boolean aux1 = GestorMapas.map.getCelda(x,y).walkable == true;
+//		
 		
 		if(
 			isValid(x,y) == 1 && 

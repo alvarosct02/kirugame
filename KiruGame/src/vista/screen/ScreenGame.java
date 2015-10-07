@@ -37,7 +37,10 @@ public class ScreenGame extends Screen{
 	private Jugador p2;
 	private Mapa map;
 	
+	boolean first = true;	
 	
+	SpriteAS3 panel = new SpriteAS3();
+	SpriteAS3 vida = new SpriteAS3();
 		
 	public ScreenGame(boolean loaded){
 		super();
@@ -53,26 +56,64 @@ public class ScreenGame extends Screen{
 			p2.addData("Player2", "IJKLUO",1,1,'B','N');
 			
 			GestorMapas.cargarNivel(Juego.currentLevel);
-		}		
+		}
 				
 
 		map = GestorMapas.map;
-		SimpleButton guardar = new SimpleButton(AssetManager.getImage("btnSalir"),AssetManager.getImage("btnSalir")) {
-			
+		
+		BufferedImage aux;
+		aux = AssetManager.getImage("btnGuardarSmall");
+		SimpleButton guardar = new SimpleButton(aux,aux) {			
 			@Override
 			public void onClick() {
+				if (!active) return;
 				// TODO Auto-generated method stub
 				new Saver().guardar();
+			}
+		};
+		
+		aux = AssetManager.getImage("btnSalirSmall");
+		SimpleButton salir = new SimpleButton(aux,aux) {			
+			@Override
+			public void onClick() {
+				if (!active) return;
+				// TODO Auto-generated method stub
+				ScreenManager.showPopup("confirmacionSalir");
 			}
 		};
 		
 		addChild(GestorMapas.map);
 		addChild(p1.mc);
 		addChild(p2.mc);
+		
+		guardar.x = 1108;
+		salir.x = 1108;
+		guardar.y = 622;
+		salir.y = 678;
+
+		agregarPanel();
+		
 		addChild(guardar);
+		addChild(salir);
+		
 		 
 			
 	}
+	
+
+    public void agregarPanel(){
+    	panel.setImg(AssetManager.getImage("panel"));
+    	vida.setImg(AssetManager.getImage("vida" + Jugador.getVida()));    	
+    	
+    	panel.x = 1024;
+    	
+    	vida.x = 1060;
+    	vida.y = 76;
+    	
+    	addChild(panel);
+    	addChild(vida);
+    	
+    }
 	
 	
 	private boolean onEnterFrame() {
@@ -215,6 +256,13 @@ public class ScreenGame extends Screen{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (first){
+			first = false;
+			ScreenManager.showPopup("historia");
+		}		
+
+    	vida.setImg(AssetManager.getImage("vida" + Jugador.getVida()));
+    	
 		if (active)
 			onEnterFrame();
 		

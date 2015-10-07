@@ -31,7 +31,7 @@ public class Juego extends JPanel{
 	private BufferStrategy bufferStrategy;
     
 	//	Nivel inicial a jugar   DEBERIA SER 0
-	public static int currentLevel = 1;		
+	public static int currentLevel = 0;		
 	public static final int cantNivel = 2;
 	
 	public Jugador p1;
@@ -71,6 +71,7 @@ public class Juego extends JPanel{
 //        f.createBufferStrategy(2);
 //        bufferStrategy = f.getBufferStrategy();
     }
+    
 
     public Juego() {
         super(true);

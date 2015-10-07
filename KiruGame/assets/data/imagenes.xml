@@ -135,6 +135,62 @@
 		<nombre>historia1</nombre>		
 		<path>historia1.png</path>
 	</imagen>
+	<imagen id ="34">
+		<nombre>btnSalirSmall</nombre>		
+		<path>btnSalir_small.png</path>
+	</imagen>
+	<imagen id ="35">
+		<nombre>btnGuardarSmall</nombre>		
+		<path>btnGuardar_small.png</path>
+	</imagen>
+	<imagen id ="36">
+		<nombre>vida10</nombre>		
+		<path>vida10.png</path>
+	</imagen>
+	<imagen id ="37">
+		<nombre>vida9</nombre>		
+		<path>vida9.png</path>
+	</imagen>
+	<imagen id ="38">
+		<nombre>vida8</nombre>		
+		<path>vida8.png</path>
+	</imagen>
+	<imagen id ="39">
+		<nombre>vida7</nombre>		
+		<path>vida7.png</path>
+	</imagen>
+	<imagen id ="40">
+		<nombre>vida6</nombre>		
+		<path>vida6.png</path>
+	</imagen>
+	<imagen id ="41">
+		<nombre>vida5</nombre>		
+		<path>vida5.png</path>
+	</imagen>
+	<imagen id ="42">
+		<nombre>vida4</nombre>		
+		<path>vida4.png</path>
+	</imagen>
+	<imagen id ="43">
+		<nombre>vida3</nombre>		
+		<path>vida3.png</path>
+	</imagen>
+	<imagen id ="44">
+		<nombre>vida2</nombre>		
+		<path>vida2.png</path>
+	</imagen>
+	<imagen id ="45">
+		<nombre>vida1</nombre>		
+		<path>vida1.png</path>
+	</imagen>
+	<imagen id ="46">
+		<nombre>vida0</nombre>		
+		<path>vida0.png</path>
+	</imagen>
+	<imagen id ="47">
+		<nombre>panel</nombre>		
+		<path>panel.png</path>
+	</imagen>
 	<!-- <imagen id ="24">
 		<nombre>bg2</nombre>		
 		<path>bgNivel2.jpg</path>
