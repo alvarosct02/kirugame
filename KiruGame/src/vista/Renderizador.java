@@ -2,6 +2,7 @@ package vista;
 
 import controlador.*;
 import modelo.Jugador;
+import modelo.Mapa;
 
 public class Renderizador{
 	

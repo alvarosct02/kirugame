@@ -1,9 +1,11 @@
-package controlador;
+package modelo;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
 import actionscript3.SpriteAS3;
+import controlador.AccionEspecial;
+import controlador.Enemigo;
 import modelo.*;
 import vista.AssetManager;
 import vista.Juego;

@@ -2,7 +2,6 @@ package modelo;
 
 import actionscript3.SpriteAS3;
 import controlador.GestorMapas;
-import controlador.Mapa;
 import vista.screen.ScreenManager;
 
 public abstract class Sprite{

@@ -6,8 +6,8 @@ import java.awt.event.KeyEvent;
 import actionscript3.Screen;
 import actionscript3.SpriteAS3;
 import controlador.AccionEspecial;
-import controlador.Mapa;
 import modelo.Jugador;
+import modelo.Mapa;
 import vista.AssetManager;
 
 public class PopupAction extends Screen {

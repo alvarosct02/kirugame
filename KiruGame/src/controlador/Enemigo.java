@@ -3,6 +3,7 @@ package controlador;
 import modelo.EnemigoData;
 import modelo.ITrigger;
 import modelo.Jugador;
+import modelo.Mapa;
 import modelo.Sprite;
 import vista.Juego;
 

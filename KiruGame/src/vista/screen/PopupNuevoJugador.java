@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
 import actionscript3.Stage;
-import controlador.Mapa;
+import modelo.Mapa;
 import vista.AssetManager;
 import vista.Juego;
 
@@ -57,7 +57,7 @@ public class PopupNuevoJugador extends Screen {
 		btnNext.y = 540;
 		addChild(btnNext);
 		
-		field = new JTextField("test");
+		field = new JTextField("Nombre Jugador");
 //		field.setnew Font("SansSerif", Font.BOLD, 20);
 		field.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 40));
 		field.setMargin(new Insets(5,20,5,20));;;

@@ -8,6 +8,7 @@ import actionscript3.SpriteAS3;
 import modelo.ITrigger;
 import modelo.ImageData;
 import modelo.Jugador;
+import modelo.Mapa;
 import vista.AssetManager;
 import vista.Juego;
 import vista.Renderizador;

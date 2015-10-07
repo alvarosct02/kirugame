@@ -15,8 +15,8 @@ import javax.swing.*;
 import actionscript3.Stage;
 import controlador.GestorMapas;
 import controlador.InterpreteComandos;
-import controlador.Mapa;
 import modelo.Jugador;
+import modelo.Mapa;
 import modelo.ObjetoApoyo;
 import vista.screen.ScreenManager;
 
@@ -31,7 +31,7 @@ public class Juego extends JPanel{
 	private BufferStrategy bufferStrategy;
     
 	//	Nivel inicial a jugar   DEBERIA SER 0
-	public static int currentLevel = 2;		
+	public static int currentLevel = 0;		
 	public static final int cantNivel = 2;
 	
 	public Jugador p1;
