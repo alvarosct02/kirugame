@@ -207,9 +207,17 @@
 		<nombre>nuevoJugador</nombre>		
 		<path>nuevoJugador.png</path>
 	</imagen>
-	<imagen id ="50">
+	<imagen id ="51">
 		<nombre>btnContinuar</nombre>		
 		<path>btnContinuar.png</path>
+	</imagen>
+	<imagen id ="52">
+		<nombre>gameWin</nombre>		
+		<path>gameWin.png</path>
+	</imagen>
+	<imagen id ="53">
+		<nombre>gameOver</nombre>		
+		<path>gameOver.png</path>
 	</imagen>
 	<!-- <imagen id ="24">
 		<nombre>bg2</nombre>		

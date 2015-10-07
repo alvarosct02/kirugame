@@ -171,7 +171,7 @@
 		<frame rep="2" src="Cuy empujando muralla15.png"></frame>
 		<frame rep="2" src="Cuy empujando muralla16.png"></frame>
 	</animacion>	
-	<animacion id="11" folder="Nivel 1\Perro Celebrando" offsetX = "0" offsetY = "0">
+	<animacion id="11" folder="Nivel 1\Perro Celebrando" offsetX = "-17" offsetY = "-65">
 		<frame rep="1" src="Perro Celebrando1.png"></frame>
 		<frame rep="1" src="Perro Celebrando2.png"></frame>
 		<frame rep="2" src="Perro Celebrando3.png"></frame>
@@ -186,7 +186,7 @@
 		<frame rep="2" src="Perro Celebrando12.png"></frame>
 		<frame rep="2" src="Perro Celebrando13.png"></frame>
 	</animacion>
-	<animacion id="12" folder="Nivel 1\Perro empujando muralla" offsetX = "5" offsetY = "-20">
+	<animacion id="12" folder="Nivel 1\Perro empujando muralla" offsetX = "-16" offsetY = "-32">
 		<frame rep="3" src="Perro empujando muralla1.png"></frame>
 		<frame rep="3" src="Perro empujando muralla2.png"></frame>
 		<frame rep="3" src="Perro empujando muralla3.png"></frame>

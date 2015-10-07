@@ -14,6 +14,7 @@ public abstract class Sprite{
 	public int gridW;
 	public int gridH;
 	public int id;
+	private boolean activa = false;
 	public SpriteAS3 sprite = new SpriteAS3();
 	
 	public Sprite(int xpos, int ypos,int w, int h)	{
@@ -23,6 +24,10 @@ public abstract class Sprite{
 		gridH = h;
 	}
 	
+	public boolean isActiva() {
+		return activa;
+	}
+
 	public int isValid(int x, int y){		
 		if (x>=0 && y>=0 && x< Mapa.gridWidth && y< Mapa.gridHeight){
 			return 1 ;
@@ -37,6 +42,7 @@ public abstract class Sprite{
 
 	
 	public void agregarMapa(){
+		activa = true;
 		GestorMapas.map.addChild(this.sprite);
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
@@ -46,6 +52,7 @@ public abstract class Sprite{
 	}
 	
 	public void quitarMapa(){
+		activa = false;
 		GestorMapas.map.removeChild(this.sprite);
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){

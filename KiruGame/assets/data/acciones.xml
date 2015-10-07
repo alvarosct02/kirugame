@@ -190,7 +190,7 @@
 				<cad>SIQEUOKLSD</cad>
 				<sprite>D</sprite>	
 				<tipo>2</tipo>
-				<visible>1</visible>
+				<visible>0</visible>
 				<jugadores>
 					<jugador id = '1'>
 						<xpos>8</xpos>
@@ -214,15 +214,15 @@
 						<xpos>8</xpos>
 						<ypos>8</ypos>
 						<movimientos>
-							<mov anim = "1" >
+							<mov anim = "11" >
 								<xdir>1</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov anim = "1" >
+							<mov anim = "11" >
 								<xdir>3</xdir>
 								<ydir>0</ydir>
 							</mov>
-							<mov anim = "1" >
+							<mov anim = "11" >
 								<xdir>0</xdir>
 								<ydir>-1</ydir>
 							</mov>

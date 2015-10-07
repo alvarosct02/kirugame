@@ -1,5 +1,7 @@
 package vista.screen;
 
+import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 
@@ -56,7 +58,9 @@ public class PopupNuevoJugador extends Screen {
 		addChild(btnNext);
 		
 		field = new JTextField("test");
-//		field.set
+//		field.setnew Font("SansSerif", Font.BOLD, 20);
+		field.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 40));
+		field.setMargin(new Insets(5,20,5,20));;;
 //		Dimension d = field.getPreferredSize();
 		field.setBounds(345,390,655,85);
 		Stage.stage.add(field);

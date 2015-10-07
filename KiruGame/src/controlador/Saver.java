@@ -23,8 +23,11 @@ public class Saver {
 	public int currentLevel = 0;		
 	public int cantNivel = 2;
 	
-	public Point p1;
-	public Point p2;
+	public Point p1Pos;
+	public Point p2Pos;
+	
+	public boolean p1Blooding;
+	public boolean p2Blooding;
 	
 	public ArrayList<AccionEspecial> acciones= new ArrayList<AccionEspecial>();
 	public ArrayList<Objeto> objetos= new ArrayList<Objeto>();
@@ -42,11 +45,13 @@ public class Saver {
 	{
 		this.currentLevel = Juego.currentLevel;
 		this.cantNivel    = Juego.cantNivel;
-		this.p1           = new Point(Mapa.p1.gridX,Mapa.p1.gridY);
-		this.p2           = new Point(Mapa.p2.gridX,Mapa.p2.gridY);
+		this.p1Pos         = new Point(Mapa.p1.gridX,Mapa.p1.gridY);
+		this.p2Pos         = new Point(Mapa.p2.gridX,Mapa.p2.gridY);
+		this.p1Blooding         = Mapa.p1.blooding;
+		this.p2Blooding         = Mapa.p2.blooding;
 		this.acciones     = GestorMapas.map.getAcciones();
-//		this.objetos      = GestorMapas.map.getObjetos();
-//		this.enemigos     = GestorMapas.map.getEnemigos();
+		this.objetos      = GestorMapas.map.getObjetos();
+		this.enemigos     = GestorMapas.map.getEnemigos();
 		
 		this.vida         = GestorMapas.map.p1.getVida();
 		this.mapCelda     = GestorMapas.map.getCeldaMatrix();
@@ -94,9 +99,11 @@ public class Saver {
 			GestorMapas.map.setCeldaMatrix(newsaver.mapCelda);
 	        GestorMapas.map.setAcciones(newsaver.acciones);
 			GestorMapas.map.setObjetos(newsaver.objetos);
-//			GestorMapas.map.setEnemigos(newsaver.enemigos);
-			Mapa.p1.setXY(newsaver.p1.x, newsaver.p1.y);
-	        Mapa.p2.setXY(newsaver.p2.x, newsaver.p2.y);	        
+			GestorMapas.map.setEnemigos(newsaver.enemigos);
+			Mapa.p1.setXY(newsaver.p1Pos.x, newsaver.p1Pos.y);
+	        Mapa.p2.setXY(newsaver.p2Pos.x, newsaver.p2Pos.y);	
+			Mapa.p1.blooding = newsaver.p1Blooding;
+			Mapa.p2.blooding= newsaver.p2Blooding;       
 			Jugador.setVida(newsaver.vida);
 	        
 		  } catch (IOException e) {

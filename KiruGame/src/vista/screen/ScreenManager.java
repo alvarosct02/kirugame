@@ -21,6 +21,8 @@ public class ScreenManager {
 	public static void showScreen(String screen){
 		Screen newScreen = null;
 		
+		closePopup();
+		
 		if (currentScreen != null){
 			currentScreen.removerListeners();
 		}
@@ -29,7 +31,8 @@ public class ScreenManager {
 			case "menu": newScreen = new ScreenMenu(); break;
 			case "game": newScreen = new ScreenGame(false); break;
 			case "loadGame": newScreen = new ScreenGame(true); break;
-			case "test": newScreen = new ScreenTest(); break;
+			case "gameOver": newScreen = new ScreenGameOver(); break;
+			case "gameWin": newScreen = new ScreenGameWin(); break;
 		}
 		
         currentScreen = newScreen;
@@ -69,9 +72,10 @@ public class ScreenManager {
 		currentScreen.renderAll(canvas);
 		
 		if (Jugador.getVida() <= 0){
-			showScreen("test");
+//			Jugador.resetVida();
+			showScreen("gameOver");
 			return;
-		}		
+		}
 		
 		if (currentPopup != null)
 			currentPopup.renderAll(canvas);

@@ -44,7 +44,19 @@ public class Mapa extends SpriteAS3 {
 	
 	public void setEnemigos(ArrayList<Enemigo> lista)
 	{
-		this.enemigos = lista ;
+		for (int i= 0; i<lista.size(); i++){
+			if (lista.get(i).isActiva() && enemigos.get(i).isActiva()){
+//				Nada
+			} else if (!lista.get(i).isActiva() && !enemigos.get(i).isActiva()){
+//				Nada
+			} else if (lista.get(i).isActiva() && !enemigos.get(i).isActiva()){
+				enemigos.get(i).agregarMapa();
+			} else if (!lista.get(i).isActiva() && enemigos.get(i).isActiva()){
+				enemigos.get(i).quitarMapa();
+			}
+			
+			enemigos.get(i).setActivable(lista.get(i).isActivable());
+		}
 	}
 	
 	public  void setAcciones(ArrayList<AccionEspecial> lista)
@@ -64,13 +76,17 @@ public class Mapa extends SpriteAS3 {
 	
 	public void setObjetos(ArrayList<Objeto> lista) 
 	{
-//		for (int i= 0; i<lista.size(); i++){
-//			if (lista.get(i).isActiva)
-//				acciones.get(i).activar();
-//			else{
-//				acciones.get(i).hideAction();
-//			}
-//		}
+		for (int i= 0; i<lista.size(); i++){
+			if (lista.get(i).isActiva() && objetos.get(i).isActiva()){
+		//			Nada
+			} else if (!lista.get(i).isActiva() && !objetos.get(i).isActiva()){
+		//			Nada
+			} else if (lista.get(i).isActiva() && !objetos.get(i).isActiva()){
+				objetos.get(i).agregarMapa();
+			} else if (!lista.get(i).isActiva() && objetos.get(i).isActiva()){
+				objetos.get(i).quitarMapa();
+		}
+	}
 	}
 	
 	public ArrayList<Enemigo> getEnemigos()

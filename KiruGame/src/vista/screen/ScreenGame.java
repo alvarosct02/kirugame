@@ -121,8 +121,8 @@ public class ScreenGame extends Screen{
 	
 	private boolean onEnterFrame() {
 		int i = Juego.currentLevel;
-		if (Jugador.getVida() <= 0)
-			ScreenManager.showScreen("test");			
+//		if (Jugador.getVida() <= 0)
+//			ScreenManager.showScreen("gameWin");			
 		
 		if (map.checkEnemigos())
 			return false;
@@ -149,7 +149,7 @@ public class ScreenGame extends Screen{
 //		CONDICION ESPECIAL NIVEL 2
 		if (i==2 && p1.gridX == 15 && p2.gridX == 15){
 			Juego.nextLevel();
-			ScreenManager.showScreen("test");
+			ScreenManager.showScreen("gameWin");
 			return true;
 		}
 	
@@ -177,13 +177,13 @@ public class ScreenGame extends Screen{
 		}			
 		
 	//		PARA EL NIVEL 2
-		if (i == 2){
-			if (idAccion == 1){	
-				ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
-				obj.allowWalk();
-				return;
-			}
-		}	
+//		if (i == 2){
+//			if (idAccion == 1){	
+//				ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
+//				obj.allowWalk();
+//				return;
+//			}
+//		}	
 	}
 	
 	
@@ -218,6 +218,11 @@ public class ScreenGame extends Screen{
 		
 	//		PARA EL NIVEL 2
 		if (i == 2){
+			if (idAccion == 0){		
+				map.activarAccion(1);
+				return;
+			}
+			
 			if (idAccion == 1){	
 				ObjetoApoyo obj = (ObjetoApoyo)map.getObjeto(5);
 				obj.allowWalk();
