@@ -1,0 +1,8 @@
+<root>
+	<jugador id ="0">
+		<anim nombre = "idle">4</anim>
+	</jugador>	
+	<jugador id ="1">
+		<anim nombre = "idle">0</anim>
+	</jugador>	
+</root>

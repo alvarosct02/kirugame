@@ -1,16 +1,22 @@
 package controlador;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.imageio.ImageIO;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import actionscript3.MovieClip;
+import actionscript3.Scene;
 import modelo.*;
+import vista.AssetManager;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.io.*	;
 
 public class GestorMapas {
@@ -37,89 +43,82 @@ public class GestorMapas {
 	
 	public static void cargarNivel(int i){	
 		
-		File fXmlFile = new File("./src/Data/mapas.xml");
+		File fXmlFile = new File("./assets/data/mapa"+i+".xml");
 		Document doc;
 		try {
 			doc = dBuilder.parse(fXmlFile);		
-			doc.getDocumentElement().normalize();		
-			NodeList nList = doc.getElementsByTagName("mapa");
-			Node nNode = nList.item(i);
-	
-			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-				Element eElement = (Element) nNode;
+			doc.getDocumentElement().normalize();
+			
+			Element mapaData = (Element) doc.getElementsByTagName("mapa").item(0);
 				
-				String urlArchivo = eElement.getElementsByTagName("url").item(0).getTextContent();
-				int posxA = Integer.parseInt(eElement.getElementsByTagName("xposA").item(0).getTextContent());
-				int posyA = Integer.parseInt(eElement.getElementsByTagName("yposA").item(0).getTextContent());
-				int posxB = Integer.parseInt(eElement.getElementsByTagName("xposB").item(0).getTextContent());
-				int posyB = Integer.parseInt(eElement.getElementsByTagName("yposB").item(0).getTextContent());
-	
-				try {
-					cargarMapa(urlArchivo);
-					cargarObjetos(i);
-					cargarEnemigos(i);
-					cargarAcciones(i);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-				Mapa.p1.setXY(posxA, posyA);
-				Mapa.p2.setXY(posxB, posyB);
-//				map.addPlayer();
-				
-	//			cargarMapa();
-				
-//				parseAccion("C.1.8.2.WEDQ.0.1.0.1.0.1");
-				
-								
-			}
+			String urlArchivo = mapaData.getAttribute("url");
+			int bgImgID= Integer.parseInt(mapaData.getAttribute("imgID"));
+			
+			cargarMapa(urlArchivo);					
+			map.cargarFondo(bgImgID);
 
-		} catch (Exception e1) {
-			e1.printStackTrace();
+			NodeList listaJugadores = doc.getElementsByTagName("jugador");
+//			cargarJugadores(listaJugadores);
+			
+			Jugador player;
+			for (int pos = 0; pos < listaJugadores.getLength(); pos++) {				
+				Element elem  = (Element) listaJugadores.item(pos);	
+				
+				int id = Integer.parseInt(elem.getAttribute("id"));	
+				int posx = Integer.parseInt(elem.getAttribute("xpos"));
+				int posy = Integer.parseInt(elem.getAttribute("ypos"));
+				int xTerreno = Integer.parseInt(elem.getAttribute("xTerreno"));
+				int yTerreno = Integer.parseInt(elem.getAttribute("yTerreno"));	
+				int terrenoImgID = Integer.parseInt(elem.getAttribute("imgID"));				
+
+				map.cargarTerreno(new Point(xTerreno, yTerreno), terrenoImgID);
+				player = id==1? Mapa.p1 : Mapa.p2;
+				player.setXY(posx, posy);		
+				
+			}
+			
+			NodeList listaAcciones = doc.getElementsByTagName("accion");
+			cargarAcciones(listaAcciones);
+			NodeList listaObjetos = doc.getElementsByTagName("objeto");
+			cargarObjetos(listaObjetos);
+			NodeList listaEnemigos = doc.getElementsByTagName("enemigo");
+			cargarEnemigos(listaEnemigos);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
-	private static void cargarAcciones(int i)throws SAXException, IOException {
-
-		File accionesFile = new File("./src/Data/acciones.xml");		
-		Document doc = dBuilder.parse(accionesFile);		
-		doc.getDocumentElement().normalize();
-		NodeList objetosList = doc.getElementsByTagName("nivel");
-		
-		Element nivel =(Element) objetosList.item(i);
-		NodeList listaAcciones = nivel.getElementsByTagName("accion");
+	private static void cargarAcciones(NodeList listaAcciones)throws SAXException, IOException {
 
 		for (int pos = 0; pos < listaAcciones.getLength(); pos++) {
 			Element accion  = (Element) listaAcciones.item(pos);			
 
-			char sprite = accion.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int tipo = Integer.parseInt(accion.getElementsByTagName("tipo").item(0).getTextContent());
-			String sec =  accion.getElementsByTagName("cad").item(0).getTextContent();
 			int cod = Integer.parseInt(accion.getAttribute("id"));
-			int visible = Integer.parseInt(accion.getElementsByTagName("visible").item(0).getTextContent());
+			String sec =  accion.getAttribute("sec");
+			int visible = Integer.parseInt(accion.getAttribute("visible"));
+			int tipo = Integer.parseInt(accion.getAttribute("tipo"));
 			
-			AccionEspecial accionObj = new AccionEspecial(sprite, cod, sec, tipo,visible);
-			NodeList listaJugadores = accion.getElementsByTagName("jugador");
+			AccionEspecial accionObj = new AccionEspecial(cod, sec, tipo,visible);
+			
+			NodeList listaJugadores = accion.getElementsByTagName("jug");
 
-			for(int ij = 0 ; ij<listaJugadores.getLength(); ij++)
-			{
+			for(int ij = 0 ; ij < listaJugadores.getLength(); ij++) {
 				Element jugador = (Element) listaJugadores.item(ij);
-
-				NodeList listaMovimientos = jugador.getElementsByTagName("mov");
-
-				int[][] movinfo = new int[listaMovimientos.getLength()][2];
-
-				int x = Integer.parseInt(jugador.getElementsByTagName("xpos").item(0).getTextContent());
-				int y = Integer.parseInt(jugador.getElementsByTagName("ypos").item(0).getTextContent());
+				
+				int x = Integer.parseInt(jugador.getAttribute("xpos"));
+				int y = Integer.parseInt(jugador.getAttribute("ypos"));
 				int id = Integer.parseInt(jugador.getAttribute("id"));
-				for(int imov = 0 ; imov<listaMovimientos.getLength();imov++)
-				{
+				
+				NodeList listaMovimientos = jugador.getElementsByTagName("mov");
+				int[][] movinfo = new int[listaMovimientos.getLength()][3];
+				
+				for(int imov = 0 ; imov<listaMovimientos.getLength();imov++) {
 					Element movimiento = (Element) listaMovimientos.item(imov);
 
-					movinfo[imov][0] = Integer.parseInt(movimiento.getElementsByTagName("xdir").item(0).getTextContent());
-					movinfo[imov][1] = Integer.parseInt(movimiento.getElementsByTagName("ydir").item(0).getTextContent());
-					
+					movinfo[imov][0] = Integer.parseInt(movimiento.getAttribute("xdir"));
+					movinfo[imov][1] = Integer.parseInt(movimiento.getAttribute("ydir"));
+					movinfo[imov][2] = Integer.parseInt(movimiento.getAttribute("anim"));					
 				}
 
 				accionObj.addPlayerAccion(id, x, y, movinfo);				
@@ -130,11 +129,45 @@ public class GestorMapas {
 	}
 
 	
+	public static void cargarAnimacionesJugadores(){
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();;
+		DocumentBuilder dBuilder = null;
+		Document doc = null;
+		
+		try {
+			dBuilder = dbFactory.newDocumentBuilder();		
+//			Cargar Metadata Objetos
+			File objetosFileBase = new File("./assets/data/jugadores.xml");
+			doc = dBuilder.parse(objetosFileBase);
+			doc.getDocumentElement().normalize();
+			NodeList objetosListBase = doc.getElementsByTagName("jugador");
+			
+			Scene scene;
+			Jugador player;
+			for (int id = 0; id < objetosListBase.getLength(); id++) {
+				Element objetoBase = (Element) objetosListBase.item(id);
+//				scene = new Scene(folder);
+				player = id ==0? Mapa.p1 : Mapa.p2;
+				NodeList anims = objetoBase.getElementsByTagName("anim");	
+				for (int i = 0; i < anims.getLength(); i++) {
+					Element anim= (Element) anims.item(i);
+					int animID= Integer.parseInt(anim.getTextContent());
+					String nom= anim.getAttribute("nombre");											
+								
+					((MovieClip)player.sprite).addScene(AssetManager.getSceneByID(animID),nom);
+									
+				}
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void cargarMapa(String urlArchivo) throws Exception{
 		
 		BufferedReader in = null;
-		in = new BufferedReader(new FileReader("./src/Data/"+urlArchivo));
+		in = new BufferedReader(new FileReader("./assets/data/"+urlArchivo));
 		String letra;
 
 		for (int x = 0 ; x <12; x++){
@@ -149,77 +182,44 @@ public class GestorMapas {
 		map = new Mapa(mapaFree);
 	}
 
-	public static void cargarObjetos(int nivel) throws SAXException, IOException{
-		
-//		Cargar Objetos por Nivel
-		File objetosFile = new File("./src/Data/objetosMapa.xml");		
-		Document doc = dBuilder.parse(objetosFile);		
-		doc.getDocumentElement().normalize();
-		NodeList objetosList = doc.getElementsByTagName("nivel");
-		
-		Element listaObjetos =(Element) objetosList.item(nivel);
-		NodeList objetosMapa = listaObjetos.getElementsByTagName("objetoMapa");
+	public static void cargarObjetos(NodeList objetosList){
 
-//		Cargar Metadata Objetos
-		File objetosFileBase = new File("./src/Data/objetos.xml");
-		doc = dBuilder.parse(objetosFileBase);
-		doc.getDocumentElement().normalize();
-		NodeList objetosListBase = doc.getElementsByTagName("objeto");
-
-		for (int pos = 0; pos < objetosMapa.getLength(); pos++) {
-			Element objetoMapa  = (Element) objetosMapa.item(pos);			
-			int objetoID = Integer.parseInt(objetoMapa.getElementsByTagName("objetoID").item(0).getTextContent());
-			int posx = Integer.parseInt(objetoMapa.getElementsByTagName("xpos").item(0).getTextContent());
-			int posy = Integer.parseInt(objetoMapa.getElementsByTagName("ypos").item(0).getTextContent());
-			int id = Integer.parseInt(objetoMapa.getAttribute("id"));
+		for (int pos = 0; pos < objetosList.getLength(); pos++) {
+			Element elem  = (Element) objetosList.item(pos);			
+			int objetoID = Integer.parseInt(elem.getAttribute("refID"));
+			int posx = Integer.parseInt(elem.getAttribute("xpos"));
+			int posy = Integer.parseInt(elem.getAttribute("ypos"));
+			int id = Integer.parseInt(elem.getAttribute("id"));
 			
-			Element objetoBase = (Element) objetosListBase.item(objetoID);
-			char sprite = objetoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int width = Integer.parseInt(objetoBase.getElementsByTagName("width").item(0).getTextContent());
-			int height = Integer.parseInt(objetoBase.getElementsByTagName("height").item(0).getTextContent());
-			int tipo = Integer.parseInt(objetoBase.getElementsByTagName("tipo").item(0).getTextContent());
-			
-			Objeto obj = map.getCelda(posx,posy).addObjeto(id, tipo,width, height, sprite);	
+			Objeto obj = map.getCelda(posx,posy).addObjeto(id, objetoID);	
 			map.addObjeto(obj);
+			
 		}
+		
+		
 	}
 	
-public static void cargarEnemigos(int nivel) throws SAXException, IOException{
-		
-//		Cargar enemigos por Nivel
-		File enemigosFile = new File("./src/Data/enemigosMapa.xml");		
-		Document doc = dBuilder.parse(enemigosFile);		
-		doc.getDocumentElement().normalize();
-		NodeList enemigosList = doc.getElementsByTagName("nivel");
-		
-		Element listaenemigos =(Element) enemigosList.item(nivel);
-		NodeList enemigosMapa = listaenemigos.getElementsByTagName("enemigoMapa");
-
-//		Cargar Metadata enemigos
-		File enemigosFileBase = new File("./src/Data/enemigos.xml");
-		doc = dBuilder.parse(enemigosFileBase);
-		doc.getDocumentElement().normalize();
-		NodeList enemigosListBase = doc.getElementsByTagName("enemigo");
-
-		for (int pos = 0; pos < enemigosMapa.getLength(); pos++) {
-			Element enemigoMapa  = (Element) enemigosMapa.item(pos);			
-			int enemigoID = Integer.parseInt(enemigoMapa.getElementsByTagName("enemigoID").item(0).getTextContent());
-			int accionID = Integer.parseInt(enemigoMapa.getElementsByTagName("accionID").item(0).getTextContent());
-			int jugadorID = Integer.parseInt(enemigoMapa.getElementsByTagName("jugadorID").item(0).getTextContent());
-			int posx = Integer.parseInt(enemigoMapa.getElementsByTagName("xpos").item(0).getTextContent());
-			int posy = Integer.parseInt(enemigoMapa.getElementsByTagName("ypos").item(0).getTextContent());
-			int id = Integer.parseInt(enemigoMapa.getAttribute("id"));
+	
+	
+	public static void cargarEnemigos(NodeList objetosList){
+	
+		for (int pos = 0; pos < objetosList.getLength(); pos++) {
+			Element elem  = (Element) objetosList.item(pos);			
+			int enemigoID = Integer.parseInt(elem.getAttribute("refID"));
+			int accionID = Integer.parseInt(elem.getAttribute("accionID"));
+			int jugadorID = Integer.parseInt(elem.getAttribute("jugadorID"));
+			int posx = Integer.parseInt(elem.getAttribute("xpos"));
+			int posy = Integer.parseInt(elem.getAttribute("ypos"));
+			int id = Integer.parseInt(elem.getAttribute("id"));
 			
-			Element enemigoBase = (Element) enemigosListBase.item(enemigoID);
-			char sprite = enemigoBase.getElementsByTagName("sprite").item(0).getTextContent().charAt(0);
-			int width = Integer.parseInt(enemigoBase.getElementsByTagName("width").item(0).getTextContent());
-			int height = Integer.parseInt(enemigoBase.getElementsByTagName("height").item(0).getTextContent());
-			int rango = Integer.parseInt(enemigoBase.getElementsByTagName("rango").item(0).getTextContent());
-			
-			Enemigo enemigo = new Enemigo(id, posx, posy, width, height, sprite, accionID, rango, jugadorID);
+			EnemigoData enemyData = AssetManager.getEnemyByID(enemigoID);			
+			Enemigo enemigo = new Enemigo(id, posx, posy, accionID,jugadorID, enemyData);
 			map.addEnemigo(enemigo);
 		}
+			
+		
 	}
+	
 	
 	
 	

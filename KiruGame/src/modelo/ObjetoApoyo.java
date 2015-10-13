@@ -4,8 +4,10 @@ import controlador.GestorMapas;
 
 public class ObjetoApoyo extends Objeto{
 
-	public ObjetoApoyo(int id,int x, int y, int w, int h, char sprite) {
-		super(id,x, y, w, h, sprite);
+	public ObjetoApoyo(int id,int x, int y, ObjetoData objData) {
+		super(id,x, y, objData);
+		caracter = 'o';
+		
 	}
 	
 

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+	<mapa url='mapa2.txt' imgID='26'/>
+
+	<!-- JUGADORES INICIO -->
+	<jugador id='1' xpos='0' ypos='5' xTerreno='0' yTerreno='3' imgID='22'/>
+	<jugador id='2' xpos='0' ypos='10' xTerreno='0' yTerreno='8' imgID='23'/>
+	<!-- JUGADORES FIN -->
+
+	<!-- OBJETOS INICIO -->
+	<objeto id= '0' refID='9' xpos='0' ypos='7' />
+	<objeto id= '1' refID='10' xpos='3' ypos='8' />
+	<objeto id= '2' refID='11' xpos='5' ypos='10' />
+	<objeto id= '3' refID='12' xpos='4' ypos='3' />
+	<objeto id= '4' refID='13' xpos='9' ypos='3' />
+	<objeto id= '5' refID='14' xpos='12' ypos='6' />
+	<!-- OBJETOS FIN -->
+
+	<!-- ACCIONES INICIO-->
+	<accion id='0' sec='SDEWD' visible='1' tipo='1' >
+		<jug id='1' xpos='2' ypos='4'>
+			<mov anim='1' xdir='1' ydir='0'/>
+			<mov anim='1' xdir='1' ydir='0'/>
+			<mov anim='1' xdir='1' ydir='0'/>
+		</jug>
+	</accion>
+
+	<accion id='1' sec='SIQEUOKLSD' visible='0' tipo='2' >
+		<jug id='1' xpos='8' ypos='6'>
+			<mov anim='1' xdir='1' ydir='0'/>
+			<mov anim='1' xdir='3' ydir='-1'/>
+			<mov anim='1' xdir='0' ydir='1'/>
+		</jug>
+		<jug id='2' xpos='8' ypos='8'>
+			<mov anim='11' xdir='1' ydir='0'/>
+			<mov anim='11' xdir='3' ydir='0'/>
+			<mov anim='11' xdir='0' ydir='-1'/>
+		</jug>
+	</accion>	
+	<!-- ACCIONES FIN-->
+
+	<!-- ENEMIGOS INICIO-->
+	<!-- <enemigo id= '0' refID='0' xpos='5' ypos='8' accionID='2' jugadorID='2'/> -->
+	<!-- ENEMIGOS FIN-->
+	
+</root>

@@ -4,8 +4,8 @@ import controlador.GestorMapas;
 
 public class Obstaculo extends Objeto{
 
-	public Obstaculo(int id,int posX, int posY, int w, int h, char sprite) {
-		super(id,posX, posY, w, h, sprite);
+	public Obstaculo(int id,int posX, int posY, ObjetoData objData) {
+		super(id,posX, posY, objData);
 		
 		
 		

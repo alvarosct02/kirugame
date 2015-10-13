@@ -1,0 +1,272 @@
+<root>
+	<anim id='0' offsetX='-16' offsetY='-32' nom='perroRespirando' folder='perroRespirando'>
+		<frame rep='7' src='img1.png' />
+		<frame rep='5' src='img2.png' />
+		<frame rep='5' src='img3.png' />
+		<frame rep='7' src='img4.png' />
+	</anim>
+	<anim id='1' offsetX='5' offsetY='10' nom='Cuy Buscando en cofre' folder='Cuy Buscando en cofre'>
+		<frame rep='2' src='CuyCofre1.png' />
+		<frame rep='2' src='CuyCofre2.png' />
+		<frame rep='1' src='CuyCofre3.png' />
+		<frame rep='1' src='CuyCofre4.png' />
+		<frame rep='2' src='CuyCofre5.png' />
+		<frame rep='2' src='CuyCofre6.png' />
+		<frame rep='2' src='CuyCofre7.png' />
+		<frame rep='2' src='CuyCofre8.png' />
+		<frame rep='2' src='CuyCofre9.png' />
+		<frame rep='2' src='CuyCofre10.png' />
+		<frame rep='2' src='CuyCofre11.png' />
+		<frame rep='2' src='CuyCofre12.png' />
+		<frame rep='1' src='CuyCofre13.png' />
+		<frame rep='1' src='CuyCofre14.png' />
+	</anim>
+	<anim id='2' offsetX='5' offsetY='10' nom='Cuy Caminando' folder='Cuy Caminando'>
+		<frame rep='2' src='CuyCaminando541.png' />
+		<frame rep='3' src='CuyCaminando542.png' />
+		<frame rep='3' src='CuyCaminando543.png' />
+		<frame rep='4' src='CuyCaminando544.png' />
+		<frame rep='4' src='CuyCaminando545.png' />
+		<frame rep='3' src='CuyCaminando546.png' />
+		<frame rep='3' src='CuyCaminando547.png' />
+		<frame rep='2' src='CuyCaminando548.png' />
+	</anim>
+	<anim id='3' offsetX='5' offsetY='-20' nom='Cuy con llave' folder='Cuy con llave'>
+		<frame rep='1' src='CuyLlave1.png' />
+		<frame rep='1' src='CuyLlave2.png' />
+		<frame rep='1' src='CuyLlave3.png' />
+		<frame rep='1' src='CuyLlave4.png' />
+		<frame rep='1' src='CuyLlave5.png' />
+		<frame rep='1' src='CuyLlave6.png' />
+		<frame rep='1' src='CuyLlave7.png' />
+		<frame rep='1' src='CuyLlave8.png' />
+		<frame rep='1' src='CuyLlave9.png' />
+		<frame rep='1' src='CuyLlave10.png' />
+		<frame rep='2' src='CuyLlave11.png' />
+		<frame rep='2' src='CuyLlave12.png' />
+		<frame rep='1' src='CuyLlave13.png' />
+		<frame rep='1' src='CuyLlave14.png' />
+		<frame rep='2' src='CuyLlave15.png' />
+		<frame rep='2' src='CuyLlave16.png' />
+		<frame rep='2' src='CuyLlave17.png' />
+		<frame rep='2' src='CuyLlave18.png' />
+	</anim>
+	<anim id='4' offsetX='5' offsetY='10' nom='Cuy Respirando' folder='Cuy Respirando'>
+		<frame rep='12' src='Cuyrespirando541.png' />
+		<frame rep='12' src='Cuyrespirando542.png' />
+	</anim>
+	<anim id='5' offsetX='5' offsetY='10' nom='Cuy Sentandose' folder='Cuy Sentandose'>
+		<frame rep='1' src='Cuysentandose541.png' />
+		<frame rep='1' src='Cuysentandose542.png' />
+		<frame rep='1' src='Cuysentandose543.png' />
+		<frame rep='1' src='Cuysentandose544.png' />
+		<frame rep='2' src='Cuysentandose545.png' />
+		<frame rep='2' src='Cuysentandose546.png' />
+		<frame rep='2' src='Cuysentandose547.png' />
+		<frame rep='2' src='Cuysentandose548.png' />
+		<frame rep='2' src='Cuysentandose549.png' />
+		<frame rep='2' src='Cuysentandose5410.png' />
+		<frame rep='2' src='Cuysentandose5411.png' />
+		<frame rep='2' src='Cuysentandose5412.png' />
+		<frame rep='2' src='Cuysentandose5413.png' />
+		<frame rep='2' src='Cuysentandose5414.png' />
+	</anim>
+	<anim id='6' offsetX='0' offsetY='0' nom='Cuy, Perro Y Llave' folder='Cuy, Perro Y Llave'>
+		<frame rep='1' src='CuyPerroYLlave1.png' />
+		<frame rep='1' src='CuyPerroYLlave2.png' />
+		<frame rep='1' src='CuyPerroYLlave3.png' />
+		<frame rep='1' src='CuyPerroYLlave4.png' />
+		<frame rep='1' src='CuyPerroYLlave5.png' />
+		<frame rep='1' src='CuyPerroYLlave6.png' />
+		<frame rep='1' src='CuyPerroYLlave7.png' />
+		<frame rep='1' src='CuyPerroYLlave8.png' />
+		<frame rep='1' src='CuyPerroYLlave9.png' />
+		<frame rep='1' src='CuyPerroYLlave10.png' />
+		<frame rep='1' src='CuyPerroYLlave11.png' />
+		<frame rep='1' src='CuyPerroYLlave12.png' />
+		<frame rep='1' src='CuyPerroYLlave13.png' />
+		<frame rep='1' src='CuyPerroYLlave14.png' />
+		<frame rep='1' src='CuyPerroYLlave15.png' />
+		<frame rep='1' src='CuyPerroYLlave16.png' />
+		<frame rep='1' src='CuyPerroYLlave17.png' />
+		<frame rep='1' src='CuyPerroYLlave18.png' />
+		<frame rep='1' src='CuyPerroYLlave19.png' />
+		<frame rep='1' src='CuyPerroYLlave20.png' />
+		<frame rep='1' src='CuyPerroYLlave21.png' />
+		<frame rep='1' src='CuyPerroYLlave22.png' />
+		<frame rep='1' src='CuyPerroYLlave23.png' />
+		<frame rep='1' src='CuyPerroYLlave24.png' />
+	</anim>
+	<anim id='7' offsetX='0' offsetY='0' nom='Perro caminando' folder='Perro caminando'>
+		<frame rep='4' src='Perrocaminando1.png' />
+		<frame rep='4' src='Perrocaminando2.png' />
+		<frame rep='4' src='Perrocaminando3.png' />
+		<frame rep='4' src='Perrocaminando4.png' />
+		<frame rep='4' src='Perrocaminando5.png' />
+		<frame rep='4' src='Perrocaminando6.png' />
+	</anim>
+	<anim id='8' offsetX='0' offsetY='0' nom='Cuy Celebrando' folder='Nivel 1\Cuy Celebrando'>
+		<frame rep='1' src='Cuy celebrando1.png' />
+		<frame rep='1' src='Cuy celebrando2.png' />
+		<frame rep='1' src='Cuy celebrando3.png' />
+		<frame rep='1' src='Cuy celebrando4.png' />
+		<frame rep='1' src='Cuy celebrando5.png' />
+		<frame rep='1' src='Cuy celebrando6.png' />
+		<frame rep='1' src='Cuy celebrando7.png' />
+		<frame rep='1' src='Cuy celebrando8.png' />
+		<frame rep='1' src='Cuy celebrando9.png' />
+		<frame rep='2' src='Cuy celebrando10.png' />
+		<frame rep='2' src='Cuy celebrando11.png' />
+		<frame rep='2' src='Cuy celebrando12.png' />
+		<frame rep='2' src='Cuy celebrando13.png' />
+		<frame rep='1' src='Cuy celebrando14.png' />
+		<frame rep='1' src='Cuy celebrando15.png' />
+		<frame rep='1' src='Cuy celebrando16.png' />
+		<frame rep='1' src='Cuy celebrando17.png' />
+		<frame rep='1' src='Cuy celebrando18.png' />
+		<frame rep='1' src='Cuy celebrando19.png' />
+		<frame rep='1' src='Cuy celebrando20.png' />
+	</anim>
+	<anim id='9' offsetX='-83' offsetY='63' nom='Cuy Destruyendo Castillo de Arena 2' folder='Nivel 1\Cuy Destruyendo Castillo de Arena'>
+		<frame rep='1' src='Cuydestruyendocastillodearena1.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena2.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena3.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena4.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena5.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena6.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena7.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena8.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena9.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena10.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena11.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena12.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena13.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena14.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena15.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena16.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena17.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena18.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena19.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena20.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena21.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena22.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena23.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena24.png' />
+	</anim>
+	<anim id='13' offsetX= '-83' offsetY= '63' nom='Cuy Destruyendo Castillo de Arena' folder='Nivel 1/Cuy Destruyendo Castillo de Arena'>
+		<frame rep='1' src='Cuydestruyendocastillodearena25.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena26.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena27.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena28.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena29.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena30.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena31.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena32.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena33.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena34.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena35.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena36.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena37.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena38.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena39.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena40.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena41.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena42.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena43.png' />
+		<frame rep='1' src='Cuydestruyendocastillodearena44.png' />
+		<frame rep='4' src='Cuydestruyendocastillodearena45.png' />
+	</anim>
+	<anim id='10' offsetX='0' offsetY='0' nom='Cuy empujando muralla' folder='Nivel 1\Cuy empujando muralla'>
+		<frame rep='1' src='Cuy empujando muralla1.png' />
+		<frame rep='1' src='Cuy empujando muralla2.png' />
+		<frame rep='1' src='Cuy empujando muralla3.png' />
+		<frame rep='1' src='Cuy empujando muralla4.png' />
+		<frame rep='1' src='Cuy empujando muralla5.png' />
+		<frame rep='1' src='Cuy empujando muralla6.png' />
+		<frame rep='1' src='Cuy empujando muralla7.png' />
+		<frame rep='1' src='Cuy empujando muralla8.png' />
+		<frame rep='1' src='Cuy empujando muralla9.png' />
+		<frame rep='3' src='Cuy empujando muralla10.png' />
+		<frame rep='3' src='Cuy empujando muralla11.png' />
+		<frame rep='3' src='Cuy empujando muralla12.png' />
+		<frame rep='2' src='Cuy empujando muralla13.png' />
+		<frame rep='2' src='Cuy empujando muralla14.png' />
+		<frame rep='2' src='Cuy empujando muralla15.png' />
+		<frame rep='2' src='Cuy empujando muralla16.png' />
+	</anim>	
+	<anim id='11' offsetX='-17' offsetY='-65' nom='Perro Celebrando' folder='Nivel 1\Perro Celebrando'>
+		<frame rep='1' src='Perro Celebrando1.png' />
+		<frame rep='1' src='Perro Celebrando2.png' />
+		<frame rep='2' src='Perro Celebrando3.png' />
+		<frame rep='2' src='Perro Celebrando4.png' />
+		<frame rep='2' src='Perro Celebrando5.png' />
+		<frame rep='2' src='Perro Celebrando6.png' />
+		<frame rep='2' src='Perro Celebrando7.png' />
+		<frame rep='2' src='Perro Celebrando8.png' />
+		<frame rep='2' src='Perro Celebrando9.png' />
+		<frame rep='2' src='Perro Celebrando10.png' />
+		<frame rep='2' src='Perro Celebrando11.png' />
+		<frame rep='2' src='Perro Celebrando12.png' />
+		<frame rep='2' src='Perro Celebrando13.png' />
+	</anim>
+	<anim id='12' offsetX='-16' offsetY='-32' nom='Perro empujando muralla' folder='Nivel 1\Perro empujando muralla'>
+		<frame rep='3' src='Perro empujando muralla1.png' />
+		<frame rep='3' src='Perro empujando muralla2.png' />
+		<frame rep='3' src='Perro empujando muralla3.png' />
+		<frame rep='3' src='Perro empujando muralla4.png' />
+		<frame rep='3' src='Perro empujando muralla5.png' />
+		<frame rep='3' src='Perro empujando muralla6.png' />
+		<frame rep='3' src='Perro empujando muralla7.png' />
+		<frame rep='3' src='Perro empujando muralla8.png' />
+	</anim>
+	<!-- Ya hay numero 13 -->	
+	<anim id='50' offsetX='0' offsetY='0' nom='sofa' folder='' >
+		<frame rep='1' src='sofa.png' />
+	</anim>
+	<anim id='51' offsetX='0' offsetY='0' nom='mueble' folder='' >
+		<frame rep='1' src='mueble.png' />
+	</anim>
+	<anim id='52' offsetX='0' offsetY='0' nom='cofre' folder='' >
+		<frame rep='1' src='cofre.png' />
+	</anim>
+	<anim id='53' offsetX='0' offsetY='0' nom='puerta' folder='' >
+		<frame rep='1' src='puerta.jpg' />
+	</anim>
+	<anim id='54' offsetX='0' offsetY='0' nom='alfombra' folder='' >
+		<frame rep='1' src='alfombra.jpg' />
+	</anim>
+	<anim id='55' offsetX='0' offsetY='0' nom='filaPiedras' folder='' >
+		<frame rep='1' src='filaPiedras.jpg' />
+	</anim>
+	<anim id='56' offsetX='0' offsetY='0' nom='piedraGrande' folder='' >
+		<frame rep='1' src='piedraGrande.png' />
+	</anim>
+	<anim id='57' offsetX='0' offsetY='0' nom='castilloGrande' folder='' >
+		<frame rep='1' src='castilloGrande.png' />
+	</anim>
+	<anim id='58' offsetX='0' offsetY='0' nom='castilloDelgado' folder='' >
+		<frame rep='1' src='castilloDelgado.png' />
+	</anim>
+	<anim id='59' offsetX='0' offsetY='0' nom='canalAguayPiedra' folder='' >
+		<frame rep='1' src='canalAguayPiedra.jpg' />
+	</anim>
+	<anim id='60' offsetX='0' offsetY='0' nom='muroArena' folder='' >
+		<frame rep='1' src='muroArena.jpg' />
+	</anim>
+	<anim id='61' offsetX='0' offsetY='0' nom='hueco' folder='' >
+		<frame rep='1' src='hueco.png' />
+	</anim>
+	<anim id='62' offsetX='0' offsetY='0' nom='canalAgua' folder='' >
+		<frame rep='1' src='canalAgua.jpg' />
+	</anim>
+	<anim id='63' offsetX='0' offsetY='0' nom='lago' folder='' >
+		<frame rep='1' src='lake.png' />
+	</anim>
+	<anim id='64' offsetX='0' offsetY='0' nom='grass' folder='' >
+		<frame rep='1' src='grass.png' />
+	</anim>
+	<anim id='100' offsetX='0' offsetY='0' nom='ivy' folder='' >
+		<frame rep='1' src='ivy.png' />
+	</anim>
+
+</root>

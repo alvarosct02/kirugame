@@ -1,122 +1,17 @@
-<objetos>
-	<objeto id ="0">
-		<nombre>Mueble para sentarse</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>m</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="1">
-		<nombre>Mueble con cajones</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>j</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="2">
-		<nombre>Cofre abierto</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>d</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>	
-	<objeto id ="3">
-		<nombre>Puerta de la casa</nombre>
-		<width>1</width>
-		<height>4</height>
-		<sprite>o</sprite>
-		<layer>1</layer>
-		<tipo>1</tipo>
-	</objeto>
-	<objeto id ="4">
-		<nombre>Alfombra</nombre>
-		<width>15</width>
-		<height>2</height>
-		<sprite>a</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="5">
-		<nombre>Fila de piedras</nombre>
-		<width>16</width>
-		<height>1</height>
-		<sprite>p</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="6">
-		<nombre>Piedra grande</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>g</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="7">
-		<nombre>Castillo de arena grande</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>i</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>	
-	<objeto id ="8">
-		<nombre>Castillo de arena delgado y en columna</nombre>
-		<width>1</width>
-		<height>4</height>
-		<sprite>L</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="9">
-		<nombre>Canal de agua hecho de piedra</nombre>
-		<width>9</width>
-		<height>1</height>
-		<sprite>g</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="10">
-		<nombre>Muro de piedras</nombre>
-		<width>1</width>
-		<height>3</height>
-		<sprite>m</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="11">
-		<nombre>Hueco</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>h</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="12">
-		<nombre>Canal de agua</nombre>
-		<width>1</width>
-		<height>4</height>
-		<sprite>t</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="13">
-		<nombre>Lago</nombre>
-		<width>7</width>
-		<height>9</height>
-		<sprite>L</sprite>
-		<layer>1</layer>
-		<tipo>0</tipo>
-	</objeto>
-	<objeto id ="14">
-		<nombre>Gras o especie de planicie</nombre>
-		<width>4</width>
-		<height>2</height>
-		<sprite>o</sprite>
-		<layer>2</layer>   <!--  LAYER 2 : Para estar encima del lago -->
-		<tipo>1</tipo>
-	</objeto>
-</objetos>
+<root>
+	<objeto id='0' width='2' height='2' char='m' tipo='0' anim='50' nom='sofa' />
+	<objeto id='1' width='2' height='2' char='j' tipo='0' anim='51' nom='mueble' />
+	<objeto id='2' width='2' height='2' char='d' tipo='0' anim='52' nom='cofre'/>
+	<objeto id='3' width='1' height='4' char='o' tipo='1' anim='53' nom='puerta'/>
+	<objeto id='4' width='15' height='2' char='a' tipo='0' anim='54' nom='alfombra'/>
+	<objeto id='5' width='16' height='1' char='p' tipo='0' anim='55' nom='filaPiedras'/>
+	<objeto id='6' width='2' height='2' char='g' tipo='0' anim='56' nom='piedraGrande'/>
+	<objeto id='7' width='1' height='2' char='i' tipo='0' anim='57' nom='castilloGrande'/>
+	<objeto id='8' width='1' height='4' char='L' tipo='0' anim='58' nom='castilloDelgado'/>
+	<objeto id='9' width='9' height='1' char='g' tipo='0' anim='59' nom='canalAguayPiedra'/>
+	<objeto id='10' width='1' height='3' char='m' tipo='0' anim='60' nom='muroArena'/>
+	<objeto id='11' width='2' height='2' char='h' tipo='0' anim='61' nom='hueco'/>
+	<objeto id='12' width='1' height='4' char='t' tipo='0' anim='62' nom='canalAgua'/>
+	<objeto id='13' width='7' height='9' char='L' tipo='0' anim='63' nom='lago'/>
+	<objeto id='14' width='4' height='2' char='o' tipo='1' anim='64' nom='mueble'/>
+</root>

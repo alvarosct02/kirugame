@@ -1,12 +1,17 @@
 package modelo;
 
+import actionscript3.MovieClip;
 import controlador.GestorMapas;
 
-public class Jugador extends Personaje {
+public class Jugador extends Sprite {
 	private static int vida = 10;	
 	private String nombre;
 	public boolean blooding = false;
 	public String dir;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -19,21 +24,25 @@ public class Jugador extends Personaje {
 	private char terreno;
 
 	public Jugador(){
-		super(0,0,1,1,'X');
+		super(0,0,1,1);
+		sprite = new MovieClip();
+//		this.sprite = 'X';
 	}
 
 	public void addData(String nombre, String input, int alto,int ancho, char sprite, char terreno) {
 		// TODO Auto-generated method stub
 		this.gridW = ancho;
 		this.gridH = alto;
-		this.sprite = sprite;
+		this.caracter = sprite;
 		this. terreno = terreno;		
 		this.nombre = nombre;
 		this.input = input;		
 	}
 	
-	public int moverDir(int cmd){
+	public int moverDir(char cmd){
 		int error = 0;
+		cmd = Character.toUpperCase(cmd);
+		
 		if (cmd == input.charAt(3)){
 			error = moverXY(gridX+1,gridY);
 			dir = "la derecha";			
@@ -51,6 +60,10 @@ public class Jugador extends Personaje {
 	}
 	
 	private int moverXY(int x, int y){
+//		boolean aux = GestorMapas.map.getCeldaValue(x,y) == 'o';
+//		boolean aux1 = GestorMapas.map.getCelda(x,y).walkable == true;
+//		
+		
 		if(
 			isValid(x,y) == 1 && 
 			((GestorMapas.map.getCeldaValue(x, y) == terreno || GestorMapas.map.getCeldaValue(x,y) == 'D' || GestorMapas.map.getCeldaValue(x,y) == 'C')
@@ -66,7 +79,10 @@ public class Jugador extends Personaje {
 	public static int getVida() {
 		return Jugador.vida;		
 	}
-	
+	public static void setVida(int vida)
+	{
+		Jugador.vida = vida; 
+	}
 	public boolean isHere(int x, int y){
 		return (x == gridX && y == gridY);
 	}

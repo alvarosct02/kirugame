@@ -1,27 +1,45 @@
 package controlador;
 
+import actionscript3.MovieClip;
+import modelo.EnemigoData;
 import modelo.ITrigger;
 import modelo.Jugador;
-import modelo.Personaje;
+import modelo.Sprite;
+import vista.Juego;
 
-public class Enemigo extends Personaje implements ITrigger{
+public class Enemigo extends Sprite implements ITrigger{
 	private int actionID;
 	private int rango;
 	private int jugID;
 
-	private boolean activa;
+	private boolean activable;
 	
-	public Enemigo(int id,int x, int y, int w, int h, char sprite, int accion, int rango, int jug) {
-		super(x,y,w,h,sprite);
+	public void setActivable(boolean activable) {
+		this.activable = activable;
+	}
+
+	public boolean isActivable() {
+		return activable;
+	}
+
+	public Enemigo(int id,int x, int y, int accion, int jug, EnemigoData objData) {
+		super(x,y,objData.width, objData.height);
 		this.actionID = accion;
-		this.rango = rango;
+		this.rango = objData.rango;
 		this.jugID = jug;
 		this.id = id;
-		this.activa = true;
+		this.activable = true;
+		
+		this.sprite = new MovieClip(objData.mc);
+		
+		System.out.println(gridX);
+		System.out.println(gridY);
+		sprite.x = gridX * Juego.GRIDSIZE;
+		sprite.y = gridY * Juego.GRIDSIZE;
 	}
 	
 	public boolean check() {
-		if (activa != true) return false;	
+		if (activable != true) return false;	
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		
 		for (int w = 0; w<gridW; w++){
@@ -29,14 +47,13 @@ public class Enemigo extends Personaje implements ITrigger{
 				for (int i = -rango; i<=rango; i++){
 					for (int j = -rango; j<= rango; j++){	
 						if (player.isHere(gridX+j+w, gridY+i+h)){
-							activa = false;
+							activable = false;
 							return true;	
 						}
 					}
 				}
 			}
 		}
-		
 		
 		return false;
 	}

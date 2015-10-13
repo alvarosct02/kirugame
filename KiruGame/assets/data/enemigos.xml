@@ -1,10 +1,5 @@
-<enemigos>
-	<enemigo id ="0">
-		<nombre>Trishula, Dragon of the Ice Barrier</nombre>
-		<width>2</width>
-		<height>2</height>
-		<sprite>E</sprite>
-		<rango>1</rango>
-		<layer>1</layer>
+<root>
+	<enemigo id='0' nom='ivysaur' width='2' height='2' char='E' rango='1'>
+		<anim refID='100' nom='idle'/>
 	</enemigo>
-</enemigos>
+</root>

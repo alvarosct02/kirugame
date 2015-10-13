@@ -3,14 +3,13 @@ package vista;
 import controlador.*;
 import modelo.Jugador;
 
-public class Renderizador {
+public class Renderizador{
 	
+	public static void updateMapa() {
+		// TODO Auto-generated method stub
+		GestorMapas.map.update();
+	}
 	
-//	Mantaner el esquema 
-//	if (Juego.renderMode == 0){	
-//		Codigo AQUI
-//	}
-
 	public static void mostrarWelcome(){
 		if (Juego.renderMode == 0){
 			System.out.println(
@@ -316,4 +315,5 @@ public class Renderizador {
 			System.out.format(" >> Presiona ENTER para continuar\n");	
 		}			
 	}
+
 }
