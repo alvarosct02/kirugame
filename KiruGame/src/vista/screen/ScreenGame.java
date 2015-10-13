@@ -16,22 +16,22 @@ import javax.swing.JTextField;
 import actionscript3.Button;
 import actionscript3.MovieClip;
 import actionscript3.ToogleButton;
+import controlador.AssetManager;
 import controlador.GestorMapas;
-import controlador.Mapa;
 import modelo.Jugador;
+import modelo.Mapa;
 import modelo.ObjetoApoyo;
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
-import actionscript3.SpriteAS3;
+import actionscript3.Sprite;
 import actionscript3.Stage;
-import vista.AssetManager;
 import vista.Juego;
 import vista.Renderizador;
 import controlador.Saver;
 public class ScreenGame extends Screen{
 	
 	Button btn;
-	SpriteAS3 obj;
+	Sprite obj;
 	int max = 264;
 	private Jugador p1;
 	private Jugador p2;
@@ -39,24 +39,23 @@ public class ScreenGame extends Screen{
 	
 	boolean first = true;	
 	
-	SpriteAS3 panel = new SpriteAS3();
-	SpriteAS3 vida = new SpriteAS3();
+	Sprite panel = new Sprite();
+	Sprite vida = new Sprite();
 		
-	public ScreenGame(boolean loaded){
+	public ScreenGame(){
 		super();
 		
 		p1 = Mapa.p1;
 		p2 = Mapa.p2;
+				
+		if (Juego.currentLevel == 0)
+			Jugador.resetVida();
 		
-		if (!loaded){			
-			if (Juego.currentLevel == 0)
-				Jugador.resetVida();
-			
-			p1.addData("Player1", "WASDQE",1,1,'A','S');
-			p2.addData("Player2", "IJKLUO",1,1,'B','N');
-			
-			GestorMapas.cargarNivel(Juego.currentLevel);
-		}
+		p1.addData("Player1", "WASDQE",1,1,'A','S');
+		p2.addData("Player2", "IJKLUO",1,1,'B','N');
+		
+		GestorMapas.cargarNivel(Juego.currentLevel);
+		
 				
 
 		map = GestorMapas.map;
@@ -167,7 +166,7 @@ public class ScreenGame extends Screen{
 	//		PARA EL NIVEL 1
 		if (i == 1){
 			if (idAccion == 0){	
-				map.getObjeto(2).quitarMapa();
+				map.getObjeto(2).removeFromMap();
 				return;
 			}
 //			if (idAccion == 2){	
@@ -211,7 +210,7 @@ public class ScreenGame extends Screen{
 		}
 		if (i == 1){
 			if (idAccion == 1){	
-				map.getObjeto(3).quitarMapa();
+				map.getObjeto(3).removeFromMap();
 				return;
 			}
 		}

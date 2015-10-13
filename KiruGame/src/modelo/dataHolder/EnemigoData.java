@@ -1,4 +1,4 @@
-package modelo;
+package modelo.dataHolder;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import actionscript3.MovieClip;
-import vista.AssetManager;
+import controlador.AssetManager;
 
 public class EnemigoData extends ImageData {
 	

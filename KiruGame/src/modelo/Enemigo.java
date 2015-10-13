@@ -1,13 +1,11 @@
-package controlador;
+package modelo;
 
 import actionscript3.MovieClip;
-import modelo.EnemigoData;
-import modelo.ITrigger;
-import modelo.Jugador;
-import modelo.Sprite;
+import controlador.GestorMapas;
+import modelo.dataHolder.EnemigoData;
 import vista.Juego;
 
-public class Enemigo extends Sprite implements ITrigger{
+public class Enemigo extends Drawable implements ITrigger{
 	private int actionID;
 	private int rango;
 	private int jugID;
@@ -23,11 +21,10 @@ public class Enemigo extends Sprite implements ITrigger{
 	}
 
 	public Enemigo(int id,int x, int y, int accion, int jug, EnemigoData objData) {
-		super(x,y,objData.width, objData.height);
+		super(id,x,y,objData.width, objData.height,'E');
 		this.actionID = accion;
 		this.rango = objData.rango;
 		this.jugID = jug;
-		this.id = id;
 		this.activable = true;
 		
 		this.sprite = new MovieClip(objData.mc);
@@ -61,7 +58,7 @@ public class Enemigo extends Sprite implements ITrigger{
 	public int ejecutar() {
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = true;
-		agregarMapa();
+		addToMap();
 		GestorMapas.map.activarAccion(actionID);
 		return 0;
 	}
@@ -69,7 +66,7 @@ public class Enemigo extends Sprite implements ITrigger{
 	public void destruir() {
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = false;
-		quitarMapa();	
+		removeFromMap();
 	}
 	
 //	public int tryDie(int x, int y , String action)

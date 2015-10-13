@@ -3,7 +3,7 @@ package modelo;
 import actionscript3.MovieClip;
 import controlador.GestorMapas;
 
-public class Jugador extends Sprite {
+public class Jugador extends Drawable {
 	private static int vida = 10;	
 	private String nombre;
 	public boolean blooding = false;
@@ -24,16 +24,16 @@ public class Jugador extends Sprite {
 	private char terreno;
 
 	public Jugador(){
-		super(0,0,1,1);
+		super(1,0,0,1,1,'@');
 		sprite = new MovieClip();
 //		this.sprite = 'X';
 	}
 
-	public void addData(String nombre, String input, int alto,int ancho, char sprite, char terreno) {
+	public void addData(String nombre, String input, int alto,int ancho, char caracter, char terreno) {
 		// TODO Auto-generated method stub
 		this.gridW = ancho;
 		this.gridH = alto;
-		this.caracter = sprite;
+		this.caracter = caracter;
 		this. terreno = terreno;		
 		this.nombre = nombre;
 		this.input = input;		

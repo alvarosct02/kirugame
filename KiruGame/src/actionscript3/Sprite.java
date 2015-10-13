@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class SpriteAS3 {
-	private ArrayList<SpriteAS3> displayList = new ArrayList<SpriteAS3>();
+public class Sprite {
+	private ArrayList<Sprite> displayList = new ArrayList<Sprite>();
 	public float x = 0;
 	public float y = 0;
 	public int height = 0; //No se debe usar
@@ -23,13 +23,13 @@ public class SpriteAS3 {
 	public int offsetX = 0;
 	public int offsetY = 0;
 	
-	public SpriteAS3 parent = null;
+	public Sprite parent = null;
 	private BufferedImage img = null;
 	private Rectangle bounds = new Rectangle();
 		
 	public boolean active = true;
 	
-	public SpriteAS3(){
+	public Sprite(){
 		
 	}
 //	
@@ -42,30 +42,30 @@ public class SpriteAS3 {
 	
 	public void disable(){
 		active = false;
-		for (SpriteAS3 spriteAS3 : displayList) {
+		for (Sprite spriteAS3 : displayList) {
 			spriteAS3.disable();
 		}
 	}
 	
 	public void enable(){
 		active = true;
-		for (SpriteAS3 spriteAS3 : displayList) {
+		for (Sprite spriteAS3 : displayList) {
 			spriteAS3.enable();
 		}
 	}
 		
-	public void addChild(SpriteAS3 child){
+	public void addChild(Sprite child){
 		displayList.add(child);
 		child.parent = this;
 	}
 	
-	public void removeChild(SpriteAS3 child){
+	public void removeChild(Sprite child){
 		displayList.remove(child);
 	}
 	
 	public void renderAll(Graphics2D canvas){
 		render(canvas);
-		for (SpriteAS3 sprite : displayList) {
+		for (Sprite sprite : displayList) {
 			sprite.renderAll(canvas);
 		}
 	}
@@ -123,7 +123,7 @@ public class SpriteAS3 {
 			if ( getBounds().  contains(e.getX(),e.getY()) ){
 				onMouseClicked(e);	
 			}
-			for (SpriteAS3 spriteAS3 : displayList) {
+			for (Sprite spriteAS3 : displayList) {
 				spriteAS3.mouseClicked(e);
 			}			
 		}
@@ -134,7 +134,7 @@ public class SpriteAS3 {
 			if ( getBounds().contains(e.getX(),e.getY()) ){
 				onMouseReleased(e);	
 			}
-			for (SpriteAS3 spriteAS3 : displayList) {
+			for (Sprite spriteAS3 : displayList) {
 				spriteAS3.mouseReleased(e);
 			}
 		}
@@ -146,7 +146,7 @@ public class SpriteAS3 {
 				onMousePressed(e);	
 			}
 			System.out.println(displayList.size());
-			for (SpriteAS3 spriteAS3 : displayList) {
+			for (Sprite spriteAS3 : displayList) {
 				spriteAS3.mousePressed(e);
 			}			
 		}

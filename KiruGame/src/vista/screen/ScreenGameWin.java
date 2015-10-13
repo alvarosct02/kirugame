@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 
 import actionscript3.Screen;
 import actionscript3.Stage;
-import vista.AssetManager;
+import controlador.AssetManager;
 import vista.Juego;
 
 public class ScreenGameWin extends Screen {

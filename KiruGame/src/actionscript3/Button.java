@@ -5,9 +5,9 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.function.Function;
 
-import vista.AssetManager;
+import controlador.AssetManager;
 
-public abstract class Button extends SpriteAS3 {
+public abstract class Button extends Sprite {
 	protected BufferedImage stateUP;
 	protected BufferedImage stateDOWN;
 	protected BufferedImage stateHOVER;

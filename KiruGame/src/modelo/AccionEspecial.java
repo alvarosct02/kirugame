@@ -1,14 +1,13 @@
-package controlador;
+package modelo;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import actionscript3.SpriteAS3;
-import modelo.ITrigger;
-import modelo.ImageData;
-import modelo.Jugador;
-import vista.AssetManager;
+import actionscript3.Sprite;
+import controlador.AssetManager;
+import controlador.GestorMapas;
+import modelo.dataHolder.ImageData;
 import vista.Juego;
 import vista.Renderizador;
 import vista.screen.PopupAction;
@@ -18,25 +17,14 @@ public class AccionEspecial implements ITrigger{
 	
 	public int idAccion;
 	private String sec;
-
-	public String getSec() {
-		return sec;
-	}
-
-	private Scanner sc = new Scanner(System.in);
-	private boolean activa = true;
-	
-	public boolean isActiva() {
-		return activa;
-	}
-
+	private boolean active = true;
 	private char caracter;
 	public BufferedImage img = null;
 	private int tipo;
 	public ArrayList<Integer> jugArray = new ArrayList<Integer>();
 	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
 	public ArrayList<int[][]> cordArray = new ArrayList<int[][]>();
-	private ArrayList<SpriteAS3> spriteArr = new ArrayList<SpriteAS3>();
+	private ArrayList<Sprite> spriteArr = new ArrayList<Sprite>();
 	
 	public AccionEspecial(int cod,String sec, int tipo, int visible) {
 		
@@ -44,7 +32,7 @@ public class AccionEspecial implements ITrigger{
 		this.sec = sec;
 		this.tipo = tipo;
 		this.caracter = tipo==1? 'C':'D';
-		this.activa = visible==1? true:false;
+		this.active = visible==1? true:false;
 		img = AssetManager.getImage("action" + this.tipo);
 //		SpriteAS3 sprite
 		
@@ -55,7 +43,7 @@ public class AccionEspecial implements ITrigger{
 	
 	public void addPlayerAccion(int id, int x, int y, int[][] movInfo){
 		
-		SpriteAS3 sprite = new SpriteAS3();
+		Sprite sprite = new Sprite();
 		sprite.setImg(img);
 		sprite.x = x * Juego.GRIDSIZE;
 		sprite.y = y * Juego.GRIDSIZE;
@@ -70,7 +58,7 @@ public class AccionEspecial implements ITrigger{
 		tempPos[1] = y;
 		posArray.add(tempPos);
 		
-		if (activa){
+		if (active){
 			showAction();
 		}
 					
@@ -87,7 +75,7 @@ public class AccionEspecial implements ITrigger{
 	}
 	
 	public void hideAction(){
-		activa = false;
+		active = false;
 		for (int i = 0; i< jugArray.size(); i++){
 			int[] point = posArray.get(i);			
 			GestorMapas.map.getCelda(point[0], point[1]).showTerreno();
@@ -102,7 +90,7 @@ public class AccionEspecial implements ITrigger{
 	}
 	
 	public boolean check() {
-		if (activa != true) return false;		
+		if (active != true) return false;		
 		Jugador player = null;
 		boolean resp = true;
 		for (int j = 0; j<jugArray.size(); j++){
@@ -118,8 +106,17 @@ public class AccionEspecial implements ITrigger{
 	}
 
 	public void activar() {
-		activa = true;
-		showAction();
-		
+		active = true;
+		showAction();		
 	}
+	
+
+	public String getSec() {
+		return sec;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	
+	
 }

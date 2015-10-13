@@ -10,8 +10,8 @@ import javax.swing.JTextField;
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
 import actionscript3.Stage;
-import controlador.Mapa;
-import vista.AssetManager;
+import controlador.AssetManager;
+import modelo.Mapa;
 import vista.Juego;
 
 public class PopupNuevoJugador extends Screen {

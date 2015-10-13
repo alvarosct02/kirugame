@@ -1,6 +1,7 @@
 package modelo;
 
 import controlador.GestorMapas;
+import modelo.dataHolder.ObjetoData;
 
 public class ObjetoApoyo extends Objeto{
 

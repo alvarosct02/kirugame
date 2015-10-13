@@ -34,8 +34,7 @@ public class ScreenManager implements ActionListener,KeyListener,MouseListener, 
 		
 		switch(screen){
 			case "menu": newScreen = new ScreenMenu(); break;
-			case "game": newScreen = new ScreenGame(false); break;
-			case "loadGame": newScreen = new ScreenGame(true); break;
+			case "game": newScreen = new ScreenGame(); break;
 			case "gameOver": newScreen = new ScreenGameOver(); break;
 			case "gameWin": newScreen = new ScreenGameWin(); break;
 		}

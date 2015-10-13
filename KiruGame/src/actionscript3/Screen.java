@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.Timer;
 
 
-public abstract class Screen extends SpriteAS3 {
+public abstract class Screen extends Sprite {
 			
 	public Screen(){
 		super();

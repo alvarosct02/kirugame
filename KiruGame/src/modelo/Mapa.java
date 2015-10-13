@@ -1,15 +1,16 @@
-package controlador;
+package modelo;
 
 import java.awt.Point;
 import java.util.ArrayList;
 
-import actionscript3.SpriteAS3;
+import actionscript3.Sprite;
+import controlador.AssetManager;
 import modelo.*;
-import vista.AssetManager;
+import modelo.dataHolder.ObjetoData;
 import vista.Juego;
 
 
-public class Mapa extends SpriteAS3 {
+public class Mapa extends Sprite {
 	public static final int gridWidth = 16;
 	public static final int gridHeight = 12;
 	
@@ -41,53 +42,7 @@ public class Mapa extends SpriteAS3 {
 	{
 		return this.objetos;
 	}
-	
-	public void setEnemigos(ArrayList<Enemigo> lista)
-	{
-		for (int i= 0; i<lista.size(); i++){
-			if (lista.get(i).isActiva() && enemigos.get(i).isActiva()){
-//				Nada
-			} else if (!lista.get(i).isActiva() && !enemigos.get(i).isActiva()){
-//				Nada
-			} else if (lista.get(i).isActiva() && !enemigos.get(i).isActiva()){
-				enemigos.get(i).agregarMapa();
-			} else if (!lista.get(i).isActiva() && enemigos.get(i).isActiva()){
-				enemigos.get(i).quitarMapa();
-			}
-			
-			enemigos.get(i).setActivable(lista.get(i).isActivable());
-		}
-	}
-	
-	public  void setAcciones(ArrayList<AccionEspecial> lista)
-	{
-		for (int i= 0; i<lista.size(); i++){
-			if (lista.get(i).isActiva() && acciones.get(i).isActiva()){
-//				Nada
-			} else if (!lista.get(i).isActiva() && !acciones.get(i).isActiva()){
-//				Nada
-			} else if (lista.get(i).isActiva() && !acciones.get(i).isActiva()){
-				acciones.get(i).activar();
-			} else if (!lista.get(i).isActiva() && acciones.get(i).isActiva()){
-				acciones.get(i).hideAction();
-			}
-		}
-	}
-	
-	public void setObjetos(ArrayList<Objeto> lista) 
-	{
-		for (int i= 0; i<lista.size(); i++){
-			if (lista.get(i).isActiva() && objetos.get(i).isActiva()){
-		//			Nada
-			} else if (!lista.get(i).isActiva() && !objetos.get(i).isActiva()){
-		//			Nada
-			} else if (lista.get(i).isActiva() && !objetos.get(i).isActiva()){
-				objetos.get(i).agregarMapa();
-			} else if (!lista.get(i).isActiva() && objetos.get(i).isActiva()){
-				objetos.get(i).quitarMapa();
-		}
-	}
-	}
+
 	
 	public ArrayList<Enemigo> getEnemigos()
 	{
@@ -106,7 +61,7 @@ public class Mapa extends SpriteAS3 {
 	}
 	
 	public void cargarFondo(int imgID){
-		SpriteAS3 fondo = new SpriteAS3();
+		Sprite fondo = new Sprite();
 		fondo.setImg(AssetManager.getImageByID(imgID));
 //		fondo.x = posTerrenoA.x * Juego.GRIDSIZE;
 //		fondo.y = posTerrenoA.y * Juego.GRIDSIZE;
@@ -114,7 +69,7 @@ public class Mapa extends SpriteAS3 {
 	}
 	
 	public void cargarTerreno(Point posTerreno, int imgID){		
-		SpriteAS3 terreno = new SpriteAS3();
+		Sprite terreno = new Sprite();
 		terreno.setImg(AssetManager.getImageByID(imgID));
 		terreno.x = posTerreno.x * Juego.GRIDSIZE;
 		terreno.y = posTerreno.y * Juego.GRIDSIZE;
@@ -158,9 +113,23 @@ public class Mapa extends SpriteAS3 {
 		acciones.add(accion);		
 	}
 	
-	public void addObjeto(Objeto obj) {
+	public void addObjeto(int id, int x, int y, int objetoID) {
+		
+		ObjetoData objData = AssetManager.getObjectByID(objetoID);			
+		int tipo = objData.tipo;
+		
+		Objeto obj = null;
+		switch (tipo) {
+			case 0:		
+				obj = new Obstaculo(id,x,y,objData);break;
+			case 1:
+				obj = new ObjetoApoyo(id,x,y,objData); break;
+			default:
+				System.out.println("Warning: Se ha instanciado un objeto tipo OBJECT");
+				obj = new Objeto(id,x,y,objData);	break;
+		}
+		
 		objetos.add(obj);
-//		addChild(obj.sprite);
 		
 	}
 

@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class MovieClip extends SpriteAS3 {
+public class MovieClip extends Sprite {
 	
 	private ArrayList<Scene> sceneArr= new ArrayList<Scene>();
 	public Scene currentScene;

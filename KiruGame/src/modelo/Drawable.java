@@ -1,32 +1,30 @@
 package modelo;
 
-import actionscript3.MovieClip;
-import actionscript3.SpriteAS3;
+import actionscript3.Sprite;
 import controlador.GestorMapas;
-import controlador.Mapa;
-import vista.screen.ScreenManager;
 
-public abstract class Sprite{
+public abstract class Drawable{
 	
-	public int tipo = -1;
 	public char caracter = '_';
 	public int gridX;
 	public int gridY;
 	public int gridW;
 	public int gridH;
 	public int id;
-	private boolean activa = false;
-	public SpriteAS3 sprite = new SpriteAS3();
+	private boolean active = false;
 	
-	public Sprite(int xpos, int ypos,int w, int h)	{
+	public Sprite sprite = new Sprite();
+	
+	public Drawable(int id, int xpos, int ypos,int w, int h, char caracter)	{
 		gridX = xpos;
 		gridY = ypos;
 		gridW = w;
 		gridH = h;
+		this.caracter = caracter;
 	}
 	
-	public boolean isActiva() {
-		return activa;
+	public boolean isActive() {
+		return active;
 	}
 
 	public int isValid(int x, int y){		
@@ -40,11 +38,25 @@ public abstract class Sprite{
 		gridX = x;
 		gridY = y;
 	}
-
 	
-	public void agregarMapa(){
-		activa = true;
+	public void enable(){
+		this.active = true;
+	}
+	
+	public void disable(){
+		this.active = false;
+	}
+	
+	public boolean isHere(int x,int y){
+		return (gridX == x && gridY == y);
+	}
+	
+	public void addToMap(){
+		if (isActive() == true) return;
+		
+		enable();		
 		GestorMapas.map.addChild(this.sprite);
+//		Cambiar las Celdas
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
 				GestorMapas.map.getCelda(gridX+j,gridY+i).visibleChar = caracter;
@@ -52,9 +64,12 @@ public abstract class Sprite{
 		}
 	}
 	
-	public void quitarMapa(){
-		activa = false;
+	public void removeFromMap(){
+		if (isActive() == false) return;
+		
+		disable();
 		GestorMapas.map.removeChild(this.sprite);
+//		Cambiar las Celdas
 		for (int i = 0; i<gridH ; i++){
 			for (int j = 0; j<gridW ; j++){
 				GestorMapas.map.getCelda(gridX+j,gridY+i).showTerreno();

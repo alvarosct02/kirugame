@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import actionscript3.MovieClip;
 import actionscript3.Scene;
 import modelo.*;
-import vista.AssetManager;
+import modelo.dataHolder.EnemigoData;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -181,6 +181,8 @@ public class GestorMapas {
 		in.close();
 		map = new Mapa(mapaFree);
 	}
+	
+	
 
 	public static void cargarObjetos(NodeList objetosList){
 
@@ -191,9 +193,7 @@ public class GestorMapas {
 			int posy = Integer.parseInt(elem.getAttribute("ypos"));
 			int id = Integer.parseInt(elem.getAttribute("id"));
 			
-			Objeto obj = map.getCelda(posx,posy).addObjeto(id, objetoID);	
-			map.addObjeto(obj);
-			
+			map.addObjeto(id, posx,posy, objetoID);			
 		}
 		
 		

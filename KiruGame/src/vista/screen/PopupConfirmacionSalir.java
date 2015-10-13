@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
-import actionscript3.SpriteAS3;
-import vista.AssetManager;
+import actionscript3.Sprite;
+import controlador.AssetManager;
 
 public class PopupConfirmacionSalir extends Screen {
 

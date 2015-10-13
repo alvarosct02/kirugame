@@ -5,18 +5,18 @@ import java.awt.event.KeyEvent;
 
 import actionscript3.MovieClip;
 import actionscript3.Screen;
-import actionscript3.SpriteAS3;
-import controlador.AccionEspecial;
-import controlador.Mapa;
+import actionscript3.Sprite;
+import controlador.AssetManager;
+import modelo.AccionEspecial;
 import modelo.Jugador;
-import vista.AssetManager;
+import modelo.Mapa;
 
 public class PopupAction extends Screen {
 
 	public String sec = "";
 	private int currentPos = 0;
 	private AccionEspecial action;
-	private SpriteAS3 spriteChar = new SpriteAS3(); 
+	private Sprite spriteChar = new Sprite(); 
 	private int run = -1;
 	private int count;
 	private boolean first = true;

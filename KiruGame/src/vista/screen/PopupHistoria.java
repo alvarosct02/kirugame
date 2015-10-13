@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
-import vista.AssetManager;
+import controlador.AssetManager;
 import vista.Juego;
 
 public class PopupHistoria extends Screen {

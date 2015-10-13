@@ -1,4 +1,4 @@
-package vista;
+package controlador;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,10 +17,10 @@ import org.xml.sax.SAXException;
 
 import actionscript3.MovieClip;
 import actionscript3.Scene;
-import modelo.EnemigoData;
-import modelo.ImageData;
 import modelo.Objeto;
-import modelo.ObjetoData;
+import modelo.dataHolder.EnemigoData;
+import modelo.dataHolder.ImageData;
+import modelo.dataHolder.ObjetoData;
 
 public class AssetManager {
 	

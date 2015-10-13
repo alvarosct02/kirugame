@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 
 import actionscript3.Screen;
 import actionscript3.Stage;
+import controlador.AssetManager;
 import modelo.Jugador;
-import vista.AssetManager;
 
 public class ScreenGameOver extends Screen {
 

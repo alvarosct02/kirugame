@@ -9,8 +9,8 @@ import javax.swing.Timer;
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
 import actionscript3.Stage;
-import vista.AssetManager;
 import vista.Juego;
+import controlador.AssetManager;
 import controlador.Saver;
 public class ScreenMenu extends Screen {
 	
@@ -22,7 +22,6 @@ public class ScreenMenu extends Screen {
 		SimpleButton btnGame = new SimpleButton(AssetManager.getImage("btnNuevo"), AssetManager.getImage("btnNuevo")) {			
 			@Override
 			public void onClick() {
-				if (!active) return;
 				// TODO Auto-generated method stub
 				ScreenManager.showPopup("nuevoJugador");				
 			}
@@ -31,28 +30,26 @@ public class ScreenMenu extends Screen {
 		btnGame.y = 315;
 		addChild(btnGame);
 		
-		SimpleButton btnCreditos = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
+		SimpleButton btnCargar = new SimpleButton(AssetManager.getImage("btnCargar"),AssetManager.getImage("btnCargar")) {			
 			@Override
 			public void onClick() {
-				if (!active) return;
 				String path;
-				 JFileChooser fc=new JFileChooser("."+System.getProperty("file.separator")+"save"+System.getProperty("file.separator"));
+				JFileChooser fc=new JFileChooser("."+System.getProperty("file.separator")+"save"+System.getProperty("file.separator"));
 				 
-				  int returnVal=fc.showOpenDialog(Stage.stage);
-				  if (returnVal == JFileChooser.APPROVE_OPTION) {
-				     path = fc.getSelectedFile().getAbsolutePath();
-				     Saver.cargar(path);
-				  }
+				int returnVal=fc.showOpenDialog(Stage.stage);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+				path = fc.getSelectedFile().getAbsolutePath();
+				Saver.cargar(path);
+				}
 			}
 		};			
-		btnCreditos.x = 515;
-		btnCreditos.y = 425;
-		addChild(btnCreditos);
+		btnCargar.x = 515;
+		btnCargar.y = 425;
+		addChild(btnCargar);
 		
 		SimpleButton btnSalir = new SimpleButton(AssetManager.getImage("btnSalir"),AssetManager.getImage("btnSalir")) {			
 			@Override
 			public void onClick() {
-				if (!active) return;
 				// TODO Auto-generated method stub
 				ScreenManager.showPopup("salirTotal");				
 			}
@@ -82,10 +79,11 @@ public class ScreenMenu extends Screen {
 			break;
 		}
 	}
-	
+
 	@Override
 	public void onEnterFrame(ActionEvent e) {
-//		super.actionPerformed(e);
-		Stage.stage.repaint();
+		// TODO Auto-generated method stub
+		
 	}
+	
 }

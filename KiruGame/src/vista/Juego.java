@@ -3,21 +3,17 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 
 import java.util.Scanner;
 
 import javax.swing.*;
 
-//import DemoComponents.MouseHandler;
 import actionscript3.Stage;
+import controlador.AssetManager;
 import controlador.GestorMapas;
-import controlador.InterpreteComandos;
-import controlador.Mapa;
 import modelo.Jugador;
-import modelo.ObjetoApoyo;
+import modelo.Mapa;
 import vista.screen.ScreenManager;
 
 
