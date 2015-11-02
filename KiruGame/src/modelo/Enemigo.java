@@ -72,6 +72,7 @@ public class Enemigo extends Drawable implements ITrigger, ActionListener{
 	}
 	
 	public void destruir() {
+		timer.stop();
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = false;
 		removeFromMap();
@@ -80,7 +81,8 @@ public class Enemigo extends Drawable implements ITrigger, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
+		System.out.println("ENEMIGO");
 	}
 
 }

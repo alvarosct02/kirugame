@@ -16,6 +16,7 @@ public abstract class Drawable{
 	public Sprite sprite = new Sprite();
 	
 	public Drawable(int id, int xpos, int ypos,int w, int h, char caracter)	{
+		this.id = id;
 		gridX = xpos;
 		gridY = ypos;
 		gridW = w;

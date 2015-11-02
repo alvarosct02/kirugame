@@ -157,6 +157,7 @@ public class Mapa extends Sprite {
 		for (AccionEspecial accion : acciones) {
 			if (accion.idAccion == id){
 				accion.activar();
+				return;
 			}
 		}		
 	}

@@ -130,7 +130,8 @@ public class AccionEspecial implements ITrigger, ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		
+
+		System.out.println("ACTION");
 		
 	}
 	
