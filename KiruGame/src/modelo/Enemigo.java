@@ -1,14 +1,20 @@
 package modelo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
 import actionscript3.MovieClip;
 import controlador.GestorMapas;
 import modelo.dataHolder.EnemigoData;
 import vista.Juego;
 
-public class Enemigo extends Drawable implements ITrigger{
+public class Enemigo extends Drawable implements ITrigger, ActionListener{
 	private int actionID;
 	private int rango;
 	private int jugID;
+	private Timer timer = null;
 
 	private boolean activable;
 	
@@ -56,6 +62,8 @@ public class Enemigo extends Drawable implements ITrigger{
 	}
 
 	public int ejecutar() {
+		timer = new Timer(2000, this);
+		timer.start();
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = true;
 		addToMap();
@@ -68,12 +76,11 @@ public class Enemigo extends Drawable implements ITrigger{
 		player.blooding = false;
 		removeFromMap();
 	}
-	
-//	public int tryDie(int x, int y , String action)
-//	{
-//		if (x == this.dieX && this.dieY == y && action == this.action)
-//		{
-//			return 1 ;
-//		}else return 0;
-//	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

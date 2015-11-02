@@ -94,6 +94,7 @@ public class PopupAction extends Screen {
 //		int count = 0;
 		if (count == 0 && run >= 0){
 			if (first){
+				action.hideAction();
 				((ScreenGame)ScreenManager.getCurrentScreen()).onActionStart(action.idAccion);
 				first = false;
 			}
@@ -124,13 +125,13 @@ public class PopupAction extends Screen {
 				((MovieClip)Mapa.p1.sprite).setScene("idle");
 				((MovieClip)Mapa.p2.sprite).setScene("idle");
 				System.out.println("AQUI2");
-				action.hideAction();
+//				action.hideAction();
 				((ScreenGame)ScreenManager.getCurrentScreen()).onActionDone(action.idAccion);
 				ScreenManager.closePopup();
 			}
 		}
-		
-		count ++;
+		if (run >= 0)
+			count ++;
 		if (count >= 24) count = 0;
 	}
 

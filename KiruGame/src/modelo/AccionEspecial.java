@@ -1,8 +1,12 @@
 package modelo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.swing.Timer;
 
 import actionscript3.Sprite;
 import controlador.AssetManager;
@@ -13,7 +17,7 @@ import vista.Renderizador;
 import vista.screen.PopupAction;
 import vista.screen.ScreenManager;
 
-public class AccionEspecial implements ITrigger{
+public class AccionEspecial implements ITrigger, ActionListener{
 	
 	public int idAccion;
 	private String sec;
@@ -25,6 +29,7 @@ public class AccionEspecial implements ITrigger{
 	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
 	public ArrayList<int[][]> cordArray = new ArrayList<int[][]>();
 	private ArrayList<Sprite> spriteArr = new ArrayList<Sprite>();
+	private Timer timer = null;
 	
 	public AccionEspecial(int cod,String sec, int tipo, int visible) {
 		
@@ -75,15 +80,18 @@ public class AccionEspecial implements ITrigger{
 	}
 	
 	public void hideAction(){
+		timer.stop();
 		active = false;
 		for (int i = 0; i< jugArray.size(); i++){
 			int[] point = posArray.get(i);			
 			GestorMapas.map.getCelda(point[0], point[1]).showTerreno();
 			GestorMapas.map.removeChild(spriteArr.get(i));
-		}		
+		}
 	}
 	
-	public int ejecutar() {		
+	public int ejecutar() {	
+		timer = new Timer(2000, this);
+		timer.start();
 		ScreenManager.showPopup("action");
 		((PopupAction)ScreenManager.getCurrentPopup()).definirAccion(this);				
 		return idAccion;		
@@ -116,6 +124,14 @@ public class AccionEspecial implements ITrigger{
 	}
 	public boolean isActive() {
 		return active;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+		
+		
 	}
 	
 	
