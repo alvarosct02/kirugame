@@ -1,14 +1,17 @@
 package vista.screen;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import actionscript3.Screen;
 import actionscript3.SimpleButton;
 import actionscript3.Stage;
+import actionscript3.TextField;
 import vista.Juego;
 import controlador.AssetManager;
 import controlador.Saver;
@@ -58,7 +61,8 @@ public class ScreenMenu extends Screen {
 		btnSalir.y = 600;
 		addChild(btnSalir);
 		
-//		stage.add(comp);
+		TextField tf = new TextField("test",200,100);
+		addChild(tf);		
 		
     }
 	

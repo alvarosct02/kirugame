@@ -5,6 +5,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import actionscript3.Screen;
@@ -60,10 +61,12 @@ public class PopupNuevoJugador extends Screen {
 		field = new JTextField("test");
 //		field.setnew Font("SansSerif", Font.BOLD, 20);
 		field.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 40));
-		field.setMargin(new Insets(5,20,5,20));;;
+		field.setMargin(new Insets(5,20,5,20));
 //		Dimension d = field.getPreferredSize();
 		field.setBounds(345,390,655,85);
 		Stage.stage.add(field);
+		
+		
 
 	}
 	

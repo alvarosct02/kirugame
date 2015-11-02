@@ -1,5 +1,6 @@
 package vista.screen;
 
+import java.awt.Font;
 import java.awt.TextField;
 
 import java.awt.event.ActionEvent;
@@ -98,7 +99,7 @@ public class ScreenGame extends Screen{
 		addChild(guardar);
 		addChild(salir);
 		
-		 
+
 			
 	}
 	

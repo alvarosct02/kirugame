@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Sprite {
-	private ArrayList<Sprite> displayList = new ArrayList<Sprite>();
+	protected ArrayList<Sprite> displayList = new ArrayList<Sprite>();
 	public float x = 0;
 	public float y = 0;
 	public int height = 0; //No se debe usar
