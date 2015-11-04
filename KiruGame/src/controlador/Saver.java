@@ -90,7 +90,7 @@ public class Saver {
 	}
 	
 	private void updateData(){
-		game = new RawGame(Juego.cantNivel, Juego.currentLevel);
+		game = new RawGame(Jugador.getVida(), Juego.currentLevel);
 		p1 = new RawJugador(Mapa.p1.getNombre(), Mapa.p1.gridX, Mapa.p1.gridY, Mapa.p1.blooding);
 		p2 = new RawJugador(Mapa.p2.getNombre(), Mapa.p2.gridX, Mapa.p2.gridY, Mapa.p2.blooding);
 		

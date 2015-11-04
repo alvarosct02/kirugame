@@ -30,8 +30,6 @@ public class PopupExitoGuardar extends Screen {
 
 	}
 	
-	
-	
 	@Override
 	public void onEnterFrame() {
 		// TODO Auto-generated method stub

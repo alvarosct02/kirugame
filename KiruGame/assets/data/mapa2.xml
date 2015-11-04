@@ -25,7 +25,7 @@
 		</jug>
 	</accion>
 
-	<accion id='1' sec='SIQEUOKLSD' visible='0' tipo='2' time='6'  >
+	<accion id='1' sec='SIQEUOKLSD' visible='0' tipo='2' time='16'  >
 		<jug id='1' xpos='8' ypos='6'>
 			<mov anim='1' xdir='1' ydir='0'/>
 			<mov anim='1' xdir='3' ydir='-1'/>
