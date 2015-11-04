@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import actionscript3.MovieClip;
 import actionscript3.Screen;
 import actionscript3.Sprite;
+import actionscript3.TextField;
 import controlador.AssetManager;
 import modelo.AccionEspecial;
 import modelo.Jugador;
@@ -22,14 +23,20 @@ public class PopupAction extends Screen {
 	private boolean first = true;
 	private TimerAction timer;
 	public static boolean restartFlag = false; 
+	public static TextField tf ;
 	
 	public PopupAction() {
 		// TODO Auto-generated constructor stub
 		setImg(AssetManager.getImage("popupFeo"));
-		
+		tf = new TextField("0","hobo");
 		spriteChar.x = 450;
 		spriteChar.y = 300;
 		addChild(spriteChar);
+		spriteChar.addChild(tf);
+		tf.x = 0;
+		tf.y = 0;
+		tf.setSize(30);
+		
 
 		
 	}
@@ -85,6 +92,9 @@ public class PopupAction extends Screen {
 	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 //		int count = 0;
+		
+		
+		
 		
 		if (Jugador.getVida() <= 0){
 			timer.detener();
@@ -176,6 +186,7 @@ class TimerAction extends Thread{
 				}
 				
 				if (contador == maxTime){
+					PopupAction.tf.setText("Tiempo: " + contador);
 					contador = -1;	
 					PopupAction.restartFlag = true;
 					Jugador.getTipoDano(2);
