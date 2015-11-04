@@ -24,6 +24,8 @@ public class Mapa extends Sprite {
 	public ArrayList<Objeto> objetos= new ArrayList<Objeto>();
 	public ArrayList<Enemigo> enemigos= new ArrayList<Enemigo>();
 	
+	public int currentAction = -1;
+	
 	 public Celda[][] getCeldaMatrix()
 	 {
 		 return this.mapa;

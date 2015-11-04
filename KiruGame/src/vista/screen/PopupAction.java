@@ -11,6 +11,7 @@ import controlador.AssetManager;
 import modelo.AccionEspecial;
 import modelo.Jugador;
 import modelo.Mapa;
+import vista.Juego;
 
 public class PopupAction extends Screen {
 
@@ -37,15 +38,21 @@ public class PopupAction extends Screen {
 		tf.y = 0;
 		tf.setSize(30);
 		
+		definirAccion();
+		
 
 		
 	}
 	
-	public void definirAccion(AccionEspecial action){
-		this.action = action;
+	public void definirAccion(){
+		for (AccionEspecial action : Juego.map.acciones) {
+			if (action.idAccion == Juego.map.currentAction){
+				this.action = action;
+			}
+		}
+		
 		this.sec = action.getSec();
 		restartFlag = true;
-		
 	}
 	
 	private void ejecutarAccion(){
@@ -143,6 +150,7 @@ public class PopupAction extends Screen {
 //				action.hideAction();
 				((ScreenGame)ScreenManager.getCurrentScreen()).onActionDone(action.idAccion);
 				ScreenManager.closePopup();
+				Juego.map.currentAction = -1;
 			}
 		}
 		if (run >= 0)
@@ -187,14 +195,17 @@ class TimerAction extends Thread{
 				
 				if (contador == maxTime){
 					PopupAction.tf.setText("Tiempo: " + contador);
-					contador = -1;	
-					PopupAction.restartFlag = true;
+//					contador = -1;	
+//					PopupAction.restartFlag = true;
 					Jugador.getTipoDano(2);
-					continue;
+					break;
 				}
 				sleep(1000);
 			}
 			System.out.println("TimerAction Fuera");
+			if (contador == maxTime){
+				ScreenManager.showPopup("confirmacionAction");
+			}
 			
 			
 			

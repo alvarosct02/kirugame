@@ -11,6 +11,7 @@ import actionscript3.MovieClip;
 import actionscript3.Scene;
 import modelo.*;
 import modelo.dataHolder.EnemigoData;
+import vista.Juego;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -87,6 +88,8 @@ public class GestorMapas {
 			cargarObjetos(listaObjetos);
 			NodeList listaEnemigos = doc.getElementsByTagName("enemigo");
 			cargarEnemigos(listaEnemigos);
+			
+			Juego.map = map;
 			
 			
 			

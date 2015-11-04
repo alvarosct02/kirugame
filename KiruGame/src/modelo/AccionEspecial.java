@@ -95,8 +95,8 @@ public class AccionEspecial implements ITrigger{
 //		timer = new Timer(2000, this);
 //		timer.start();
 		
+		Juego.map.currentAction = this.idAccion;
 		ScreenManager.showPopup("action");
-		((PopupAction)ScreenManager.getCurrentPopup()).definirAccion(this);				
 		return idAccion;
 	}
 	

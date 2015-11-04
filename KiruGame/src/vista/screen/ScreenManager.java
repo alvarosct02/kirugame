@@ -59,6 +59,7 @@ public class ScreenManager extends Thread implements KeyListener,MouseListener, 
 			case "historia": newPopup = new PopupHistoria(); break;
 			case "exitoGuardar": newPopup = new PopupExitoGuardar(); break;
 			case "nuevoJugador": newPopup = new PopupNuevoJugador(); break;
+			case "confirmacionAction": newPopup = new PopupConfirmacionAction(); break;
 		}		
 		
 		INSTANCE.currentPopup = newPopup;

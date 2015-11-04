@@ -40,6 +40,7 @@ public class Juego extends JPanel{
 	private String cmd = ""; 
 	public Scanner sc = new Scanner(System.in);
 	
+	
 
     public static void main(String[] args) {
     	System.out.println("NO OLVIDES BORRAR LEVEL TEST EN MENUSCREEN!");

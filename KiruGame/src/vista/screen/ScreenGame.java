@@ -66,7 +66,6 @@ public class ScreenGame extends Screen{
 		SimpleButton guardar = new SimpleButton(aux,aux) {			
 			@Override
 			public void onClick() {
-				if (!active) return;
 				// TODO Auto-generated method stub
 				new Saver().guardar();
 				ScreenManager.showPopup("exitoGuardar");
