@@ -23,7 +23,7 @@ public class Juego extends JPanel{
 
 	public static final int ANCHOTOTAL = 1324;
 	public static final int ANCHO = 1024;
-	public static final int ALTO = 868;
+	public static final int ALTO = 768;
 	public static final int GRIDSIZE = 64;
 	public static JFrame window;
 	

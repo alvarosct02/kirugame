@@ -31,6 +31,10 @@ public class Jugador extends Drawable {
 	
 	private String input;
 	private char terreno;
+	
+	public void setAnimInit(String anim){
+		((MovieClip) sprite).setScene(anim);
+	}
 
 	public Jugador(){
 		super(1,0,0,1,1,'@');

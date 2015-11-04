@@ -69,11 +69,15 @@ public class GestorMapas {
 				int posy = Integer.parseInt(elem.getAttribute("ypos"));
 				int xTerreno = Integer.parseInt(elem.getAttribute("xTerreno"));
 				int yTerreno = Integer.parseInt(elem.getAttribute("yTerreno"));	
-				int terrenoImgID = Integer.parseInt(elem.getAttribute("imgID"));				
+				int terrenoImgID = Integer.parseInt(elem.getAttribute("imgID"));
+				String animInit = elem.getAttribute("animInit");				
+				
 
 				map.cargarTerreno(new Point(xTerreno, yTerreno), terrenoImgID);
 				player = id==1? Mapa.p1 : Mapa.p2;
-				player.setXY(posx, posy);		
+				player.setAnimInit(animInit);
+				player.setXY(posx, posy);
+				
 				
 			}
 			
@@ -83,6 +87,9 @@ public class GestorMapas {
 			cargarObjetos(listaObjetos);
 			NodeList listaEnemigos = doc.getElementsByTagName("enemigo");
 			cargarEnemigos(listaEnemigos);
+			
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

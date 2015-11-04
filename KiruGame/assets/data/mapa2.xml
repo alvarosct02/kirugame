@@ -3,8 +3,8 @@
 	<mapa url='mapa2.txt' imgID='26'/>
 
 	<!-- JUGADORES INICIO -->
-	<jugador id='1' xpos='0' ypos='5' xTerreno='0' yTerreno='3' imgID='22'/>
-	<jugador id='2' xpos='0' ypos='10' xTerreno='0' yTerreno='8' imgID='23'/>
+	<jugador id='1' xpos='0' ypos='5' xTerreno='0' yTerreno='3' imgID='22' animInit ='idle_R'/>
+	<jugador id='2' xpos='0' ypos='10' xTerreno='0' yTerreno='8' imgID='23' animInit ='idle_R'/>
 	<!-- JUGADORES FIN -->
 
 	<!-- OBJETOS INICIO -->
