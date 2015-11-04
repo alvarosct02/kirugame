@@ -9,12 +9,14 @@ import actionscript3.MovieClip;
 import controlador.GestorMapas;
 import modelo.dataHolder.EnemigoData;
 import vista.Juego;
+import vista.screen.PopupAction;
+import vista.screen.ScreenManager;
 
-public class Enemigo extends Drawable implements ITrigger, ActionListener{
+public class Enemigo extends Drawable implements ITrigger{
 	private int actionID;
 	private int rango;
 	private int jugID;
-	private Timer timer = null;
+	private TimerEnemy timer = null;
 
 	private boolean activable;
 	
@@ -62,7 +64,7 @@ public class Enemigo extends Drawable implements ITrigger, ActionListener{
 	}
 
 	public int ejecutar() {
-		timer = new Timer(2000, this);
+		timer = new TimerEnemy();
 		timer.start();
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = true;
@@ -72,17 +74,55 @@ public class Enemigo extends Drawable implements ITrigger, ActionListener{
 	}
 	
 	public void destruir() {
-		timer.stop();
+		timer.detener();
 		Jugador player = jugID == 1 ? Mapa.p1 : Mapa.p2;
 		player.blooding = false;
 		removeFromMap();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+}
 
-		System.out.println("ENEMIGO");
+
+class TimerEnemy extends Thread{
+	private int maxTime = 0;
+	private int contador = -1;
+	private boolean running = true;
+	
+	public TimerEnemy(){
+		this.maxTime = 2;
 	}
-
+	
+	public void detener(){
+		running = false;
+	}
+	
+	public void run() {
+		try {
+			while (running){
+				contador ++ ;
+				System.out.println("Seconds:" + contador);
+				
+				if (Jugador.getVida() <= 0){
+					break;
+				}
+				
+				if (contador == maxTime){
+					contador = -1;
+					Jugador.getTipoDano(1);
+					continue;
+				}
+				sleep(1000);
+			}
+			if (Jugador.getVida() <= 0){
+				ScreenManager.showScreen("gameOver");
+			}
+			System.out.println("TimerEnemy Fuera");
+			
+			
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

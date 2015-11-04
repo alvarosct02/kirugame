@@ -32,7 +32,7 @@ public class PopupHistoria extends Screen {
 	
 	
 	@Override
-	public void onEnterFrame(ActionEvent arg0) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 		
 	}

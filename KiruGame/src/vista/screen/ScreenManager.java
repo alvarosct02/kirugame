@@ -1,5 +1,7 @@
 package vista.screen;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,13 +21,17 @@ import actionscript3.Stage;
 import controlador.GestorMapas;
 import modelo.Jugador;
 
-public class ScreenManager implements ActionListener,KeyListener,MouseListener, MouseWheelListener, MouseMotionListener	 {
+public class ScreenManager extends Thread implements KeyListener,MouseListener, MouseWheelListener, MouseMotionListener	 {
 	
 	private Screen currentScreen;
 	private Screen currentPopup;	
     private static ScreenManager INSTANCE = new ScreenManager();    
-	private Timer timer;
+	private boolean running = true;
 	
+    public static void detener(){
+    	INSTANCE.running = false;
+    }
+    
 	public static void showScreen(String screen){
 		Screen newScreen = null;		
 		closePopup();
@@ -58,10 +64,6 @@ public class ScreenManager implements ActionListener,KeyListener,MouseListener, 
 		INSTANCE.currentPopup = newPopup;
 	}
 	
-	
-	
-	
-	
 	public static void closePopup(){		
 		if (INSTANCE.currentPopup != null){
 			INSTANCE.currentScreen.active = true;
@@ -69,9 +71,6 @@ public class ScreenManager implements ActionListener,KeyListener,MouseListener, 
 			INSTANCE.currentPopup = null;
 		}		
 	}
-	
-	
-	
 	
     public static ScreenManager getInstance() {
         return INSTANCE;
@@ -86,13 +85,34 @@ public class ScreenManager implements ActionListener,KeyListener,MouseListener, 
 	}
 
     private ScreenManager() {
-		timer = new Timer(1000/Stage.FRAMERATE, this);	
+//		running = true;
+    	this.start();
     }
+    
+	public void run() {
+		try {
+			System.out.println("Hilo Inicio");
+			while(running) {
+				if (INSTANCE.currentScreen != null){
+					INSTANCE.currentScreen.onEnterFrame();
+				}
+				
+				if (INSTANCE.currentPopup != null){
+					INSTANCE.currentPopup.onEnterFrame();
+				}
+				
+				Stage.stage.repaint(); // Llamara a renderGame
+				
+				Thread.sleep(1000/Stage.FRAMERATE);
+			}
+			System.out.println("Hilo Finalizado");
+		} catch(InterruptedException ex) {
+		}
+	}
     
     public static void init(){
     	Stage.stage.addKeyListener(INSTANCE);	
     	Stage.stage.addMouseListener(INSTANCE);
-    	INSTANCE.timer.start();
     }
 		
 	public static void renderGame(Graphics2D canvas){		
@@ -104,24 +124,24 @@ public class ScreenManager implements ActionListener,KeyListener,MouseListener, 
 			INSTANCE.currentPopup.renderAll(canvas);
 		}			
 	}	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-//		System.out.println("ON");
-		if (INSTANCE.currentScreen != null){
-			INSTANCE.currentScreen.onEnterFrame(e);
-		}
-		
-		if (INSTANCE.currentPopup != null){
-			INSTANCE.currentPopup.onEnterFrame(e);
-		}
-		
-		Stage.stage.repaint(); // Llamara a renderGame
-	}
+//
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+////		System.out.println("ON");
+//		if (INSTANCE.currentScreen != null){
+//			INSTANCE.currentScreen.onEnterFrame(e);
+//		}
+//		
+//		if (INSTANCE.currentPopup != null){
+//			INSTANCE.currentPopup.onEnterFrame(e);
+//		}
+//		
+//		Stage.stage.repaint(); // Llamara a renderGame
+//	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("KEYDOWN");
+//		System.out.println("KEYDOWN");
 		if (INSTANCE.currentScreen != null && INSTANCE.currentScreen.active){
 			INSTANCE.currentScreen.onKeyPressed(e);	
 		}

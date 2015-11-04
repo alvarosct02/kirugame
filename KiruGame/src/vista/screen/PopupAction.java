@@ -20,6 +20,8 @@ public class PopupAction extends Screen {
 	private int run = -1;
 	private int count;
 	private boolean first = true;
+	private TimerAction timer;
+	public static boolean restartFlag = false; 
 	
 	public PopupAction() {
 		// TODO Auto-generated constructor stub
@@ -28,35 +30,38 @@ public class PopupAction extends Screen {
 		spriteChar.x = 450;
 		spriteChar.y = 300;
 		addChild(spriteChar);
+
+		
 	}
 	
 	public void definirAccion(AccionEspecial action){
 		this.action = action;
 		this.sec = action.getSec();
-		updateChar();
-
-		System.out.println("AQUI1.2");
+		restartFlag = true;
+		
 	}
 	
 	private void ejecutarAccion(){
-		
-
+		timer.detener();
+		timer = null;
 		
 		removeChild(spriteChar);
 		setImg(null);
 		run = 0;
-		
-		
-		
-		
 	}
 	
-
+	private void startShowSeq(){
+		currentPos = 0;
+		updateChar();
+		if (timer == null){
+			timer = new TimerAction(2);
+			timer.start();
+		}
+	}
 	
 	public void updateChar(){
 		spriteChar.setImg(AssetManager.getImage( String.valueOf(sec.charAt(currentPos))  ));
-	}
-	
+	}	
 	
 	@Override
 	public void onKeyPressed(KeyEvent e) {
@@ -68,30 +73,30 @@ public class PopupAction extends Screen {
 			if (currentPos < sec.length()){
 				updateChar();				
 			} else {
-//				Correcto
-//				ejecutarAccion
-//				stage.removeKeyListener(this);
-//				ScreenManager.getCurrentScreen().removeChild(Mapa.p1.mc);
-				
-				ejecutarAccion();		
-				System.out.println("AQUI1.1");		
-				
-			}
-			
+				ejecutarAccion();				
+			}			
 		} else {
-			currentPos = 0;
-//			Display Message
-			updateChar();
 			Jugador.getTipoDano(2);
+			restartFlag = true;
 		}
 	}
-	
-	
-	
+		
 	@Override
-	public void onEnterFrame(ActionEvent e) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 //		int count = 0;
+		
+		if (Jugador.getVida() <= 0){
+			timer.detener();
+			ScreenManager.showScreen("gameOver");
+		}
+		
+		if (restartFlag == true){
+			restartFlag = false;
+			startShowSeq();
+		}
+		
+		
 		if (count == 0 && run >= 0){
 			if (first){
 				action.hideAction();
@@ -122,8 +127,8 @@ public class PopupAction extends Screen {
 				ScreenManager.getCurrentScreen().addChild(Mapa.p1.sprite);
 				ScreenManager.getCurrentScreen().removeChild(Mapa.p2.sprite);
 				ScreenManager.getCurrentScreen().addChild(Mapa.p2.sprite);
-				((MovieClip)Mapa.p1.sprite).setScene("idle");
-				((MovieClip)Mapa.p2.sprite).setScene("idle");
+				Mapa.p1.setIdle();
+				Mapa.p2.setIdle();
 				System.out.println("AQUI2");
 //				action.hideAction();
 				((ScreenGame)ScreenManager.getCurrentScreen()).onActionDone(action.idAccion);
@@ -141,7 +146,50 @@ public class PopupAction extends Screen {
 //		GestorMapas.map.getCelda(posArray.get(j)[0],posArray.get(j)[1]).showTerreno();
 //	}
 //	
-	
-	
+}
 
+
+//timer.detener();
+//timer = null;
+
+class TimerAction extends Thread{
+	private int maxTime = 0;
+	private int contador = -1;
+	private boolean running = true;
+	
+	public TimerAction(int numSec){
+		this.maxTime = numSec;
+	}
+	
+	public void detener(){
+		running = false;
+	}
+	
+	public void run() {
+		try {
+			while (running){
+				contador ++ ;
+				System.out.println("Seconds:" + contador);
+				
+				if (Jugador.getVida() <= 0){
+					break;
+				}
+				
+				if (contador == maxTime){
+					contador = -1;	
+					PopupAction.restartFlag = true;
+					Jugador.getTipoDano(2);
+					continue;
+				}
+				sleep(1000);
+			}
+			System.out.println("TimerAction Fuera");
+			
+			
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

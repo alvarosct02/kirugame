@@ -163,11 +163,11 @@ public class Mapa extends Sprite {
 	}
 
 	public void update() {
-		p1.sprite.x = p1.gridX * Juego.GRIDSIZE;
-		p1.sprite.y = p1.gridY * Juego.GRIDSIZE;		
+		p1.sprite.x = p1.gridX * Juego.GRIDSIZE + p1.xDesp;
+		p1.sprite.y = p1.gridY * Juego.GRIDSIZE + p1.yDesp;		
 
-		p2.sprite.x = p2.gridX * Juego.GRIDSIZE;
-		p2.sprite.y = p2.gridY * Juego.GRIDSIZE;
+		p2.sprite.x = p2.gridX * Juego.GRIDSIZE + p2.xDesp;
+		p2.sprite.y = p2.gridY * Juego.GRIDSIZE + p2.yDesp;
 //		
 	}
 

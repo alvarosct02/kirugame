@@ -1,8 +1,14 @@
 <root>
 	<jugador id ="0">
-		<anim nombre = "idle">4</anim>
+		<anim nombre = "idle_L">4</anim>
+		<anim nombre = "idle_R">16</anim>
+		<anim nombre = "walking_L">15</anim>
+		<anim nombre = "walking_R">2</anim>
 	</jugador>	
 	<jugador id ="1">
-		<anim nombre = "idle">0</anim>
+		<anim nombre = "idle_L">0</anim>
+		<anim nombre = "idle_R">14</anim>
+		<anim nombre = "walking_L">7</anim>
+		<anim nombre = "walking_R">17</anim>
 	</jugador>	
 </root>

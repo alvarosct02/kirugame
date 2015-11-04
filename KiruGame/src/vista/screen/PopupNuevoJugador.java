@@ -72,7 +72,7 @@ public class PopupNuevoJugador extends Screen {
 	
 	
 	@Override
-	public void onEnterFrame(ActionEvent e) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 
 	}

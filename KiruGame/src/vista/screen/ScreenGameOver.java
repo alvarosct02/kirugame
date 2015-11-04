@@ -16,7 +16,7 @@ public class ScreenGameOver extends Screen {
 	}
 	
 	@Override
-	public void onEnterFrame(ActionEvent arg0) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 
 		Stage.stage.repaint();

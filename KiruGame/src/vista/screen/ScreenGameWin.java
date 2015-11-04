@@ -16,7 +16,7 @@ public class ScreenGameWin extends Screen {
 	}
 	
 	@Override
-	public void onEnterFrame(ActionEvent arg0) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 		countTime ++;
 		if (countTime == Stage.FRAMERATE * 2){

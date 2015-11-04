@@ -114,12 +114,11 @@ public class ScreenGame extends Screen{
     	vida.y = 76;
     	
     	addChild(panel);
-    	addChild(vida);
-    	
+    	addChild(vida);    	
     }
 	
 	
-	private boolean onEnterFrame() {
+	private boolean onEnterFrame2() {
 		int i = Juego.currentLevel;
 //		if (Jugador.getVida() <= 0)
 //			ScreenManager.showScreen("gameWin");			
@@ -153,7 +152,7 @@ public class ScreenGame extends Screen{
 			return true;
 		}
 	
-		return false;		
+		return false;	
 	}
 	
 	public void onActionStart(int idAccion){
@@ -235,19 +234,14 @@ public class ScreenGame extends Screen{
 	@Override
 	public void onKeyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		super.onKeyPressed(e);
+		super.onKeyPressed(e);		
 		
-		System.out.println(e.getKeyChar());
-		
-		if (!active) return;
-//		System.out.println(e.getKeyCode());
-//		
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_A:
 			case KeyEvent.VK_W:
 			case KeyEvent.VK_D:
 			case KeyEvent.VK_S:
-				p1.moverDir(e.getKeyChar());
+				p1.setDir(e.getKeyChar());
 //				System.out.println(p1.gridX + " - " + p1.gridY);
 				break;
 				
@@ -255,8 +249,7 @@ public class ScreenGame extends Screen{
 			case KeyEvent.VK_I:
 			case KeyEvent.VK_K:
 			case KeyEvent.VK_L:
-				System.out.println(p2.gridX + " - " + p2.gridY);
-				p2.moverDir(e.getKeyChar());
+				p2.setDir(e.getKeyChar());
 				break;
 	
 			default:
@@ -264,18 +257,45 @@ public class ScreenGame extends Screen{
 		}		
 	}	
 	
+	@Override
+	public void onKeyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		super.onKeyReleased(e);
+		
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_A:
+		case KeyEvent.VK_W:
+		case KeyEvent.VK_D:
+		case KeyEvent.VK_S:
+			p1.setIdle();
+			break;
+			
+		case KeyEvent.VK_J:
+		case KeyEvent.VK_I:
+		case KeyEvent.VK_K:
+		case KeyEvent.VK_L:
+			p2.setIdle();
+			break;
+
+		default:
+			break;
+	}	
+	}
+	
 	
 	@Override
-	public void onEnterFrame(ActionEvent e) {
+	public void onEnterFrame() {
 		if (first){
 			first = false;
 			ScreenManager.showPopup("historia");
 		}		
 
     	vida.setImg(AssetManager.getImage("vida" + Jugador.getVida()));
+    	p1.moverDir();
+    	p2.moverDir();
     	
 		if (active)
-			onEnterFrame();
+			onEnterFrame2();
 		
 		
 		Renderizador.updateMapa();

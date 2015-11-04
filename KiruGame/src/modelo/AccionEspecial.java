@@ -17,7 +17,7 @@ import vista.Renderizador;
 import vista.screen.PopupAction;
 import vista.screen.ScreenManager;
 
-public class AccionEspecial implements ITrigger, ActionListener{
+public class AccionEspecial implements ITrigger{
 	
 	public int idAccion;
 	private String sec;
@@ -29,7 +29,7 @@ public class AccionEspecial implements ITrigger, ActionListener{
 	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
 	public ArrayList<int[][]> cordArray = new ArrayList<int[][]>();
 	private ArrayList<Sprite> spriteArr = new ArrayList<Sprite>();
-	private Timer timer = null;
+	
 	
 	public AccionEspecial(int cod,String sec, int tipo, int visible) {
 		
@@ -80,7 +80,7 @@ public class AccionEspecial implements ITrigger, ActionListener{
 	}
 	
 	public void hideAction(){
-		timer.stop();
+		
 		active = false;
 		for (int i = 0; i< jugArray.size(); i++){
 			int[] point = posArray.get(i);			
@@ -90,12 +90,14 @@ public class AccionEspecial implements ITrigger, ActionListener{
 	}
 	
 	public int ejecutar() {	
-		timer = new Timer(2000, this);
-		timer.start();
+//		timer = new Timer(2000, this);
+//		timer.start();
+		
 		ScreenManager.showPopup("action");
 		((PopupAction)ScreenManager.getCurrentPopup()).definirAccion(this);				
-		return idAccion;		
+		return idAccion;
 	}
+	
 	
 	public boolean check() {
 		if (active != true) return false;		
@@ -125,15 +127,6 @@ public class AccionEspecial implements ITrigger, ActionListener{
 	public boolean isActive() {
 		return active;
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
 		
-
-		System.out.println("ACTION");
-		
-	}
-	
-	
 }
+

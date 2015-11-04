@@ -12,7 +12,7 @@ public abstract class Screen extends Sprite {
 	}
 	
 //	ACTION EVENT
-	public abstract void onEnterFrame(ActionEvent e);
+	public abstract void onEnterFrame();
 	
 //	KEYBOARD EVENT
 	public void onKeyPressed(KeyEvent e){}

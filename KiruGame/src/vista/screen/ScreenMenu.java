@@ -61,8 +61,8 @@ public class ScreenMenu extends Screen {
 		btnSalir.y = 600;
 		addChild(btnSalir);
 		
-		TextField tf = new TextField("test",200,100);
-		addChild(tf);		
+		TextField tf = new TextField("version 1.2.5");
+		addChild(tf);
 		
     }
 	
@@ -85,7 +85,7 @@ public class ScreenMenu extends Screen {
 	}
 
 	@Override
-	public void onEnterFrame(ActionEvent e) {
+	public void onEnterFrame() {
 		// TODO Auto-generated method stub
 		
 	}

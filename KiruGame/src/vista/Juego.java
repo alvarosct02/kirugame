@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 
 import java.util.Scanner;
@@ -19,10 +21,11 @@ import vista.screen.ScreenManager;
 
 public class Juego extends JPanel{
 
-	private static final int ANCHOTOTAL = 1324;
-	private static final int ANCHO = 1024;
-    private static final int ALTO = 768;
+	public static final int ANCHOTOTAL = 1324;
+	public static final int ANCHO = 1024;
+	public static final int ALTO = 868;
 	public static final int GRIDSIZE = 64;
+	public static JFrame window;
 	
 	private BufferStrategy bufferStrategy;
     
@@ -54,13 +57,19 @@ public class Juego extends JPanel{
     }
     
     private void create() {
-        JFrame f = new JFrame("KiruGame");
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.add(this);
-        f.setResizable(false);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setVisible(true); 
+        window = new JFrame("KiruGame");
+        window.addWindowListener(new WindowAdapter() {
+        	public void windowClosing(WindowEvent e) {
+        		ScreenManager.detener();
+        		System.exit(0);
+        	}
+    	});
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.add(this);
+        window.setResizable(false);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true); 
         setFocusable(true);
         requestFocusInWindow();
         

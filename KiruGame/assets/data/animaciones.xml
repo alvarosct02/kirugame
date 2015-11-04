@@ -1,10 +1,63 @@
 <root>
-	<anim id='0' offsetX='-16' offsetY='-32' nom='perroRespirando' folder='perroRespirando'>
-		<frame rep='7' src='img1.png' />
-		<frame rep='5' src='img2.png' />
-		<frame rep='5' src='img3.png' />
-		<frame rep='7' src='img4.png' />
+	<anim id='4' offsetX='5' offsetY='10' nom='Cuy_Idle_Left' folder='Cuy_Idle_Left'>
+		<frame rep='8' src='Cuyrespirando541.png' />
+		<frame rep='8' src='Cuyrespirando542.png' />
 	</anim>
+	<anim id='16' offsetX='5' offsetY='10' nom='Cuy_Idle_Right' folder='Cuy_Idle_Right'>
+		<frame rep='8' src='Cuyrespirando541.png' />
+		<frame rep='8' src='Cuyrespirando542.png' />
+	</anim>
+	<anim id='15' offsetX='5' offsetY='10' nom='Cuy_Walking_Left' folder='Cuy_Walking_Left'>
+		<frame rep='1' src='CuyCaminando541.png' />
+		<frame rep='1' src='CuyCaminando542.png' />
+		<frame rep='1' src='CuyCaminando543.png' />
+		<frame rep='1' src='CuyCaminando544.png' />
+		<frame rep='1' src='CuyCaminando545.png' />
+		<frame rep='1' src='CuyCaminando546.png' />
+		<frame rep='1' src='CuyCaminando547.png' />
+		<frame rep='1' src='CuyCaminando548.png' />
+	</anim>
+	<anim id='2' offsetX='5' offsetY='10' nom='Cuy_Walking_Right' folder='Cuy_Walking_Right'>
+		<frame rep='1' src='CuyCaminando541.png' />
+		<frame rep='1' src='CuyCaminando542.png' />
+		<frame rep='1' src='CuyCaminando543.png' />
+		<frame rep='1' src='CuyCaminando544.png' />
+		<frame rep='1' src='CuyCaminando545.png' />
+		<frame rep='1' src='CuyCaminando546.png' />
+		<frame rep='1' src='CuyCaminando547.png' />
+		<frame rep='1' src='CuyCaminando548.png' />
+	</anim>
+
+	<anim id='0' offsetX='-16' offsetY='-32' nom='Perro_Idle_Left' folder='Perro_Idle_Left'>
+		<frame rep='3' src='img1.png' />
+		<frame rep='3' src='img2.png' />
+		<frame rep='3' src='img3.png' />
+		<frame rep='3' src='img4.png' />
+	</anim>	
+	<anim id='14' offsetX='-16' offsetY='-32' nom='Perro_Idle_Right' folder='Perro_Idle_Right'>
+		<frame rep='3' src='img1.png' />
+		<frame rep='3' src='img2.png' />
+		<frame rep='3' src='img3.png' />
+		<frame rep='3' src='img4.png' />
+	</anim>
+	<anim id='7' offsetX='-16' offsetY='-32' nom='Perro_Walking_Left' folder='Perro_Walking_Left'>
+		<frame rep='2' src='Perrocaminando1.png' />
+		<frame rep='2' src='Perrocaminando2.png' />
+		<frame rep='2' src='Perrocaminando3.png' />
+		<frame rep='2' src='Perrocaminando4.png' />
+		<frame rep='2' src='Perrocaminando5.png' />
+		<frame rep='2' src='Perrocaminando6.png' />
+	</anim>
+	<anim id='17' offsetX='-16' offsetY='-32' nom='Perro_Walking_Right' folder='Perro_Walking_Right'>
+		<frame rep='2' src='Perrocaminando1.png' />
+		<frame rep='2' src='Perrocaminando2.png' />
+		<frame rep='2' src='Perrocaminando3.png' />
+		<frame rep='2' src='Perrocaminando4.png' />
+		<frame rep='2' src='Perrocaminando5.png' />
+		<frame rep='2' src='Perrocaminando6.png' />
+	</anim>
+
+	
 	<anim id='1' offsetX='5' offsetY='10' nom='Cuy Buscando en cofre' folder='Cuy Buscando en cofre'>
 		<frame rep='2' src='CuyCofre1.png' />
 		<frame rep='2' src='CuyCofre2.png' />
@@ -20,16 +73,6 @@
 		<frame rep='2' src='CuyCofre12.png' />
 		<frame rep='1' src='CuyCofre13.png' />
 		<frame rep='1' src='CuyCofre14.png' />
-	</anim>
-	<anim id='2' offsetX='5' offsetY='10' nom='Cuy Caminando' folder='Cuy Caminando'>
-		<frame rep='2' src='CuyCaminando541.png' />
-		<frame rep='3' src='CuyCaminando542.png' />
-		<frame rep='3' src='CuyCaminando543.png' />
-		<frame rep='4' src='CuyCaminando544.png' />
-		<frame rep='4' src='CuyCaminando545.png' />
-		<frame rep='3' src='CuyCaminando546.png' />
-		<frame rep='3' src='CuyCaminando547.png' />
-		<frame rep='2' src='CuyCaminando548.png' />
 	</anim>
 	<anim id='3' offsetX='5' offsetY='-20' nom='Cuy con llave' folder='Cuy con llave'>
 		<frame rep='1' src='CuyLlave1.png' />
@@ -50,10 +93,6 @@
 		<frame rep='2' src='CuyLlave16.png' />
 		<frame rep='2' src='CuyLlave17.png' />
 		<frame rep='2' src='CuyLlave18.png' />
-	</anim>
-	<anim id='4' offsetX='5' offsetY='10' nom='Cuy Respirando' folder='Cuy Respirando'>
-		<frame rep='12' src='Cuyrespirando541.png' />
-		<frame rep='12' src='Cuyrespirando542.png' />
 	</anim>
 	<anim id='5' offsetX='5' offsetY='10' nom='Cuy Sentandose' folder='Cuy Sentandose'>
 		<frame rep='1' src='Cuysentandose541.png' />
@@ -96,14 +135,6 @@
 		<frame rep='1' src='CuyPerroYLlave22.png' />
 		<frame rep='1' src='CuyPerroYLlave23.png' />
 		<frame rep='1' src='CuyPerroYLlave24.png' />
-	</anim>
-	<anim id='7' offsetX='0' offsetY='0' nom='Perro caminando' folder='Perro caminando'>
-		<frame rep='4' src='Perrocaminando1.png' />
-		<frame rep='4' src='Perrocaminando2.png' />
-		<frame rep='4' src='Perrocaminando3.png' />
-		<frame rep='4' src='Perrocaminando4.png' />
-		<frame rep='4' src='Perrocaminando5.png' />
-		<frame rep='4' src='Perrocaminando6.png' />
 	</anim>
 	<anim id='8' offsetX='0' offsetY='0' nom='Cuy Celebrando' folder='Nivel 1\Cuy Celebrando'>
 		<frame rep='1' src='Cuy celebrando1.png' />
@@ -219,7 +250,10 @@
 		<frame rep='3' src='Perro empujando muralla7.png' />
 		<frame rep='3' src='Perro empujando muralla8.png' />
 	</anim>
-	<!-- Ya hay numero 13 -->	
+	<!-- La ultima fue id=17, plz actualizar -->
+	
+
+
 	<anim id='50' offsetX='0' offsetY='0' nom='sofa' folder='' >
 		<frame rep='1' src='sofa.png' />
 	</anim>
@@ -268,5 +302,8 @@
 	<anim id='100' offsetX='0' offsetY='0' nom='ivy' folder='' >
 		<frame rep='1' src='ivy.png' />
 	</anim>
+
+
+
 
 </root>
