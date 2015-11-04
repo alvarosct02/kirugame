@@ -98,8 +98,9 @@ public class GestorMapas {
 			String sec =  accion.getAttribute("sec");
 			int visible = Integer.parseInt(accion.getAttribute("visible"));
 			int tipo = Integer.parseInt(accion.getAttribute("tipo"));
+			int time = Integer.parseInt(accion.getAttribute("time"));
 			
-			AccionEspecial accionObj = new AccionEspecial(cod, sec, tipo,visible);
+			AccionEspecial accionObj = new AccionEspecial(cod, sec, tipo,visible,time);
 			
 			NodeList listaJugadores = accion.getElementsByTagName("jug");
 

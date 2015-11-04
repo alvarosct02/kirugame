@@ -54,7 +54,7 @@ public class PopupAction extends Screen {
 		currentPos = 0;
 		updateChar();
 		if (timer == null){
-			timer = new TimerAction(2);
+			timer = new TimerAction(this.action.tiempo);
 			timer.start();
 		}
 	}

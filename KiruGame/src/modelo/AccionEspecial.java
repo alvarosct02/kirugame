@@ -25,17 +25,19 @@ public class AccionEspecial implements ITrigger{
 	private char caracter;
 	public BufferedImage img = null;
 	private int tipo;
+	public int tiempo;
 	public ArrayList<Integer> jugArray = new ArrayList<Integer>();
 	private ArrayList<int[]> posArray = new ArrayList<int[]>();;
 	public ArrayList<int[][]> cordArray = new ArrayList<int[][]>();
 	private ArrayList<Sprite> spriteArr = new ArrayList<Sprite>();
 	
 	
-	public AccionEspecial(int cod,String sec, int tipo, int visible) {
+	public AccionEspecial(int cod,String sec, int tipo, int visible, int time) {
 		
 		idAccion = cod;
 		this.sec = sec;
 		this.tipo = tipo;
+		this.tiempo = time;
 		this.caracter = tipo==1? 'C':'D';
 		this.active = visible==1? true:false;
 		img = AssetManager.getImage("action" + this.tipo);

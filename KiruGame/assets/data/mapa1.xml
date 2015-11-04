@@ -15,14 +15,14 @@
 	<!-- OBJETOS FIN -->
 
 	<!-- ACCIONES INICIO-->
-	<accion id='0' sec='SDQEQE' visible='1' tipo='1' >
+	<accion id='0' sec='SDQEQE' visible='1' tipo='1' time='3' >
 		<jug id='1' xpos='10' ypos='4'>
 			<mov anim='9' xdir='0' ydir='0'/>
 			<mov anim='13' xdir='0' ydir='0'/>
 		</jug>
 	</accion>
 
-	<accion id='1' sec='JJUOJ' visible='1' tipo='1' >
+	<accion id='1' sec='JJUOJ' visible='1' tipo='1' time='3'  >
 		<jug id='2' xpos='4' ypos='9'>
 			<mov anim='12' xdir='0' ydir='0'/>
 			<mov anim='12' xdir='-1' ydir='0'/>
@@ -30,7 +30,7 @@
 		</jug>
 	</accion>
 
-	<accion id='2' sec='JJUOJ' visible='0' tipo='1' >
+	<accion id='2' sec='QWEASD' visible='0' tipo='1' time='2'  >
 		<jug id='1' xpos='6' ypos='6'>
 			<mov anim='1' xdir='0' ydir='1'/>
 			<mov anim='1' xdir='0' ydir='1'/>

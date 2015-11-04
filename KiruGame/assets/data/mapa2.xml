@@ -17,7 +17,7 @@
 	<!-- OBJETOS FIN -->
 
 	<!-- ACCIONES INICIO-->
-	<accion id='0' sec='SDEWD' visible='1' tipo='1' >
+	<accion id='0' sec='SDEWD' visible='1' tipo='1' time='4'  >
 		<jug id='1' xpos='2' ypos='4'>
 			<mov anim='1' xdir='1' ydir='0'/>
 			<mov anim='1' xdir='1' ydir='0'/>
@@ -25,7 +25,7 @@
 		</jug>
 	</accion>
 
-	<accion id='1' sec='SIQEUOKLSD' visible='0' tipo='2' >
+	<accion id='1' sec='SIQEUOKLSD' visible='0' tipo='2' time='6'  >
 		<jug id='1' xpos='8' ypos='6'>
 			<mov anim='1' xdir='1' ydir='0'/>
 			<mov anim='1' xdir='3' ydir='-1'/>
